@@ -1,0 +1,228 @@
+{
+  "num_nodes": 22,
+  "num_edges": 155,
+  "density": 0.670995670995671,
+  "top_degree_centrality": [
+    [
+      "CAP Center JAPAN",
+      0.8095238095238095
+    ],
+    [
+      "Eyes for Children in Tokai",
+      0.8095238095238095
+    ],
+    [
+      "Japan Society of Physical Education, Health and Sport Sciences",
+      0.8095238095238095
+    ],
+    [
+      "Support Center for Foster Families in Chiba",
+      0.8095238095238095
+    ],
+    [
+      "MY TREE Parents Program Center",
+      0.8095238095238095
+    ],
+    [
+      "Momrings",
+      0.8095238095238095
+    ],
+    [
+      "NPO Palette CRC Supporting Center",
+      0.8095238095238095
+    ],
+    [
+      "Network for the Convention on the Rights of the Child",
+      0.8095238095238095
+    ],
+    [
+      "Nippon Children Parents Supporter",
+      0.8095238095238095
+    ],
+    [
+      "SBI Children's Hope Foundation",
+      0.8095238095238095
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "CAP Center JAPAN",
+      0.0
+    ],
+    [
+      "Eyes for Children in Tokai",
+      0.0
+    ],
+    [
+      "Japan Society of Physical Education, Health and Sport Sciences",
+      0.0
+    ],
+    [
+      "Support Center for Foster Families in Chiba",
+      0.0
+    ],
+    [
+      "MY TREE Parents Program Center",
+      0.0
+    ],
+    [
+      "Momrings",
+      0.0
+    ],
+    [
+      "NPO Palette CRC Supporting Center",
+      0.0
+    ],
+    [
+      "Network for the Convention on the Rights of the Child",
+      0.0
+    ],
+    [
+      "Nippon Children Parents Supporter",
+      0.0
+    ],
+    [
+      "SBI Children's Hope Foundation",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "CAP Center JAPAN",
+      0.8095238095238095
+    ],
+    [
+      "Eyes for Children in Tokai",
+      0.8095238095238095
+    ],
+    [
+      "Japan Society of Physical Education, Health and Sport Sciences",
+      0.8095238095238095
+    ],
+    [
+      "Support Center for Foster Families in Chiba",
+      0.8095238095238095
+    ],
+    [
+      "MY TREE Parents Program Center",
+      0.8095238095238095
+    ],
+    [
+      "Momrings",
+      0.8095238095238095
+    ],
+    [
+      "NPO Palette CRC Supporting Center",
+      0.8095238095238095
+    ],
+    [
+      "Network for the Convention on the Rights of the Child",
+      0.8095238095238095
+    ],
+    [
+      "Nippon Children Parents Supporter",
+      0.8095238095238095
+    ],
+    [
+      "SBI Children's Hope Foundation",
+      0.8095238095238095
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "CAP Center JAPAN",
+      0.2357022603954231
+    ],
+    [
+      "Eyes for Children in Tokai",
+      0.2357022603954231
+    ],
+    [
+      "Japan Society of Physical Education, Health and Sport Sciences",
+      0.2357022603954231
+    ],
+    [
+      "Support Center for Foster Families in Chiba",
+      0.2357022603954231
+    ],
+    [
+      "MY TREE Parents Program Center",
+      0.2357022603954231
+    ],
+    [
+      "Momrings",
+      0.2357022603954231
+    ],
+    [
+      "NPO Palette CRC Supporting Center",
+      0.2357022603954231
+    ],
+    [
+      "Network for the Convention on the Rights of the Child",
+      0.2357022603954231
+    ],
+    [
+      "Nippon Children Parents Supporter",
+      0.2357022603954231
+    ],
+    [
+      "SBI Children's Hope Foundation",
+      0.2357022603954231
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 14.090909090909092,
+    "max": 17,
+    "min": 1,
+    "median": 17
+  },
+  "avg_clustering_coefficient": 0.8181818181818182,
+  "num_components": 3,
+  "largest_component_size": 18,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 816,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "CAP Center JAPAN",
+      0.22165682882149393
+    ],
+    [
+      "Eyes for Children in Tokai",
+      0.22165682882149393
+    ],
+    [
+      "Japan Society of Physical Education, Health and Sport Sciences",
+      0.22165682882149393
+    ],
+    [
+      "Support Center for Foster Families in Chiba",
+      0.22165682882149393
+    ],
+    [
+      "MY TREE Parents Program Center",
+      0.22165682882149393
+    ],
+    [
+      "Momrings",
+      0.22165682882149393
+    ],
+    [
+      "NPO Palette CRC Supporting Center",
+      0.22165682882149393
+    ],
+    [
+      "Network for the Convention on the Rights of the Child",
+      0.22165682882149393
+    ],
+    [
+      "Nippon Children Parents Supporter",
+      0.22165682882149393
+    ],
+    [
+      "SBI Children's Hope Foundation",
+      0.22165682882149393
+    ]
+  ]
+}

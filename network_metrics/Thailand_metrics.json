@@ -1,0 +1,168 @@
+{
+  "num_nodes": 7,
+  "num_edges": 5,
+  "density": 0.23809523809523808,
+  "top_degree_centrality": [
+    [
+      "International Federation for Human Rights (FIDH)",
+      0.3333333333333333
+    ],
+    [
+      "Joint submission 34 by: Eleos Justice",
+      0.3333333333333333
+    ],
+    [
+      "World Coalition against the Death Penalty",
+      0.3333333333333333
+    ],
+    [
+      "(NOT SURE if Indonesia?)",
+      0.16666666666666666
+    ],
+    [
+      "ANFREL, Asian Network for Free Elections (Thailand), ASEAN Parliamentarians for Human Rights (APHR)",
+      0.16666666666666666
+    ],
+    [
+      "NOT SURE about it",
+      0.16666666666666666
+    ],
+    [
+      "Togetherness for Equality (TEA) (Thailand), Feminist\u2019s Liberation Front (FLF) (Thailand)",
+      0.16666666666666666
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "(NOT SURE if Indonesia?)",
+      0.0
+    ],
+    [
+      "ANFREL, Asian Network for Free Elections (Thailand), ASEAN Parliamentarians for Human Rights (APHR)",
+      0.0
+    ],
+    [
+      "International Federation for Human Rights (FIDH)",
+      0.0
+    ],
+    [
+      "Joint submission 34 by: Eleos Justice",
+      0.0
+    ],
+    [
+      "World Coalition against the Death Penalty",
+      0.0
+    ],
+    [
+      "NOT SURE about it",
+      0.0
+    ],
+    [
+      "Togetherness for Equality (TEA) (Thailand), Feminist\u2019s Liberation Front (FLF) (Thailand)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "International Federation for Human Rights (FIDH)",
+      0.3333333333333333
+    ],
+    [
+      "Joint submission 34 by: Eleos Justice",
+      0.3333333333333333
+    ],
+    [
+      "World Coalition against the Death Penalty",
+      0.3333333333333333
+    ],
+    [
+      "(NOT SURE if Indonesia?)",
+      0.16666666666666666
+    ],
+    [
+      "ANFREL, Asian Network for Free Elections (Thailand), ASEAN Parliamentarians for Human Rights (APHR)",
+      0.16666666666666666
+    ],
+    [
+      "NOT SURE about it",
+      0.16666666666666666
+    ],
+    [
+      "Togetherness for Equality (TEA) (Thailand), Feminist\u2019s Liberation Front (FLF) (Thailand)",
+      0.16666666666666666
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "International Federation for Human Rights (FIDH)",
+      0.5773502691791575
+    ],
+    [
+      "Joint submission 34 by: Eleos Justice",
+      0.5773502691791575
+    ],
+    [
+      "World Coalition against the Death Penalty",
+      0.5773502691791575
+    ],
+    [
+      "(NOT SURE if Indonesia?)",
+      3.0109365314011555e-06
+    ],
+    [
+      "ANFREL, Asian Network for Free Elections (Thailand), ASEAN Parliamentarians for Human Rights (APHR)",
+      3.0109365314011555e-06
+    ],
+    [
+      "NOT SURE about it",
+      3.0109365314011555e-06
+    ],
+    [
+      "Togetherness for Equality (TEA) (Thailand), Feminist\u2019s Liberation Front (FLF) (Thailand)",
+      3.0109365314011555e-06
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.4285714285714286,
+    "max": 2,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.42857142857142855,
+  "num_components": 3,
+  "largest_component_size": 3,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 1,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "(NOT SURE if Indonesia?)",
+      1.0
+    ],
+    [
+      "ANFREL, Asian Network for Free Elections (Thailand), ASEAN Parliamentarians for Human Rights (APHR)",
+      1.0
+    ],
+    [
+      "NOT SURE about it",
+      1.0
+    ],
+    [
+      "Togetherness for Equality (TEA) (Thailand), Feminist\u2019s Liberation Front (FLF) (Thailand)",
+      1.0
+    ],
+    [
+      "International Federation for Human Rights (FIDH)",
+      1.125
+    ],
+    [
+      "Joint submission 34 by: Eleos Justice",
+      1.125
+    ],
+    [
+      "World Coalition against the Death Penalty",
+      1.125
+    ]
+  ]
+}

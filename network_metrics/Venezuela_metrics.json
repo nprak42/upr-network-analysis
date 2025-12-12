@@ -1,0 +1,228 @@
+{
+  "num_nodes": 229,
+  "num_edges": 1832,
+  "density": 0.07017543859649122,
+  "top_degree_centrality": [
+    [
+      "Aula Abierta",
+      0.3070175438596491
+    ],
+    [
+      "Laboratorio de Paz",
+      0.25
+    ],
+    [
+      "Provea",
+      0.25
+    ],
+    [
+      "Gobiernatec",
+      0.25
+    ],
+    [
+      "Codhez",
+      0.25
+    ],
+    [
+      "Funcamama",
+      0.25
+    ],
+    [
+      "Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET)",
+      0.18421052631578946
+    ],
+    [
+      "EPIKEIA Derechos Humanos",
+      0.18421052631578946
+    ],
+    [
+      "Centro de Animaci\u00f3n Juvenil",
+      0.17982456140350878
+    ],
+    [
+      "C\u00e1tedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes)",
+      0.17105263157894735
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Aula Abierta",
+      0.1837661333951619
+    ],
+    [
+      "Acci\u00f3n Solidaria",
+      0.07195301027900146
+    ],
+    [
+      "Centro de Derechos Humanos de la Universidad Cat\u00f3lica Andr\u00e9s Bello (CDH-UCAB)",
+      0.05780972254424607
+    ],
+    [
+      "Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET)",
+      0.052109900301414325
+    ],
+    [
+      "FundaRedes",
+      0.04799443542777648
+    ],
+    [
+      "Laboratorio de Paz",
+      0.03184171883453124
+    ],
+    [
+      "Provea",
+      0.03184171883453124
+    ],
+    [
+      "Gobiernatec",
+      0.03184171883453124
+    ],
+    [
+      "Codhez",
+      0.03184171883453124
+    ],
+    [
+      "Funcamama",
+      0.03184171883453124
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Aula Abierta",
+      0.39490131578947374
+    ],
+    [
+      "Laboratorio de Paz",
+      0.3659317211948791
+    ],
+    [
+      "Provea",
+      0.3659317211948791
+    ],
+    [
+      "Gobiernatec",
+      0.3659317211948791
+    ],
+    [
+      "Codhez",
+      0.3659317211948791
+    ],
+    [
+      "Funcamama",
+      0.3659317211948791
+    ],
+    [
+      "Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET)",
+      0.35364296936370776
+    ],
+    [
+      "Acci\u00f3n Solidaria",
+      0.33254847645429364
+    ],
+    [
+      "FundaRedes",
+      0.3268148820326679
+    ],
+    [
+      "Caleidoscopio Humano",
+      0.3201902560455192
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Laboratorio de Paz",
+      0.17076905632119924
+    ],
+    [
+      "Provea",
+      0.17076905632119924
+    ],
+    [
+      "Gobiernatec",
+      0.17076905632119924
+    ],
+    [
+      "Codhez",
+      0.17076905632119924
+    ],
+    [
+      "Funcamama",
+      0.17076905632119924
+    ],
+    [
+      "EPIKEIA Derechos Humanos",
+      0.15399715279208634
+    ],
+    [
+      "Centro de Animaci\u00f3n Juvenil",
+      0.15389068144684057
+    ],
+    [
+      "C\u00e1tedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes)",
+      0.1536938777001434
+    ],
+    [
+      "Fundapden",
+      0.1536938777001434
+    ],
+    [
+      "Fundaci\u00f3n de derechos humanos de los llanos \u2013 Fundehullan",
+      0.1536938777001434
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 16.0,
+    "max": 70,
+    "min": 1,
+    "median": 11
+  },
+  "avg_clustering_coefficient": 0.796557660501456,
+  "num_components": 29,
+  "largest_component_size": 148,
+  "diameter": 7,
+  "avg_path_length": 2.615462401176687,
+  "num_triangles": 16232,
+  "transitivity": 0.8886293545502655,
+  "top_brokers": [
+    [
+      "Aula Abierta",
+      0.051279976924524545
+    ],
+    [
+      "Laboratorio de Paz",
+      0.06669071530177564
+    ],
+    [
+      "Gobiernatec",
+      0.06669071530177564
+    ],
+    [
+      "Codhez",
+      0.06669071530177564
+    ],
+    [
+      "Funcamama",
+      0.06669071530177564
+    ],
+    [
+      "Provea",
+      0.06669071530177566
+    ],
+    [
+      "Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET)",
+      0.08246201082613475
+    ],
+    [
+      "EPIKEIA Derechos Humanos",
+      0.08739292721434896
+    ],
+    [
+      "Centro de Animaci\u00f3n Juvenil",
+      0.08937683539879879
+    ],
+    [
+      "C\u00e1tedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes)",
+      0.09569937879843467
+    ]
+  ]
+}

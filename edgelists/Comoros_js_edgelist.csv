@@ -1,0 +1,37 @@
+Source,Target,Weight
+CAP (Conseil de la Paix),FAHAC (Fédération des Associations des personnes handicapées aux Comores),1
+CAP (Conseil de la Paix),FCDH (Fédération Comorienne des Droits de l’Homme),1
+FCDH (Fédération Comorienne des Droits de l’Homme),Ulanga Ngazidja,1
+FECOSC (Fédération des Organisations de la Société Civile),"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",1
+FECOSC (Fédération des Organisations de la Société Civile),MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),1
+FECOSC (Fédération des Organisations de la Société Civile),Observatoire des Elections Comoros,1
+FECOSC (Fédération des Organisations de la Société Civile),UNONOFAMILY,1
+FECOSC (Fédération des Organisations de la Société Civile),Ulanga Ngazidja,1
+"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),1
+"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",Observatoire des Elections Comoros,1
+"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",UNONOFAMILY,1
+"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",Ulanga Ngazidja,1
+MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),Observatoire des Elections Comoros,1
+MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),UNONOFAMILY,1
+MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),Ulanga Ngazidja,1
+Observatoire des Elections Comoros,UNONOFAMILY,1
+Observatoire des Elections Comoros,Ulanga Ngazidja,1
+FCDH (Fédération Comorienne des Droits de l’Homme),UNONOFAMILY,1
+FCDH (Fédération Comorienne des Droits de l’Homme),Observatoire des Elections Comoros,1
+FCDH (Fédération Comorienne des Droits de l’Homme),MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),FCDH (Fédération Comorienne des Droits de l’Homme),1
+CAP (Conseil de la Paix),FECOSC (Fédération des Organisations de la Société Civile),1
+CAP (Conseil de la Paix),"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",1
+CAP (Conseil de la Paix),MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),1
+CAP (Conseil de la Paix),Observatoire des Elections Comoros,1
+CAP (Conseil de la Paix),UNONOFAMILY,1
+CAP (Conseil de la Paix),Ulanga Ngazidja,1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),FECOSC (Fédération des Organisations de la Société Civile),1
+FCDH (Fédération Comorienne des Droits de l’Homme),"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),"HIFADHU, ASCOBEF (Association Comorienne pour le Bien-être de la famille)",1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),MAEECHA (Mouvement Associatif pour l’Education et l’Egalité des Chances),1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),Observatoire des Elections Comoros,1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),UNONOFAMILY,1
+FAHAC (Fédération des Associations des personnes handicapées aux Comores),Ulanga Ngazidja,1
+FCDH (Fédération Comorienne des Droits de l’Homme),FECOSC (Fédération des Organisations de la Société Civile),1
+UNONOFAMILY,Ulanga Ngazidja,1

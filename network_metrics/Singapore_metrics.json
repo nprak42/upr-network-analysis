@@ -1,0 +1,228 @@
+{
+  "num_nodes": 26,
+  "num_edges": 54,
+  "density": 0.16615384615384615,
+  "top_degree_centrality": [
+    [
+      "Sayoni, Singapore (Singapore)",
+      0.52
+    ],
+    [
+      "SG Climate Rally, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "We Who Witness, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "We Believe in Second Chances, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "Women and Law in Islam, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "Humanitarian Organization for Migration Economics, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "Association of Women for Action and Research, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "Freedom of Information Singapore, Singapore (Singapore)",
+      0.28
+    ],
+    [
+      "TransgenderSG, Singapore (Singapore)",
+      0.24
+    ],
+    [
+      "Indignation, Singapore (Singapore)",
+      0.2
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Sayoni, Singapore (Singapore)",
+      0.14666666666666667
+    ],
+    [
+      "TransgenderSG, Singapore (Singapore)",
+      0.006666666666666667
+    ],
+    [
+      "Advocates for Human Rights, Minneapolis (United States of America)",
+      0.0
+    ],
+    [
+      "Anti-Death Penalty Asia Network",
+      0.0
+    ],
+    [
+      "SG Climate Rally, Singapore (Singapore)",
+      0.0
+    ],
+    [
+      "We Who Witness, Singapore (Singapore)",
+      0.0
+    ],
+    [
+      "Indignation, Singapore (Singapore)",
+      0.0
+    ],
+    [
+      "The Healing Circle, Singapore (Singapore)",
+      0.0
+    ],
+    [
+      "Young Out Here, Singapore (Singapore)",
+      0.0
+    ],
+    [
+      "Oogachaga, Singapore (Singapore)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Sayoni, Singapore (Singapore)",
+      0.52
+    ],
+    [
+      "SG Climate Rally, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "We Who Witness, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "We Believe in Second Chances, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "Women and Law in Islam, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "Humanitarian Organization for Migration Economics, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "Association of Women for Action and Research, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "Freedom of Information Singapore, Singapore (Singapore)",
+      0.35578947368421054
+    ],
+    [
+      "TransgenderSG, Singapore (Singapore)",
+      0.338
+    ],
+    [
+      "Indignation, Singapore (Singapore)",
+      0.3219047619047619
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Sayoni, Singapore (Singapore)",
+      0.41296716554255825
+    ],
+    [
+      "SG Climate Rally, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "We Who Witness, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "We Believe in Second Chances, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "Women and Law in Islam, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "Humanitarian Organization for Migration Economics, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "Association of Women for Action and Research, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "Freedom of Information Singapore, Singapore (Singapore)",
+      0.32470365526198464
+    ],
+    [
+      "TransgenderSG, Singapore (Singapore)",
+      0.1381883530865602
+    ],
+    [
+      "Indignation, Singapore (Singapore)",
+      0.1290252778425544
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 4.153846153846154,
+    "max": 13,
+    "min": 1,
+    "median": 2
+  },
+  "avg_clustering_coefficient": 0.7362919132149901,
+  "num_components": 6,
+  "largest_component_size": 14,
+  "diameter": 2,
+  "avg_path_length": 1.5054945054945055,
+  "num_triangles": 79,
+  "transitivity": 0.8257839721254355,
+  "top_brokers": [
+    [
+      "Sayoni, Singapore (Singapore)",
+      0.25608528223912835
+    ],
+    [
+      "SG Climate Rally, Singapore (Singapore)",
+      0.46325618763385074
+    ],
+    [
+      "We Who Witness, Singapore (Singapore)",
+      0.46325618763385074
+    ],
+    [
+      "We Believe in Second Chances, Singapore (Singapore)",
+      0.46325618763385085
+    ],
+    [
+      "Women and Law in Islam, Singapore (Singapore)",
+      0.46325618763385085
+    ],
+    [
+      "Humanitarian Organization for Migration Economics, Singapore (Singapore)",
+      0.46325618763385085
+    ],
+    [
+      "Association of Women for Action and Research, Singapore (Singapore)",
+      0.46325618763385085
+    ],
+    [
+      "Freedom of Information Singapore, Singapore (Singapore)",
+      0.46325618763385085
+    ],
+    [
+      "TransgenderSG, Singapore (Singapore)",
+      0.4916124260355029
+    ],
+    [
+      "Indignation, Singapore (Singapore)",
+      0.5614937541091388
+    ]
+  ]
+}

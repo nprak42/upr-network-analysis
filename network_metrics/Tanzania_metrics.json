@@ -1,0 +1,67 @@
+{
+  "num_nodes": 2,
+  "num_edges": 1,
+  "density": 1.0,
+  "top_degree_centrality": [
+    [
+      "Dignity Kwaza, Dar es Salaam (United Republic of Tanzania), Global Campaign for Equal Nationality Rights, New York (United States of America) and the Institute on Statelessness and Inclusion, Eindhoven (Netherlands) (Joint Submission 17)",
+      1.0
+    ],
+    [
+      "The Consortium for Street Children, London (United Kingom of Great Britain and Northern Ireland)",
+      1.0
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Dignity Kwaza, Dar es Salaam (United Republic of Tanzania), Global Campaign for Equal Nationality Rights, New York (United States of America) and the Institute on Statelessness and Inclusion, Eindhoven (Netherlands) (Joint Submission 17)",
+      0.0
+    ],
+    [
+      "The Consortium for Street Children, London (United Kingom of Great Britain and Northern Ireland)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Dignity Kwaza, Dar es Salaam (United Republic of Tanzania), Global Campaign for Equal Nationality Rights, New York (United States of America) and the Institute on Statelessness and Inclusion, Eindhoven (Netherlands) (Joint Submission 17)",
+      1.0
+    ],
+    [
+      "The Consortium for Street Children, London (United Kingom of Great Britain and Northern Ireland)",
+      1.0
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Dignity Kwaza, Dar es Salaam (United Republic of Tanzania), Global Campaign for Equal Nationality Rights, New York (United States of America) and the Institute on Statelessness and Inclusion, Eindhoven (Netherlands) (Joint Submission 17)",
+      0.7071067811865476
+    ],
+    [
+      "The Consortium for Street Children, London (United Kingom of Great Britain and Northern Ireland)",
+      0.7071067811865476
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.0,
+    "max": 1,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.0,
+  "num_components": 1,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 0,
+  "transitivity": 0,
+  "top_brokers": [
+    [
+      "Dignity Kwaza, Dar es Salaam (United Republic of Tanzania), Global Campaign for Equal Nationality Rights, New York (United States of America) and the Institute on Statelessness and Inclusion, Eindhoven (Netherlands) (Joint Submission 17)",
+      1.0
+    ],
+    [
+      "The Consortium for Street Children, London (United Kingom of Great Britain and Northern Ireland)",
+      1.0
+    ]
+  ]
+}

@@ -1,0 +1,355 @@
+Source,Target,Weight
+Amnesty International,POS Foundation,3
+Africa Centre for International Law and Accountability,POS Foundation,3
+Africa Centre for International Law and Accountability,Amnesty International,2
+Community and Family Aid Foundation,POS Foundation,2
+Amnesty International,Community and Family Aid Foundation,2
+Amnesty International,Legal Resources Centre,2
+Legal Resources Centre,POS Foundation,2
+Amnesty International,Society and Youth Foundation,2
+Commonwealth Human Rights Initiative,POS Foundation,2
+Amnesty International,Women in the Lord’s Vineyard,2
+KASA Initiative Ghana,Restoration of Hope Foundation,2
+KASA Initiative Ghana,POS Foundation,2
+POS Foundation,Restoration of Hope Foundation,2
+POS Foundation,Society and Youth Foundation,2
+KASA Initiative,POS Foundation,2
+POS Foundation,Women in the Lord’s Vineyard,2
+Africa Centre for International Law and Accountability,Commonwealth Human Rights Initiative,2
+Africa Centre for International Law and Accountability,KASA Initiative Ghana,2
+Community and Family Aid Foundation,Society and Youth Foundation,2
+Africa Centre for International Law and Accountability,Restoration of Hope Foundation,2
+Community and Family Aid Foundation,Women in the Lord’s Vineyard,2
+Society and Youth Foundation,Women in the Lord’s Vineyard,2
+Africa Centre for International Law and Accountability,Legal Resources Centre,2
+Grace to Grace Foundation,Relive Ghana,1
+Hope for Future Generations (HFFG),Planned Parenthood Association of Ghana (PPAG),1
+Ghana Coalition of NGOs in Health (GCNH),Hope for Future Generations (HFFG),1
+Ghana Coalition of NGOs in Health (GCNH),"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",1
+Ghana,POS Foundation/KASA Initiative,1
+Ghana,Tiger Eye Foundation,1
+Gender Violence Survivors Support Network Ghana,Women’s Initiative for Self-Empowerment,1
+Gender Violence Survivors Support Network Ghana,Women in the Lord’s Vineyard,1
+Hope for Future Generations (HFFG),Women in Law and Development in Africa (WiLDAF),1
+Gender Violence Survivors Support Network Ghana,Society and Youth Foundation,1
+Gender Violence Survivors Support Network Ghana,Restoration of Hope Foundation,1
+Gender Violence Survivors Support Network Ghana,POS Foundation,1
+Gender Violence Survivors Support Network Ghana,Network of Women in Growth,1
+Ghana Coalition of NGOs in Health (GCNH),Human Rights Advocacy Centre (HRAC),1
+Ghana Coalition of NGOs in Health (GCNH),Planned Parenthood Association of Ghana (PPAG),1
+Grace to Grace Foundation,Society and Youth Foundation,1
+Ghana Coalition of NGOs in Health (GCNH),Women in Law and Development in Africa (WiLDAF),1
+Grace to Grace Foundation,Patient Friend Foundation (PFF),1
+Grace to Grace Foundation,POS Foundation,1
+Grace to Grace Foundation,One Love Initiative Foundation,1
+Grace to Grace Foundation,Network of Women in Growth Ghana,1
+Grace to Grace Foundation,The Light Foundation Ghana (TLF),1
+Grace to Grace Foundation,Mind Freedom Ghana,1
+Grace to Grace Foundation,KASA Initiative,1
+Ghana NGO Coalition for the rights of the Child (GNCRC),Plan International Ghana,1
+"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",Women in Law and Development in Africa (WiLDAF),1
+"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",Planned Parenthood Association of Ghana (PPAG),1
+Gender Violence Survivors Support Network Ghana,KASA Initiative Ghana,1
+"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",Human Rights Advocacy Centre (HRAC),1
+"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",Hope for Future Generations (HFFG),1
+Grace to Grace Foundation,Women in the Lord’s Vineyard,1
+Hope for Future Generations (HFFG),Human Rights Advocacy Centre (HRAC),1
+Gender Violence Survivors Support Network Ghana,Legal Resources Centre,1
+Gender Violence Survivors Support Network,Relive Ghana,1
+Gender Violence Survivors Support Network Ghana,IUCN Ghana,1
+Concern Health Education,One Love Initiative Foundation,1
+Defence for Children International (DCI),ECPAT International,1
+Defence for Children International (DCI),Defence for Children International-Ghana (DCI-Ghana),1
+Concern Health Education,Women in the Lord’s Vineyard,1
+Concern Health Education,The Light Foundation Ghana (TLF),1
+Concern Health Education,Society and Youth Foundation,1
+Concern Health Education,Relive Ghana,1
+Concern Health Education,Patient Friend Foundation (PFF),1
+Concern Health Education,POS Foundation,1
+Concern Health Education,Network of Women in Growth Ghana,1
+Defence for Children International (DCI),Plan International Ghana,1
+Concern Health Education,Mind Freedom Ghana,1
+Concern Health Education,KASA Initiative,1
+Concern Health Education,Grace to Grace Foundation,1
+Concern Health Education,Gender Violence Survivors Support Network,1
+Community and Family Aid Foundation,Women’s Initiative for Self-Empowerment,1
+Community and Family Aid Foundation,The Light Foundation Ghana (TLF),1
+Community and Family Aid Foundation,Restoration of Hope Foundation,1
+Community and Family Aid Foundation,Relive Ghana,1
+Defence for Children International (DCI),Ghana NGO Coalition for the rights of the Child (GNCRC),1
+Defence for Children International-Ghana (DCI-Ghana),ECPAT International,1
+Gender Violence Survivors Support Network,Women in the Lord’s Vineyard,1
+Gender Violence Survivors Support Network,KASA Initiative,1
+Gender Violence Survivors Support Network,The Light Foundation Ghana (TLF),1
+Gender Violence Survivors Support Network,Society and Youth Foundation,1
+Human Rights Advocacy Centre (HRAC),Planned Parenthood Association of Ghana (PPAG),1
+Gender Violence Survivors Support Network,Patient Friend Foundation (PFF),1
+Gender Violence Survivors Support Network,POS Foundation,1
+Gender Violence Survivors Support Network,One Love Initiative Foundation,1
+Gender Violence Survivors Support Network,Network of Women in Growth Ghana,1
+Gender Violence Survivors Support Network,Mind Freedom Ghana,1
+Gender Violence Survivors Support Network,Grace to Grace Foundation,1
+Defence for Children International-Ghana (DCI-Ghana),Ghana NGO Coalition for the rights of the Child (GNCRC),1
+Forest Watch Ghana,Wacam,1
+Forest Watch Ghana,Kasa Initiative Ghana,1
+Fisheries Alliance,Wacam,1
+Fisheries Alliance,Kasa Initiative Ghana,1
+Fisheries Alliance,Forest Watch Ghana,1
+ECPAT International,Plan International Ghana,1
+ECPAT International,Ghana NGO Coalition for the rights of the Child (GNCRC),1
+Defence for Children International-Ghana (DCI-Ghana),Plan International Ghana,1
+Human Rights Advocacy Centre (HRAC),"Perfector of Sentiment (POS) Foundation, Priorities On Right and Sexual Health (PORSH)",1
+IUCN Ghana,Women in the Lord’s Vineyard,1
+Human Rights Advocacy Centre (HRAC),Society and Youth Development,1
+Network of Women in Growth,Women in the Lord’s Vineyard,1
+POS Foundation,The Light Foundation Ghana (TLF),1
+POS Foundation,Solace Brothers,1
+POS Foundation,Relive Ghana,1
+POS Foundation,Patient Friend Foundation (PFF),1
+One Love Initiative Foundation,Women in the Lord’s Vineyard,1
+One Love Initiative Foundation,The Light Foundation Ghana (TLF),1
+One Love Initiative Foundation,Society and Youth Foundation,1
+One Love Initiative Foundation,Relive Ghana,1
+One Love Initiative Foundation,Patient Friend Foundation (PFF),1
+One Love Initiative Foundation,POS Foundation,1
+Network of Women in Growth Ghana,Women in the Lord’s Vineyard,1
+Network of Women in Growth Ghana,The Light Foundation Ghana (TLF),1
+Network of Women in Growth Ghana,Society and Youth Foundation,1
+Network of Women in Growth Ghana,Relive Ghana,1
+Network of Women in Growth Ghana,Patient Friend Foundation (PFF),1
+Network of Women in Growth Ghana,POS Foundation,1
+Network of Women in Growth Ghana,One Love Initiative Foundation,1
+POS Foundation,Women’s Initiative for Self-Empowerment,1
+POS Foundation/KASA Initiative,Tiger Eye Foundation,1
+Patient Friend Foundation (PFF),Relive Ghana,1
+Restoration of Hope Foundation,Society and Youth Foundation,1
+The Light Foundation Ghana (TLF),Women in the Lord’s Vineyard,1
+Society and Youth Foundation,Women’s Initiative for Self-Empowerment,1
+Society and Youth Foundation,The Light Foundation Ghana (TLF),1
+Society and Youth Development,Solace Brothers Foundation (SBF),1
+Sexual Rights Initiative,Sisters of the Heart,1
+Restoration of Hope Foundation,Women’s Initiative for Self-Empowerment,1
+Restoration of Hope Foundation,Women in the Lord’s Vineyard,1
+Relive Ghana,Women in the Lord’s Vineyard,1
+Patient Friend Foundation (PFF),Society and Youth Foundation,1
+Relive Ghana,The Light Foundation Ghana (TLF),1
+Relive Ghana,Society and Youth Foundation,1
+Planned Parenthood Association of Ghana (PPAG),Women in Law and Development in Africa (WiLDAF),1
+"Perfector of Sentiment (POS) Foundation, Priorities On Right and Sexual Health (PORSH)",Solace Brothers Foundation (SBF),1
+"Perfector of Sentiment (POS) Foundation, Priorities On Right and Sexual Health (PORSH)",Society and Youth Development,1
+Patient Friend Foundation (PFF),Women in the Lord’s Vineyard,1
+Patient Friend Foundation (PFF),The Light Foundation Ghana (TLF),1
+Network of Women in Growth,Women’s Initiative for Self-Empowerment,1
+Network of Women in Growth,Society and Youth Foundation,1
+Human Rights Advocacy Centre (HRAC),Solace Brothers Foundation (SBF),1
+Network of Women in Growth,Restoration of Hope Foundation,1
+KASA Initiative Ghana,Legal Resources Centre,1
+KASA Initiative,Women in the Lord’s Vineyard,1
+KASA Initiative,The Light Foundation Ghana (TLF),1
+KASA Initiative,Society and Youth Foundation,1
+KASA Initiative,Relive Ghana,1
+KASA Initiative,Patient Friend Foundation (PFF),1
+KASA Initiative,One Love Initiative Foundation,1
+KASA Initiative,Network of Women in Growth Ghana,1
+KASA Initiative,Mind Freedom Ghana,1
+IUCN Ghana,Women’s Initiative for Self-Empowerment,1
+IUCN Ghana,Society and Youth Foundation,1
+IUCN Ghana,Restoration of Hope Foundation,1
+IUCN Ghana,POS Foundation,1
+IUCN Ghana,Network of Women in Growth,1
+IUCN Ghana,Legal Resources Centre,1
+IUCN Ghana,KASA Initiative Ghana,1
+Human Rights Advocacy Centre (HRAC),Women in Law and Development in Africa (WiLDAF),1
+KASA Initiative Ghana,Network of Women in Growth,1
+KASA Initiative Ghana,Society and Youth Foundation,1
+KASA Initiative Ghana,Women in the Lord’s Vineyard,1
+Mind Freedom Ghana,One Love Initiative Foundation,1
+Network of Women in Growth,POS Foundation,1
+Mind Freedom Ghana,Women in the Lord’s Vineyard,1
+Mind Freedom Ghana,The Light Foundation Ghana (TLF),1
+Mind Freedom Ghana,Society and Youth Foundation,1
+Mind Freedom Ghana,Relive Ghana,1
+Mind Freedom Ghana,Patient Friend Foundation (PFF),1
+Mind Freedom Ghana,POS Foundation,1
+Mind Freedom Ghana,Network of Women in Growth Ghana,1
+KASA Initiative Ghana,Women’s Initiative for Self-Empowerment,1
+Legal Resources Centre,Women’s Initiative for Self-Empowerment,1
+Legal Resources Centre,Women in the Lord’s Vineyard,1
+Legal Resources Centre,Solace Brothers,1
+Legal Resources Centre,Society and Youth Foundation,1
+Legal Resources Centre,Restoration of Hope Foundation,1
+Legal Resources Centre,Network of Women in Growth,1
+Kasa Initiative Ghana,Wacam,1
+Community and Family Aid Foundation,Patient Friend Foundation (PFF),1
+Community and Family Aid Foundation,KASA Initiative Ghana,1
+Community and Family Aid Foundation,One Love Initiative Foundation,1
+Amnesty International,KASA Initiative,1
+Amnesty International,Restoration of Hope Foundation,1
+Amnesty International,Relive Ghana,1
+Amnesty International,Patient Friend Foundation (PFF),1
+Amnesty International,One Love Initiative Foundation,1
+Amnesty International,Network of Women in Growth Ghana,1
+Amnesty International,Network of Women in Growth,1
+Amnesty International,Mind Freedom Ghana,1
+Amnesty International,KASA Initiative Ghana,1
+Amnesty International,IUCN Ghana,1
+Alliance for Reproductive Health Rights (ARHR),Planned Parenthood Association of Ghana (PPAG),1
+Amnesty International,Grace to Grace Foundation,1
+Amnesty International,Gender Violence Survivors Support Network Ghana,1
+Amnesty International,Gender Violence Survivors Support Network,1
+Amnesty International,Concern Health Education,1
+Amnesty International,Community Youth Development Foundation (CYDEF),1
+Amnesty International,Community Outreach Alliance,1
+Amnesty International,Commonwealth Human Rights Initiative Africa,1
+Amnesty International,Commonwealth Human Rights Initiative,1
+Amnesty International,Solace Brothers,1
+Amnesty International,The Light Foundation Ghana (TLF),1
+Amnesty International,Women’s Initiative for Self-Empowerment,1
+Amnesty International (Ghana),Centre for Popular Education and Human Rights Ghana (CEPEHRG),1
+Centre for Popular Education Human Rights in Ghana,Sisters of the Heart,1
+Centre for Popular Education Human Rights in Ghana,Sexual Rights Initiative,1
+Center for employment of persons with disability (CEPD) and POS foundation,Divine Group International Foundation (DGI Foundation),1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Wacam,1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Kasa Initiative Ghana,1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Forest Watch Ghana,1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Fisheries Alliance,1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Coalition of CSOs on Land,1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Coalition of CSO on Oil and Gas,1
+"CSO working group on Environment and Climate Change, CSO working Group on Mining",Coalition of CSO in Water and Sanitation,1
+Amnesty International Ghana,POS Foundation,1
+Amnesty International Ghana,KASA Initiative,1
+Amnesty International Ghana,Commonwealth Human Rights Initiative (CHRI),1
+Amnesty International (Ghana),Solace Brothers Foundation (SBF),1
+Amnesty International (Ghana),Society and Youth Development,1
+Amnesty International (Ghana),"Perfector of Sentiment (POS) Foundation, Priorities On Right and Sexual Health (PORSH)",1
+Amnesty International (Ghana),Human Rights Advocacy Centre (HRAC),1
+Alliance for Reproductive Health Rights (ARHR),Women in Law and Development in Africa (WiLDAF),1
+Alliance for Reproductive Health Rights (ARHR),Human Rights Advocacy Centre (HRAC),1
+Centre for Popular Education and Human Rights Ghana (CEPEHRG),"Perfector of Sentiment (POS) Foundation, Priorities On Right and Sexual Health (PORSH)",1
+Africa Centre for International Law and Accountability (ACILA),Africa Office (CHRI),1
+Africa Centre for International Law and Accountability (ACILA) Ghana,Human Rights Advocacy Centre (HRAC),1
+Africa Centre for International Law and Accountability (ACILA) Ghana,Centre for Popular Education and Human Rights Ghana (CEPEHRG),1
+Africa Centre for International Law and Accountability (ACILA) Ghana,Amnesty International (Ghana),1
+Africa Centre for International Law and Accountability (ACILA),Tiger Eye Foundation,1
+Africa Centre for International Law and Accountability (ACILA),POS Foundation/KASA Initiative,1
+Africa Centre for International Law and Accountability (ACILA),Ghana,1
+Africa Centre for International Law and Accountability (ACILA),Commonwealth Human Rights Initiative,1
+Africa Centre for International Law and Accountability (ACILA),"Coalition on the Right to Information, Ghana (RTI)",1
+Africa Centre for International Law and Accountability,Women’s Initiative for Self-Empowerment,1
+Alliance for Reproductive Health Rights (ARHR),Hope for Future Generations (HFFG),1
+Africa Centre for International Law and Accountability,Women in the Lord’s Vineyard,1
+Africa Centre for International Law and Accountability,Solace Brothers,1
+Africa Centre for International Law and Accountability,Society and Youth Foundation,1
+Africa Centre for International Law and Accountability,Network of Women in Growth,1
+Africa Centre for International Law and Accountability,IUCN Ghana,1
+Africa Centre for International Law and Accountability,Gender Violence Survivors Support Network Ghana,1
+Africa Centre for International Law and Accountability,Community and Family Aid Foundation,1
+Africa Centre for International Law and Accountability,Commonwealth Human Rights Initiative Africa,1
+Africa Centre for International Law and Accountability (ACILA) Ghana,"Perfector of Sentiment (POS) Foundation, Priorities On Right and Sexual Health (PORSH)",1
+Africa Centre for International Law and Accountability (ACILA) Ghana,Society and Youth Development,1
+Africa Centre for International Law and Accountability (ACILA) Ghana,Solace Brothers Foundation (SBF),1
+Africa Office (CHRI),"Coalition on the Right to Information, Ghana (RTI)",1
+Alliance for Reproductive Health Rights (ARHR),"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",1
+Alliance for Reproductive Health Rights (ARHR),Ghana Coalition of NGOs in Health (GCNH),1
+African Women Lawyers Association (AWLA),Women in Law and Development in Africa (WiLDAF),1
+African Women Lawyers Association (AWLA),Planned Parenthood Association of Ghana (PPAG),1
+African Women Lawyers Association (AWLA),Human Rights Advocacy Centre (HRAC),1
+African Women Lawyers Association (AWLA),Hope for Future Generations (HFFG),1
+African Women Lawyers Association (AWLA),"Ghana Federation of Disability Organisations, Vision for Alternative Development (VALD)",1
+African Women Lawyers Association (AWLA),Ghana Coalition of NGOs in Health (GCNH),1
+African Women Lawyers Association (AWLA),Alliance for Reproductive Health Rights (ARHR),1
+African Centre for International Law and Accountability (ACILA),POS Foundation,1
+African Centre for International Law and Accountability (ACILA),KASA Initiative,1
+African Centre for International Law and Accountability (ACILA),Commonwealth Human Rights Initiative (CHRI),1
+African Centre for International Law and Accountability (ACILA),Amnesty International Ghana,1
+Africa Office (CHRI),Tiger Eye Foundation,1
+Africa Office (CHRI),POS Foundation/KASA Initiative,1
+Africa Office (CHRI),Ghana,1
+Africa Office (CHRI),Commonwealth Human Rights Initiative,1
+Centre for Popular Education and Human Rights Ghana (CEPEHRG),Human Rights Advocacy Centre (HRAC),1
+Centre for Popular Education and Human Rights Ghana (CEPEHRG),Society and Youth Development,1
+Community and Family Aid Foundation,Network of Women in Growth Ghana,1
+Community Outreach Alliance,POS Foundation,1
+Community Youth Development Foundation (CYDEF),Gender Violence Survivors Support Network,1
+Community Youth Development Foundation (CYDEF),Concern Health Education,1
+Community Youth Development Foundation (CYDEF),Community and Family Aid Foundation,1
+Community Outreach Alliance,Women in the Lord’s Vineyard,1
+Community Outreach Alliance,The Light Foundation Ghana (TLF),1
+Community Outreach Alliance,Society and Youth Foundation,1
+Community Outreach Alliance,Relive Ghana,1
+Community Outreach Alliance,Patient Friend Foundation (PFF),1
+Community Outreach Alliance,One Love Initiative Foundation,1
+Commonwealth Human Rights Initiative Africa,Women in the Lord’s Vineyard,1
+Community Outreach Alliance,Network of Women in Growth Ghana,1
+Community Outreach Alliance,Mind Freedom Ghana,1
+Community Outreach Alliance,KASA Initiative,1
+Community Outreach Alliance,Grace to Grace Foundation,1
+Community Outreach Alliance,Gender Violence Survivors Support Network,1
+Community Outreach Alliance,Concern Health Education,1
+Community Outreach Alliance,Community and Family Aid Foundation,1
+Community Outreach Alliance,Community Youth Development Foundation (CYDEF),1
+Community Youth Development Foundation (CYDEF),Grace to Grace Foundation,1
+Community Youth Development Foundation (CYDEF),KASA Initiative,1
+Community Youth Development Foundation (CYDEF),Mind Freedom Ghana,1
+Community Youth Development Foundation (CYDEF),Network of Women in Growth Ghana,1
+Community and Family Aid Foundation,Network of Women in Growth,1
+Community and Family Aid Foundation,Mind Freedom Ghana,1
+Community and Family Aid Foundation,Legal Resources Centre,1
+Africa Centre for International Law and Accountability,Coalition on the Right to Information Ghana,1
+Community and Family Aid Foundation,KASA Initiative,1
+Community and Family Aid Foundation,IUCN Ghana,1
+Community and Family Aid Foundation,Grace to Grace Foundation,1
+Community and Family Aid Foundation,Gender Violence Survivors Support Network Ghana,1
+Community and Family Aid Foundation,Gender Violence Survivors Support Network,1
+Community and Family Aid Foundation,Concern Health Education,1
+Community Youth Development Foundation (CYDEF),Women in the Lord’s Vineyard,1
+Community Youth Development Foundation (CYDEF),The Light Foundation Ghana (TLF),1
+Community Youth Development Foundation (CYDEF),Society and Youth Foundation,1
+Community Youth Development Foundation (CYDEF),Relive Ghana,1
+Community Youth Development Foundation (CYDEF),Patient Friend Foundation (PFF),1
+Community Youth Development Foundation (CYDEF),POS Foundation,1
+Community Youth Development Foundation (CYDEF),One Love Initiative Foundation,1
+Commonwealth Human Rights Initiative Africa,Women’s Initiative for Self-Empowerment,1
+Commonwealth Human Rights Initiative Africa,Society and Youth Foundation,1
+Centre for Popular Education and Human Rights Ghana (CEPEHRG),Solace Brothers Foundation (SBF),1
+Coalition of CSO on Oil and Gas,Kasa Initiative Ghana,1
+Coalition on the Right to Information Ghana,POS Foundation,1
+Coalition on the Right to Information Ghana,KASA Initiative Ghana,1
+Coalition on the Right to Information Ghana,Commonwealth Human Rights Initiative,1
+Coalition of CSOs on Land,Wacam,1
+Coalition of CSOs on Land,Kasa Initiative Ghana,1
+Coalition of CSOs on Land,Forest Watch Ghana,1
+Coalition of CSOs on Land,Fisheries Alliance,1
+Coalition of CSO on Oil and Gas,Wacam,1
+Coalition of CSO on Oil and Gas,Forest Watch Ghana,1
+Commonwealth Human Rights Initiative Africa,Restoration of Hope Foundation,1
+Coalition of CSO on Oil and Gas,Fisheries Alliance,1
+Coalition of CSO on Oil and Gas,Coalition of CSOs on Land,1
+Coalition of CSO in Water and Sanitation,Wacam,1
+Coalition of CSO in Water and Sanitation,Kasa Initiative Ghana,1
+Coalition of CSO in Water and Sanitation,Forest Watch Ghana,1
+Coalition of CSO in Water and Sanitation,Fisheries Alliance,1
+Coalition of CSO in Water and Sanitation,Coalition of CSOs on Land,1
+Coalition of CSO in Water and Sanitation,Coalition of CSO on Oil and Gas,1
+Coalition on the Right to Information Ghana,Restoration of Hope Foundation,1
+"Coalition on the Right to Information, Ghana (RTI)",Commonwealth Human Rights Initiative,1
+"Coalition on the Right to Information, Ghana (RTI)",Ghana,1
+"Coalition on the Right to Information, Ghana (RTI)",POS Foundation/KASA Initiative,1
+Commonwealth Human Rights Initiative Africa,POS Foundation,1
+Commonwealth Human Rights Initiative Africa,Network of Women in Growth,1
+Commonwealth Human Rights Initiative Africa,Legal Resources Centre,1
+Commonwealth Human Rights Initiative Africa,KASA Initiative Ghana,1
+Commonwealth Human Rights Initiative Africa,IUCN Ghana,1
+Commonwealth Human Rights Initiative Africa,Gender Violence Survivors Support Network Ghana,1
+Commonwealth Human Rights Initiative Africa,Community and Family Aid Foundation,1
+Commonwealth Human Rights Initiative (CHRI),POS Foundation,1
+Commonwealth Human Rights Initiative (CHRI),KASA Initiative,1
+Commonwealth Human Rights Initiative,Tiger Eye Foundation,1
+Commonwealth Human Rights Initiative,Solace Brothers,1
+Commonwealth Human Rights Initiative,Restoration of Hope Foundation,1
+Commonwealth Human Rights Initiative,POS Foundation/KASA Initiative,1
+Commonwealth Human Rights Initiative,Legal Resources Centre,1
+Commonwealth Human Rights Initiative,KASA Initiative Ghana,1
+Commonwealth Human Rights Initiative,Ghana,1
+"Coalition on the Right to Information, Ghana (RTI)",Tiger Eye Foundation,1
+Women in the Lord’s Vineyard,Women’s Initiative for Self-Empowerment,1

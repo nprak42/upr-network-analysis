@@ -1,0 +1,87 @@
+{
+  "num_nodes": 3,
+  "num_edges": 3,
+  "density": 1.0,
+  "top_degree_centrality": [
+    [
+      "Federatie van Nederlandse Verenigingen tot Integratie van Homoseksualiteit \u2013 COC Nederland",
+      1.0
+    ],
+    [
+      "Nederlands Netwerk voor Intersekse/DSD \u2013 NNID",
+      1.0
+    ],
+    [
+      "and Transgender Netwerk Nederland \u2013 TNN (Netherlands)",
+      1.0
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Federatie van Nederlandse Verenigingen tot Integratie van Homoseksualiteit \u2013 COC Nederland",
+      0.0
+    ],
+    [
+      "Nederlands Netwerk voor Intersekse/DSD \u2013 NNID",
+      0.0
+    ],
+    [
+      "and Transgender Netwerk Nederland \u2013 TNN (Netherlands)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Federatie van Nederlandse Verenigingen tot Integratie van Homoseksualiteit \u2013 COC Nederland",
+      1.0
+    ],
+    [
+      "Nederlands Netwerk voor Intersekse/DSD \u2013 NNID",
+      1.0
+    ],
+    [
+      "and Transgender Netwerk Nederland \u2013 TNN (Netherlands)",
+      1.0
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Federatie van Nederlandse Verenigingen tot Integratie van Homoseksualiteit \u2013 COC Nederland",
+      0.5773502691896258
+    ],
+    [
+      "Nederlands Netwerk voor Intersekse/DSD \u2013 NNID",
+      0.5773502691896258
+    ],
+    [
+      "and Transgender Netwerk Nederland \u2013 TNN (Netherlands)",
+      0.5773502691896258
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 2.0,
+    "max": 2,
+    "min": 2,
+    "median": 2
+  },
+  "avg_clustering_coefficient": 1.0,
+  "num_components": 1,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 1,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "Federatie van Nederlandse Verenigingen tot Integratie van Homoseksualiteit \u2013 COC Nederland",
+      1.125
+    ],
+    [
+      "Nederlands Netwerk voor Intersekse/DSD \u2013 NNID",
+      1.125
+    ],
+    [
+      "and Transgender Netwerk Nederland \u2013 TNN (Netherlands)",
+      1.125
+    ]
+  ]
+}

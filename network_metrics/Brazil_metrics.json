@@ -1,0 +1,228 @@
+{
+  "num_nodes": 124,
+  "num_edges": 678,
+  "density": 0.0889063729346971,
+  "top_degree_centrality": [
+    [
+      "Conectas Direitos Humanos",
+      0.2682926829268293
+    ],
+    [
+      "AMAAIC \u2014 Associa\u00e7\u00e3o do Movimento dos Agentes Agroflorestais Ind\u00edgenas do Acre",
+      0.21951219512195125
+    ],
+    [
+      "APIB \u2014 Articula\u00e7\u00e3o dos Povos Ind\u00edgenas do Brasil",
+      0.21951219512195125
+    ],
+    [
+      "FOIRN \u2014 Federa\u00e7\u00e3o das Organiza\u00e7\u00f5es Ind\u00edgenas do GE.17-01936 11 Rio Negro",
+      0.21951219512195125
+    ],
+    [
+      "HAY \u2014 Associa\u00e7\u00e3o Yanomami",
+      0.21951219512195125
+    ],
+    [
+      "IEB \u2014 Instituto Internacional de Educa\u00e7\u00e3o do Brasil",
+      0.21951219512195125
+    ],
+    [
+      "ISA \u2014 Instituto Socioambiental",
+      0.21951219512195125
+    ],
+    [
+      "Iep\u00e9 \u2014 Instituto de Pesquisa e Forma\u00e7\u00e3o Ind\u00edgena",
+      0.21951219512195125
+    ],
+    [
+      "Justi\u00e7a Global (Brazil)",
+      0.21951219512195125
+    ],
+    [
+      "OGM \u2014 Organiza\u00e7\u00e3o Geral Mayuruna",
+      0.21951219512195125
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Conectas Direitos Humanos",
+      0.02159136345461815
+    ],
+    [
+      "Conectas Derechos Humanos",
+      0.0014660802345728375
+    ],
+    [
+      "and Centro de Trabajo Indigenista (CTI) (Brazil)",
+      0.0001332800213248034
+    ],
+    [
+      "AMAAIC \u2014 Associa\u00e7\u00e3o do Movimento dos Agentes Agroflorestais Ind\u00edgenas do Acre",
+      0.0
+    ],
+    [
+      "APIB \u2014 Articula\u00e7\u00e3o dos Povos Ind\u00edgenas do Brasil",
+      0.0
+    ],
+    [
+      "F\u00f3rum das ONG-AIDS do Estado de S\u00e3o Paulo",
+      0.0
+    ],
+    [
+      "RNP+/PI \u2014 Network of People Living with HIV/AIDS Piau\u00ed",
+      0.0
+    ],
+    [
+      "GIV \u2014 Grupo de Incentivo \u00e0 Vida (Incentive to Life Group)",
+      0.0
+    ],
+    [
+      "GRAB \u2014 Grupo de Resist\u00eancia Asa Branca (Resistance Group Asa Branca)",
+      0.0
+    ],
+    [
+      "Gestos \u2014 Soropositividade, Comunica\u00e7\u00e3o e G\u00eanero (GESTOS \u2014 HIV+, Communication and Gender)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Conectas Direitos Humanos",
+      0.2682926829268293
+    ],
+    [
+      "AMAAIC \u2014 Associa\u00e7\u00e3o do Movimento dos Agentes Agroflorestais Ind\u00edgenas do Acre",
+      0.22701688555347094
+    ],
+    [
+      "APIB \u2014 Articula\u00e7\u00e3o dos Povos Ind\u00edgenas do Brasil",
+      0.22701688555347094
+    ],
+    [
+      "FOIRN \u2014 Federa\u00e7\u00e3o das Organiza\u00e7\u00f5es Ind\u00edgenas do GE.17-01936 11 Rio Negro",
+      0.22701688555347094
+    ],
+    [
+      "HAY \u2014 Associa\u00e7\u00e3o Yanomami",
+      0.22701688555347094
+    ],
+    [
+      "IEB \u2014 Instituto Internacional de Educa\u00e7\u00e3o do Brasil",
+      0.22701688555347094
+    ],
+    [
+      "ISA \u2014 Instituto Socioambiental",
+      0.22701688555347094
+    ],
+    [
+      "Iep\u00e9 \u2014 Instituto de Pesquisa e Forma\u00e7\u00e3o Ind\u00edgena",
+      0.22701688555347094
+    ],
+    [
+      "Justi\u00e7a Global (Brazil)",
+      0.22701688555347094
+    ],
+    [
+      "OGM \u2014 Organiza\u00e7\u00e3o Geral Mayuruna",
+      0.22701688555347094
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Conectas Direitos Humanos",
+      0.19072932009702992
+    ],
+    [
+      "AMAAIC \u2014 Associa\u00e7\u00e3o do Movimento dos Agentes Agroflorestais Ind\u00edgenas do Acre",
+      0.188873048091165
+    ],
+    [
+      "APIB \u2014 Articula\u00e7\u00e3o dos Povos Ind\u00edgenas do Brasil",
+      0.188873048091165
+    ],
+    [
+      "FOIRN \u2014 Federa\u00e7\u00e3o das Organiza\u00e7\u00f5es Ind\u00edgenas do GE.17-01936 11 Rio Negro",
+      0.188873048091165
+    ],
+    [
+      "HAY \u2014 Associa\u00e7\u00e3o Yanomami",
+      0.188873048091165
+    ],
+    [
+      "IEB \u2014 Instituto Internacional de Educa\u00e7\u00e3o do Brasil",
+      0.188873048091165
+    ],
+    [
+      "ISA \u2014 Instituto Socioambiental",
+      0.188873048091165
+    ],
+    [
+      "Iep\u00e9 \u2014 Instituto de Pesquisa e Forma\u00e7\u00e3o Ind\u00edgena",
+      0.188873048091165
+    ],
+    [
+      "Justi\u00e7a Global (Brazil)",
+      0.188873048091165
+    ],
+    [
+      "OGM \u2014 Organiza\u00e7\u00e3o Geral Mayuruna",
+      0.188873048091165
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 10.935483870967742,
+    "max": 33,
+    "min": 1,
+    "median": 6
+  },
+  "avg_clustering_coefficient": 0.9045917120513894,
+  "num_components": 20,
+  "largest_component_size": 34,
+  "diameter": 2,
+  "avg_path_length": 1.2887700534759359,
+  "num_triangles": 4273,
+  "transitivity": 0.9866081736319556,
+  "top_brokers": [
+    [
+      "Conectas Direitos Humanos",
+      0.11405298779036142
+    ],
+    [
+      "IEB \u2014 Instituto Internacional de Educa\u00e7\u00e3o do Brasil",
+      0.1417707113208075
+    ],
+    [
+      "Justi\u00e7a Global (Brazil)",
+      0.1417707113208075
+    ],
+    [
+      "Plataforma de Direitos Humanos \u2014 DHesca Brasil: APOINME \u2014 Articula\u00e7\u00e3o dos Povos e Organiza\u00e7\u00f5es Ind\u00edgenas do Nordeste, Minas Gerais e Esp\u00edrito Santo",
+      0.1417707113208075
+    ],
+    [
+      "Wyty-Cat\u00eb \u2014 Associa\u00e7\u00e3o Wyty-Cat\u00eb dos Povos Ind\u00edgenas Timbira do Maranh\u00e3o e Tocantins",
+      0.1417707113208075
+    ],
+    [
+      "Conselho Terena",
+      0.1417707113208075
+    ],
+    [
+      "APINA \u2014 Conselho das Aldeias Waj\u00e3pi",
+      0.1417707113208075
+    ],
+    [
+      "COIAB \u2014 Coordena\u00e7\u00e3o das Organiza\u00e7\u00f5es Ind\u00edgenas da Amaz\u00f4nia Brasileira",
+      0.1417707113208075
+    ],
+    [
+      "CTI \u2014 Centro de Trabalho Indigenista",
+      0.1417707113208075
+    ],
+    [
+      "Comiss\u00e3o Guarani Yvyrup\u00e1",
+      0.1417707113208075
+    ]
+  ]
+}

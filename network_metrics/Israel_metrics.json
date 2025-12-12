@@ -1,0 +1,228 @@
+{
+  "num_nodes": 23,
+  "num_edges": 36,
+  "density": 0.1422924901185771,
+  "top_degree_centrality": [
+    [
+      "'Ha-Aguda' \u2013 the National Association of LGBT in Israel",
+      0.18181818181818182
+    ],
+    [
+      "'Havruta' \u2013 Religious Gays, 'Ma'avarim' \u2013 Israeli Transgender Community",
+      0.18181818181818182
+    ],
+    [
+      "'Hoshen' \u2013 Education and Change",
+      0.18181818181818182
+    ],
+    [
+      "Coalition of Women for Peace",
+      0.18181818181818182
+    ],
+    [
+      "Human Rights Defenders Fund",
+      0.18181818181818182
+    ],
+    [
+      "The Association: Women Against Violence (Israel)",
+      0.18181818181818182
+    ],
+    [
+      "Al Tufula Pedagogical & Multipurpose Women's Center",
+      0.18181818181818182
+    ],
+    [
+      "the LGBT House in Be'er Sheva and The Association of Israeli Gay Fathers (Israel)",
+      0.18181818181818182
+    ],
+    [
+      "'Tehila' \u2013 Support for Parents and Families of LGTB",
+      0.18181818181818182
+    ],
+    [
+      "Adalah \u2013 The Legal Center for Arab Minority Rights in Israel",
+      0.18181818181818182
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "'Ha-Aguda' \u2013 the National Association of LGBT in Israel",
+      0.0
+    ],
+    [
+      "'Havruta' \u2013 Religious Gays, 'Ma'avarim' \u2013 Israeli Transgender Community",
+      0.0
+    ],
+    [
+      "'Hoshen' \u2013 Education and Change",
+      0.0
+    ],
+    [
+      "Al-Haq",
+      0.0
+    ],
+    [
+      "the Cairo Institute for Human Rights Studies CIHRS (Jerusalem Palestine)",
+      0.0
+    ],
+    [
+      "Alhuquq Center",
+      0.0
+    ],
+    [
+      "Negev Coexistence Forum for Civil Equality",
+      0.0
+    ],
+    [
+      "Regional Council for the Unrecognized Villages",
+      0.0
+    ],
+    [
+      "Sidreh - Lakiya Negev Weaving (Israel)",
+      0.0
+    ],
+    [
+      "Arab NGO Network for Development (South Africa)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "'Ha-Aguda' \u2013 the National Association of LGBT in Israel",
+      0.18181818181818182
+    ],
+    [
+      "'Havruta' \u2013 Religious Gays, 'Ma'avarim' \u2013 Israeli Transgender Community",
+      0.18181818181818182
+    ],
+    [
+      "'Hoshen' \u2013 Education and Change",
+      0.18181818181818182
+    ],
+    [
+      "Coalition of Women for Peace",
+      0.18181818181818182
+    ],
+    [
+      "Human Rights Defenders Fund",
+      0.18181818181818182
+    ],
+    [
+      "The Association: Women Against Violence (Israel)",
+      0.18181818181818182
+    ],
+    [
+      "Al Tufula Pedagogical & Multipurpose Women's Center",
+      0.18181818181818182
+    ],
+    [
+      "the LGBT House in Be'er Sheva and The Association of Israeli Gay Fathers (Israel)",
+      0.18181818181818182
+    ],
+    [
+      "'Tehila' \u2013 Support for Parents and Families of LGTB",
+      0.18181818181818182
+    ],
+    [
+      "Adalah \u2013 The Legal Center for Arab Minority Rights in Israel",
+      0.18181818181818182
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "'Ha-Aguda' \u2013 the National Association of LGBT in Israel",
+      0.31622776586325646
+    ],
+    [
+      "'Havruta' \u2013 Religious Gays, 'Ma'avarim' \u2013 Israeli Transgender Community",
+      0.31622776586325646
+    ],
+    [
+      "'Hoshen' \u2013 Education and Change",
+      0.31622776586325646
+    ],
+    [
+      "Coalition of Women for Peace",
+      0.31622776586325646
+    ],
+    [
+      "Human Rights Defenders Fund",
+      0.31622776586325646
+    ],
+    [
+      "The Association: Women Against Violence (Israel)",
+      0.31622776586325646
+    ],
+    [
+      "Al Tufula Pedagogical & Multipurpose Women's Center",
+      0.31622776586325646
+    ],
+    [
+      "the LGBT House in Be'er Sheva and The Association of Israeli Gay Fathers (Israel)",
+      0.31622776586325646
+    ],
+    [
+      "'Tehila' \u2013 Support for Parents and Families of LGTB",
+      0.31622776586325646
+    ],
+    [
+      "Adalah \u2013 The Legal Center for Arab Minority Rights in Israel",
+      0.31622776586325646
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 3.130434782608696,
+    "max": 4,
+    "min": 1,
+    "median": 3
+  },
+  "avg_clustering_coefficient": 0.9130434782608695,
+  "num_components": 6,
+  "largest_component_size": 5,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 29,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "'Ha-Aguda' \u2013 the National Association of LGBT in Israel",
+      0.765625
+    ],
+    [
+      "'Havruta' \u2013 Religious Gays, 'Ma'avarim' \u2013 Israeli Transgender Community",
+      0.765625
+    ],
+    [
+      "'Hoshen' \u2013 Education and Change",
+      0.765625
+    ],
+    [
+      "Coalition of Women for Peace",
+      0.765625
+    ],
+    [
+      "Human Rights Defenders Fund",
+      0.765625
+    ],
+    [
+      "The Association: Women Against Violence (Israel)",
+      0.765625
+    ],
+    [
+      "Al Tufula Pedagogical & Multipurpose Women's Center",
+      0.765625
+    ],
+    [
+      "the LGBT House in Be'er Sheva and The Association of Israeli Gay Fathers (Israel)",
+      0.765625
+    ],
+    [
+      "'Tehila' \u2013 Support for Parents and Families of LGTB",
+      0.765625
+    ],
+    [
+      "Adalah \u2013 The Legal Center for Arab Minority Rights in Israel",
+      0.765625
+    ]
+  ]
+}

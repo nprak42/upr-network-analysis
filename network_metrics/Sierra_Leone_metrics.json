@@ -1,0 +1,228 @@
+{
+  "num_nodes": 10,
+  "num_edges": 5,
+  "density": 0.1111111111111111,
+  "top_degree_centrality": [
+    [
+      "Chatelaine, Switzerland",
+      0.1111111111111111
+    ],
+    [
+      "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association",
+      0.1111111111111111
+    ],
+    [
+      "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance",
+      0.1111111111111111
+    ],
+    [
+      "Freetown, Sierra Leone",
+      0.1111111111111111
+    ],
+    [
+      "Geneva, Switzerland",
+      0.1111111111111111
+    ],
+    [
+      "International Service for Human Rights and Human Rights Defenders Network Sierra Leone",
+      0.1111111111111111
+    ],
+    [
+      "London, United Kingdom of Great Britain and Northern Ireland",
+      0.1111111111111111
+    ],
+    [
+      "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union",
+      0.1111111111111111
+    ],
+    [
+      "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home",
+      0.1111111111111111
+    ],
+    [
+      "freetown, Sierra Leone",
+      0.1111111111111111
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Chatelaine, Switzerland",
+      0.0
+    ],
+    [
+      "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association",
+      0.0
+    ],
+    [
+      "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance",
+      0.0
+    ],
+    [
+      "Freetown, Sierra Leone",
+      0.0
+    ],
+    [
+      "Geneva, Switzerland",
+      0.0
+    ],
+    [
+      "International Service for Human Rights and Human Rights Defenders Network Sierra Leone",
+      0.0
+    ],
+    [
+      "London, United Kingdom of Great Britain and Northern Ireland",
+      0.0
+    ],
+    [
+      "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union",
+      0.0
+    ],
+    [
+      "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home",
+      0.0
+    ],
+    [
+      "freetown, Sierra Leone",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Chatelaine, Switzerland",
+      0.1111111111111111
+    ],
+    [
+      "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association",
+      0.1111111111111111
+    ],
+    [
+      "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance",
+      0.1111111111111111
+    ],
+    [
+      "Freetown, Sierra Leone",
+      0.1111111111111111
+    ],
+    [
+      "Geneva, Switzerland",
+      0.1111111111111111
+    ],
+    [
+      "International Service for Human Rights and Human Rights Defenders Network Sierra Leone",
+      0.1111111111111111
+    ],
+    [
+      "London, United Kingdom of Great Britain and Northern Ireland",
+      0.1111111111111111
+    ],
+    [
+      "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union",
+      0.1111111111111111
+    ],
+    [
+      "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home",
+      0.1111111111111111
+    ],
+    [
+      "freetown, Sierra Leone",
+      0.1111111111111111
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Chatelaine, Switzerland",
+      0.31622776601683794
+    ],
+    [
+      "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association",
+      0.31622776601683794
+    ],
+    [
+      "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance",
+      0.31622776601683794
+    ],
+    [
+      "Freetown, Sierra Leone",
+      0.31622776601683794
+    ],
+    [
+      "Geneva, Switzerland",
+      0.31622776601683794
+    ],
+    [
+      "International Service for Human Rights and Human Rights Defenders Network Sierra Leone",
+      0.31622776601683794
+    ],
+    [
+      "London, United Kingdom of Great Britain and Northern Ireland",
+      0.31622776601683794
+    ],
+    [
+      "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union",
+      0.31622776601683794
+    ],
+    [
+      "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home",
+      0.31622776601683794
+    ],
+    [
+      "freetown, Sierra Leone",
+      0.31622776601683794
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.0,
+    "max": 1,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.0,
+  "num_components": 5,
+  "largest_component_size": 2,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 0,
+  "transitivity": 0,
+  "top_brokers": [
+    [
+      "Chatelaine, Switzerland",
+      1.0
+    ],
+    [
+      "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association",
+      1.0
+    ],
+    [
+      "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance",
+      1.0
+    ],
+    [
+      "Freetown, Sierra Leone",
+      1.0
+    ],
+    [
+      "Geneva, Switzerland",
+      1.0
+    ],
+    [
+      "International Service for Human Rights and Human Rights Defenders Network Sierra Leone",
+      1.0
+    ],
+    [
+      "London, United Kingdom of Great Britain and Northern Ireland",
+      1.0
+    ],
+    [
+      "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union",
+      1.0
+    ],
+    [
+      "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home",
+      1.0
+    ],
+    [
+      "freetown, Sierra Leone",
+      1.0
+    ]
+  ]
+}

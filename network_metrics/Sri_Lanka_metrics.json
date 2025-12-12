@@ -1,0 +1,228 @@
+{
+  "num_nodes": 230,
+  "num_edges": 5283,
+  "density": 0.20060755648376685,
+  "top_degree_centrality": [
+    [
+      "Women and Media Collective, Colombo (Sri Lanka)",
+      0.40611353711790393
+    ],
+    [
+      "Lucky Sports Club, Addalaichenai (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "Stand Up Movement, Negombo (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "MONLAR, Rajagiriya (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "Nesakaram Citizen Forum, Mannar (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "PAAL, Colombo (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "MCC, Mannar (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "PPPO, Paanama (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "Sri Vimukhti Fisher Women Organization, Negombo (Sri Lanka)",
+      0.37554585152838427
+    ],
+    [
+      "PCDF, Passara (Sri Lanka)",
+      0.37554585152838427
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Women and Media Collective, Colombo (Sri Lanka)",
+      0.15812456906458286
+    ],
+    [
+      "EQUAL GROUND, Colombo (Sri Lanka)",
+      0.08208840879491305
+    ],
+    [
+      "Centre for Policy Alternatives, Colombo (Sri Lanka)",
+      0.06695778748180495
+    ],
+    [
+      "Dominicans for Justice and Peace, Geneva (Switzerland)",
+      0.00013406879644526162
+    ],
+    [
+      "Franciscans International, Geneva (Switzerland)",
+      0.00013406879644526162
+    ],
+    [
+      "Association Mauritanienne Pour la Promotion du Droit, Nouakchott (Mauritania)",
+      1.9152685206465947e-06
+    ],
+    [
+      "Kenya Community Development Group, Nairobi (Kenya)",
+      1.9152685206465947e-06
+    ],
+    [
+      "Association Internationale Des Droits de l\u2019Homme de Bourgogne, Dijon (France)",
+      1.9152685206465947e-06
+    ],
+    [
+      "Association Jeunesse Etudiante Tamoule, Aulnay-sous-Bois (France)",
+      1.9152685206465947e-06
+    ],
+    [
+      "Association Le Collectif La Paix au Sri Lanka, Maurepas (France)",
+      1.9152685206465947e-06
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Women and Media Collective, Colombo (Sri Lanka)",
+      0.4480598877105427
+    ],
+    [
+      "EQUAL GROUND, Colombo (Sri Lanka)",
+      0.3564112743152045
+    ],
+    [
+      "Centre for Policy Alternatives, Colombo (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "Lucky Sports Club, Addalaichenai (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "Stand Up Movement, Negombo (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "MONLAR, Rajagiriya (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "Nesakaram Citizen Forum, Mannar (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "PAAL, Colombo (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "MCC, Mannar (Sri Lanka)",
+      0.3516165038087219
+    ],
+    [
+      "PPPO, Paanama (Sri Lanka)",
+      0.3516165038087219
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Women and Media Collective, Colombo (Sri Lanka)",
+      0.10731811589474356
+    ],
+    [
+      "Lucky Sports Club, Addalaichenai (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "Stand Up Movement, Negombo (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "MONLAR, Rajagiriya (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "Nesakaram Citizen Forum, Mannar (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "PAAL, Colombo (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "MCC, Mannar (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "PPPO, Paanama (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "Sri Vimukhti Fisher Women Organization, Negombo (Sri Lanka)",
+      0.10720931025120944
+    ],
+    [
+      "PCDF, Passara (Sri Lanka)",
+      0.10720931025120944
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 45.93913043478261,
+    "max": 93,
+    "min": 1,
+    "median": 39
+  },
+  "avg_clustering_coefficient": 0.9557446454899432,
+  "num_components": 11,
+  "largest_component_size": 135,
+  "diameter": 3,
+  "avg_path_length": 1.8865671641791044,
+  "num_triangles": 120535,
+  "transitivity": 0.9966127760904435,
+  "top_brokers": [
+    [
+      "Women and Media Collective, Colombo (Sri Lanka)",
+      0.041515842387716446
+    ],
+    [
+      "Lucky Sports Club, Addalaichenai (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "Stand Up Movement, Negombo (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "MONLAR, Rajagiriya (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "Nesakaram Citizen Forum, Mannar (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "PAAL, Colombo (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "MCC, Mannar (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "PPPO, Paanama (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "Sri Vimukhti Fisher Women Organization, Negombo (Sri Lanka)",
+      0.04593237543371258
+    ],
+    [
+      "PCDF, Passara (Sri Lanka)",
+      0.04593237543371258
+    ]
+  ]
+}

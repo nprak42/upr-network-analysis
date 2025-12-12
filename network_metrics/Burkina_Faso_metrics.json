@@ -1,0 +1,67 @@
+{
+  "num_nodes": 2,
+  "num_edges": 1,
+  "density": 1.0,
+  "top_degree_centrality": [
+    [
+      "Centre d\u2019information et de formation en mati\u00e8re de droits humains en Afrique (CIFDHA), Mouvement burkinab\u00e9 des droits de l\u2019homme et des peuples (MBDHP), Action des chr\u00e9tiens pour l\u2019abolition de la torture (ACAT) Burkina, Centre pour la qualit\u00e9 du droit et la justice (CQDJ), Cercle des jeunes juristes du Burkina (CEJB)",
+      1.0
+    ],
+    [
+      "with financial support from Organisation internaitonale de la Francophonie (OIF), Bureau regional Afrique de l\u2019Ouest du Haut commissariat des Nations Unies aux droits de l\u2019homme, Programme des Nations Unies pour le d\u00e9veloppement (PNUD), Centre pour les Droits Civils et Politiques (CCPR Centre)",
+      1.0
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Centre d\u2019information et de formation en mati\u00e8re de droits humains en Afrique (CIFDHA), Mouvement burkinab\u00e9 des droits de l\u2019homme et des peuples (MBDHP), Action des chr\u00e9tiens pour l\u2019abolition de la torture (ACAT) Burkina, Centre pour la qualit\u00e9 du droit et la justice (CQDJ), Cercle des jeunes juristes du Burkina (CEJB)",
+      0.0
+    ],
+    [
+      "with financial support from Organisation internaitonale de la Francophonie (OIF), Bureau regional Afrique de l\u2019Ouest du Haut commissariat des Nations Unies aux droits de l\u2019homme, Programme des Nations Unies pour le d\u00e9veloppement (PNUD), Centre pour les Droits Civils et Politiques (CCPR Centre)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Centre d\u2019information et de formation en mati\u00e8re de droits humains en Afrique (CIFDHA), Mouvement burkinab\u00e9 des droits de l\u2019homme et des peuples (MBDHP), Action des chr\u00e9tiens pour l\u2019abolition de la torture (ACAT) Burkina, Centre pour la qualit\u00e9 du droit et la justice (CQDJ), Cercle des jeunes juristes du Burkina (CEJB)",
+      1.0
+    ],
+    [
+      "with financial support from Organisation internaitonale de la Francophonie (OIF), Bureau regional Afrique de l\u2019Ouest du Haut commissariat des Nations Unies aux droits de l\u2019homme, Programme des Nations Unies pour le d\u00e9veloppement (PNUD), Centre pour les Droits Civils et Politiques (CCPR Centre)",
+      1.0
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Centre d\u2019information et de formation en mati\u00e8re de droits humains en Afrique (CIFDHA), Mouvement burkinab\u00e9 des droits de l\u2019homme et des peuples (MBDHP), Action des chr\u00e9tiens pour l\u2019abolition de la torture (ACAT) Burkina, Centre pour la qualit\u00e9 du droit et la justice (CQDJ), Cercle des jeunes juristes du Burkina (CEJB)",
+      0.7071067811865476
+    ],
+    [
+      "with financial support from Organisation internaitonale de la Francophonie (OIF), Bureau regional Afrique de l\u2019Ouest du Haut commissariat des Nations Unies aux droits de l\u2019homme, Programme des Nations Unies pour le d\u00e9veloppement (PNUD), Centre pour les Droits Civils et Politiques (CCPR Centre)",
+      0.7071067811865476
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.0,
+    "max": 1,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.0,
+  "num_components": 1,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 0,
+  "transitivity": 0,
+  "top_brokers": [
+    [
+      "Centre d\u2019information et de formation en mati\u00e8re de droits humains en Afrique (CIFDHA), Mouvement burkinab\u00e9 des droits de l\u2019homme et des peuples (MBDHP), Action des chr\u00e9tiens pour l\u2019abolition de la torture (ACAT) Burkina, Centre pour la qualit\u00e9 du droit et la justice (CQDJ), Cercle des jeunes juristes du Burkina (CEJB)",
+      1.0
+    ],
+    [
+      "with financial support from Organisation internaitonale de la Francophonie (OIF), Bureau regional Afrique de l\u2019Ouest du Haut commissariat des Nations Unies aux droits de l\u2019homme, Programme des Nations Unies pour le d\u00e9veloppement (PNUD), Centre pour les Droits Civils et Politiques (CCPR Centre)",
+      1.0
+    ]
+  ]
+}

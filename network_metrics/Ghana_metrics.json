@@ -1,0 +1,228 @@
+{
+  "num_nodes": 70,
+  "num_edges": 354,
+  "density": 0.14658385093167703,
+  "top_degree_centrality": [
+    [
+      "POS Foundation",
+      0.4492753623188406
+    ],
+    [
+      "Amnesty International",
+      0.391304347826087
+    ],
+    [
+      "Community and Family Aid Foundation",
+      0.36231884057971014
+    ],
+    [
+      "Society and Youth Foundation",
+      0.36231884057971014
+    ],
+    [
+      "Women in the Lord\u2019s Vineyard",
+      0.36231884057971014
+    ],
+    [
+      "KASA Initiative",
+      0.2753623188405797
+    ],
+    [
+      "Africa Centre for International Law and Accountability",
+      0.2318840579710145
+    ],
+    [
+      "Grace to Grace Foundation",
+      0.2318840579710145
+    ],
+    [
+      "Relive Ghana",
+      0.2318840579710145
+    ],
+    [
+      "Patient Friend Foundation (PFF)",
+      0.2318840579710145
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Commonwealth Human Rights Initiative",
+      0.0797669792554703
+    ],
+    [
+      "POS Foundation",
+      0.07355782892867292
+    ],
+    [
+      "Amnesty International",
+      0.03466894003978404
+    ],
+    [
+      "Human Rights Advocacy Centre (HRAC)",
+      0.017902813299232736
+    ],
+    [
+      "KASA Initiative",
+      0.00959079283887468
+    ],
+    [
+      "Community and Family Aid Foundation",
+      0.00920716112531969
+    ],
+    [
+      "Society and Youth Foundation",
+      0.00920716112531969
+    ],
+    [
+      "Women in the Lord\u2019s Vineyard",
+      0.00920716112531969
+    ],
+    [
+      "Africa Centre for International Law and Accountability",
+      0.006166524580846831
+    ],
+    [
+      "Legal Resources Centre",
+      0.00500142085819835
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "POS Foundation",
+      0.46140883046848674
+    ],
+    [
+      "Amnesty International",
+      0.4221399938328709
+    ],
+    [
+      "Community and Family Aid Foundation",
+      0.36073781291172596
+    ],
+    [
+      "Society and Youth Foundation",
+      0.36073781291172596
+    ],
+    [
+      "Women in the Lord\u2019s Vineyard",
+      0.36073781291172596
+    ],
+    [
+      "Africa Centre for International Law and Accountability",
+      0.3420789605197402
+    ],
+    [
+      "Legal Resources Centre",
+      0.33628101203635474
+    ],
+    [
+      "KASA Initiative Ghana",
+      0.33628101203635474
+    ],
+    [
+      "Restoration of Hope Foundation",
+      0.33628101203635474
+    ],
+    [
+      "Commonwealth Human Rights Initiative",
+      0.3306763285024155
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "POS Foundation",
+      0.27524095164492424
+    ],
+    [
+      "Amnesty International",
+      0.2681618339150432
+    ],
+    [
+      "Community and Family Aid Foundation",
+      0.26176809595461203
+    ],
+    [
+      "Society and Youth Foundation",
+      0.26176809595461203
+    ],
+    [
+      "Women in the Lord\u2019s Vineyard",
+      0.26176809595461203
+    ],
+    [
+      "KASA Initiative",
+      0.19938553049192545
+    ],
+    [
+      "Grace to Grace Foundation",
+      0.19462066562804123
+    ],
+    [
+      "Relive Ghana",
+      0.19462066562804123
+    ],
+    [
+      "Patient Friend Foundation (PFF)",
+      0.19462066562804123
+    ],
+    [
+      "One Love Initiative Foundation",
+      0.19462066562804123
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 10.114285714285714,
+    "max": 31,
+    "min": 1,
+    "median": 7
+  },
+  "avg_clustering_coefficient": 0.9115203373848778,
+  "num_components": 6,
+  "largest_component_size": 38,
+  "diameter": 3,
+  "avg_path_length": 1.8221906116642959,
+  "num_triangles": 1272,
+  "transitivity": 0.8005034612964128,
+  "top_brokers": [
+    [
+      "POS Foundation",
+      0.12015892226054693
+    ],
+    [
+      "Amnesty International",
+      0.1369407824888053
+    ],
+    [
+      "Community and Family Aid Foundation",
+      0.14694106876356539
+    ],
+    [
+      "Women in the Lord\u2019s Vineyard",
+      0.14694106876356539
+    ],
+    [
+      "Society and Youth Foundation",
+      0.14694106876356544
+    ],
+    [
+      "KASA Initiative",
+      0.1758713548679231
+    ],
+    [
+      "Commonwealth Human Rights Initiative",
+      0.19112379437718383
+    ],
+    [
+      "Africa Centre for International Law and Accountability",
+      0.19480141332099932
+    ],
+    [
+      "Legal Resources Centre",
+      0.20072791450175742
+    ],
+    [
+      "KASA Initiative Ghana",
+      0.20099603986479847
+    ]
+  ]
+}

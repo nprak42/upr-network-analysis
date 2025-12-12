@@ -1,0 +1,228 @@
+{
+  "num_nodes": 67,
+  "num_edges": 953,
+  "density": 0.431026684758028,
+  "top_degree_centrality": [
+    [
+      "Armavir Development Center, Armavir (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Spitak Helsinki Group Human Rights NGO, Spitak (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Helsinki Committee of Armenia Human Rights Defender NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Mission Armenia NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "New Generation Humanitarian NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Open Society Foundations\u2013Armenia, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Transparency International Anticorruption Center, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Human Rights Research Center NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "We Plus Social NGO, Gyumri (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Institute of Public Policy, Yerevan (Armenia)",
+      0.7575757575757576
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Armavir Development Center, Armavir (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Spitak Helsinki Group Human Rights NGO, Spitak (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Helsinki Committee of Armenia Human Rights Defender NGO, Yerevan (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Mission Armenia NGO, Yerevan (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "New Generation Humanitarian NGO, Yerevan (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Open Society Foundations\u2013Armenia, Yerevan (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Transparency International Anticorruption Center, Yerevan (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Human Rights Research Center NGO, Yerevan (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "We Plus Social NGO, Gyumri (Armenia)",
+      0.011322011322011329
+    ],
+    [
+      "Institute of Public Policy, Yerevan (Armenia)",
+      0.011322011322011329
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Armavir Development Center, Armavir (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Spitak Helsinki Group Human Rights NGO, Spitak (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Helsinki Committee of Armenia Human Rights Defender NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Mission Armenia NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "New Generation Humanitarian NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Open Society Foundations\u2013Armenia, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Transparency International Anticorruption Center, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Human Rights Research Center NGO, Yerevan (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "We Plus Social NGO, Gyumri (Armenia)",
+      0.7575757575757576
+    ],
+    [
+      "Institute of Public Policy, Yerevan (Armenia)",
+      0.7575757575757576
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Armavir Development Center, Armavir (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Spitak Helsinki Group Human Rights NGO, Spitak (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Helsinki Committee of Armenia Human Rights Defender NGO, Yerevan (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Mission Armenia NGO, Yerevan (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "New Generation Humanitarian NGO, Yerevan (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Open Society Foundations\u2013Armenia, Yerevan (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Transparency International Anticorruption Center, Yerevan (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Human Rights Research Center NGO, Yerevan (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "We Plus Social NGO, Gyumri (Armenia)",
+      0.17869975000815164
+    ],
+    [
+      "Institute of Public Policy, Yerevan (Armenia)",
+      0.17869975000815164
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 28.44776119402985,
+    "max": 50,
+    "min": 1,
+    "median": 33
+  },
+  "avg_clustering_coefficient": 0.8066808813077471,
+  "num_components": 6,
+  "largest_component_size": 51,
+  "diameter": 2,
+  "avg_path_length": 1.2666666666666666,
+  "num_triangles": 10126,
+  "transitivity": 0.8643865240154792,
+  "top_brokers": [
+    [
+      "Armavir Development Center, Armavir (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Spitak Helsinki Group Human Rights NGO, Spitak (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Helsinki Committee of Armenia Human Rights Defender NGO, Yerevan (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Mission Armenia NGO, Yerevan (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "New Generation Humanitarian NGO, Yerevan (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Open Society Foundations\u2013Armenia, Yerevan (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Transparency International Anticorruption Center, Yerevan (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Human Rights Research Center NGO, Yerevan (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "We Plus Social NGO, Gyumri (Armenia)",
+      0.07909966427915514
+    ],
+    [
+      "Institute of Public Policy, Yerevan (Armenia)",
+      0.07909966427915514
+    ]
+  ]
+}

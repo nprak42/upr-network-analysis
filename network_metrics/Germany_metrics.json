@@ -1,0 +1,67 @@
+{
+  "num_nodes": 2,
+  "num_edges": 1,
+  "density": 1.0,
+  "top_degree_centrality": [
+    [
+      "FORUM MENSCHENRECHTE, Berlin, Germany",
+      1.0
+    ],
+    [
+      "in cooperation with: ACAT Deutschland, Brot f\u00fcr die Welt, Bundesverband unbegleiteter minderj\u00e4hrige Fl\u00fcchtlinge (BUMF), Bundesweite AG der Psychosozialen Zentren f\u00fcr Fl\u00fcchtlinge und Folteropfer (BAFF), German NGO Network against Trafficking in Human Beings (KOK), Deutsche Kommission Justitia et Pax, Deutscher Frauenrat, FIAN Deutschland e.V., Diakonie Deutschland \u2013 Evangelischer Bundesverband, European Center for Constitutional and Human Rights (ECCHR), Gemeinschaft f\u00fcr Menschenrechte im Freistaat Sachsen e.V. (GMS), Germanwatch, Gesellschaft f\u00fcr bedrohte V\u00f6lker, Humanistische Union (HU), Human Rights Watch Germany, Humboldt Law Clinic: Grund- und Menschenrechte, International Physicians for the Prevention of Nuclear War (IPPNW), German Section, Physicians in Social Responsibility, Refugio Munich, Intersexuelle Menschen e.V., Lesben- und Schwulenverband in Deutschland (LSVD), Kindernothilfe, MISEREOR, Nuremberg Human Rights Centre, Pro Asyl, Reporters without Borders German Section, TERRE DES FEMMES, terre des hommes, Vereinte Evangelische Mission (VEM), Women\u2019s International League for Peace and Freedom German Section (WILPF)",
+      1.0
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "FORUM MENSCHENRECHTE, Berlin, Germany",
+      0.0
+    ],
+    [
+      "in cooperation with: ACAT Deutschland, Brot f\u00fcr die Welt, Bundesverband unbegleiteter minderj\u00e4hrige Fl\u00fcchtlinge (BUMF), Bundesweite AG der Psychosozialen Zentren f\u00fcr Fl\u00fcchtlinge und Folteropfer (BAFF), German NGO Network against Trafficking in Human Beings (KOK), Deutsche Kommission Justitia et Pax, Deutscher Frauenrat, FIAN Deutschland e.V., Diakonie Deutschland \u2013 Evangelischer Bundesverband, European Center for Constitutional and Human Rights (ECCHR), Gemeinschaft f\u00fcr Menschenrechte im Freistaat Sachsen e.V. (GMS), Germanwatch, Gesellschaft f\u00fcr bedrohte V\u00f6lker, Humanistische Union (HU), Human Rights Watch Germany, Humboldt Law Clinic: Grund- und Menschenrechte, International Physicians for the Prevention of Nuclear War (IPPNW), German Section, Physicians in Social Responsibility, Refugio Munich, Intersexuelle Menschen e.V., Lesben- und Schwulenverband in Deutschland (LSVD), Kindernothilfe, MISEREOR, Nuremberg Human Rights Centre, Pro Asyl, Reporters without Borders German Section, TERRE DES FEMMES, terre des hommes, Vereinte Evangelische Mission (VEM), Women\u2019s International League for Peace and Freedom German Section (WILPF)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "FORUM MENSCHENRECHTE, Berlin, Germany",
+      1.0
+    ],
+    [
+      "in cooperation with: ACAT Deutschland, Brot f\u00fcr die Welt, Bundesverband unbegleiteter minderj\u00e4hrige Fl\u00fcchtlinge (BUMF), Bundesweite AG der Psychosozialen Zentren f\u00fcr Fl\u00fcchtlinge und Folteropfer (BAFF), German NGO Network against Trafficking in Human Beings (KOK), Deutsche Kommission Justitia et Pax, Deutscher Frauenrat, FIAN Deutschland e.V., Diakonie Deutschland \u2013 Evangelischer Bundesverband, European Center for Constitutional and Human Rights (ECCHR), Gemeinschaft f\u00fcr Menschenrechte im Freistaat Sachsen e.V. (GMS), Germanwatch, Gesellschaft f\u00fcr bedrohte V\u00f6lker, Humanistische Union (HU), Human Rights Watch Germany, Humboldt Law Clinic: Grund- und Menschenrechte, International Physicians for the Prevention of Nuclear War (IPPNW), German Section, Physicians in Social Responsibility, Refugio Munich, Intersexuelle Menschen e.V., Lesben- und Schwulenverband in Deutschland (LSVD), Kindernothilfe, MISEREOR, Nuremberg Human Rights Centre, Pro Asyl, Reporters without Borders German Section, TERRE DES FEMMES, terre des hommes, Vereinte Evangelische Mission (VEM), Women\u2019s International League for Peace and Freedom German Section (WILPF)",
+      1.0
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "FORUM MENSCHENRECHTE, Berlin, Germany",
+      0.7071067811865476
+    ],
+    [
+      "in cooperation with: ACAT Deutschland, Brot f\u00fcr die Welt, Bundesverband unbegleiteter minderj\u00e4hrige Fl\u00fcchtlinge (BUMF), Bundesweite AG der Psychosozialen Zentren f\u00fcr Fl\u00fcchtlinge und Folteropfer (BAFF), German NGO Network against Trafficking in Human Beings (KOK), Deutsche Kommission Justitia et Pax, Deutscher Frauenrat, FIAN Deutschland e.V., Diakonie Deutschland \u2013 Evangelischer Bundesverband, European Center for Constitutional and Human Rights (ECCHR), Gemeinschaft f\u00fcr Menschenrechte im Freistaat Sachsen e.V. (GMS), Germanwatch, Gesellschaft f\u00fcr bedrohte V\u00f6lker, Humanistische Union (HU), Human Rights Watch Germany, Humboldt Law Clinic: Grund- und Menschenrechte, International Physicians for the Prevention of Nuclear War (IPPNW), German Section, Physicians in Social Responsibility, Refugio Munich, Intersexuelle Menschen e.V., Lesben- und Schwulenverband in Deutschland (LSVD), Kindernothilfe, MISEREOR, Nuremberg Human Rights Centre, Pro Asyl, Reporters without Borders German Section, TERRE DES FEMMES, terre des hommes, Vereinte Evangelische Mission (VEM), Women\u2019s International League for Peace and Freedom German Section (WILPF)",
+      0.7071067811865476
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.0,
+    "max": 1,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.0,
+  "num_components": 1,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 0,
+  "transitivity": 0,
+  "top_brokers": [
+    [
+      "FORUM MENSCHENRECHTE, Berlin, Germany",
+      1.0
+    ],
+    [
+      "in cooperation with: ACAT Deutschland, Brot f\u00fcr die Welt, Bundesverband unbegleiteter minderj\u00e4hrige Fl\u00fcchtlinge (BUMF), Bundesweite AG der Psychosozialen Zentren f\u00fcr Fl\u00fcchtlinge und Folteropfer (BAFF), German NGO Network against Trafficking in Human Beings (KOK), Deutsche Kommission Justitia et Pax, Deutscher Frauenrat, FIAN Deutschland e.V., Diakonie Deutschland \u2013 Evangelischer Bundesverband, European Center for Constitutional and Human Rights (ECCHR), Gemeinschaft f\u00fcr Menschenrechte im Freistaat Sachsen e.V. (GMS), Germanwatch, Gesellschaft f\u00fcr bedrohte V\u00f6lker, Humanistische Union (HU), Human Rights Watch Germany, Humboldt Law Clinic: Grund- und Menschenrechte, International Physicians for the Prevention of Nuclear War (IPPNW), German Section, Physicians in Social Responsibility, Refugio Munich, Intersexuelle Menschen e.V., Lesben- und Schwulenverband in Deutschland (LSVD), Kindernothilfe, MISEREOR, Nuremberg Human Rights Centre, Pro Asyl, Reporters without Borders German Section, TERRE DES FEMMES, terre des hommes, Vereinte Evangelische Mission (VEM), Women\u2019s International League for Peace and Freedom German Section (WILPF)",
+      1.0
+    ]
+  ]
+}

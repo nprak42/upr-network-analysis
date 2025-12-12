@@ -1,0 +1,188 @@
+{
+  "num_nodes": 8,
+  "num_edges": 16,
+  "density": 0.5714285714285714,
+  "top_degree_centrality": [
+    [
+      "Campaign for Human Rights and Social Transformation",
+      0.7142857142857142
+    ],
+    [
+      "Finnish Evangelical Lutheran Mission",
+      0.7142857142857142
+    ],
+    [
+      "Lutheran World Federation, Geneva, Switzerland, Finn Church Aid",
+      0.7142857142857142
+    ],
+    [
+      "Rastriya Mukta Haliya Samaj Federation Nepal",
+      0.7142857142857142
+    ],
+    [
+      "Samari Utthan Sewa",
+      0.7142857142857142
+    ],
+    [
+      "and Lutheran Community Welfare Society",
+      0.7142857142857142
+    ],
+    [
+      "Forum for Women, Law and Development, Kathmandu, Nepal",
+      0.14285714285714285
+    ],
+    [
+      "on behalf of the Nepal Civil Society Network on Citizenship Rights, a network of over 50 civil society organizations",
+      0.14285714285714285
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Campaign for Human Rights and Social Transformation",
+      0.0
+    ],
+    [
+      "Finnish Evangelical Lutheran Mission",
+      0.0
+    ],
+    [
+      "Lutheran World Federation, Geneva, Switzerland, Finn Church Aid",
+      0.0
+    ],
+    [
+      "Rastriya Mukta Haliya Samaj Federation Nepal",
+      0.0
+    ],
+    [
+      "Samari Utthan Sewa",
+      0.0
+    ],
+    [
+      "and Lutheran Community Welfare Society",
+      0.0
+    ],
+    [
+      "Forum for Women, Law and Development, Kathmandu, Nepal",
+      0.0
+    ],
+    [
+      "on behalf of the Nepal Civil Society Network on Citizenship Rights, a network of over 50 civil society organizations",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Campaign for Human Rights and Social Transformation",
+      0.7142857142857143
+    ],
+    [
+      "Finnish Evangelical Lutheran Mission",
+      0.7142857142857143
+    ],
+    [
+      "Lutheran World Federation, Geneva, Switzerland, Finn Church Aid",
+      0.7142857142857143
+    ],
+    [
+      "Rastriya Mukta Haliya Samaj Federation Nepal",
+      0.7142857142857143
+    ],
+    [
+      "Samari Utthan Sewa",
+      0.7142857142857143
+    ],
+    [
+      "and Lutheran Community Welfare Society",
+      0.7142857142857143
+    ],
+    [
+      "Forum for Women, Law and Development, Kathmandu, Nepal",
+      0.14285714285714285
+    ],
+    [
+      "on behalf of the Nepal Civil Society Network on Citizenship Rights, a network of over 50 civil society organizations",
+      0.14285714285714285
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Campaign for Human Rights and Social Transformation",
+      0.4082482904636221
+    ],
+    [
+      "Finnish Evangelical Lutheran Mission",
+      0.4082482904636221
+    ],
+    [
+      "Lutheran World Federation, Geneva, Switzerland, Finn Church Aid",
+      0.4082482904636221
+    ],
+    [
+      "Rastriya Mukta Haliya Samaj Federation Nepal",
+      0.4082482904636221
+    ],
+    [
+      "Samari Utthan Sewa",
+      0.4082482904636221
+    ],
+    [
+      "and Lutheran Community Welfare Society",
+      0.4082482904636221
+    ],
+    [
+      "Forum for Women, Law and Development, Kathmandu, Nepal",
+      7.681911829603326e-07
+    ],
+    [
+      "on behalf of the Nepal Civil Society Network on Citizenship Rights, a network of over 50 civil society organizations",
+      7.681911829603326e-07
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 4.0,
+    "max": 5,
+    "min": 1,
+    "median": 5
+  },
+  "avg_clustering_coefficient": 0.75,
+  "num_components": 2,
+  "largest_component_size": 6,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 20,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "Campaign for Human Rights and Social Transformation",
+      0.6480000000000001
+    ],
+    [
+      "Finnish Evangelical Lutheran Mission",
+      0.6480000000000001
+    ],
+    [
+      "Lutheran World Federation, Geneva, Switzerland, Finn Church Aid",
+      0.6480000000000001
+    ],
+    [
+      "Rastriya Mukta Haliya Samaj Federation Nepal",
+      0.6480000000000001
+    ],
+    [
+      "Samari Utthan Sewa",
+      0.6480000000000001
+    ],
+    [
+      "and Lutheran Community Welfare Society",
+      0.6480000000000001
+    ],
+    [
+      "Forum for Women, Law and Development, Kathmandu, Nepal",
+      1.0
+    ],
+    [
+      "on behalf of the Nepal Civil Society Network on Citizenship Rights, a network of over 50 civil society organizations",
+      1.0
+    ]
+  ]
+}

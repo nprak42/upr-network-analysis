@@ -1,0 +1,227 @@
+{
+  "num_nodes": 21,
+  "num_edges": 110,
+  "density": 0.5238095238095238,
+  "top_degree_centrality": [
+    [
+      "Fiji Women\u2019s Rights Movement (Suva, Fiji)",
+      0.9500000000000001
+    ],
+    [
+      "Rainbow Pride Foundation (Suva, Fiji)",
+      0.9
+    ],
+    [
+      "Haus of Khameleon (Suva, Fiji)",
+      0.8500000000000001
+    ],
+    [
+      "Fiji Women\u2019s Crisis Centre (Suva, Fiji)",
+      0.8500000000000001
+    ],
+    [
+      "Citizens\u2019 Constitutional Forum (Suva, Fiji)",
+      0.6000000000000001
+    ],
+    [
+      "Bua Urban Youth (Suva, Fiji)",
+      0.5
+    ],
+    [
+      "Citizens Constitutional Forum (Suva, Fiji)",
+      0.5
+    ],
+    [
+      "National Union of Factory and Commercial Workers (Suva, Fiji)",
+      0.5
+    ],
+    [
+      "Medical Services Pacific (Suva, Fiji)",
+      0.5
+    ],
+    [
+      "Interfaith Search Fiji (Suva, Fiji)",
+      0.5
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Fiji Women\u2019s Rights Movement (Suva, Fiji)",
+      0.1907894736842105
+    ],
+    [
+      "Rainbow Pride Foundation (Suva, Fiji)",
+      0.1644736842105263
+    ],
+    [
+      "Haus of Khameleon (Suva, Fiji)",
+      0.06447368421052631
+    ],
+    [
+      "Fiji Women\u2019s Crisis Centre (Suva, Fiji)",
+      0.06447368421052631
+    ],
+    [
+      "Citizens\u2019 Constitutional Forum (Suva, Fiji)",
+      0.05263157894736842
+    ],
+    [
+      "Bua Urban Youth (Suva, Fiji)",
+      0.0
+    ],
+    [
+      "Citizens Constitutional Forum (Suva, Fiji)",
+      0.0
+    ],
+    [
+      "National Union of Factory and Commercial Workers (Suva, Fiji)",
+      0.0
+    ],
+    [
+      "Medical Services Pacific (Suva, Fiji)",
+      0.0
+    ],
+    [
+      "Interfaith Search Fiji (Suva, Fiji)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Fiji Women\u2019s Rights Movement (Suva, Fiji)",
+      0.9523809523809523
+    ],
+    [
+      "Rainbow Pride Foundation (Suva, Fiji)",
+      0.9090909090909091
+    ],
+    [
+      "Haus of Khameleon (Suva, Fiji)",
+      0.8695652173913043
+    ],
+    [
+      "Fiji Women\u2019s Crisis Centre (Suva, Fiji)",
+      0.8695652173913043
+    ],
+    [
+      "Citizens\u2019 Constitutional Forum (Suva, Fiji)",
+      0.7142857142857143
+    ],
+    [
+      "Bua Urban Youth (Suva, Fiji)",
+      0.6666666666666666
+    ],
+    [
+      "Citizens Constitutional Forum (Suva, Fiji)",
+      0.6666666666666666
+    ],
+    [
+      "National Union of Factory and Commercial Workers (Suva, Fiji)",
+      0.6666666666666666
+    ],
+    [
+      "Medical Services Pacific (Suva, Fiji)",
+      0.6666666666666666
+    ],
+    [
+      "Interfaith Search Fiji (Suva, Fiji)",
+      0.6666666666666666
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Fiji Women\u2019s Rights Movement (Suva, Fiji)",
+      0.3217851106187779
+    ],
+    [
+      "Rainbow Pride Foundation (Suva, Fiji)",
+      0.31650553789366065
+    ],
+    [
+      "Haus of Khameleon (Suva, Fiji)",
+      0.31453724096871616
+    ],
+    [
+      "Fiji Women\u2019s Crisis Centre (Suva, Fiji)",
+      0.31453724096871616
+    ],
+    [
+      "Citizens\u2019 Constitutional Forum (Suva, Fiji)",
+      0.213143517640554
+    ],
+    [
+      "Save the Children Fiji (Suva, Fiji)",
+      0.20589564799049226
+    ],
+    [
+      "Fiji Trades Union Congress (Suva, Fiji)",
+      0.20589564799049226
+    ],
+    [
+      "Fiji Disabled People\u2019s Federation (Suva, Fiji)",
+      0.20589564799049226
+    ],
+    [
+      "Fiji Council of Social Services (Suva, Fiji)",
+      0.20589564799049226
+    ],
+    [
+      "Bua Urban Youth Network (Suva, Fiji)",
+      0.20589564799049226
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 10.476190476190476,
+    "max": 19,
+    "min": 1,
+    "median": 10
+  },
+  "avg_clustering_coefficient": 0.861982272972985,
+  "num_components": 1,
+  "diameter": 3,
+  "avg_path_length": 1.4857142857142858,
+  "num_triangles": 330,
+  "transitivity": 0.7901037509976058,
+  "top_brokers": [
+    [
+      "Fiji Women\u2019s Rights Movement (Suva, Fiji)",
+      0.19174828909590255
+    ],
+    [
+      "Rainbow Pride Foundation (Suva, Fiji)",
+      0.19513846596772239
+    ],
+    [
+      "Haus of Khameleon (Suva, Fiji)",
+      0.21464030822941715
+    ],
+    [
+      "Fiji Women\u2019s Crisis Centre (Suva, Fiji)",
+      0.21464030822941715
+    ],
+    [
+      "Citizens\u2019 Constitutional Forum (Suva, Fiji)",
+      0.25725223187493257
+    ],
+    [
+      "Save the Children Fiji (Suva, Fiji)",
+      0.29872753532006835
+    ],
+    [
+      "Fiji Trades Union Congress (Suva, Fiji)",
+      0.29872753532006835
+    ],
+    [
+      "Fiji Disabled People\u2019s Federation (Suva, Fiji)",
+      0.29872753532006835
+    ],
+    [
+      "Fiji Council of Social Services (Suva, Fiji)",
+      0.29872753532006835
+    ],
+    [
+      "Bua Urban Youth Network (Suva, Fiji)",
+      0.29872753532006835
+    ]
+  ]
+}

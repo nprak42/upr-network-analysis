@@ -1,0 +1,127 @@
+{
+  "num_nodes": 5,
+  "num_edges": 10,
+  "density": 1.0,
+  "top_degree_centrality": [
+    [
+      "Joint submission 1, submitted by: Advocates for Human Rights (United States of America)",
+      1.0
+    ],
+    [
+      "The Greater Caribbean for life (United States of America). 2 For the relevant recommendations, see A/HRC/33/5, paras. 80.1\u201380.28, 80.62, 80.73, 80.74, 80.78, 80.81. 3 SVPPA, p. 2. 4 SVPPA, p. 2",
+      1.0
+    ],
+    [
+      "The World Coalition Against Death Penalty (France)",
+      1.0
+    ],
+    [
+      "p. 4. 10 SVPPA, p. 2. 11 For the relevant recommendations, see A/HRC/33/5, paras. 80.37\u201380.40, 80.43\u201380.45, 80.72 12 SVPPA, p. 3. 13 SVPPA, p. 3",
+      1.0
+    ],
+    [
+      "pp. 2, 4 and 6. 6 SVPPA, p. 2. 7 For the relevant recommendations, see A/HRC/33/5, paras. 80.29, 80.46\u201380.57. 8 SVPPA, p. 2",
+      1.0
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Joint submission 1, submitted by: Advocates for Human Rights (United States of America)",
+      0.0
+    ],
+    [
+      "The Greater Caribbean for life (United States of America). 2 For the relevant recommendations, see A/HRC/33/5, paras. 80.1\u201380.28, 80.62, 80.73, 80.74, 80.78, 80.81. 3 SVPPA, p. 2. 4 SVPPA, p. 2",
+      0.0
+    ],
+    [
+      "The World Coalition Against Death Penalty (France)",
+      0.0
+    ],
+    [
+      "p. 4. 10 SVPPA, p. 2. 11 For the relevant recommendations, see A/HRC/33/5, paras. 80.37\u201380.40, 80.43\u201380.45, 80.72 12 SVPPA, p. 3. 13 SVPPA, p. 3",
+      0.0
+    ],
+    [
+      "pp. 2, 4 and 6. 6 SVPPA, p. 2. 7 For the relevant recommendations, see A/HRC/33/5, paras. 80.29, 80.46\u201380.57. 8 SVPPA, p. 2",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Joint submission 1, submitted by: Advocates for Human Rights (United States of America)",
+      1.0
+    ],
+    [
+      "The Greater Caribbean for life (United States of America). 2 For the relevant recommendations, see A/HRC/33/5, paras. 80.1\u201380.28, 80.62, 80.73, 80.74, 80.78, 80.81. 3 SVPPA, p. 2. 4 SVPPA, p. 2",
+      1.0
+    ],
+    [
+      "The World Coalition Against Death Penalty (France)",
+      1.0
+    ],
+    [
+      "p. 4. 10 SVPPA, p. 2. 11 For the relevant recommendations, see A/HRC/33/5, paras. 80.37\u201380.40, 80.43\u201380.45, 80.72 12 SVPPA, p. 3. 13 SVPPA, p. 3",
+      1.0
+    ],
+    [
+      "pp. 2, 4 and 6. 6 SVPPA, p. 2. 7 For the relevant recommendations, see A/HRC/33/5, paras. 80.29, 80.46\u201380.57. 8 SVPPA, p. 2",
+      1.0
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Joint submission 1, submitted by: Advocates for Human Rights (United States of America)",
+      0.447213595499958
+    ],
+    [
+      "The Greater Caribbean for life (United States of America). 2 For the relevant recommendations, see A/HRC/33/5, paras. 80.1\u201380.28, 80.62, 80.73, 80.74, 80.78, 80.81. 3 SVPPA, p. 2. 4 SVPPA, p. 2",
+      0.447213595499958
+    ],
+    [
+      "The World Coalition Against Death Penalty (France)",
+      0.447213595499958
+    ],
+    [
+      "p. 4. 10 SVPPA, p. 2. 11 For the relevant recommendations, see A/HRC/33/5, paras. 80.37\u201380.40, 80.43\u201380.45, 80.72 12 SVPPA, p. 3. 13 SVPPA, p. 3",
+      0.447213595499958
+    ],
+    [
+      "pp. 2, 4 and 6. 6 SVPPA, p. 2. 7 For the relevant recommendations, see A/HRC/33/5, paras. 80.29, 80.46\u201380.57. 8 SVPPA, p. 2",
+      0.447213595499958
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 4.0,
+    "max": 4,
+    "min": 4,
+    "median": 4
+  },
+  "avg_clustering_coefficient": 1.0,
+  "num_components": 1,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 10,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "Joint submission 1, submitted by: Advocates for Human Rights (United States of America)",
+      0.765625
+    ],
+    [
+      "The Greater Caribbean for life (United States of America). 2 For the relevant recommendations, see A/HRC/33/5, paras. 80.1\u201380.28, 80.62, 80.73, 80.74, 80.78, 80.81. 3 SVPPA, p. 2. 4 SVPPA, p. 2",
+      0.765625
+    ],
+    [
+      "The World Coalition Against Death Penalty (France)",
+      0.765625
+    ],
+    [
+      "p. 4. 10 SVPPA, p. 2. 11 For the relevant recommendations, see A/HRC/33/5, paras. 80.37\u201380.40, 80.43\u201380.45, 80.72 12 SVPPA, p. 3. 13 SVPPA, p. 3",
+      0.765625
+    ],
+    [
+      "pp. 2, 4 and 6. 6 SVPPA, p. 2. 7 For the relevant recommendations, see A/HRC/33/5, paras. 80.29, 80.46\u201380.57. 8 SVPPA, p. 2",
+      0.765625
+    ]
+  ]
+}

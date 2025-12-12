@@ -1,0 +1,228 @@
+{
+  "num_nodes": 10,
+  "num_edges": 24,
+  "density": 0.5333333333333333,
+  "top_degree_centrality": [
+    [
+      "Belize Youth Empowerment for Change \u2013 BYEC (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Empower Yourself Belize Movement \u2013 EYBM (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Our Circle (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3",
+      0.6666666666666666
+    ],
+    [
+      "and",
+      0.6666666666666666
+    ],
+    [
+      "United Belize Advocacy Movement \u2013 UniBAM (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Maya Leaders Alliance (Belize)",
+      0.2222222222222222
+    ],
+    [
+      "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4",
+      0.2222222222222222
+    ],
+    [
+      "Cultural survival (United States of America)",
+      0.2222222222222222
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Belize Youth Empowerment for Change \u2013 BYEC (Belize)",
+      0.0
+    ],
+    [
+      "Empower Yourself Belize Movement \u2013 EYBM (Belize)",
+      0.0
+    ],
+    [
+      "Our Circle (Belize)",
+      0.0
+    ],
+    [
+      "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3",
+      0.0
+    ],
+    [
+      "and",
+      0.0
+    ],
+    [
+      "United Belize Advocacy Movement \u2013 UniBAM (Belize)",
+      0.0
+    ],
+    [
+      "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)",
+      0.0
+    ],
+    [
+      "Maya Leaders Alliance (Belize)",
+      0.0
+    ],
+    [
+      "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4",
+      0.0
+    ],
+    [
+      "Cultural survival (United States of America)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Belize Youth Empowerment for Change \u2013 BYEC (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Empower Yourself Belize Movement \u2013 EYBM (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Our Circle (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3",
+      0.6666666666666666
+    ],
+    [
+      "and",
+      0.6666666666666666
+    ],
+    [
+      "United Belize Advocacy Movement \u2013 UniBAM (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)",
+      0.6666666666666666
+    ],
+    [
+      "Maya Leaders Alliance (Belize)",
+      0.2222222222222222
+    ],
+    [
+      "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4",
+      0.2222222222222222
+    ],
+    [
+      "Cultural survival (United States of America)",
+      0.2222222222222222
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Belize Youth Empowerment for Change \u2013 BYEC (Belize)",
+      0.37796447300848734
+    ],
+    [
+      "Empower Yourself Belize Movement \u2013 EYBM (Belize)",
+      0.37796447300848734
+    ],
+    [
+      "Our Circle (Belize)",
+      0.37796447300848734
+    ],
+    [
+      "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3",
+      0.37796447300848734
+    ],
+    [
+      "and",
+      0.37796447300848734
+    ],
+    [
+      "United Belize Advocacy Movement \u2013 UniBAM (Belize)",
+      0.37796447300848734
+    ],
+    [
+      "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)",
+      0.37796447300848734
+    ],
+    [
+      "Maya Leaders Alliance (Belize)",
+      1.1423500382553032e-06
+    ],
+    [
+      "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4",
+      1.1423500382553032e-06
+    ],
+    [
+      "Cultural survival (United States of America)",
+      1.1423500382553032e-06
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 4.8,
+    "max": 6,
+    "min": 2,
+    "median": 6
+  },
+  "avg_clustering_coefficient": 1.0,
+  "num_components": 2,
+  "largest_component_size": 7,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 36,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "Belize Youth Empowerment for Change \u2013 BYEC (Belize)",
+      0.5601851851851852
+    ],
+    [
+      "Empower Yourself Belize Movement \u2013 EYBM (Belize)",
+      0.5601851851851852
+    ],
+    [
+      "Our Circle (Belize)",
+      0.5601851851851852
+    ],
+    [
+      "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3",
+      0.5601851851851852
+    ],
+    [
+      "and",
+      0.5601851851851852
+    ],
+    [
+      "United Belize Advocacy Movement \u2013 UniBAM (Belize)",
+      0.5601851851851852
+    ],
+    [
+      "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)",
+      0.5601851851851852
+    ],
+    [
+      "Maya Leaders Alliance (Belize)",
+      1.125
+    ],
+    [
+      "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4",
+      1.125
+    ],
+    [
+      "Cultural survival (United States of America)",
+      1.125
+    ]
+  ]
+}

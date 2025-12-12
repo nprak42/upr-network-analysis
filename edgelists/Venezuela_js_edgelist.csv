@@ -1,0 +1,1833 @@
+Source,Target,Weight
+Laboratorio de Paz,Provea,2
+Gobiernatec,Provea,2
+Codhez,Provea,2
+Codhez,Laboratorio de Paz,2
+Codhez,Gobiernatec,2
+Gobiernatec,Laboratorio de Paz,2
+Funcamama,Laboratorio de Paz,2
+Codhez,Funcamama,2
+Funcamama,Gobiernatec,2
+Aula Abierta,Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),2
+Funcamama,Provea,2
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Fundapden,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Fundación de derechos humanos de los llanos – Fundehullan,1
+ConviteAC,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+ConviteAC,Prepara Familia,1
+ConviteAC,OVS – Observatorio Venezolano de la Salud,1
+ConviteAC,MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Laboratorio de Paz,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Monitor Social A.C,1
+ConviteAC,Funcamama – Fundación de Lucha contra el Cáncer,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Mulier,1
+Consejo Nacional de la Sexo Diversidad,Movimiento Sexo Diverso LGBTIQ+ (Venezuela),1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Médicos Unidos de Venezuela Capítulo Carabobo,1
+Comité por una Radiotelevisión de Servicio Público,Un Mundo sin Mordaza. (Venezuela),1
+Comité por una Radiotelevisión de Servicio Público,Transparencia Venezuela,1
+Comité por una Radiotelevisión de Servicio Público,Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),ORPANAC (Venezuela),1
+Comité por una Radiotelevisión de Servicio Público,Instituto Prensa y Sociedad Venezuela,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Comité por una Radiotelevisión de Servicio Público,Expresión Libre,1
+Comité por una Radiotelevisión de Servicio Público,Espacio Público,1
+Comisión para los Derechos Humanos del Estado Zulia (CODHEZ),Observatorio de Derechos Humanos de la Universidad de los Andes,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Promedehum,1
+"Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia, Aula Abierta, y El Pitazo",Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA),1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Gobiernatec,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Fundimma,1
+ConviteAC,Senos Ayuda AC,1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Gritemos Con Brío (GcB),1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Fundación Mavid Carabobo,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Fundación Agua Sin Fronteras,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Funcamama,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),FUNDAVA,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),FUNDA-PDEN,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),EPIKEIA Derechos Humanos,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Defiende Venezuela,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),DefensActiva,1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Excubitus Derechos Humanos en Educación,1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+"Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia, Aula Abierta, y El Pitazo",EPIKEIA Derechos Humanos,1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),FCU de la Universidad Yacambú (FCU-UNY),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela),Observatorio de Derechos Humanos de la Universidad de los Andes,1
+"Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela), Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDHUCAB) (Venezuela)",Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA) (Venezuela),1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Laboratorio de Paz,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Fundimma,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Fundapden,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Fundación de derechos humanos de los llanos – Fundehullan,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Fundación Mavid Carabobo,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Fundación Agua Sin Fronteras,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Funcamama,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,FUNDAVA,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,FUNDA-PDEN,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,EPIKEIA Derechos Humanos,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Defiende Venezuela,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,DefensActiva,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Unión Vecinal para la Participación Ciudadana,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,StopVIH,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Redhanz,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Red de Derechos Humanos del Estado Lara,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Provea,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Promedehum,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,ORPANAC (Venezuela),1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Mulier,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Monitor Social A.C,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Laboratorio de Paz,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Gobiernatec,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Monitor Social A.C,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Fundimma,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Mulier,1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela),Comisión para los Derechos Humanos del Estado Zulia (CODHEZ),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Gritemos Con Brío (GcB),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),FCU de la Universidad Yacambú (FCU-UNY),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Excubitus Derechos Humanos en Educación,1
+Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Unión Vecinal para la Participación Ciudadana,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,StopVIH,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Redhanz,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Red de Derechos Humanos del Estado Lara,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Provea,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Promedehum,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,ORPANAC (Venezuela),1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Provea,1
+100% Estrogeno,AVH Nueva Esparta,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Red de Derechos Humanos del Estado Lara,1
+EPIKEIA Derechos Humanos,Fundación de derechos humanos de los llanos – Fundehullan,1
+EPIKEIA Derechos Humanos,Provea,1
+EPIKEIA Derechos Humanos,Promedehum,1
+EPIKEIA Derechos Humanos,Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA),1
+EPIKEIA Derechos Humanos,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+EPIKEIA Derechos Humanos,ORPANAC (Venezuela),1
+EPIKEIA Derechos Humanos,Médicos Unidos de Venezuela Capítulo Carabobo,1
+EPIKEIA Derechos Humanos,Mulier,1
+EPIKEIA Derechos Humanos,Monitor Social A.C,1
+EPIKEIA Derechos Humanos,Laboratorio de Paz,1
+EPIKEIA Derechos Humanos,Gobiernatec,1
+EPIKEIA Derechos Humanos,Fundimma,1
+EPIKEIA Derechos Humanos,Fundapden,1
+EPIKEIA Derechos Humanos,Fundación Mavid Carabobo,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Redhanz,1
+EPIKEIA Derechos Humanos,Fundación Agua Sin Fronteras,1
+EPIKEIA Derechos Humanos,Funcamama,1
+EPIKEIA Derechos Humanos,FUNDAVA,1
+EPIKEIA Derechos Humanos,FUNDA-PDEN,1
+Democracia Emprendedora DEME,Vigilancia Integral del Derecho a la Salud A.C VIDAS (Venezuela),1
+Democracia Emprendedora DEME,Fundación Prodefensa a la Niñez y a la Educación FUNDAPEN,1
+Defiende Venezuela (DV),Un Mundo Sin Mordaza (UMSM) (Venezuela),1
+Defiende Venezuela,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Defiende Venezuela,Unión Vecinal para la Participación Ciudadana,1
+Defiende Venezuela,StopVIH,1
+Defiende Venezuela,Redhanz,1
+Defiende Venezuela,Red de Derechos Humanos del Estado Lara,1
+EPIKEIA Derechos Humanos,Red de Derechos Humanos del Estado Lara,1
+EPIKEIA Derechos Humanos,Redhanz,1
+EPIKEIA Derechos Humanos,StopVIH,1
+EPIKEIA Derechos Humanos,Unión Vecinal para la Participación Ciudadana,1
+Excubitus DDHH,Sinergia,1
+Excubitus DDHH,Provea,1
+Excubitus DDHH,Prepara familia,1
+Excubitus DDHH,Observatorio de DDHH de la Universidad de los Andes,1
+Excubitus DDHH,Observatorio Global de Comunicación y Democracia,1
+Excubitus DDHH,Laboratorio de Paz,1
+Excubitus DDHH,Hearts on Venezuela,1
+Excubitus DDHH,Gobiernatec,1
+Excubitus DDHH,FundaRedes,1
+Excubitus DDHH,Funcamama,1
+Espacio Público (South Africa),Latin American and Caribbean Network for Democracy (REDLAC),1
+Espacio Público,Venezuela Inteligente (Venezuela),1
+Espacio Público,Un Mundo sin Mordaza. (Venezuela),1
+Espacio Público,Transparencia Venezuela,1
+Espacio Público,Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Espacio Público,Instituto Prensa y Sociedad Venezuela,1
+Espacio Público,Expresión Libre,1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),Movimiento Estudiantil PROudistas. (Venezuela),1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+EPIKEIA Derechos Humanos,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Defiende Venezuela,Provea,1
+Defiende Venezuela,Promedehum,1
+Defiende Venezuela,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+DefensActiva,Gobiernatec,1
+DefensActiva,Fundapden,1
+DefensActiva,Fundación de derechos humanos de los llanos – Fundehullan,1
+DefensActiva,Fundación Mavid Carabobo,1
+DefensActiva,Fundación Agua Sin Fronteras,1
+DefensActiva,Funcamama,1
+DefensActiva,FUNDAVA,1
+DefensActiva,FUNDA-PDEN,1
+DefensActiva,EPIKEIA Derechos Humanos,1
+DefensActiva,Defiende Venezuela,1
+Dale Letra,Voto joven,1
+Dale Letra,Unión Afirmativa,1
+Dale Letra,Sinergia,1
+Dale Letra,Provea,1
+Dale Letra,Prepara familia,1
+Dale Letra,Observatorio de DDHH de la Universidad de los Andes,1
+Dale Letra,Observatorio Global de Comunicación y Democracia,1
+Dale Letra,Laboratorio de Paz,1
+Dale Letra,Hearts on Venezuela,1
+Dale Letra,Gobiernatec,1
+Dale Letra,FundaRedes,1
+Dale Letra,Funcamama,1
+Dale Letra,Excubitus DDHH,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),Unión Vecinal para la Participación Ciudadana,1
+Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),StopVIH,1
+DefensActiva,Fundimma,1
+DefensActiva,Laboratorio de Paz,1
+Defiende Venezuela,ORPANAC (Venezuela),1
+DefensActiva,Monitor Social A.C,1
+Defiende Venezuela,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Defiende Venezuela,Mulier,1
+Defiende Venezuela,Monitor Social A.C,1
+Defiende Venezuela,Laboratorio de Paz,1
+Defiende Venezuela,Gobiernatec,1
+Defiende Venezuela,Fundimma,1
+Defiende Venezuela,Fundapden,1
+Defiende Venezuela,Fundación de derechos humanos de los llanos – Fundehullan,1
+Defiende Venezuela,Fundación Mavid Carabobo,1
+Defiende Venezuela,Fundación Agua Sin Fronteras,1
+Defiende Venezuela,Funcamama,1
+Defiende Venezuela,FUNDAVA,1
+Defiende Venezuela,FUNDA-PDEN,1
+Defiende Venezuela,EPIKEIA Derechos Humanos,1
+DefensActiva,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+DefensActiva,Unión Vecinal para la Participación Ciudadana,1
+DefensActiva,StopVIH,1
+DefensActiva,Redhanz,1
+DefensActiva,Red de Derechos Humanos del Estado Lara,1
+DefensActiva,Provea,1
+DefensActiva,Promedehum,1
+DefensActiva,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+DefensActiva,ORPANAC (Venezuela),1
+DefensActiva,Médicos Unidos de Venezuela Capítulo Carabobo,1
+DefensActiva,Mulier,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Gobiernatec,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Fundación Agua Sin Fronteras,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Fundapden,1
+Centro internacional de Investigación Otras Voces en Educación (CII-OVE),Foro venezolano por el Derecho a la Educación (FOVEDE),1
+Civilis Derechos Humanos,ORPANAC (Venezuela),1
+Civilis Derechos Humanos,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Civilis Derechos Humanos,Mulier,1
+Civilis Derechos Humanos,Monitor Social A.C,1
+Civilis Derechos Humanos,Laboratorio de Paz,1
+Civilis Derechos Humanos,Gobiernatec,1
+Civilis Derechos Humanos,Fundimma,1
+Civilis Derechos Humanos,Fundapden,1
+Civilis Derechos Humanos,Fundación de derechos humanos de los llanos – Fundehullan,1
+Civilis Derechos Humanos,Fundación Mavid Carabobo,1
+Civilis Derechos Humanos,Fundación Agua Sin Fronteras,1
+Civilis Derechos Humanos,Funcamama,1
+Civilis Derechos Humanos,FUNDAVA,1
+Civilis Derechos Humanos,FUNDA-PDEN,1
+Civilis Derechos Humanos,EPIKEIA Derechos Humanos,1
+Civilis Derechos Humanos,Defiende Venezuela,1
+Civilis Derechos Humanos,DefensActiva,1
+Civilis Derechos Humanos,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Civilis Derechos Humanos,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Civilis Derechos Humanos,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Civilis Derechos Humanos,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Civilis Derechos Humanos,Codhez,1
+Civilis Derechos Humanos,Codehciu,1
+Centros de Estudios para la Discapacidad (CEDISC) (Venezuela),Confederación de Sordos de Venezuela (CONSORVEN),1
+Centro internacional de Investigación Otras Voces en Educación (CII-OVE),y Movimiento Magisterial de Base – Venezuela,1
+Civilis Derechos Humanos,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Civilis Derechos Humanos,Promedehum,1
+Civilis Derechos Humanos,Provea,1
+Civilis derechos humanos,Observatorio Global de Comunicación y Democracia,1
+Codehciu,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Codehciu,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Codehciu,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Codehciu,Codhez,1
+Clima21- Ambiente y Derechos Humanos,Todos por el Futuro (Venezuela),1
+Civilis derechos humanos,Voto joven,1
+Civilis derechos humanos,Unión Afirmativa,1
+Civilis derechos humanos,Sinergia,1
+Civilis derechos humanos,Provea,1
+Civilis derechos humanos,Prepara familia,1
+Civilis derechos humanos,Observatorio de DDHH de la Universidad de los Andes,1
+Civilis derechos humanos,Laboratorio de Paz,1
+Civilis Derechos Humanos,Red de Derechos Humanos del Estado Lara,1
+Civilis derechos humanos,Hearts on Venezuela,1
+Civilis derechos humanos,Gobiernatec,1
+Civilis derechos humanos,FundaRedes,1
+Civilis derechos humanos,Funcamama,1
+Civilis derechos humanos,Excubitus DDHH,1
+Civilis derechos humanos,Dale Letra,1
+Civilis derechos humanos,Codhez,1
+Civilis Derechos Humanos,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Civilis Derechos Humanos,Unión Vecinal para la Participación Ciudadana,1
+Civilis Derechos Humanos,StopVIH,1
+Civilis Derechos Humanos,Redhanz,1
+Centro internacional de Investigación Otras Voces en Educación (CII-OVE),Red Global/Glocal por la Calidad Educativa,1
+Centro de Justicia y Paz (Cepaz),Voto joven,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Fundación de derechos humanos de los llanos – Fundehullan,1
+Centro de Justicia y Paz (Cepaz),Unión Afirmativa,1
+"Centro de Investigación Social, Formación y Estudios de la Mujer (CISFEM)",Observatorio Venezolano de los DDHH de las Mujeres (OVDHM),1
+"Centro de Investigación Social, Formación y Estudios de la Mujer (CISFEM)",Federación Venezolana de Abogadas (FEVA) (Venezuela),1
+Centro de Formación para la Democracia,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Centro de Formación para la Democracia,Unión Vecinal para la Participación Ciudadana,1
+Centro de Formación para la Democracia,StopVIH,1
+Centro de Formación para la Democracia,Redhanz,1
+Centro de Formación para la Democracia,Red de Derechos Humanos del Estado Lara,1
+Centro de Formación para la Democracia,Provea,1
+Centro de Formación para la Democracia,Promedehum,1
+Centro de Formación para la Democracia,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Centro de Formación para la Democracia,ORPANAC (Venezuela),1
+Centro de Formación para la Democracia,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Centro de Formación para la Democracia,Mulier,1
+Centro de Formación para la Democracia,Monitor Social A.C,1
+Centro de Formación para la Democracia,Laboratorio de Paz,1
+Centro de Formación para la Democracia,Gobiernatec,1
+Centro de Formación para la Democracia,Fundimma,1
+Centro de Formación para la Democracia,Fundapden,1
+Centro de Formación para la Democracia,Fundación de derechos humanos de los llanos – Fundehullan,1
+Centro de Formación para la Democracia,Fundación Mavid Carabobo,1
+Centro de Formación para la Democracia,Fundación Agua Sin Fronteras,1
+Centro de Formación para la Democracia,Funcamama,1
+Centro de Formación para la Democracia,FUNDAVA,1
+Centro de Formación para la Democracia,FUNDA-PDEN,1
+Centro de Formación para la Democracia,EPIKEIA Derechos Humanos,1
+"Centro de Investigación Social, Formación y Estudios de la Mujer (CISFEM)",Voces Vitales Venezuela (VVV),1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Colegio Nacional de Periodistas (CNP),1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Comité por una Radiotelevisión de Servicio Público,1
+Centro de Justicia y Paz (Cepaz),Dale Letra,1
+Centro de Justicia y Paz (Cepaz),Sinergia,1
+Centro de Justicia y Paz (Cepaz),Provea,1
+Centro de Justicia y Paz (Cepaz),Prepara familia,1
+Centro de Justicia y Paz (Cepaz),Observatorio de DDHH de la Universidad de los Andes,1
+Centro de Justicia y Paz (Cepaz),Observatorio Global de Comunicación y Democracia,1
+Centro de Justicia y Paz (Cepaz),Laboratorio de Paz,1
+Centro de Justicia y Paz (Cepaz),Hearts on Venezuela,1
+Centro de Justicia y Paz (Cepaz),Gobiernatec,1
+Centro de Justicia y Paz (Cepaz),FundaRedes,1
+Centro de Justicia y Paz (Cepaz),Funcamama,1
+Centro de Justicia y Paz (Cepaz),Excubitus DDHH,1
+Centro de Justicia y Paz (Cepaz),Codhez,1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Espacio Público,1
+Centro de Justicia y Paz (Cepaz),Civilis derechos humanos,1
+Centro de Justicia y Paz (CEPAZ),Red de Activistas Ciudadanos por los Derechos Humanos (REDAC),1
+Centro de Justicia y Paz (CEPAZ),Red de Activistas Ciudadanos para los Derechos Humanos (REDAC) (Venezuela),1
+Centro de Justicia y Paz (CEPAZ),Red Naranja,1
+Centro de Justicia y Paz (CEPAZ),Law Society of England and Wales,1
+Centro de Justicia y Paz (CEPAZ),Fundación para la Prevención de la Violencia Contra las Mujeres (FUNDAMUJER),1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Un Mundo sin Mordaza. (Venezuela),1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Transparencia Venezuela,1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Instituto Prensa y Sociedad Venezuela,1
+Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),Expresión Libre,1
+Codehciu,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Codehciu,DefensActiva,1
+Codehciu,Defiende Venezuela,1
+Codehciu,EPIKEIA Derechos Humanos,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Fundación Agua Sin Fronteras,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Funcamama,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,FUNDAVA,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,FUNDA-PDEN,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,EPIKEIA Derechos Humanos,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Defiende Venezuela,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,DefensActiva,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Colegio Nacional de Periodistas (CNP),Un Mundo sin Mordaza. (Venezuela),1
+Colegio Nacional de Periodistas (CNP),Transparencia Venezuela,1
+Colegio Nacional de Periodistas (CNP),Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Colegio Nacional de Periodistas (CNP),Instituto Prensa y Sociedad Venezuela,1
+Colegio Nacional de Periodistas (CNP),Expresión Libre,1
+Colegio Nacional de Periodistas (CNP),Espacio Público,1
+Colegio Nacional de Periodistas (CNP),Comité por una Radiotelevisión de Servicio Público,1
+Codhez,Voto joven,1
+Codhez,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Codhez,Unión Vecinal para la Participación Ciudadana,1
+Codhez,Unión Afirmativa,1
+Codhez,StopVIH,1
+Codhez,Sinergia,1
+Codhez,Redhanz,1
+Codhez,Red de Derechos Humanos del Estado Lara,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Fundación Mavid Carabobo,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Fundación de derechos humanos de los llanos – Fundehullan,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Fundapden,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Unión Vecinal para la Participación Ciudadana,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Fundación Mavid Carabobo,1
+Excubitus DDHH,Voto joven,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Funcamama,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,FUNDAVA,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,FUNDA-PDEN,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,EPIKEIA Derechos Humanos,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Defiende Venezuela,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,DefensActiva,1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,StopVIH,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Fundimma,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Redhanz,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Red de Derechos Humanos del Estado Lara,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Provea,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Promedehum,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,ORPANAC (Venezuela),1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Mulier,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Monitor Social A.C,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Laboratorio de Paz,1
+Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,Gobiernatec,1
+Codhez,Promedehum,1
+Codhez,Prepara familia,1
+Codhez,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Codehciu,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,Funcamama – Fundación de Lucha contra el Cáncer,1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,ConviteAC,1
+Codehciu,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Codehciu,Unión Vecinal para la Participación Ciudadana,1
+Codehciu,StopVIH,1
+Codehciu,Redhanz,1
+Codehciu,Red de Derechos Humanos del Estado Lara,1
+Codehciu,Provea,1
+Codehciu,Promedehum,1
+Codehciu,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Codehciu,ORPANAC (Venezuela),1
+Codehciu,Mulier,1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,OVS – Observatorio Venezolano de la Salud,1
+Codehciu,Monitor Social A.C,1
+Codehciu,Laboratorio de Paz,1
+Codehciu,Gobiernatec,1
+Codehciu,Fundimma,1
+Codehciu,Fundapden,1
+Codehciu,Fundación de derechos humanos de los llanos – Fundehullan,1
+Codehciu,Fundación Mavid Carabobo,1
+Codehciu,Fundación Agua Sin Fronteras,1
+Codehciu,Funcamama,1
+Codehciu,FUNDAVA,1
+Codehciu,FUNDA-PDEN,1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,Prepara Familia,1
+Codhez,Observatorio de DDHH de la Universidad de los Andes,1
+Codhez,FundaRedes,1
+Codhez,Observatorio Global de Comunicación y Democracia,1
+Codhez,ORPANAC (Venezuela),1
+Codhez,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Codhez,Mulier,1
+Codhez,Monitor Social A.C,1
+Codhez,Hearts on Venezuela,1
+Codhez,Fundimma,1
+Codhez,Fundapden,1
+Codhez,Fundación de derechos humanos de los llanos – Fundehullan,1
+Codhez,Fundación Mavid Carabobo,1
+Codhez,Fundación Agua Sin Fronteras,1
+Codhez,FUNDAVA,1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Codhez,FUNDA-PDEN,1
+Codhez,Excubitus DDHH,1
+Codhez,EPIKEIA Derechos Humanos,1
+Codhez,Defiende Venezuela,1
+Codhez,DefensActiva,1
+Codhez,Dale Letra,1
+Codhez,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Codhez,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Codhez,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Codhez,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,Senos Ayuda AC,1
+Excubitus DDHH,Unión Afirmativa,1
+Excubitus Derechos Humanos en Educación,Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Excubitus Derechos Humanos en Educación,FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Fundimma,ORPANAC (Venezuela),1
+Gobiernatec,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Gobiernatec,Unión Vecinal para la Participación Ciudadana,1
+Gobiernatec,Unión Afirmativa,1
+Gobiernatec,StopVIH,1
+Gobiernatec,Sinergia,1
+Gobiernatec,Redhanz,1
+Gobiernatec,Red de Derechos Humanos del Estado Lara,1
+Gobiernatec,Promedehum,1
+Gobiernatec,Prepara familia,1
+Gobiernatec,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Gobiernatec,Observatorio de DDHH de la Universidad de los Andes,1
+Gobiernatec,Observatorio Global de Comunicación y Democracia,1
+Gobiernatec,ORPANAC (Venezuela),1
+Gobiernatec,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Gobiernatec,Mulier,1
+Gobiernatec,Monitor Social A.C,1
+Gobiernatec,Hearts on Venezuela,1
+GE.21-15718 15,"Red Electoral Ciudadana, Red Electoral Ciudadana (REC), Centro de Justicia y Paz (Cepaz) (Venezuela), Observatorio Global de Comunicación y Democracia (OGCD) and Voto Joven (Venezuela)",1
+Fundimma,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Fundimma,Unión Vecinal para la Participación Ciudadana,1
+Fundimma,StopVIH,1
+Fundimma,Redhanz,1
+Fundimma,Red de Derechos Humanos del Estado Lara,1
+Fundimma,Provea,1
+Fundimma,Promedehum,1
+Gobiernatec,Voto joven,1
+Gritemos Con Brío (GcB),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Gritemos con Brío,MonitorDescaVe,1
+Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),Transparencia Venezuela,1
+Laboratorio de Paz,Red de Derechos Humanos del Estado Lara,1
+Laboratorio de Paz,Promedehum,1
+Laboratorio de Paz,Prepara familia,1
+Laboratorio de Paz,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Laboratorio de Paz,Observatorio de DDHH de la Universidad de los Andes,1
+Laboratorio de Paz,Observatorio Global de Comunicación y Democracia,1
+Laboratorio de Paz,ORPANAC (Venezuela),1
+Laboratorio de Paz,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Laboratorio de Paz,Mulier,1
+Laboratorio de Paz,Monitor Social A.C,1
+Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),Un Mundo sin Mordaza. (Venezuela),1
+Instituto Prensa y Sociedad Venezuela,Un Mundo sin Mordaza. (Venezuela),1
+Gritemos con Brío,Observatorio de Género de Proyecto 860 (Venezuela),1
+Instituto Prensa y Sociedad Venezuela,Transparencia Venezuela,1
+Instituto Prensa y Sociedad Venezuela,Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Hearts on Venezuela,Voto joven,1
+Hearts on Venezuela,Unión Afirmativa,1
+Hearts on Venezuela,Sinergia,1
+Hearts on Venezuela,Provea,1
+Hearts on Venezuela,Prepara familia,1
+Hearts on Venezuela,Observatorio de DDHH de la Universidad de los Andes,1
+Hearts on Venezuela,Observatorio Global de Comunicación y Democracia,1
+Hearts on Venezuela,Laboratorio de Paz,1
+Gritemos con Brío,Proyecto 860,1
+Fundimma,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Fundimma,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Laboratorio de Paz,Sinergia,1
+Fundimma,Mulier,1
+Fundación de derechos humanos de los llanos – Fundehullan,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Fundación de derechos humanos de los llanos – Fundehullan,ORPANAC (Venezuela),1
+Fundación de derechos humanos de los llanos – Fundehullan,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Fundación de derechos humanos de los llanos – Fundehullan,Mulier,1
+Fundación de derechos humanos de los llanos – Fundehullan,Monitor Social A.C,1
+Fundación de derechos humanos de los llanos – Fundehullan,Laboratorio de Paz,1
+Fundación de derechos humanos de los llanos – Fundehullan,Gobiernatec,1
+Fundación de derechos humanos de los llanos – Fundehullan,Fundimma,1
+Fundación de derechos humanos de los llanos – Fundehullan,Fundapden,1
+Fundación Renal del Táchira,Proyecto 860,1
+Fundación Renal del Táchira,Observatorio de Género de Proyecto 860 (Venezuela),1
+Fundación Renal del Táchira,Gritemos con Brío,1
+Fundación Prodefensa a la Niñez y a la Educación FUNDAPEN,Vigilancia Integral del Derecho a la Salud A.C VIDAS (Venezuela),1
+Fundación Mavid Carabobo,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Fundación Mavid Carabobo,Unión Vecinal para la Participación Ciudadana,1
+Fundación Mavid Carabobo,StopVIH,1
+Fundación Mavid Carabobo,Redhanz,1
+Fundación Mavid Carabobo,Red de Derechos Humanos del Estado Lara,1
+Fundación Mavid Carabobo,Provea,1
+Fundación Mavid Carabobo,Promedehum,1
+Fundación Mavid Carabobo,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Fundación Mavid Carabobo,ORPANAC (Venezuela),1
+Fundación Mavid Carabobo,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Fundación Mavid Carabobo,Mulier,1
+Fundación Mavid Carabobo,Monitor Social A.C,1
+Fundación de derechos humanos de los llanos – Fundehullan,Promedehum,1
+Fundación de derechos humanos de los llanos – Fundehullan,Provea,1
+Fundación de derechos humanos de los llanos – Fundehullan,Red de Derechos Humanos del Estado Lara,1
+Fundapden,ORPANAC (Venezuela),1
+Fundimma,Monitor Social A.C,1
+Fundimma,Laboratorio de Paz,1
+Fundimma,Gobiernatec,1
+Fundapden,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Fundapden,Unión Vecinal para la Participación Ciudadana,1
+Fundapden,StopVIH,1
+Fundapden,Redhanz,1
+Fundapden,Red de Derechos Humanos del Estado Lara,1
+Fundapden,Provea,1
+Fundapden,Promedehum,1
+Fundapden,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Fundapden,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Fundación de derechos humanos de los llanos – Fundehullan,Redhanz,1
+Fundapden,Mulier,1
+Fundapden,Monitor Social A.C,1
+Fundapden,Laboratorio de Paz,1
+Fundapden,Gobiernatec,1
+Fundapden,Fundimma,1
+Fundación para la Prevención de la Violencia Contra las Mujeres (FUNDAMUJER),Red de Activistas Ciudadanos para los Derechos Humanos (REDAC) (Venezuela),1
+Fundación para la Prevención de la Violencia Contra las Mujeres (FUNDAMUJER),Red Naranja,1
+Fundación para el Depido Proceso (DPLF) y EPIKEIA Derechos Humanos,"Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA), Defiende Venezuela",1
+Fundación de derechos humanos de los llanos – Fundehullan,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Fundación de derechos humanos de los llanos – Fundehullan,Unión Vecinal para la Participación Ciudadana,1
+Fundación de derechos humanos de los llanos – Fundehullan,StopVIH,1
+Laboratorio de Paz,Redhanz,1
+Laboratorio de Paz,StopVIH,1
+Excubitus Derechos Humanos en Educación,FCU de la Universidad Yacambú (FCU-UNY),1
+Observatorio Venezolano de los DDHH de las Mujeres (OVDHM),Voces Vitales Venezuela (VVV),1
+Promedehum,StopVIH,1
+Promedehum,Redhanz,1
+Promedehum,Red de Derechos Humanos del Estado Lara,1
+Promedehum,Provea,1
+Prepara familia,Voto joven,1
+Prepara familia,Unión Afirmativa,1
+Prepara familia,Sinergia,1
+Prepara familia,Provea,1
+Prepara Familia,Senos Ayuda AC,1
+Prepara Familia,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Participación Activa y Social por los Derechos de la Mujer y la Paz (PAS),The Women’s International Democratic Federation (WIDF),1
+Participación Activa y Social por los Derechos de la Mujer y la Paz (PAS),Red de Mujeres de Vargas (RMV) (El Salvador),1
+Observatorio de Género de Proyecto 860 (Venezuela),Proyecto 860,1
+Observatorio de Derechos Humanos de los Llanos (Venezuela),Red Justicia y Libertad,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,Unión Vecinal para la Participación Ciudadana,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,StopVIH,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,Redhanz,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,Red de Derechos Humanos del Estado Lara,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,Provea,1
+Observatorio de Derechos Humanos de la Universidad de Los Andes,Promedehum,1
+Observatorio de DDHH de la Universidad de los Andes,Voto joven,1
+Observatorio de DDHH de la Universidad de los Andes,Unión Afirmativa,1
+Observatorio de DDHH de la Universidad de los Andes,Sinergia,1
+Observatorio de DDHH de la Universidad de los Andes,Provea,1
+Promedehum,Unión Vecinal para la Participación Ciudadana,1
+Promedehum,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Provea,Red de Derechos Humanos del Estado Lara,1
+Red de Derechos Humanos del Estado Lara,Unión Vecinal para la Participación Ciudadana,1
+Unión Afirmativa,Voto joven,1
+Transparencia Venezuela,Un Mundo sin Mordaza. (Venezuela),1
+StopVIH,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+StopVIH,Unión Vecinal para la Participación Ciudadana,1
+Sinergia,Voto joven,1
+Sinergia,Unión Afirmativa,1
+Redhanz,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Redhanz,Unión Vecinal para la Participación Ciudadana,1
+Redhanz,StopVIH,1
+Red de Mujeres de Vargas (RMV) (El Salvador),The Women’s International Democratic Federation (WIDF),1
+Red de Derechos Humanos del Estado Lara,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Red de Derechos Humanos del Estado Lara,StopVIH,1
+Provea,Redhanz,1
+Red de Derechos Humanos del Estado Lara,Redhanz,1
+Red Naranja (Venezuela),Union Afirmativa,1
+Red Naranja,Red de Activistas Ciudadanos para los Derechos Humanos (REDAC) (Venezuela),1
+Red Global/Glocal por la Calidad Educativa,y Movimiento Magisterial de Base – Venezuela,1
+Provea – Programa Venezolano de Educación Acción en Derechos Humanos,Senos Ayuda AC,1
+Provea,Voto joven,1
+Provea,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Provea,Unión Vecinal para la Participación Ciudadana,1
+Provea,Unión Afirmativa,1
+Provea,StopVIH,1
+Provea,Sinergia,1
+Observatorio de DDHH de la Universidad de los Andes,Prepara familia,1
+Observatorio Global de Comunicación y Democracia,Voto joven,1
+Laboratorio de Paz,Unión Afirmativa,1
+Observatorio Global de Comunicación y Democracia,Unión Afirmativa,1
+Mulier,Red de Derechos Humanos del Estado Lara,1
+Mulier,Provea,1
+Mulier,Promedehum,1
+Mulier,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Mulier,ORPANAC (Venezuela),1
+Mulier,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Mujeres sin Fronteras,Red Naranja (Venezuela),1
+Monitor Social A.C,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Monitor Social A.C,Unión Vecinal para la Participación Ciudadana,1
+Monitor Social A.C,StopVIH,1
+Monitor Social A.C,Redhanz,1
+Monitor Social A.C,Red de Derechos Humanos del Estado Lara,1
+Monitor Social A.C,Provea,1
+Monitor Social A.C,Promedehum,1
+Monitor Social A.C,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Monitor Social A.C,ORPANAC (Venezuela),1
+Monitor Social A.C,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Monitor Social A.C,Mulier,1
+MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),Senos Ayuda AC,1
+MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),Prepara Familia,1
+MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),OVS – Observatorio Venezolano de la Salud,1
+Laboratorio de Paz,Voto joven,1
+Laboratorio de Paz,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Laboratorio de Paz,Unión Vecinal para la Participación Ciudadana,1
+Mulier,Redhanz,1
+Mulier,StopVIH,1
+Mulier,Unión Vecinal para la Participación Ciudadana,1
+ORPANAC (Venezuela),Red de Derechos Humanos del Estado Lara,1
+Observatorio Global de Comunicación y Democracia,Sinergia,1
+Observatorio Global de Comunicación y Democracia,Provea,1
+Observatorio Global de Comunicación y Democracia,Prepara familia,1
+Observatorio Global de Comunicación y Democracia,Observatorio de DDHH de la Universidad de los Andes,1
+OVS – Observatorio Venezolano de la Salud,Senos Ayuda AC,1
+OVS – Observatorio Venezolano de la Salud,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+OVS – Observatorio Venezolano de la Salud,Prepara Familia,1
+ORPANAC (Venezuela),Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+ORPANAC (Venezuela),Unión Vecinal para la Participación Ciudadana,1
+ORPANAC (Venezuela),StopVIH,1
+ORPANAC (Venezuela),Redhanz,1
+ORPANAC (Venezuela),Provea,1
+Mulier,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+ORPANAC (Venezuela),Promedehum,1
+ORPANAC (Venezuela),Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Unión Vecinal para la Participación Ciudadana,1
+Médicos Unidos de Venezuela Capítulo Carabobo,StopVIH,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Redhanz,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Red de Derechos Humanos del Estado Lara,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Provea,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Promedehum,1
+Médicos Unidos de Venezuela Capítulo Carabobo,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Médicos Unidos de Venezuela Capítulo Carabobo,ORPANAC (Venezuela),1
+Fundación Mavid Carabobo,Laboratorio de Paz,1
+Fundación Mavid Carabobo,Gobiernatec,1
+Fundación Mavid Carabobo,Fundimma,1
+FUNDA-PDEN,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Federación Internacional de Derechos Humanos (FIDH),Programa Venezolano de Educación-Acción en Derechos Humanos (PROVEA) (Venezuela),1
+FUNDAVA,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+FUNDAVA,Unión Vecinal para la Participación Ciudadana,1
+FUNDAVA,StopVIH,1
+FUNDAVA,Redhanz,1
+FUNDAVA,Red de Derechos Humanos del Estado Lara,1
+FUNDAVA,Provea,1
+FUNDAVA,Promedehum,1
+FUNDAVA,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+FUNDAVA,ORPANAC (Venezuela),1
+FUNDAVA,Médicos Unidos de Venezuela Capítulo Carabobo,1
+FUNDAVA,Mulier,1
+FUNDAVA,Monitor Social A.C,1
+FUNDAVA,Laboratorio de Paz,1
+FUNDAVA,Gobiernatec,1
+FUNDAVA,Fundimma,1
+FUNDAVA,Fundapden,1
+FUNDAVA,Fundación de derechos humanos de los llanos – Fundehullan,1
+FUNDAVA,Fundación Mavid Carabobo,1
+FUNDAVA,Fundación Agua Sin Fronteras,1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Gritemos Con Brío (GcB),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Federación Venezolana de Estudiantes de Medicina (FEVEMED),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),Gritemos Con Brío (GcB),1
+Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Gritemos Con Brío (GcB),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Federación Nacional de Estudiantes de Derecho (FENEDE),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Federación Venezolana de Abogadas (FEVA) (Venezuela),Voces Vitales Venezuela (VVV),1
+Federación Venezolana de Abogadas (FEVA) (Venezuela),Observatorio Venezolano de los DDHH de las Mujeres (OVDHM),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Gritemos Con Brío (GcB),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+FUNDAVA,Funcamama,1
+FUNDA-PDEN,Unión Vecinal para la Participación Ciudadana,1
+Fundación Mavid Carabobo,Fundapden,1
+FUNDA-PDEN,StopVIH,1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Gritemos Con Brío (GcB),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),FCU de la Universidad Yacambú (FCU-UNY),1
+Expresión Libre,Un Mundo sin Mordaza. (Venezuela),1
+Expresión Libre,Transparencia Venezuela,1
+Expresión Libre,Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Expresión Libre,Instituto Prensa y Sociedad Venezuela,1
+Excubitus Derechos Humanos en Educación,Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Excubitus Derechos Humanos en Educación,Gritemos Con Brío (GcB),1
+Excubitus Derechos Humanos en Educación,Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Excubitus Derechos Humanos en Educación,Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Excubitus Derechos Humanos en Educación,Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Excubitus Derechos Humanos en Educación,Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Excubitus Derechos Humanos en Educación,Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Excubitus Derechos Humanos en Educación,Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Excubitus Derechos Humanos en Educación,Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Centro de Formación para la Democracia,DefensActiva,1
+FCU de la Universidad Yacambú (FCU-UNY),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+FCU de la Universidad Yacambú (FCU-UNY),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+FCU de la Universidad Yacambú (FCU-UNY),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+FUNDA-PDEN,Fundimma,1
+FUNDA-PDEN,Redhanz,1
+FUNDA-PDEN,Red de Derechos Humanos del Estado Lara,1
+FUNDA-PDEN,Provea,1
+FUNDA-PDEN,Promedehum,1
+FUNDA-PDEN,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+FUNDA-PDEN,ORPANAC (Venezuela),1
+FUNDA-PDEN,Médicos Unidos de Venezuela Capítulo Carabobo,1
+FUNDA-PDEN,Mulier,1
+FUNDA-PDEN,Monitor Social A.C,1
+FUNDA-PDEN,Laboratorio de Paz,1
+FUNDA-PDEN,Gobiernatec,1
+FUNDA-PDEN,Fundapden,1
+FCU de la Universidad Yacambú (FCU-UNY),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+FUNDA-PDEN,Fundación de derechos humanos de los llanos – Fundehullan,1
+FUNDA-PDEN,Fundación Mavid Carabobo,1
+FUNDA-PDEN,Fundación Agua Sin Fronteras,1
+FUNDA-PDEN,Funcamama,1
+FUNDA-PDEN,FUNDAVA,1
+FCU de la Universidad Yacambú (FCU-UNY),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+FCU de la Universidad Yacambú (FCU-UNY),Gritemos Con Brío (GcB),1
+FCU de la Universidad Yacambú (FCU-UNY),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+FCU de la Universidad Yacambú (FCU-UNY),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+FCU de la Universidad Yacambú (FCU-UNY),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+FCU de la Universidad Yacambú (FCU-UNY),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Federación Venezolana de Estudiantes de Medicina (FEVEMED),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Federación Venezolana de Estudiantes de Medicina (FEVEMED),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación Venezolana de Estudiantes de Medicina (FEVEMED),Gritemos Con Brío (GcB),1
+Federación Venezolana de Estudiantes de Medicina (FEVEMED),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+FundaRedes,Unión Afirmativa,1
+FundaRedes,Sinergia,1
+FundaRedes,Proyecto 860,1
+FundaRedes,Provea,1
+FundaRedes,Prepara familia,1
+FundaRedes,Observatorio de Género de Proyecto 860 (Venezuela),1
+FundaRedes,Observatorio de DDHH de la Universidad de los Andes,1
+FundaRedes,Observatorio Global de Comunicación y Democracia,1
+FundaRedes,Laboratorio de Paz,1
+FundaRedes,Hearts on Venezuela,1
+FundaRedes,Gritemos con Brío,1
+FundaRedes,Gobiernatec,1
+FundaRedes,Fundación Renal del Táchira,1
+FundaRedes,FundaSidarta,1
+FundaHemofialia,Proyecto 860,1
+FundaHemofialia,Observatorio de Género de Proyecto 860 (Venezuela),1
+FundaHemofialia,Gritemos con Brío,1
+FundaHemofialia,Fundación Renal del Táchira,1
+FundaHemofialia,FundaSidarta,1
+FundaHemofialia,FundaRedes,1
+Funcamama – Fundación de Lucha contra el Cáncer,Senos Ayuda AC,1
+Funcamama – Fundación de Lucha contra el Cáncer,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Funcamama – Fundación de Lucha contra el Cáncer,Prepara Familia,1
+Funcamama – Fundación de Lucha contra el Cáncer,OVS – Observatorio Venezolano de la Salud,1
+Funcamama – Fundación de Lucha contra el Cáncer,MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+FundaRedes,Voto joven,1
+FundaSidarta,Fundación Renal del Táchira,1
+FundaSidarta,Gritemos con Brío,1
+Fundación Agua Sin Fronteras,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Fundación Mavid Carabobo,Fundación de derechos humanos de los llanos – Fundehullan,1
+"Fundación Manos Amigas por la Vida - Fundación Mavid, Asociación Civil Casa del Nuevo Pueblo, A.C. Padres Organizados de Venezuela, Asociación Civil Médicos Unidos de Venezuela (MUV) Capitulo Carabobo, Amigos Trasplantados de Venezuela, Colegio de Enfermeras (os) de Carabobo, Sindicato de Educadores Regionales (S.E.R) CARABOBO, Sindicato Venezolano de Maestros de Carabobo (SINVEMACA), Voces Q' Suman, and La Fundación MOVIMIENTO POR LA CALIDAD DEL AGUA",Fundación de Lucha Contra el Cáncer de Mama (FUNCAMAMA),1
+Fundación Agua Sin Fronteras,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Fundación Agua Sin Fronteras,Unión Vecinal para la Participación Ciudadana,1
+Fundación Agua Sin Fronteras,StopVIH,1
+Fundación Agua Sin Fronteras,Redhanz,1
+Fundación Agua Sin Fronteras,Red de Derechos Humanos del Estado Lara,1
+Fundación Agua Sin Fronteras,Provea,1
+Fundación Agua Sin Fronteras,Promedehum,1
+Fundación Agua Sin Fronteras,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Fundación Agua Sin Fronteras,ORPANAC (Venezuela),1
+Fundación Agua Sin Fronteras,Mulier,1
+FundaSidarta,Observatorio de Género de Proyecto 860 (Venezuela),1
+Fundación Agua Sin Fronteras,Monitor Social A.C,1
+Fundación Agua Sin Fronteras,Laboratorio de Paz,1
+Fundación Agua Sin Fronteras,Gobiernatec,1
+Fundación Agua Sin Fronteras,Fundimma,1
+Fundación Agua Sin Fronteras,Fundapden,1
+Fundación Agua Sin Fronteras,Fundación de derechos humanos de los llanos – Fundehullan,1
+Fundación Agua Sin Fronteras,Fundación Mavid Carabobo,1
+Fundación Agua Clara (Venezuela),Fundación Agua sin Fronteras,1
+Fundacion de Derechos Humanos de los llanos (FUNDEHULLAN),Red Justicia y Libertad,1
+Fundacion de Derechos Humanos de los llanos (FUNDEHULLAN),Observatorio de Derechos Humanos de los Llanos (Venezuela),1
+FundaSidarta,Proyecto 860,1
+Funcamama,Voto joven,1
+Funcamama,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Funcamama,Unión Vecinal para la Participación Ciudadana,1
+Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",Movimiento Estudiantil PROudistas. (Venezuela),1
+"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),Movimiento Estudiantil PROudistas. (Venezuela),1
+Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),Movimiento Estudiantil PROudistas. (Venezuela),1
+Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),Movimiento Estudiantil PROudistas. (Venezuela),1
+Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Federación de Estudiantes de Derecho de Venezuela (FEDEVE),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),Gritemos Con Brío (GcB),1
+Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),Movimiento Estudiantil PROudistas. (Venezuela),1
+Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),Movimiento Estudiantil PROudistas. (Venezuela),1
+Federación de Estudiantes de Derecho de Venezuela (FEDEVE),Gritemos Con Brío (GcB),1
+Funcamama,Unión Afirmativa,1
+Funcamama,Mulier,1
+Funcamama,StopVIH,1
+Funcamama,Sinergia,1
+Funcamama,Redhanz,1
+Funcamama,Red de Derechos Humanos del Estado Lara,1
+Funcamama,Promedehum,1
+Funcamama,Prepara familia,1
+Funcamama,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Funcamama,Observatorio de DDHH de la Universidad de los Andes,1
+Funcamama,Observatorio Global de Comunicación y Democracia,1
+Funcamama,ORPANAC (Venezuela),1
+Funcamama,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Funcamama,Monitor Social A.C,1
+Federación de Estudiantes de Derecho de Venezuela (FEDEVE),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Funcamama,Hearts on Venezuela,1
+Funcamama,Fundimma,1
+Funcamama,Fundapden,1
+Funcamama,Fundación de derechos humanos de los llanos – Fundehullan,1
+Funcamama,Fundación Mavid Carabobo,1
+Funcamama,Fundación Agua Sin Fronteras,1
+Funcamama,FundaRedes,1
+Frente Estudiantil Nacional de Acción Democrática (FENAD),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Frente Estudiantil Nacional de Acción Democrática (FENAD),Gritemos Con Brío (GcB),1
+Foro venezolano por el Derecho a la Educación (FOVEDE),y Movimiento Magisterial de Base – Venezuela,1
+Foro venezolano por el Derecho a la Educación (FOVEDE),Red Global/Glocal por la Calidad Educativa,1
+Centro de Formación para la Democracia,Defiende Venezuela,1
+Centro de Formación para la Democracia,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+100% Estrogeno,Agencia Cojedeña de Investigación,1
+Asociación Venezolana para la Hemofilia,Codhez,1
+Asociación Venezolana para la Hemofilia,Civilis Derechos Humanos,1
+Asociación Venezolana para la Hemofilia,Centro de Formación para la Democracia,1
+Asociación Venezolana para la Hemofilia,Centro de Animación Juvenil,1
+Asociación Venezolana para la Hemofilia,Cadef,1
+Asociación Civil Asamblea de Educación (ACAE),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Asociación Civil Asamblea de Educación (ACAE),Gritemos Con Brío (GcB),1
+Asociación Civil Asamblea de Educación (ACAE),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Asociación Civil Asamblea de Educación (ACAE),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Asociación Civil Asamblea de Educación (ACAE),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Asociación Civil Asamblea de Educación (ACAE),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Asociación Civil Asamblea de Educación (ACAE),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Asociación Civil Asamblea de Educación (ACAE),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Asociación Civil Asamblea de Educación (ACAE),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Asociación Civil Asamblea de Educación (ACAE),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Asociación Civil Asamblea de Educación (ACAE),FCU de la Universidad Yacambú (FCU-UNY),1
+Asociación Civil Asamblea de Educación (ACAE),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Asociación Civil Asamblea de Educación (ACAE),Excubitus Derechos Humanos en Educación,1
+Asociación Civil Asamblea de Educación (ACAE),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Asociación Civil Asamblea de Educación (ACAE),Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Asociación Civil Asamblea de Educación (ACAE),Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Asociación Civil Asamblea de Educación (ACAE),Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),1
+Asociación Civil Asamblea de Educación (ACAE),Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),1
+Asociación Civil Asamblea de Educación (ACAE),Aula Abierta,1
+Asociación Cauce (CAUCE),Voces Vitales Venezuela (VVV),1
+Asociación Cauce (CAUCE),Observatorio Venezolano de los DDHH de las Mujeres (OVDHM),1
+Asociación Venezolana para la Hemofilia,Codehciu,1
+Asociación Venezolana para la Hemofilia,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Alianza Nacional Todos Por La Educación (TXLE),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Asociación Venezolana para la Hemofilia,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Asociación Venezolana para la Hemofilia,StopVIH,1
+Asociación Venezolana para la Hemofilia,Redhanz,1
+Asociación Venezolana para la Hemofilia,Red de Derechos Humanos del Estado Lara,1
+Asociación Venezolana para la Hemofilia,Provea,1
+Asociación Venezolana para la Hemofilia,Promedehum,1
+Asociación Venezolana para la Hemofilia,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Asociación Venezolana para la Hemofilia,ORPANAC (Venezuela),1
+Asociación Venezolana para la Hemofilia,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Asociación Venezolana para la Hemofilia,Mulier,1
+Asociación Venezolana para la Hemofilia,Monitor Social A.C,1
+Asociación Venezolana para la Hemofilia,Laboratorio de Paz,1
+Asociación Venezolana para la Hemofilia,Gobiernatec,1
+Asociación Venezolana para la Hemofilia,Fundimma,1
+Asociación Venezolana para la Hemofilia,Fundapden,1
+Asociación Venezolana para la Hemofilia,Fundación de derechos humanos de los llanos – Fundehullan,1
+Asociación Venezolana para la Hemofilia,Fundación Mavid Carabobo,1
+Asociación Venezolana para la Hemofilia,Fundación Agua Sin Fronteras,1
+Asociación Venezolana para la Hemofilia,Funcamama,1
+Asociación Venezolana para la Hemofilia,FUNDAVA,1
+Asociación Venezolana para la Hemofilia,FUNDA-PDEN,1
+Asociación Venezolana para la Hemofilia,EPIKEIA Derechos Humanos,1
+Asociación Venezolana para la Hemofilia,Defiende Venezuela,1
+Asociación Venezolana para la Hemofilia,DefensActiva,1
+Asociación Venezolana para la Hemofilia,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Asociación Venezolana para la Hemofilia,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Asociación Cauce (CAUCE),Federación Venezolana de Abogadas (FEVA) (Venezuela),1
+Asociación Cauce (CAUCE),"Centro de Investigación Social, Formación y Estudios de la Mujer (CISFEM)",1
+Asociación Cauce (CAUCE),Asociación de Mujeres por el Bienestar y Asistencia Recíproca (AMBAR),1
+Amigos Trasplantados de Venezuela (ATV),Senos Ayuda AC,1
+Amigos Trasplantados de Venezuela,Funcamama,1
+Amigos Trasplantados de Venezuela,FUNDAVA,1
+Amigos Trasplantados de Venezuela,FUNDA-PDEN,1
+Amigos Trasplantados de Venezuela,EPIKEIA Derechos Humanos,1
+Amigos Trasplantados de Venezuela,Defiende Venezuela,1
+Amigos Trasplantados de Venezuela,DefensActiva,1
+Amigos Trasplantados de Venezuela,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Amigos Trasplantados de Venezuela,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Amigos Trasplantados de Venezuela,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Amigos Trasplantados de Venezuela,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Amigos Trasplantados de Venezuela,Codhez,1
+Amigos Trasplantados de Venezuela,Codehciu,1
+Amigos Trasplantados de Venezuela,Civilis Derechos Humanos,1
+Amigos Trasplantados de Venezuela,Centro de Formación para la Democracia,1
+Amigos Trasplantados de Venezuela,Centro de Animación Juvenil,1
+Amigos Trasplantados de Venezuela,Cadef,1
+Amigos Trasplantados de Venezuela,Asociación Venezolana para la Hemofilia,1
+American Indian Law Clinic of the University of Colorado (United States of America),Cultural Survival,1
+Alianza de Organizaciones de Derechos Humanos del Estado de Anzoátegui: Defensa Activa,Vigilancia Integral del Derecho a la Salud A.C VIDAS (Venezuela),1
+Alianza de Organizaciones de Derechos Humanos del Estado de Anzoátegui: Defensa Activa,Fundación Prodefensa a la Niñez y a la Educación FUNDAPEN,1
+Alianza de Organizaciones de Derechos Humanos del Estado de Anzoátegui: Defensa Activa,Democracia Emprendedora DEME,1
+Alianza Nacional Todos Por La Educación (TXLE),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Alianza Nacional Todos Por La Educación (TXLE),Gritemos Con Brío (GcB),1
+Alianza Nacional Todos Por La Educación (TXLE),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Alianza Nacional Todos Por La Educación (TXLE),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Amigos Trasplantados de Venezuela,Fundación Agua Sin Fronteras,1
+Amigos Trasplantados de Venezuela,Fundación Mavid Carabobo,1
+Amigos Trasplantados de Venezuela,Fundación de derechos humanos de los llanos – Fundehullan,1
+Amigos Trasplantados de Venezuela,StopVIH,1
+Amigos Trasplantados de Venezuela (ATV),Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Amigos Trasplantados de Venezuela (ATV),Prepara Familia,1
+Amigos Trasplantados de Venezuela (ATV),OVS – Observatorio Venezolano de la Salud,1
+Amigos Trasplantados de Venezuela (ATV),MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+Amigos Trasplantados de Venezuela (ATV),Funcamama – Fundación de Lucha contra el Cáncer,1
+Amigos Trasplantados de Venezuela (ATV),ConviteAC,1
+Amigos Trasplantados de Venezuela (ATV),Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,1
+Amigos Trasplantados de Venezuela (ATV),Coalición de Organizaciones por el Derecho a la Salud y la Vida (CODEVIDA) (Venezuela),1
+Amigos Trasplantados de Venezuela (ATV),Asociación Venezolana para la Hemofilia (AVH),1
+Amigos Trasplantados de Venezuela,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Amigos Trasplantados de Venezuela,Unión Vecinal para la Participación Ciudadana,1
+Amigos Trasplantados de Venezuela,Redhanz,1
+Amigos Trasplantados de Venezuela,Fundapden,1
+Amigos Trasplantados de Venezuela,Red de Derechos Humanos del Estado Lara,1
+Amigos Trasplantados de Venezuela,Provea,1
+Amigos Trasplantados de Venezuela,Promedehum,1
+Amigos Trasplantados de Venezuela,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Amigos Trasplantados de Venezuela,ORPANAC (Venezuela),1
+Amigos Trasplantados de Venezuela,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Amigos Trasplantados de Venezuela,Mulier,1
+Amigos Trasplantados de Venezuela,Monitor Social A.C,1
+Amigos Trasplantados de Venezuela,Laboratorio de Paz,1
+Amigos Trasplantados de Venezuela,Gobiernatec,1
+Amigos Trasplantados de Venezuela,Fundimma,1
+Asociación Venezolana para la Hemofilia,Unión Vecinal para la Participación Ciudadana,1
+Asociación Venezolana para la Hemofilia,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Asociación Venezolana para la Hemofilia (AVH),Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Aula Abierta,1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),1
+Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación Venezolana para la Hemofilia (AVH),ConviteAC,1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),1
+Asociación de Mujeres por el Bienestar y Asistencia Recíproca (AMBAR),Voces Vitales Venezuela (VVV),1
+Asociación de Mujeres por el Bienestar y Asistencia Recíproca (AMBAR),Observatorio Venezolano de los DDHH de las Mujeres (OVDHM),1
+Asociación de Mujeres por el Bienestar y Asistencia Recíproca (AMBAR),Federación Venezolana de Abogadas (FEVA) (Venezuela),1
+Asociación de Mujeres por el Bienestar y Asistencia Recíproca (AMBAR),"Centro de Investigación Social, Formación y Estudios de la Mujer (CISFEM)",1
+Asociación Venezolana para la Hemofilia (AVH),Senos Ayuda AC,1
+Asociación Venezolana para la Hemofilia (AVH),Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Asociación Venezolana para la Hemofilia (AVH),Prepara Familia,1
+Asociación Venezolana para la Hemofilia (AVH),OVS – Observatorio Venezolano de la Salud,1
+Asociación Venezolana para la Hemofilia (AVH),MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+Asociación Venezolana para la Hemofilia (AVH),Funcamama – Fundación de Lucha contra el Cáncer,1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Aula Abierta,1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Aula Abierta,1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Nacional Abierta (APAUNA),1
+Asociación de Profesores de la Universidad Centroccidental “Lisandro Alvarado” (APUCLA),Asociación de Profesores de la Universidad Experimental de Guayana (APUNEG),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Central de Venezuela (APUCV),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Alianza Nacional Todos Por La Educación (TXLE),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Alianza Nacional Todos Por La Educación (TXLE),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+AVH Nueva Esparta,Unión Vecinal para la Participación Ciudadana,1
+AVH Nueva Esparta,Redhanz,1
+AVH Nueva Esparta,Red de Derechos Humanos del Estado Lara,1
+AVH Nueva Esparta,Provea,1
+AVH Nueva Esparta,Promedehum,1
+AVH Nueva Esparta,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+AVH Nueva Esparta,ORPANAC (Venezuela),1
+AVH Nueva Esparta,Médicos Unidos de Venezuela Capítulo Carabobo,1
+AVH Nueva Esparta,Mulier,1
+AVH Nueva Esparta,Monitor Social A.C,1
+AVH Nueva Esparta,Laboratorio de Paz,1
+AVH Nueva Esparta,Gobiernatec,1
+AVH Nueva Esparta,Fundimma,1
+AVH Nueva Esparta,Fundapden,1
+AVH Nueva Esparta,Fundación de derechos humanos de los llanos – Fundehullan,1
+AVH Nueva Esparta,Fundación Mavid Carabobo,1
+AVH Nueva Esparta,Fundación Agua Sin Fronteras,1
+AVH Nueva Esparta,Funcamama,1
+AVH Nueva Esparta,FUNDAVA,1
+AVH Nueva Esparta,FUNDA-PDEN,1
+AVH Nueva Esparta,EPIKEIA Derechos Humanos,1
+AVH Nueva Esparta,Defiende Venezuela,1
+AVH Nueva Esparta,DefensActiva,1
+AVH Nueva Esparta,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+AVH Nueva Esparta,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+AVH Nueva Esparta,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+AVH Nueva Esparta,StopVIH,1
+AVH Nueva Esparta,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Alianza Nacional Todos Por La Educación (TXLE),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Acceso a la Justicia,CIVILIS (Venezuela),1
+Access Now,Espacio Público,1
+Acceso a la justicia,Voto joven,1
+Acceso a la justicia,Unión Afirmativa,1
+Acceso a la justicia,Sinergia,1
+Acceso a la justicia,Provea,1
+Acceso a la justicia,Prepara familia,1
+Acceso a la justicia,Observatorio de DDHH de la Universidad de los Andes,1
+Acceso a la justicia,Observatorio Global de Comunicación y Democracia,1
+Acceso a la justicia,Laboratorio de Paz,1
+Acceso a la justicia,Hearts on Venezuela,1
+Acceso a la justicia,Gobiernatec,1
+Acceso a la justicia,FundaRedes,1
+Acceso a la justicia,Funcamama,1
+Acceso a la justicia,Excubitus DDHH,1
+Acceso a la justicia,Dale Letra,1
+Acceso a la justicia,Codhez,1
+Acceso a la justicia,Civilis derechos humanos,1
+Acceso a la justicia,Centro de Justicia y Paz (Cepaz),1
+Acceso a la justicia,Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Acceso a la justicia,Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),1
+Acceso a la justicia,Caleidoscopio Humano,1
+Acceso a la justicia,Aula Abierta,1
+Acceso a la justicia,Acción Solidaria,1
+Acceso a la Justicia (United Kingdom of Great Britain and Northern Ireland),Law Society of England and Wales,1
+Acceso a la Justicia (United Kingdom of Great Britain and Northern Ireland),Centro de Justicia y Paz (CEPAZ),1
+AVH Nueva Esparta,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+AVH Nueva Esparta,Codhez,1
+AVH Nueva Esparta,Codehciu,1
+AVH Nueva Esparta,Civilis Derechos Humanos,1
+100% Estrogeno,Laboratorio de Paz,1
+100% Estrogeno,Gobiernatec,1
+100% Estrogeno,Fundimma,1
+100% Estrogeno,Fundapden,1
+100% Estrogeno,Fundación de derechos humanos de los llanos – Fundehullan,1
+100% Estrogeno,Fundación Mavid Carabobo,1
+100% Estrogeno,Fundación Agua Sin Fronteras,1
+100% Estrogeno,Funcamama,1
+100% Estrogeno,FUNDAVA,1
+100% Estrogeno,FUNDA-PDEN,1
+100% Estrogeno,EPIKEIA Derechos Humanos,1
+100% Estrogeno,Defiende Venezuela,1
+100% Estrogeno,DefensActiva,1
+100% Estrogeno,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+100% Estrogeno,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+100% Estrogeno,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+100% Estrogeno,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+100% Estrogeno,Codhez,1
+100% Estrogeno,Codehciu,1
+100% Estrogeno,Civilis Derechos Humanos,1
+100% Estrogeno,Centro de Formación para la Democracia,1
+100% Estrogeno,Centro de Animación Juvenil,1
+100% Estrogeno,Cadef,1
+100% Estrogeno,Asociación Venezolana para la Hemofilia,1
+100% Estrogeno,Amigos Trasplantados de Venezuela,1
+100% Estrogeno,Monitor Social A.C,1
+100% Estrogeno,Mulier,1
+100% Estrogeno,Médicos Unidos de Venezuela Capítulo Carabobo,1
+A.C. Consorcio Desarrollo y Justicia,A.C. EmpoderaME (Venezuela),1
+AVH Nueva Esparta,Centro de Formación para la Democracia,1
+AVH Nueva Esparta,Centro de Animación Juvenil,1
+AVH Nueva Esparta,Cadef,1
+AVH Nueva Esparta,Asociación Venezolana para la Hemofilia,1
+AVH Nueva Esparta,Amigos Trasplantados de Venezuela,1
+AVH Nueva Esparta,Agencia Cojedeña de Investigación,1
+A.C. Padres Organizados de Venezuela,Federación Nacional de Sociedades de Padres y Representantes de Venezuela (Venezuela),1
+A.C. EmpoderaME (Venezuela),MonitorDescaVe,1
+A.C. EmpoderaME (Venezuela),Gritemos con Brío,1
+A.C. Consorcio Desarrollo y Justicia,MonitorDescaVe,1
+A.C. Consorcio Desarrollo y Justicia,Gritemos con Brío,1
+"A.C, Asamblea de Educación",Federación Nacional de Sociedades de Padres y Representantes de Venezuela (Venezuela),1
+100% Estrogeno,ORPANAC (Venezuela),1
+"A.C, Asamblea de Educación",A.C. Padres Organizados de Venezuela,1
+14 GE.21-15718,Cultural Survival,1
+14 GE.21-15718,American Indian Law Clinic of the University of Colorado (United States of America),1
+100% Estrogeno,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+100% Estrogeno,Unión Vecinal para la Participación Ciudadana,1
+100% Estrogeno,StopVIH,1
+100% Estrogeno,Redhanz,1
+100% Estrogeno,Red de Derechos Humanos del Estado Lara,1
+100% Estrogeno,Provea,1
+100% Estrogeno,Promedehum,1
+100% Estrogeno,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Access Now,Venezuela Inteligente (Venezuela),1
+Acción Solidaria,Acoana,1
+Acción Solidaria,Amigos Trasplantados de Venezuela (ATV),1
+Agencia Cojedeña de Investigación,FUNDA-PDEN,1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Aula Abierta,1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Asociación Civil Asamblea de Educación (ACAE),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Alianza Nacional Todos Por La Educación (TXLE),1
+Agencia Cojedeña de Investigación,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Agencia Cojedeña de Investigación,Unión Vecinal para la Participación Ciudadana,1
+Agencia Cojedeña de Investigación,StopVIH,1
+Agencia Cojedeña de Investigación,Redhanz,1
+Agencia Cojedeña de Investigación,Red de Derechos Humanos del Estado Lara,1
+Agencia Cojedeña de Investigación,Provea,1
+Agencia Cojedeña de Investigación,Promedehum,1
+Agencia Cojedeña de Investigación,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Agencia Cojedeña de Investigación,ORPANAC (Venezuela),1
+Agencia Cojedeña de Investigación,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Agencia Cojedeña de Investigación,Mulier,1
+Agencia Cojedeña de Investigación,Monitor Social A.C,1
+Agencia Cojedeña de Investigación,Laboratorio de Paz,1
+Agencia Cojedeña de Investigación,Gobiernatec,1
+Agencia Cojedeña de Investigación,Fundimma,1
+Agencia Cojedeña de Investigación,Fundapden,1
+Agencia Cojedeña de Investigación,Fundación de derechos humanos de los llanos – Fundehullan,1
+Agencia Cojedeña de Investigación,Fundación Mavid Carabobo,1
+Agencia Cojedeña de Investigación,Fundación Agua Sin Fronteras,1
+Agencia Cojedeña de Investigación,Funcamama,1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Alianza Nacional Todos Por La Educación (TXLE),Asociación Civil Asamblea de Educación (ACAE),1
+Alianza Nacional Todos Por La Educación (TXLE),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Alianza Nacional Todos Por La Educación (TXLE),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Alianza Nacional Todos Por La Educación (TXLE),FCU de la Universidad Yacambú (FCU-UNY),1
+Alianza Nacional Todos Por La Educación (TXLE),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Alianza Nacional Todos Por La Educación (TXLE),Excubitus Derechos Humanos en Educación,1
+Alianza Nacional Todos Por La Educación (TXLE),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Alianza Nacional Todos Por La Educación (TXLE),Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Alianza Nacional Todos Por La Educación (TXLE),Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Alianza Nacional Todos Por La Educación (TXLE),Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),1
+Alianza Nacional Todos Por La Educación (TXLE),Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),1
+Alianza Nacional Todos Por La Educación (TXLE),Aula Abierta,1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Excubitus Derechos Humanos en Educación,1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Gritemos Con Brío (GcB),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),FCU de la Universidad Yacambú (FCU-UNY),1
+Alianza Global De Jóvenes Políticos (AGlo Joven Venezuela),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Agencia Cojedeña de Investigación,FUNDAVA,1
+Agencia Cojedeña de Investigación,EPIKEIA Derechos Humanos,1
+Acción Solidaria,Asociación Venezolana para la Hemofilia (AVH),1
+Agencia Cojedeña de Investigación,Defiende Venezuela,1
+Acción Solidaria,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Acción Solidaria,Provea,1
+Acción Solidaria,Prepara familia,1
+Acción Solidaria,Prepara Familia,1
+Acción Solidaria,Observatorio de DDHH de la Universidad de los Andes,1
+Acción Solidaria,Observatorio Global de Comunicación y Democracia,1
+Acción Solidaria,OVS – Observatorio Venezolano de la Salud,1
+Acción Solidaria,MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+Acción Solidaria,Laboratorio de Paz,1
+Acción Solidaria,Hearts on Venezuela,1
+Acción Solidaria,Gobiernatec,1
+Acción Solidaria,FundaRedes,1
+Acción Solidaria,Funcamama – Fundación de Lucha contra el Cáncer,1
+Acción Solidaria,Funcamama,1
+Acción Solidaria,Excubitus DDHH,1
+Acción Solidaria,Dale Letra,1
+Acción Solidaria,ConviteAC,1
+Acción Solidaria,Codhez,1
+Acción Solidaria,Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,1
+Acción Solidaria,Civilis derechos humanos,1
+Acción Solidaria,Centro de Justicia y Paz (Cepaz),1
+Acción Solidaria,Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Acción Solidaria,Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),1
+Acción Solidaria,Caleidoscopio Humano,1
+Acción Solidaria,Aula Abierta,1
+Acción Solidaria,Senos Ayuda AC,1
+Acción Solidaria,Sinergia,1
+Acción Solidaria,Unión Afirmativa,1
+Agencia Cojedeña de Investigación,Asociación Venezolana para la Hemofilia,1
+Agencia Cojedeña de Investigación,DefensActiva,1
+Agencia Cojedeña de Investigación,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Agencia Cojedeña de Investigación,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Agencia Cojedeña de Investigación,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Agencia Cojedeña de Investigación,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Agencia Cojedeña de Investigación,Codhez,1
+Agencia Cojedeña de Investigación,Codehciu,1
+Agencia Cojedeña de Investigación,Civilis Derechos Humanos,1
+Agencia Cojedeña de Investigación,Centro de Formación para la Democracia,1
+Agencia Cojedeña de Investigación,Centro de Animación Juvenil,1
+Agencia Cojedeña de Investigación,Cadef,1
+Agencia Cojedeña de Investigación,Amigos Trasplantados de Venezuela,1
+Acción Solidaria,Voto joven,1
+Acoana,Senos Ayuda AC,1
+Acoana,Provea – Programa Venezolano de Educación Acción en Derechos Humanos,1
+Acoana,Prepara Familia,1
+Acoana,OVS – Observatorio Venezolano de la Salud,1
+Acoana,MUV - Médicos Unidos de Venezuela Laboratorio de Paz (Venezuela),1
+Acoana,Funcamama – Fundación de Lucha contra el Cáncer,1
+Acoana,ConviteAC,1
+Acoana,Codevida – Coalición de Organizaciones por el Derecho a la Salud y la Vida,1
+Acoana,Asociación Venezolana para la Hemofilia (AVH),1
+Acoana,Amigos Trasplantados de Venezuela (ATV),1
+Acción Solidaria A.C,Codevida A.C (Venezuela),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Centro de Formación para la Democracia,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Excubitus Derechos Humanos en Educación,1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),1
+Centro Comunitario de Aprendizaje (CECODAP),"Red por los Derechos Humanos de los Niños, Niñas y Adolescentes (REDHNNA) (Venezuela)",1
+Centre for Civil and Political Rights (CCPR) (Venezuela),Red de Activistas Ciudadanos por los Derechos Humanos (REDAC),1
+Centre for Civil and Political Rights (CCPR) (Venezuela),Centro de Justicia y Paz (CEPAZ),1
+Centre for Civil and Political Rights (CCPR),Red de Activistas Ciudadanos para los Derechos Humanos (REDAC) (Venezuela),1
+Centre for Civil and Political Rights (CCPR),Red Naranja,1
+Centre for Civil and Political Rights (CCPR),Fundación para la Prevención de la Violencia Contra las Mujeres (FUNDAMUJER),1
+Centre for Civil and Political Rights (CCPR),Centro de Justicia y Paz (CEPAZ),1
+Casa de la Mujer “Juana Ramírez La Aventadora” and Red Naranja,Fundación Vida Jurídica,1
+Campaña Latinoamericana por el Derecho a la Educación (CLADE),y Movimiento Magisterial de Base – Venezuela,1
+Campaña Latinoamericana por el Derecho a la Educación (CLADE),Red Global/Glocal por la Calidad Educativa,1
+Campaña Latinoamericana por el Derecho a la Educación (CLADE),Foro venezolano por el Derecho a la Educación (FOVEDE),1
+Campaña Latinoamericana por el Derecho a la Educación (CLADE),Centro internacional de Investigación Otras Voces en Educación (CII-OVE),1
+Caleidoscopio Humano (Venezuela),Programa Venezolano de Educación- Acción en Derechos Humanos,1
+Caleidoscopio Humano (Venezuela),Prepara Familia,1
+Caleidoscopio Humano,Voto joven,1
+Caleidoscopio Humano,Unión Afirmativa,1
+Caleidoscopio Humano,Sinergia,1
+Caleidoscopio Humano,Red Naranja (Venezuela),1
+Caleidoscopio Humano,Provea,1
+Caleidoscopio Humano,Prepara familia,1
+Caleidoscopio Humano,Observatorio de DDHH de la Universidad de los Andes,1
+Caleidoscopio Humano,Observatorio Global de Comunicación y Democracia,1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Aula Abierta,Prepara familia,1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),FCU de la Universidad Yacambú (FCU-UNY),1
+Centro de Animación Juvenil,FUNDAVA,1
+Centro de Animación Juvenil,FUNDA-PDEN,1
+Centro de Animación Juvenil,EPIKEIA Derechos Humanos,1
+Centro de Animación Juvenil,Defiende Venezuela,1
+Centro de Animación Juvenil,DefensActiva,1
+Centro de Animación Juvenil,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Centro de Animación Juvenil,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Centro de Animación Juvenil,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Centro de Animación Juvenil,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Centro de Animación Juvenil,Codhez,1
+Centro de Animación Juvenil,Codehciu,1
+Centro de Animación Juvenil,Civilis Derechos Humanos,1
+Centro de Animación Juvenil,Centro de Formación para la Democracia,1
+Centro de Acción y Formación Especializada en Derechos Humanos (CAFÉ DDHH) (Venezuela),Observatorio de Violencia-Trujillo,1
+Centro de Acción y Formación Especializada en Derechos Humanos (CAFÉ DDHH) (Venezuela),Centro de Animación Juvenil,1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Gritemos Con Brío (GcB),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Caleidoscopio Humano,Laboratorio de Paz,1
+Caleidoscopio Humano,Hearts on Venezuela,1
+Caleidoscopio Humano,Gobiernatec,1
+Caleidoscopio Humano,FundaRedes,1
+Cadef,FUNDAVA,1
+Cadef,FUNDA-PDEN,1
+Cadef,EPIKEIA Derechos Humanos,1
+Cadef,Defiende Venezuela,1
+Cadef,DefensActiva,1
+Cadef,Cátedra de la Paz y Derechos Humanos Mons. Oscar A. Romero (Universidad de Los Andes),1
+Cadef,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Táchira,1
+Cadef,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Cadef,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Cadef,Codhez,1
+Cadef,Codehciu,1
+Cadef,Civilis Derechos Humanos,1
+Cadef,Centro de Formación para la Democracia,1
+Cadef,Centro de Animación Juvenil,1
+CONVITE-LARA,"Comité de DDHH para la Defensa de Pensionados, Jubilados, Adultos Mayores y Personas con Discapacidad (Venezuela)",1
+CIVILIS Derechos Humanos (Venezuela),SINERGIA- Red venezolana de organizaciones de la sociedad civil,1
+CIVICUS: World Alliance for Citizen Participation,Latin American and Caribbean Network for Democracy (REDLAC),1
+CIVICUS: World Alliance for Citizen Participation,Espacio Público (South Africa),1
+"Aula Abierta, y EPIKEIA Derechos Humanos",Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA) (Venezuela),1
+"Aula Abierta, y EPIKEIA Derechos Humanos","Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela), Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDHUCAB) (Venezuela)",1
+"Aula Abierta, y EPIKEIA Derechos Humanos","Centro de Derechos Humanos de la Universidad Metropolitana (CDH- UNIMET) (Venezuela), Académicos contra la pobreza (ASAP) Capítulo Venezuela",1
+"Aula Abierta, y EPIKEIA Derechos Humanos",Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV) (Venezuela),1
+Aula Abierta,Voto joven,1
+Aula Abierta,Unión Afirmativa,1
+Aula Abierta,Sinergia,1
+Cadef,Funcamama,1
+Cadef,Fundación Agua Sin Fronteras,1
+Cadef,Fundación Mavid Carabobo,1
+Cadef,Redhanz,1
+Caleidoscopio Humano,Funcamama,1
+Caleidoscopio Humano,Excubitus DDHH,1
+Caleidoscopio Humano,Dale Letra,1
+Caleidoscopio Humano,Codhez,1
+Caleidoscopio Humano,Civilis derechos humanos,1
+Caleidoscopio Humano,Centro de Justicia y Paz (Cepaz),1
+Caleidoscopio Humano,Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Caleidoscopio Humano,Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),1
+Cadef,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Cadef,Unión Vecinal para la Participación Ciudadana,1
+Cadef,StopVIH,1
+Cadef,Red de Derechos Humanos del Estado Lara,1
+Cadef,Fundación de derechos humanos de los llanos – Fundehullan,1
+Cadef,Provea,1
+Cadef,Promedehum,1
+Cadef,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Cadef,ORPANAC (Venezuela),1
+Cadef,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Cadef,Mulier,1
+Cadef,Monitor Social A.C,1
+Cadef,Laboratorio de Paz,1
+Cadef,Gobiernatec,1
+Cadef,Fundimma,1
+Cadef,Fundapden,1
+Centro de Animación Juvenil,Funcamama,1
+Centro de Animación Juvenil,Fundación Agua Sin Fronteras,1
+Centro de Animación Juvenil,Fundación Mavid Carabobo,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Observatorio Global de Comunicación y Democracia,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),FCU de la Universidad Yacambú (FCU-UNY),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Excubitus Derechos Humanos en Educación,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Excubitus DDHH,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Dale Letra,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Codhez,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Civilis derechos humanos,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Centro de Justicia y Paz (Cepaz),1
+"Centro de Derechos Humanos de la Universidad Metropolitana (CDH- UNIMET) (Venezuela), Académicos contra la pobreza (ASAP) Capítulo Venezuela",Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA) (Venezuela),1
+"Centro de Derechos Humanos de la Universidad Metropolitana (CDH- UNIMET) (Venezuela), Académicos contra la pobreza (ASAP) Capítulo Venezuela","Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela), Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDHUCAB) (Venezuela)",1
+Centro de Derechos Humanos de la Universidad Metropolitana,EXCUBITUS A.C. (Venezuela),1
+Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV) (Venezuela),Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA) (Venezuela),1
+Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV) (Venezuela),"Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela), Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDHUCAB) (Venezuela)",1
+Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV) (Venezuela),"Centro de Derechos Humanos de la Universidad Metropolitana (CDH- UNIMET) (Venezuela), Académicos contra la pobreza (ASAP) Capítulo Venezuela",1
+Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV),Observatorio de Derechos Humanos de la Universidad de Los Andes (ODHULA),1
+Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV),EPIKEIA Derechos Humanos,1
+Centro de Derechos Humanos de la Universidad Central de Venezuela (CDHUCV),"Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia, Aula Abierta, y El Pitazo",1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Voto joven,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Unión Afirmativa,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Sinergia,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Provea,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Prepara familia,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Prepara familia,1
+Centro de Formación para la Democracia,Comisión Nacional de Derechos Humanos de la Federación de Colegios de Abogados de Venezuela del estado Lara,1
+Centro de Formación para la Democracia,Comisión Nacional de Derechos Humanos de la Federación de 12 GE.21-15718 Colegios de Abogados de Venezuela del estado Apure,1
+Centro de Formación para la Democracia,Codhez,1
+Centro de Formación para la Democracia,Codehciu,1
+Centro de Formación para la Democracia,Civilis Derechos Humanos,1
+Centro de Estudios para la Discapacidad –Universidad Monteavila,Fundación Vanessa Peretti (Venezuela),1
+Centro de Educación y Capacitación para la Vida (CECAVID) (Venezuela),"Red por los Derechos Humanos de los Niños, Niñas y Adolescentes (REDHNNA)",1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Voto joven,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Unión Afirmativa,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Sinergia,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Provea,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Observatorio de DDHH de la Universidad de los Andes,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Observatorio Global de Comunicación y Democracia,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Laboratorio de Paz,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Hearts on Venezuela,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Gritemos Con Brío (GcB),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Gobiernatec,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),FundaRedes,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Funcamama,1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Observatorio de DDHH de la Universidad de los Andes,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Laboratorio de Paz,1
+Centro de Animación Juvenil,Fundación de derechos humanos de los llanos – Fundehullan,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Hearts on Venezuela,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Comité por una Radiotelevisión de Servicio Público,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Colegio Nacional de Periodistas (CNP),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Centro de Investigación de la Comunicación de la UCAB (CIC-UCAB),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello,EXCUBITUS A.C. (Venezuela),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello,Centro de Derechos Humanos de la Universidad Metropolitana,1
+Centro de Animación Juvenil,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1
+Centro de Animación Juvenil,Unión Vecinal para la Participación Ciudadana,1
+Centro de Animación Juvenil,StopVIH,1
+Centro de Animación Juvenil,Redhanz,1
+Centro de Animación Juvenil,Red de Derechos Humanos del Estado Lara,1
+Centro de Animación Juvenil,Provea,1
+Centro de Animación Juvenil,Promedehum,1
+Centro de Animación Juvenil,Observatorio de Violencia-Trujillo,1
+Centro de Animación Juvenil,Observatorio de Derechos Humanos de la Universidad de Los Andes,1
+Centro de Animación Juvenil,ORPANAC (Venezuela),1
+Centro de Animación Juvenil,Médicos Unidos de Venezuela Capítulo Carabobo,1
+Centro de Animación Juvenil,Mulier,1
+Centro de Animación Juvenil,Monitor Social A.C,1
+Centro de Animación Juvenil,Laboratorio de Paz,1
+Centro de Animación Juvenil,Gobiernatec,1
+Centro de Animación Juvenil,Fundimma,1
+Centro de Animación Juvenil,Fundapden,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Espacio Público,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Excubitus Derechos Humanos en Educación,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Expresión Libre,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Gobiernatec,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),FundaRedes,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Funcamama,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Excubitus DDHH,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Dale Letra,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Codhez,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Civilis derechos humanos,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Centro de Justicia y Paz (Cepaz),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),Centro de Derechos Humanos de la Universidad Metropolitana (CDH-UNIMET),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Un Mundo sin Mordaza. (Venezuela),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Transparencia Venezuela,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Instituto de Investigaciones de la Comunicación de la UCV (ININCO-UCV),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Instituto Prensa y Sociedad Venezuela,1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Gritemos Con Brío (GcB),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),FCU de la Universidad Yacambú (FCU-UNY),1
+Aula Abierta,Provea,1
+Aula Abierta,Observatorio de Derechos Humanos de la Universidad de los Andes,1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),Movimiento Estudiantil PROudistas. (Venezuela),1
+Aula Abierta,Observatorio de Derechos Humanos de la ULA (ODH-ULA) (Venezuela),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Movimiento Estudiantil PROudistas. (Venezuela),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)","Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Aula Abierta,1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad del Zulia (APUZ),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad de Oriente (APUDO),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad de Los Andes (APULA),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad de Carabobo (APUC),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Francisco de Miranda (APUNEFM),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Aula Abierta,1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),"Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Rómulo Gallegos (APUNELLARG) Asociación de Profesores de la Universidad Naciona Experimental ""Rafael Marial Baralt” (APUNERMB)",1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad Nacional Experimental de los Llanos Occidentales Ezequiel Zamora (APUNELLEZ),1
+Asociación de Profesores de la Universidad Nacional Experimental Simón Rodríguez (APUNESR),Asociación de Profesores de la Universidad Nacional Experimental Sur del Lago (APUNESUR),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Nacional Experimental Politécnica Antonio José de Sucre (UNEXPO),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Aula Abierta,Dale Letra,1
+Aula Abierta,Cátedra de Derechos Humanos de la Universidad Centroccidental “Lisandro Alvarado” (UCLA),1
+Aula Abierta,Comisión para los Derechos Humanos del Estado Zulia (CODHEZ),1
+Aula Abierta,Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de la Universidad del Zulia (Venezuela),1
+Aula Abierta,Comisión de Derechos Humanos de la Facultad de Ciencias Jurídicas y Políticas de La Universidad del Zulia (LUZ),1
+Aula Abierta,Codhez,1
+Aula Abierta,Civilis derechos humanos,1
+Aula Abierta,Centro de Justicia y Paz (Cepaz),1
+Aula Abierta,Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB) (Venezuela),1
+Aula Abierta,Centro de Derechos Humanos de la Universidad Católica Andrés Bello (CDH-UCAB),1
+Aula Abierta,Centro Para La Paz y Los Derechos Humanos de la Universidad Central de Venezuela (CPDHUCV),1
+Aula Abierta,Caleidoscopio Humano,1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad del Zulia (APUZ),Aula Abierta,1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad de Oriente (APUDO),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Aula Abierta,El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Aula Abierta,Excubitus DDHH,1
+Aula Abierta,Excubitus Derechos Humanos en Educación,1
+Aula Abierta,Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Aula Abierta,Observatorio de DDHH de la Universidad de los Andes,1
+Aula Abierta,Observatorio Global de Comunicación y Democracia,1
+Aula Abierta,Movimiento Estudiantil PROudistas. (Venezuela),1
+Aula Abierta,Laboratorio de Paz,1
+Aula Abierta,Hearts on Venezuela,1
+Aula Abierta,Gritemos Con Brío (GcB),1
+Aula Abierta,Gobiernatec,1
+Aula Abierta,FundaRedes,1
+Aula Abierta,Funcamama,1
+Aula Abierta,Frente Estudiantil Nacional de Acción Democrática (FENAD),1
+Aula Abierta,Federación de Estudiantes de Derecho de Venezuela (FEDEVE),1
+Aula Abierta,"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Aula Abierta,FCU de la Universidad Nacional Experimental del Táchira (FCU-UNET),1
+Aula Abierta,Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Aula Abierta,Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Aula Abierta,Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Aula Abierta,Federación de Centros Universitarios (FCU) de la Universidad de Los Andes (FCU-ULA),1
+Aula Abierta,Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Aula Abierta,Federación Venezolana de Estudiantes de Medicina (FEVEMED),1
+Aula Abierta,Federación Venezolana de Estudiantes de Ciencias Políticas (FEVECIPOL),1
+Aula Abierta,Federación Venezolana de Estudiantes de Administración y Contaduría (FEVEAC),1
+Aula Abierta,Federación Nacional de Sociedades de Padres y Representantes (FENASOPADRES),1
+Aula Abierta,Federación Nacional de Estudiantes de Derecho (FENEDE),1
+Aula Abierta,FCU de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad de Oriente (APUDO),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Aula Abierta,1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Aula Abierta,1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Asociación de Profesores de la Universidad de Carabobo (APUC),1
+Asociación de Profesores de la Universidad Pedagógica Experimental Libertador (APROUPEL),Asociación de Profesores de la Universidad Simón Bolívar (APUSB),1
+Asociación de Profesores de la Universidad Nacional Experimental del Táchira (APUNET),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad Simón Bolívar (APUSB),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Aula Abierta,1
+Asociación de Profesores de la Universidad de Oriente (APUDO),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Aula Abierta,1
+Asociación de Profesores de la Universidad de Los Andes (APULA),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Asociación de Profesores de la Universidad de Los Andes (APULA),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Movimiento Estudiantil PROudistas. (Venezuela),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Federación de Centros Universitarios de la Universidad Yacambú (FCU-UNY),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),"Federación de Centros Universitarios de la Universidad Naciona Experimental del Táchira (FCU-UNET), Federación de Centros Universitarios de la Universidad de Carabobo (FCU-UC) y",1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Federación de Centros Universitarios de la Universidad Centroccidental “Lisandro Alvarado” (FCU-UCLA),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Federación de Centros Universitarios de la Universidad Central de Venezuela (FCU UCV),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Federación de Centros Universitarios de GE.21-15718 13 la Universidad de Los Andes (FCU-ULA),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Federación de Asociaciones de Profesores Universitarios de Venezuela (FAPUV),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),El Consejo Nacional de Profesores Universitarios Jubilados y Pensionados de Venezuela (CONAPUJUPEV),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Aula Abierta,1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Asociación de Profesores de la Universidad del Zulia (APUZ),1
+Asociación de Profesores de la Universidad de Carabobo (APUC),Asociación de Profesores de la Universidad de Oriente (APUDO),1
+Unión Vecinal para la Participación Ciudadana,Vicaría de Derechos Humanos de la Arquidiócesis de Barquisimeto,1

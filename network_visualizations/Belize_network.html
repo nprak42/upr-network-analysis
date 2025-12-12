@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "black"}, "id": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "label": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "shape": "dot", "size": 50.0, "title": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "label": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "shape": "dot", "size": 50.0, "title": "Empower Yourself Belize Movement \u2013 EYBM (Belize)\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Our Circle (Belize)", "label": "Our Circle (Belize)", "shape": "dot", "size": 50.0, "title": "Our Circle (Belize)\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "label": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "shape": "dot", "size": 50.0, "title": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "and", "label": "and", "shape": "dot", "size": 50.0, "title": "and\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "label": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "shape": "dot", "size": 50.0, "title": "United Belize Advocacy Movement \u2013 UniBAM (Belize)\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "label": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "shape": "dot", "size": 50.0, "title": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)\u003cbr\u003eConnections: 6"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Maya Leaders Alliance (Belize)", "label": "Maya Leaders Alliance (Belize)", "shape": "dot", "size": 23.333333333333332, "title": "Maya Leaders Alliance (Belize)\u003cbr\u003eConnections: 2"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4", "label": "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4", "shape": "dot", "size": 23.333333333333332, "title": "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4\u003cbr\u003eConnections: 2"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Cultural survival (United States of America)", "label": "Cultural survival (United States of America)", "shape": "dot", "size": 23.333333333333332, "title": "Cultural survival (United States of America)\u003cbr\u003eConnections: 2"}]);
+                  edges = new vis.DataSet([{"from": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "title": "Collaborations: 1", "to": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "value": 10.0}, {"from": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "title": "Collaborations: 1", "to": "Our Circle (Belize)", "value": 10.0}, {"from": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "title": "Collaborations: 1", "to": "and", "value": 10.0}, {"from": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "title": "Collaborations: 1", "to": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "value": 10.0}, {"from": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "title": "Collaborations: 1", "to": "and", "value": 10.0}, {"from": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "title": "Collaborations: 1", "to": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "value": 10.0}, {"from": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "title": "Collaborations: 1", "to": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "value": 10.0}, {"from": "Our Circle (Belize)", "title": "Collaborations: 1", "to": "and", "value": 10.0}, {"from": "Our Circle (Belize)", "title": "Collaborations: 1", "to": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "value": 10.0}, {"from": "Our Circle (Belize)", "title": "Collaborations: 1", "to": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "value": 10.0}, {"from": "Our Circle (Belize)", "title": "Collaborations: 1", "to": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "value": 10.0}, {"from": "Maya Leaders Alliance (Belize)", "title": "Collaborations: 1", "to": "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4", "value": 10.0}, {"from": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "title": "Collaborations: 1", "to": "and", "value": 10.0}, {"from": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "title": "Collaborations: 1", "to": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "value": 10.0}, {"from": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "title": "Collaborations: 1", "to": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "value": 10.0}, {"from": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "title": "Collaborations: 1", "to": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "value": 10.0}, {"from": "Empower Yourself Belize Movement \u2013 EYBM (Belize)", "title": "Collaborations: 1", "to": "Our Circle (Belize)", "value": 10.0}, {"from": "Cultural survival (United States of America)", "title": "Collaborations: 1", "to": "p. 2. 5 See IHRC-OU, p. 4. 6 See IHRC-OU, p. 3. 7 See IHRC-OU, p. 1. 8 UPR recommendation 99.42 (Honduras). For the full text of the recommendation, see A/HRC/25/13. 9 See IHRC-OU, pp. 4 and 5. 10 See ICAN, p. 1. 11 See IHRC-OU, pp. 2 and 4", "value": 10.0}, {"from": "Cultural survival (United States of America)", "title": "Collaborations: 1", "to": "Maya Leaders Alliance (Belize)", "value": 10.0}, {"from": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "title": "Collaborations: 1", "to": "and", "value": 10.0}, {"from": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "title": "Collaborations: 1", "to": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "value": 10.0}, {"from": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "title": "Collaborations: 1", "to": "Trans In Action \u2013 TIA (Belize). 2 For the relevant recommendations, see A/HRC/25/13, paras. 98.5, 99.1- 99.6, 99.11, 99.18- 99.21, 99.23, 99.24, 99.42. 3 UPR recommendation 99.1 (Brazil, Paraguay). For the full text of the recommendation, see A/HRC/25/13. 4 See IHRC-OU, p. 1. See also BFLA, p. 3", "value": 10.0}, {"from": "Belize Youth Empowerment for Change \u2013 BYEC (Belize)", "title": "Collaborations: 1", "to": "Promoting Empowerment Through Awareness for Les/Bi Women \u2013 PETAL (Belize)", "value": 10.0}, {"from": "United Belize Advocacy Movement \u2013 UniBAM (Belize)", "title": "Collaborations: 1", "to": "and", "value": 10.0}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.001,
+            "springLength": 100
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

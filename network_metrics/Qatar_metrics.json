@@ -1,0 +1,188 @@
+{
+  "num_nodes": 8,
+  "num_edges": 6,
+  "density": 0.21428571428571427,
+  "top_degree_centrality": [
+    [
+      "The Gulf Centre for Human Rights",
+      0.42857142857142855
+    ],
+    [
+      "Access Now, New York USA",
+      0.2857142857142857
+    ],
+    [
+      "and Americans for Democracy & Human Rights in Bahrain",
+      0.2857142857142857
+    ],
+    [
+      "CIVICUS: World Alliance for Citizen Participation",
+      0.14285714285714285
+    ],
+    [
+      "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights",
+      0.14285714285714285
+    ],
+    [
+      "para. 51. 17 CGNK, page 5. 18 CGNK, page 6",
+      0.14285714285714285
+    ],
+    [
+      "and The World Coalition Against the Death Penalty",
+      0.14285714285714285
+    ],
+    [
+      "by The Advocates for Human Rights",
+      0.14285714285714285
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "The Gulf Centre for Human Rights",
+      0.09523809523809523
+    ],
+    [
+      "Access Now, New York USA",
+      0.0
+    ],
+    [
+      "and Americans for Democracy & Human Rights in Bahrain",
+      0.0
+    ],
+    [
+      "CIVICUS: World Alliance for Citizen Participation",
+      0.0
+    ],
+    [
+      "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights",
+      0.0
+    ],
+    [
+      "para. 51. 17 CGNK, page 5. 18 CGNK, page 6",
+      0.0
+    ],
+    [
+      "and The World Coalition Against the Death Penalty",
+      0.0
+    ],
+    [
+      "by The Advocates for Human Rights",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "The Gulf Centre for Human Rights",
+      0.42857142857142855
+    ],
+    [
+      "Access Now, New York USA",
+      0.3214285714285714
+    ],
+    [
+      "and Americans for Democracy & Human Rights in Bahrain",
+      0.3214285714285714
+    ],
+    [
+      "CIVICUS: World Alliance for Citizen Participation",
+      0.2571428571428571
+    ],
+    [
+      "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights",
+      0.14285714285714285
+    ],
+    [
+      "para. 51. 17 CGNK, page 5. 18 CGNK, page 6",
+      0.14285714285714285
+    ],
+    [
+      "and The World Coalition Against the Death Penalty",
+      0.14285714285714285
+    ],
+    [
+      "by The Advocates for Human Rights",
+      0.14285714285714285
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "The Gulf Centre for Human Rights",
+      0.6116284573471558
+    ],
+    [
+      "Access Now, New York USA",
+      0.5227207256261878
+    ],
+    [
+      "and Americans for Democracy & Human Rights in Bahrain",
+      0.5227207256261877
+    ],
+    [
+      "CIVICUS: World Alliance for Citizen Participation",
+      0.28184519886393544
+    ],
+    [
+      "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights",
+      3.2461771073173274e-06
+    ],
+    [
+      "para. 51. 17 CGNK, page 5. 18 CGNK, page 6",
+      3.2461771073173274e-06
+    ],
+    [
+      "and The World Coalition Against the Death Penalty",
+      3.2461771073173274e-06
+    ],
+    [
+      "by The Advocates for Human Rights",
+      3.2461771073173274e-06
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.5,
+    "max": 3,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.29166666666666663,
+  "num_components": 3,
+  "largest_component_size": 4,
+  "diameter": 2,
+  "avg_path_length": 1.3333333333333333,
+  "num_triangles": 1,
+  "transitivity": 0.6,
+  "top_brokers": [
+    [
+      "The Gulf Centre for Human Rights",
+      0.6111111111111112
+    ],
+    [
+      "CIVICUS: World Alliance for Citizen Participation",
+      1.0
+    ],
+    [
+      "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights",
+      1.0
+    ],
+    [
+      "para. 51. 17 CGNK, page 5. 18 CGNK, page 6",
+      1.0
+    ],
+    [
+      "and The World Coalition Against the Death Penalty",
+      1.0
+    ],
+    [
+      "by The Advocates for Human Rights",
+      1.0
+    ],
+    [
+      "Access Now, New York USA",
+      1.0069444444444444
+    ],
+    [
+      "and Americans for Democracy & Human Rights in Bahrain",
+      1.0069444444444444
+    ]
+  ]
+}

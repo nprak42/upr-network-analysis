@@ -1,0 +1,228 @@
+{
+  "num_nodes": 76,
+  "num_edges": 230,
+  "density": 0.08070175438596491,
+  "top_degree_centrality": [
+    [
+      "11.11.11",
+      0.16
+    ],
+    [
+      "Abaad",
+      0.16
+    ],
+    [
+      "House of Peace",
+      0.16
+    ],
+    [
+      "Sawa",
+      0.16
+    ],
+    [
+      "Manara Network), Beirut (Lebanon)",
+      0.16
+    ],
+    [
+      "Nabaa",
+      0.16
+    ],
+    [
+      "PAX for Peace",
+      0.16
+    ],
+    [
+      "Refugee Protection Watch (RPW)",
+      0.16
+    ],
+    [
+      "Upinion",
+      0.16
+    ],
+    [
+      "Urda",
+      0.16
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Arab NGO Network for Development",
+      0.0075675675675675675
+    ],
+    [
+      "Lebanese Center for Human Rights (CLDH)",
+      0.0050450450450450456
+    ],
+    [
+      "Equality Now",
+      0.0009609609609609609
+    ],
+    [
+      "Salam for Democracy and Human Rights",
+      0.0009609609609609609
+    ],
+    [
+      "Global Campaign for Equal Nationality Rights",
+      0.0009609609609609609
+    ],
+    [
+      "11.11.11",
+      0.0
+    ],
+    [
+      "Abaad",
+      0.0
+    ],
+    [
+      "Juvenile Justice System in Lebanon (which includes The Arab NGO Network for Development",
+      0.0
+    ],
+    [
+      "and Himaya), Beirut (Lebanon)",
+      0.0
+    ],
+    [
+      "International Humanitarian Relief",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "11.11.11",
+      0.16
+    ],
+    [
+      "Abaad",
+      0.16
+    ],
+    [
+      "House of Peace",
+      0.16
+    ],
+    [
+      "Sawa",
+      0.16
+    ],
+    [
+      "Manara Network), Beirut (Lebanon)",
+      0.16
+    ],
+    [
+      "Nabaa",
+      0.16
+    ],
+    [
+      "PAX for Peace",
+      0.16
+    ],
+    [
+      "Refugee Protection Watch (RPW)",
+      0.16
+    ],
+    [
+      "Upinion",
+      0.16
+    ],
+    [
+      "Urda",
+      0.16
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "11.11.11",
+      0.2773500980849699
+    ],
+    [
+      "Abaad",
+      0.2773500980849699
+    ],
+    [
+      "House of Peace",
+      0.2773500980849699
+    ],
+    [
+      "Sawa",
+      0.2773500980849699
+    ],
+    [
+      "Manara Network), Beirut (Lebanon)",
+      0.2773500980849699
+    ],
+    [
+      "Nabaa",
+      0.2773500980849699
+    ],
+    [
+      "PAX for Peace",
+      0.2773500980849699
+    ],
+    [
+      "Refugee Protection Watch (RPW)",
+      0.2773500980849699
+    ],
+    [
+      "Upinion",
+      0.2773500980849699
+    ],
+    [
+      "Urda",
+      0.2773500980849699
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 6.052631578947368,
+    "max": 12,
+    "min": 1,
+    "median": 7
+  },
+  "avg_clustering_coefficient": 0.898517126148705,
+  "num_components": 13,
+  "largest_component_size": 13,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 523,
+  "transitivity": 0.9637592137592138,
+  "top_brokers": [
+    [
+      "11.11.11",
+      0.3061342592592593
+    ],
+    [
+      "Abaad",
+      0.3061342592592593
+    ],
+    [
+      "House of Peace",
+      0.3061342592592593
+    ],
+    [
+      "Sawa",
+      0.3061342592592593
+    ],
+    [
+      "Manara Network), Beirut (Lebanon)",
+      0.3061342592592593
+    ],
+    [
+      "Nabaa",
+      0.3061342592592593
+    ],
+    [
+      "PAX for Peace",
+      0.3061342592592593
+    ],
+    [
+      "Refugee Protection Watch (RPW)",
+      0.3061342592592593
+    ],
+    [
+      "Upinion",
+      0.3061342592592593
+    ],
+    [
+      "Urda",
+      0.3061342592592593
+    ]
+  ]
+}

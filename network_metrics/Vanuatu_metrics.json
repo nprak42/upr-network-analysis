@@ -1,0 +1,67 @@
+{
+  "num_nodes": 2,
+  "num_edges": 1,
+  "density": 1.0,
+  "top_degree_centrality": [
+    [
+      "Franciscans International (FI), Geneva (Switzerland)",
+      1.0
+    ],
+    [
+      "Marist International Solidarity Foundation (FMSI), Geneva (Switzerland)",
+      1.0
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Franciscans International (FI), Geneva (Switzerland)",
+      0.0
+    ],
+    [
+      "Marist International Solidarity Foundation (FMSI), Geneva (Switzerland)",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Franciscans International (FI), Geneva (Switzerland)",
+      1.0
+    ],
+    [
+      "Marist International Solidarity Foundation (FMSI), Geneva (Switzerland)",
+      1.0
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Franciscans International (FI), Geneva (Switzerland)",
+      0.7071067811865476
+    ],
+    [
+      "Marist International Solidarity Foundation (FMSI), Geneva (Switzerland)",
+      0.7071067811865476
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.0,
+    "max": 1,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.0,
+  "num_components": 1,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 0,
+  "transitivity": 0,
+  "top_brokers": [
+    [
+      "Franciscans International (FI), Geneva (Switzerland)",
+      1.0
+    ],
+    [
+      "Marist International Solidarity Foundation (FMSI), Geneva (Switzerland)",
+      1.0
+    ]
+  ]
+}

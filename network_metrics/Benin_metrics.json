@@ -1,0 +1,228 @@
+{
+  "num_nodes": 31,
+  "num_edges": 173,
+  "density": 0.3720430107526882,
+  "top_degree_centrality": [
+    [
+      "Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture (ACAT-B\u00e9nin)",
+      0.5666666666666667
+    ],
+    [
+      "Amnesty International B\u00e9nin",
+      0.5666666666666667
+    ],
+    [
+      "Fondation Regard d\u2019Amour (FRA)",
+      0.5666666666666667
+    ],
+    [
+      "ONG \u0152il d\u2019Aujourd\u2019hui",
+      0.5666666666666667
+    ],
+    [
+      "Forum des Organisation de D\u00e9fense des Droits de l\u2019Enfant au B\u00e9nin (FODDEB)",
+      0.5666666666666667
+    ],
+    [
+      "Franciscain-B\u00e9nin",
+      0.5666666666666667
+    ],
+    [
+      "Groupe d\u2019Actions pour le Progr\u00e8s et la Paix (GAPP-B\u00e9nin)",
+      0.5666666666666667
+    ],
+    [
+      "ONG Femme et Vie",
+      0.5666666666666667
+    ],
+    [
+      "REDSFECO-B\u00e9nin",
+      0.5666666666666667
+    ],
+    [
+      "Droits de l\u2019Homme Paix et D\u00e9veloppement (DHPD-ONG)",
+      0.5666666666666667
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture (ACAT-B\u00e9nin)",
+      0.0
+    ],
+    [
+      "Amnesty International B\u00e9nin",
+      0.0
+    ],
+    [
+      "Fondation Regard d\u2019Amour (FRA)",
+      0.0
+    ],
+    [
+      "ONG \u0152il d\u2019Aujourd\u2019hui",
+      0.0
+    ],
+    [
+      "Enfants Solidaires d\u2019Afrique et du Monde (ESAM)",
+      0.0
+    ],
+    [
+      "Franciscains B\u00e9nin (FB)",
+      0.0
+    ],
+    [
+      "Franciscans International (FI)",
+      0.0
+    ],
+    [
+      "Plan B\u00e9nin",
+      0.0
+    ],
+    [
+      "Enfants solidaires d\u2019Afrique et du monde (ESAM)",
+      0.0
+    ],
+    [
+      "Franciscans B\u00e9nin",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture (ACAT-B\u00e9nin)",
+      0.5666666666666667
+    ],
+    [
+      "Amnesty International B\u00e9nin",
+      0.5666666666666667
+    ],
+    [
+      "Fondation Regard d\u2019Amour (FRA)",
+      0.5666666666666667
+    ],
+    [
+      "ONG \u0152il d\u2019Aujourd\u2019hui",
+      0.5666666666666667
+    ],
+    [
+      "Forum des Organisation de D\u00e9fense des Droits de l\u2019Enfant au B\u00e9nin (FODDEB)",
+      0.5666666666666667
+    ],
+    [
+      "Franciscain-B\u00e9nin",
+      0.5666666666666667
+    ],
+    [
+      "Groupe d\u2019Actions pour le Progr\u00e8s et la Paix (GAPP-B\u00e9nin)",
+      0.5666666666666667
+    ],
+    [
+      "ONG Femme et Vie",
+      0.5666666666666667
+    ],
+    [
+      "REDSFECO-B\u00e9nin",
+      0.5666666666666667
+    ],
+    [
+      "Droits de l\u2019Homme Paix et D\u00e9veloppement (DHPD-ONG)",
+      0.5666666666666667
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture (ACAT-B\u00e9nin)",
+      0.235702260394264
+    ],
+    [
+      "Amnesty International B\u00e9nin",
+      0.235702260394264
+    ],
+    [
+      "Fondation Regard d\u2019Amour (FRA)",
+      0.235702260394264
+    ],
+    [
+      "ONG \u0152il d\u2019Aujourd\u2019hui",
+      0.235702260394264
+    ],
+    [
+      "Forum des Organisation de D\u00e9fense des Droits de l\u2019Enfant au B\u00e9nin (FODDEB)",
+      0.235702260394264
+    ],
+    [
+      "Franciscain-B\u00e9nin",
+      0.235702260394264
+    ],
+    [
+      "Groupe d\u2019Actions pour le Progr\u00e8s et la Paix (GAPP-B\u00e9nin)",
+      0.235702260394264
+    ],
+    [
+      "ONG Femme et Vie",
+      0.235702260394264
+    ],
+    [
+      "REDSFECO-B\u00e9nin",
+      0.235702260394264
+    ],
+    [
+      "Droits de l\u2019Homme Paix et D\u00e9veloppement (DHPD-ONG)",
+      0.235702260394264
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 11.161290322580646,
+    "max": 17,
+    "min": 1,
+    "median": 17
+  },
+  "avg_clustering_coefficient": 0.8709677419354839,
+  "num_components": 5,
+  "largest_component_size": 18,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 837,
+  "transitivity": 1.0,
+  "top_brokers": [
+    [
+      "Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture (ACAT-B\u00e9nin)",
+      0.22165682882149393
+    ],
+    [
+      "Amnesty International B\u00e9nin",
+      0.22165682882149393
+    ],
+    [
+      "Fondation Regard d\u2019Amour (FRA)",
+      0.22165682882149393
+    ],
+    [
+      "ONG \u0152il d\u2019Aujourd\u2019hui",
+      0.22165682882149393
+    ],
+    [
+      "Forum des Organisation de D\u00e9fense des Droits de l\u2019Enfant au B\u00e9nin (FODDEB)",
+      0.22165682882149393
+    ],
+    [
+      "Franciscain-B\u00e9nin",
+      0.22165682882149393
+    ],
+    [
+      "Groupe d\u2019Actions pour le Progr\u00e8s et la Paix (GAPP-B\u00e9nin)",
+      0.22165682882149393
+    ],
+    [
+      "ONG Femme et Vie",
+      0.22165682882149393
+    ],
+    [
+      "REDSFECO-B\u00e9nin",
+      0.22165682882149393
+    ],
+    [
+      "Droits de l\u2019Homme Paix et D\u00e9veloppement (DHPD-ONG)",
+      0.22165682882149393
+    ]
+  ]
+}

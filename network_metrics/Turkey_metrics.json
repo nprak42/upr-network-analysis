@@ -1,0 +1,228 @@
+{
+  "num_nodes": 152,
+  "num_edges": 556,
+  "density": 0.04844893691181596,
+  "top_degree_centrality": [
+    [
+      "International Christian Foundation for Democracy",
+      0.15894039735099338
+    ],
+    [
+      "The Council of The Ethnic Peoples and Religions of Vietnam",
+      0.15894039735099338
+    ],
+    [
+      "National Youth Council of Nigeria",
+      0.15894039735099338
+    ],
+    [
+      "Plateau State Youth Council",
+      0.15894039735099338
+    ],
+    [
+      "Red Eagle Enterprises",
+      0.15894039735099338
+    ],
+    [
+      "Religious Freedom Institute",
+      0.15894039735099338
+    ],
+    [
+      "Russian Orthodox Autonomous Church of America",
+      0.15894039735099338
+    ],
+    [
+      "Southern Baptist Ethics & Religious Liberty Commission",
+      0.15894039735099338
+    ],
+    [
+      "The Association Against Religious Persecution",
+      0.15894039735099338
+    ],
+    [
+      "Junior Sacerdotal Council of Caodai Religion",
+      0.15894039735099338
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Advocates of Silenced Turkey (AST), New Jersey (United States of America)",
+      0.0004415011037527594
+    ],
+    [
+      "Human Rights Defenders (HRD), Cologne (Germany)",
+      0.0004415011037527594
+    ],
+    [
+      "Human Rights Defenders e.V, Cologne (Germany)",
+      0.0003532008830022075
+    ],
+    [
+      "Universal Rights Association (URA), Pretoria (South Africa)",
+      0.00026490066225165563
+    ],
+    [
+      "London (United Kingdom of Great Britain and Northern Ireland )",
+      0.00017660044150110375
+    ],
+    [
+      "nan",
+      0.00013245033112582781
+    ],
+    [
+      "Victim Educators Platform",
+      0.0
+    ],
+    [
+      "and Victim Laborers Platform, Warsaw (Poland)",
+      0.0
+    ],
+    [
+      "International Christian Foundation for Democracy",
+      0.0
+    ],
+    [
+      "The Council of The Ethnic Peoples and Religions of Vietnam",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "International Christian Foundation for Democracy",
+      0.15894039735099338
+    ],
+    [
+      "The Council of The Ethnic Peoples and Religions of Vietnam",
+      0.15894039735099338
+    ],
+    [
+      "National Youth Council of Nigeria",
+      0.15894039735099338
+    ],
+    [
+      "Plateau State Youth Council",
+      0.15894039735099338
+    ],
+    [
+      "Red Eagle Enterprises",
+      0.15894039735099338
+    ],
+    [
+      "Religious Freedom Institute",
+      0.15894039735099338
+    ],
+    [
+      "Russian Orthodox Autonomous Church of America",
+      0.15894039735099338
+    ],
+    [
+      "Southern Baptist Ethics & Religious Liberty Commission",
+      0.15894039735099338
+    ],
+    [
+      "The Association Against Religious Persecution",
+      0.15894039735099338
+    ],
+    [
+      "Junior Sacerdotal Council of Caodai Religion",
+      0.15894039735099338
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "International Christian Foundation for Democracy",
+      0.19999999981028624
+    ],
+    [
+      "The Council of The Ethnic Peoples and Religions of Vietnam",
+      0.19999999981028624
+    ],
+    [
+      "National Youth Council of Nigeria",
+      0.19999999981028624
+    ],
+    [
+      "Plateau State Youth Council",
+      0.19999999981028624
+    ],
+    [
+      "Red Eagle Enterprises",
+      0.19999999981028624
+    ],
+    [
+      "Religious Freedom Institute",
+      0.19999999981028624
+    ],
+    [
+      "Russian Orthodox Autonomous Church of America",
+      0.19999999981028624
+    ],
+    [
+      "Southern Baptist Ethics & Religious Liberty Commission",
+      0.19999999981028624
+    ],
+    [
+      "The Association Against Religious Persecution",
+      0.19999999981028624
+    ],
+    [
+      "Junior Sacerdotal Council of Caodai Religion",
+      0.19999999981028624
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 7.315789473684211,
+    "max": 24,
+    "min": 1,
+    "median": 3
+  },
+  "avg_clustering_coefficient": 0.7269736842105263,
+  "num_components": 37,
+  "largest_component_size": 25,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 2966,
+  "transitivity": 0.9978692385331389,
+  "top_brokers": [
+    [
+      "International Christian Foundation for Democracy",
+      0.15979456018518517
+    ],
+    [
+      "The Council of The Ethnic Peoples and Religions of Vietnam",
+      0.15979456018518517
+    ],
+    [
+      "National Youth Council of Nigeria",
+      0.15979456018518517
+    ],
+    [
+      "Plateau State Youth Council",
+      0.15979456018518517
+    ],
+    [
+      "Red Eagle Enterprises",
+      0.15979456018518517
+    ],
+    [
+      "Religious Freedom Institute",
+      0.15979456018518517
+    ],
+    [
+      "Russian Orthodox Autonomous Church of America",
+      0.15979456018518517
+    ],
+    [
+      "Southern Baptist Ethics & Religious Liberty Commission",
+      0.15979456018518517
+    ],
+    [
+      "The Association Against Religious Persecution",
+      0.15979456018518517
+    ],
+    [
+      "Junior Sacerdotal Council of Caodai Religion",
+      0.15979456018518517
+    ]
+  ]
+}

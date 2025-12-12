@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "black"}, "id": "Access Now, New York USA", "label": "Access Now, New York USA", "shape": "dot", "size": 36.666666666666664, "title": "Access Now, New York USA\u003cbr\u003eConnections: 2"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "The Gulf Centre for Human Rights", "label": "The Gulf Centre for Human Rights", "shape": "dot", "size": 50.0, "title": "The Gulf Centre for Human Rights\u003cbr\u003eConnections: 3"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "and Americans for Democracy \u0026 Human Rights in Bahrain", "label": "and Americans for Democracy \u0026 Human Rights in Bahrain", "shape": "dot", "size": 36.666666666666664, "title": "and Americans for Democracy \u0026 Human Rights in Bahrain\u003cbr\u003eConnections: 2"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "CIVICUS: World Alliance for Citizen Participation", "label": "CIVICUS: World Alliance for Citizen Participation", "shape": "dot", "size": 23.333333333333332, "title": "CIVICUS: World Alliance for Citizen Participation\u003cbr\u003eConnections: 1"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights", "label": "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights", "shape": "dot", "size": 23.333333333333332, "title": "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights\u003cbr\u003eConnections: 1"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "para. 51. 17 CGNK, page 5. 18 CGNK, page 6", "label": "para. 51. 17 CGNK, page 5. 18 CGNK, page 6", "shape": "dot", "size": 23.333333333333332, "title": "para. 51. 17 CGNK, page 5. 18 CGNK, page 6\u003cbr\u003eConnections: 1"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "and The World Coalition Against the Death Penalty", "label": "and The World Coalition Against the Death Penalty", "shape": "dot", "size": 23.333333333333332, "title": "and The World Coalition Against the Death Penalty\u003cbr\u003eConnections: 1"}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "by The Advocates for Human Rights", "label": "by The Advocates for Human Rights", "shape": "dot", "size": 23.333333333333332, "title": "by The Advocates for Human Rights\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"from": "Access Now, New York USA", "title": "Collaborations: 1", "to": "The Gulf Centre for Human Rights", "value": 10.0}, {"from": "Access Now, New York USA", "title": "Collaborations: 1", "to": "and Americans for Democracy \u0026 Human Rights in Bahrain", "value": 10.0}, {"from": "CIVICUS: World Alliance for Citizen Participation", "title": "Collaborations: 1", "to": "The Gulf Centre for Human Rights", "value": 10.0}, {"from": "Institute on Statelessness and Inclusion Rights Realization Centre and the Global Campaign for Equal Nationality Rights", "title": "Collaborations: 1", "to": "para. 51. 17 CGNK, page 5. 18 CGNK, page 6", "value": 10.0}, {"from": "The Gulf Centre for Human Rights", "title": "Collaborations: 1", "to": "and Americans for Democracy \u0026 Human Rights in Bahrain", "value": 10.0}, {"from": "and The World Coalition Against the Death Penalty", "title": "Collaborations: 1", "to": "by The Advocates for Human Rights", "value": 10.0}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.001,
+            "springLength": 100
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,228 @@
+{
+  "num_nodes": 21,
+  "num_edges": 62,
+  "density": 0.29523809523809524,
+  "top_degree_centrality": [
+    [
+      "Legal Transformation Center \u201cLawtrend\u201d, Minsk (Belarus)",
+      0.55
+    ],
+    [
+      "Legal Initiative, Minsk (Belarus)",
+      0.5
+    ],
+    [
+      "FORB Initiative",
+      0.5
+    ],
+    [
+      "Office for the Rights of Persons with Disabilities",
+      0.5
+    ],
+    [
+      "The Barys Zvozskau Belarusian Human Rights House, Vilnius (Lithuania)",
+      0.5
+    ],
+    [
+      "The Belarusian Documentation Center, Vilnius (Lithuania)",
+      0.5
+    ],
+    [
+      "The Initiative Group \u201cIdentity and Law\u201d",
+      0.5
+    ],
+    [
+      "Human Constanta, Minsk (Belarus)",
+      0.5
+    ],
+    [
+      "Assembly of Pro-Democratic Non-governmental Organizations of Belarus, Vilnius (Lithuania)",
+      0.5
+    ],
+    [
+      "Belarusian Association of Journalists, Minsk (Belarus)",
+      0.5
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Legal Transformation Center \u201cLawtrend\u201d, Minsk (Belarus)",
+      0.05263157894736842
+    ],
+    [
+      "Assembly of Pro- Democratic Non-governmental Organizations of Belarus, Vilnius (Lithuania)",
+      0.0
+    ],
+    [
+      "Legal Initiative, Minsk (Belarus)",
+      0.0
+    ],
+    [
+      "FORB Initiative",
+      0.0
+    ],
+    [
+      "Office for the Rights of Persons with Disabilities",
+      0.0
+    ],
+    [
+      "The Barys Zvozskau Belarusian Human Rights House, Vilnius (Lithuania)",
+      0.0
+    ],
+    [
+      "The Belarusian Documentation Center, Vilnius (Lithuania)",
+      0.0
+    ],
+    [
+      "The Initiative Group \u201cIdentity and Law\u201d",
+      0.0
+    ],
+    [
+      "Helsinki Foundation for Human Rights",
+      0.0
+    ],
+    [
+      "World Organisation Against Torture",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Legal Transformation Center \u201cLawtrend\u201d, Minsk (Belarus)",
+      0.55
+    ],
+    [
+      "Legal Initiative, Minsk (Belarus)",
+      0.5041666666666667
+    ],
+    [
+      "FORB Initiative",
+      0.5041666666666667
+    ],
+    [
+      "Office for the Rights of Persons with Disabilities",
+      0.5041666666666667
+    ],
+    [
+      "The Barys Zvozskau Belarusian Human Rights House, Vilnius (Lithuania)",
+      0.5041666666666667
+    ],
+    [
+      "The Belarusian Documentation Center, Vilnius (Lithuania)",
+      0.5041666666666667
+    ],
+    [
+      "The Initiative Group \u201cIdentity and Law\u201d",
+      0.5041666666666667
+    ],
+    [
+      "Human Constanta, Minsk (Belarus)",
+      0.5041666666666667
+    ],
+    [
+      "Assembly of Pro-Democratic Non-governmental Organizations of Belarus, Vilnius (Lithuania)",
+      0.5041666666666667
+    ],
+    [
+      "Belarusian Association of Journalists, Minsk (Belarus)",
+      0.5041666666666667
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Legal Transformation Center \u201cLawtrend\u201d, Minsk (Belarus)",
+      0.30387831993994735
+    ],
+    [
+      "Legal Initiative, Minsk (Belarus)",
+      0.3011206129344357
+    ],
+    [
+      "FORB Initiative",
+      0.3011206129344357
+    ],
+    [
+      "Office for the Rights of Persons with Disabilities",
+      0.3011206129344357
+    ],
+    [
+      "The Barys Zvozskau Belarusian Human Rights House, Vilnius (Lithuania)",
+      0.3011206129344357
+    ],
+    [
+      "The Belarusian Documentation Center, Vilnius (Lithuania)",
+      0.3011206129344357
+    ],
+    [
+      "The Initiative Group \u201cIdentity and Law\u201d",
+      0.3011206129344357
+    ],
+    [
+      "Human Constanta, Minsk (Belarus)",
+      0.3011206129344357
+    ],
+    [
+      "Assembly of Pro-Democratic Non-governmental Organizations of Belarus, Vilnius (Lithuania)",
+      0.3011206129344357
+    ],
+    [
+      "Belarusian Association of Journalists, Minsk (Belarus)",
+      0.3011206129344357
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 5.904761904761905,
+    "max": 11,
+    "min": 1,
+    "median": 10
+  },
+  "avg_clustering_coefficient": 0.658008658008658,
+  "num_components": 5,
+  "largest_component_size": 12,
+  "diameter": 2,
+  "avg_path_length": 1.1515151515151516,
+  "num_triangles": 166,
+  "transitivity": 0.9803149606299213,
+  "top_brokers": [
+    [
+      "Legal Transformation Center \u201cLawtrend\u201d, Minsk (Belarus)",
+      0.3066115702479339
+    ],
+    [
+      "The Barys Zvozskau Belarusian Human Rights House, Vilnius (Lithuania)",
+      0.35789834710743806
+    ],
+    [
+      "The Initiative Group \u201cIdentity and Law\u201d",
+      0.35789834710743806
+    ],
+    [
+      "Belarusian Helsinki Committee, Minsk (Belarus), Human Rights Center \u201cViasna\u201d",
+      0.35789834710743806
+    ],
+    [
+      "Legal Initiative, Minsk (Belarus)",
+      0.3578983471074381
+    ],
+    [
+      "FORB Initiative",
+      0.3578983471074381
+    ],
+    [
+      "Office for the Rights of Persons with Disabilities",
+      0.3578983471074381
+    ],
+    [
+      "The Belarusian Documentation Center, Vilnius (Lithuania)",
+      0.3578983471074381
+    ],
+    [
+      "Human Constanta, Minsk (Belarus)",
+      0.3578983471074381
+    ],
+    [
+      "Assembly of Pro-Democratic Non-governmental Organizations of Belarus, Vilnius (Lithuania)",
+      0.3578983471074381
+    ]
+  ]
+}

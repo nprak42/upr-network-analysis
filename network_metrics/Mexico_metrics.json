@@ -1,0 +1,228 @@
+{
+  "num_nodes": 40,
+  "num_edges": 95,
+  "density": 0.12179487179487179,
+  "top_degree_centrality": [
+    [
+      "Comisi\u00f3n Mexicana de Defensa y Promoci\u00f3n de los Derechos Humanos",
+      0.358974358974359
+    ],
+    [
+      "(M\u00e9xico)",
+      0.20512820512820512
+    ],
+    [
+      "American Friends Service Committee",
+      0.20512820512820512
+    ],
+    [
+      "Sin Fronteras, I.A.P.",
+      0.20512820512820512
+    ],
+    [
+      "Programa Casa Refugiados, A.C.",
+      0.20512820512820512
+    ],
+    [
+      "Asylum Access M\u00e9xico",
+      0.20512820512820512
+    ],
+    [
+      "Coalici\u00f3n Internacional contra la Detenci\u00f3n (IDC, siglas en ingl\u00e9s)",
+      0.20512820512820512
+    ],
+    [
+      "Centro de Derechos Humanos Fray Mat\u00edas de C\u00f3rdova, A.C.",
+      0.20512820512820512
+    ],
+    [
+      "Casa del Migrante de Saltillo \u2014 Frontera con Justicia, A.C.",
+      0.20512820512820512
+    ],
+    [
+      "Instituto Superior Intercultural Ayuuk. Organizaciones: Data C\u00edvica",
+      0.15384615384615385
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Comisi\u00f3n Mexicana de Defensa y Promoci\u00f3n de los Derechos Humanos",
+      0.06477732793522267
+    ],
+    [
+      "(M\u00e9xico)",
+      0.0
+    ],
+    [
+      "American Friends Service Committee",
+      0.0
+    ],
+    [
+      "Consejo Nacional para la Defensa del Derecho Humano a la Salud",
+      0.0
+    ],
+    [
+      "Red Nacional de Derechos Humanos",
+      0.0
+    ],
+    [
+      "I(dh)eas, Litigio Estrat\u00e9gico en Derechos Humanos. (M\u00e9xico)",
+      0.0
+    ],
+    [
+      "International Federation for Human Rights (FIDH)",
+      0.0
+    ],
+    [
+      "GE.18-13935 11 VIDES International \u2013 International Volunteerism Organization for Women, Education, Development (Switzerland)",
+      0.0
+    ],
+    [
+      "IIMA- Istituto Internazionale Maria Ausiliatrice",
+      0.0
+    ],
+    [
+      "Fundaci\u00f3n Afromexicana Petra Morga, A.C.",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Comisi\u00f3n Mexicana de Defensa y Promoci\u00f3n de los Derechos Humanos",
+      0.358974358974359
+    ],
+    [
+      "(M\u00e9xico)",
+      0.2512820512820513
+    ],
+    [
+      "American Friends Service Committee",
+      0.2512820512820513
+    ],
+    [
+      "Sin Fronteras, I.A.P.",
+      0.2512820512820513
+    ],
+    [
+      "Programa Casa Refugiados, A.C.",
+      0.2512820512820513
+    ],
+    [
+      "Asylum Access M\u00e9xico",
+      0.2512820512820513
+    ],
+    [
+      "Coalici\u00f3n Internacional contra la Detenci\u00f3n (IDC, siglas en ingl\u00e9s)",
+      0.2512820512820513
+    ],
+    [
+      "Centro de Derechos Humanos Fray Mat\u00edas de C\u00f3rdova, A.C.",
+      0.2512820512820513
+    ],
+    [
+      "Casa del Migrante de Saltillo \u2014 Frontera con Justicia, A.C.",
+      0.2512820512820513
+    ],
+    [
+      "Instituto Superior Intercultural Ayuuk. Organizaciones: Data C\u00edvica",
+      0.22843822843822845
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Comisi\u00f3n Mexicana de Defensa y Promoci\u00f3n de los Derechos Humanos",
+      0.3865413264486576
+    ],
+    [
+      "(M\u00e9xico)",
+      0.3093686215528514
+    ],
+    [
+      "American Friends Service Committee",
+      0.3093686215528514
+    ],
+    [
+      "Sin Fronteras, I.A.P.",
+      0.3093686215528514
+    ],
+    [
+      "Programa Casa Refugiados, A.C.",
+      0.3093686215528514
+    ],
+    [
+      "Asylum Access M\u00e9xico",
+      0.3093686215528514
+    ],
+    [
+      "Coalici\u00f3n Internacional contra la Detenci\u00f3n (IDC, siglas en ingl\u00e9s)",
+      0.3093686215528514
+    ],
+    [
+      "Centro de Derechos Humanos Fray Mat\u00edas de C\u00f3rdova, A.C.",
+      0.3093686215528514
+    ],
+    [
+      "Casa del Migrante de Saltillo \u2014 Frontera con Justicia, A.C.",
+      0.3093686215528514
+    ],
+    [
+      "Programa de Derechos Humanos y Educaci\u00f3n para la Paz de la Universidad Iberoamericana, Torre\u00f3n",
+      0.11896375562977052
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 4.75,
+    "max": 14,
+    "min": 1,
+    "median": 5
+  },
+  "avg_clustering_coefficient": 0.8868131868131869,
+  "num_components": 8,
+  "largest_component_size": 15,
+  "diameter": 2,
+  "avg_path_length": 1.457142857142857,
+  "num_triangles": 152,
+  "transitivity": 0.9047619047619048,
+  "top_brokers": [
+    [
+      "Comisi\u00f3n Mexicana de Defensa y Promoci\u00f3n de los Derechos Humanos",
+      0.2463860544217686
+    ],
+    [
+      "(M\u00e9xico)",
+      0.41779436383928564
+    ],
+    [
+      "American Friends Service Committee",
+      0.41779436383928564
+    ],
+    [
+      "Sin Fronteras, I.A.P.",
+      0.41779436383928564
+    ],
+    [
+      "Programa Casa Refugiados, A.C.",
+      0.41779436383928564
+    ],
+    [
+      "Asylum Access M\u00e9xico",
+      0.41779436383928564
+    ],
+    [
+      "Coalici\u00f3n Internacional contra la Detenci\u00f3n (IDC, siglas en ingl\u00e9s)",
+      0.41779436383928564
+    ],
+    [
+      "Centro de Derechos Humanos Fray Mat\u00edas de C\u00f3rdova, A.C.",
+      0.41779436383928564
+    ],
+    [
+      "Casa del Migrante de Saltillo \u2014 Frontera con Justicia, A.C.",
+      0.41779436383928564
+    ],
+    [
+      "Instituto Superior Intercultural Ayuuk. Organizaciones: Data C\u00edvica",
+      0.512944066515495
+    ]
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "num_nodes": 61,
+  "num_edges": 853,
+  "density": 0.46612021857923497,
+  "top_degree_centrality": [
+    [
+      "Kiribati Girl Guides Association (KGGA), (Kiribati)",
+      0.85
+    ],
+    [
+      "Te Toa Matoa (TTM), (Kiribati)",
+      0.7666666666666666
+    ],
+    [
+      "Irekenrao, (Kiribati)",
+      0.7
+    ],
+    [
+      "AIA MAEA AINEN KIRIBATI (AMAK), (Kiribati)",
+      0.7
+    ],
+    [
+      "Marewen Tabiteuea Meang, (Kiribati)",
+      0.6166666666666667
+    ],
+    [
+      "Ueen te Toaki, (Kiribati)",
+      0.6166666666666667
+    ],
+    [
+      "Ueen te Ueanikai, (Kiribati)",
+      0.6166666666666667
+    ],
+    [
+      "Ueen te Makeke, (Kiribati)",
+      0.6166666666666667
+    ],
+    [
+      "Ueen te Bitati, (Kiribati)",
+      0.6166666666666667
+    ],
+    [
+      "Matangareia Ainen Tamana, (Kiribati)",
+      0.6166666666666667
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Kiribati Girl Guides Association (KGGA), (Kiribati)",
+      0.17014953815801276
+    ],
+    [
+      "Te Toa Matoa (TTM), (Kiribati)",
+      0.08256725854183482
+    ],
+    [
+      "AIA MAEA AINEN KIRIBATI (AMAK), (Kiribati)",
+      0.03062841897587657
+    ],
+    [
+      "Irekenrao, (Kiribati)",
+      0.027354048964218478
+    ],
+    [
+      "Healthy Eita Maeao Organisation (HEMO), (Kiribati)",
+      0.003755941171195408
+    ],
+    [
+      "Kiribati Women in Maritime Association (K-WIMA), (Kiribati)",
+      0.003755941171195408
+    ],
+    [
+      "Reitan Aine ni Kamatu (RAK), (Kiribati)",
+      0.003755941171195408
+    ],
+    [
+      "Kiribati Family Health Association (KFHA), (Kiribati)",
+      0.002770603533315398
+    ],
+    [
+      "Aia Mwaea Ainen Kiribati (AMAK), (Kiribati)",
+      0.0027430275311631246
+    ],
+    [
+      "Kiribati Scouts Association (KSA), (Kiribati)",
+      0.0027430275311631246
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Kiribati Girl Guides Association (KGGA), (Kiribati)",
+      0.8512121212121212
+    ],
+    [
+      "Te Toa Matoa (TTM), (Kiribati)",
+      0.7802777777777777
+    ],
+    [
+      "Irekenrao, (Kiribati)",
+      0.7315104166666666
+    ],
+    [
+      "AIA MAEA AINEN KIRIBATI (AMAK), (Kiribati)",
+      0.7315104166666666
+    ],
+    [
+      "Marewen Tabiteuea Meang, (Kiribati)",
+      0.6785024154589372
+    ],
+    [
+      "Ueen te Toaki, (Kiribati)",
+      0.6785024154589372
+    ],
+    [
+      "Ueen te Ueanikai, (Kiribati)",
+      0.6785024154589372
+    ],
+    [
+      "Ueen te Makeke, (Kiribati)",
+      0.6785024154589372
+    ],
+    [
+      "Ueen te Bitati, (Kiribati)",
+      0.6785024154589372
+    ],
+    [
+      "Matangareia Ainen Tamana, (Kiribati)",
+      0.6785024154589372
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Kiribati Girl Guides Association (KGGA), (Kiribati)",
+      0.16722050946470196
+    ],
+    [
+      "Te Toa Matoa (TTM), (Kiribati)",
+      0.16569611885589533
+    ],
+    [
+      "Irekenrao, (Kiribati)",
+      0.1643499325303959
+    ],
+    [
+      "AIA MAEA AINEN KIRIBATI (AMAK), (Kiribati)",
+      0.16422378601495285
+    ],
+    [
+      "Marewen Tabiteuea Meang, (Kiribati)",
+      0.1614853241504953
+    ],
+    [
+      "Ueen te Toaki, (Kiribati)",
+      0.1614853241504953
+    ],
+    [
+      "Ueen te Ueanikai, (Kiribati)",
+      0.1614853241504953
+    ],
+    [
+      "Ueen te Makeke, (Kiribati)",
+      0.1614853241504953
+    ],
+    [
+      "Ueen te Bitati, (Kiribati)",
+      0.1614853241504953
+    ],
+    [
+      "Matangareia Ainen Tamana, (Kiribati)",
+      0.1614853241504953
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 27.9672131147541,
+    "max": 51,
+    "min": 1,
+    "median": 37
+  },
+  "avg_clustering_coefficient": 0.9211329423365721,
+  "num_components": 3,
+  "largest_component_size": 54,
+  "diameter": 2,
+  "avg_path_length": 1.411600279524808,
+  "num_triangles": 9035,
+  "transitivity": 0.9498195325367067,
+  "top_brokers": [
+    [
+      "Kiribati Girl Guides Association (KGGA), (Kiribati)",
+      0.07456324659136633
+    ],
+    [
+      "Te Toa Matoa (TTM), (Kiribati)",
+      0.0794637370360205
+    ],
+    [
+      "AIA MAEA AINEN KIRIBATI (AMAK), (Kiribati)",
+      0.08651691745683072
+    ],
+    [
+      "Irekenrao, (Kiribati)",
+      0.08659364903411225
+    ],
+    [
+      "Marewen Tabiteuea Meang, (Kiribati)",
+      0.10322917777239339
+    ],
+    [
+      "Ueen te Toaki, (Kiribati)",
+      0.10322917777239339
+    ],
+    [
+      "Ueen te Ueanikai, (Kiribati)",
+      0.10322917777239339
+    ],
+    [
+      "Ueen te Makeke, (Kiribati)",
+      0.10322917777239339
+    ],
+    [
+      "Ueen te Bitati, (Kiribati)",
+      0.10322917777239339
+    ],
+    [
+      "Matangareia Ainen Tamana, (Kiribati)",
+      0.10322917777239339
+    ]
+  ]
+}

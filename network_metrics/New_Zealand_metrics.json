@@ -1,0 +1,108 @@
+{
+  "num_nodes": 4,
+  "num_edges": 2,
+  "density": 0.3333333333333333,
+  "top_degree_centrality": [
+    [
+      "Auckland Sexual Abuse HELP, Women\u2019s Centre,Backbone Collective, Eastern Women\u2019s Refuge, Homework\u2019s Trust, Inner City Women\u2019s Group, Mental Health Foundation, Mt Albert Psychological Services, North Shore Women\u2019s Centre, Rape Prevention Education \u2013 Whakatu Mauri, SHINE Safer Homes in NZ Everyday, Supportline Women\u2019s Refuge Te Rito Women\u2019s Centre Rodney, Women\u2019s Health Action Trust",
+      0.3333333333333333
+    ],
+    [
+      "Coalition for the Safety of Women and Children, Auckland, New Zealand",
+      0.3333333333333333
+    ],
+    [
+      "International Centre for Trade Union Rights, London, United Kingdom",
+      0.3333333333333333
+    ],
+    [
+      "The New Zealand Council of Trade Unions Te Kauae Kaimahi, Wellington, New Zealand",
+      0.3333333333333333
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Auckland Sexual Abuse HELP, Women\u2019s Centre,Backbone Collective, Eastern Women\u2019s Refuge, Homework\u2019s Trust, Inner City Women\u2019s Group, Mental Health Foundation, Mt Albert Psychological Services, North Shore Women\u2019s Centre, Rape Prevention Education \u2013 Whakatu Mauri, SHINE Safer Homes in NZ Everyday, Supportline Women\u2019s Refuge Te Rito Women\u2019s Centre Rodney, Women\u2019s Health Action Trust",
+      0.0
+    ],
+    [
+      "Coalition for the Safety of Women and Children, Auckland, New Zealand",
+      0.0
+    ],
+    [
+      "International Centre for Trade Union Rights, London, United Kingdom",
+      0.0
+    ],
+    [
+      "The New Zealand Council of Trade Unions Te Kauae Kaimahi, Wellington, New Zealand",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "Auckland Sexual Abuse HELP, Women\u2019s Centre,Backbone Collective, Eastern Women\u2019s Refuge, Homework\u2019s Trust, Inner City Women\u2019s Group, Mental Health Foundation, Mt Albert Psychological Services, North Shore Women\u2019s Centre, Rape Prevention Education \u2013 Whakatu Mauri, SHINE Safer Homes in NZ Everyday, Supportline Women\u2019s Refuge Te Rito Women\u2019s Centre Rodney, Women\u2019s Health Action Trust",
+      0.3333333333333333
+    ],
+    [
+      "Coalition for the Safety of Women and Children, Auckland, New Zealand",
+      0.3333333333333333
+    ],
+    [
+      "International Centre for Trade Union Rights, London, United Kingdom",
+      0.3333333333333333
+    ],
+    [
+      "The New Zealand Council of Trade Unions Te Kauae Kaimahi, Wellington, New Zealand",
+      0.3333333333333333
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "Auckland Sexual Abuse HELP, Women\u2019s Centre,Backbone Collective, Eastern Women\u2019s Refuge, Homework\u2019s Trust, Inner City Women\u2019s Group, Mental Health Foundation, Mt Albert Psychological Services, North Shore Women\u2019s Centre, Rape Prevention Education \u2013 Whakatu Mauri, SHINE Safer Homes in NZ Everyday, Supportline Women\u2019s Refuge Te Rito Women\u2019s Centre Rodney, Women\u2019s Health Action Trust",
+      0.5
+    ],
+    [
+      "Coalition for the Safety of Women and Children, Auckland, New Zealand",
+      0.5
+    ],
+    [
+      "International Centre for Trade Union Rights, London, United Kingdom",
+      0.5
+    ],
+    [
+      "The New Zealand Council of Trade Unions Te Kauae Kaimahi, Wellington, New Zealand",
+      0.5
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 1.0,
+    "max": 1,
+    "min": 1,
+    "median": 1
+  },
+  "avg_clustering_coefficient": 0.0,
+  "num_components": 2,
+  "largest_component_size": 2,
+  "diameter": 1,
+  "avg_path_length": 1.0,
+  "num_triangles": 0,
+  "transitivity": 0,
+  "top_brokers": [
+    [
+      "Auckland Sexual Abuse HELP, Women\u2019s Centre,Backbone Collective, Eastern Women\u2019s Refuge, Homework\u2019s Trust, Inner City Women\u2019s Group, Mental Health Foundation, Mt Albert Psychological Services, North Shore Women\u2019s Centre, Rape Prevention Education \u2013 Whakatu Mauri, SHINE Safer Homes in NZ Everyday, Supportline Women\u2019s Refuge Te Rito Women\u2019s Centre Rodney, Women\u2019s Health Action Trust",
+      1.0
+    ],
+    [
+      "Coalition for the Safety of Women and Children, Auckland, New Zealand",
+      1.0
+    ],
+    [
+      "International Centre for Trade Union Rights, London, United Kingdom",
+      1.0
+    ],
+    [
+      "The New Zealand Council of Trade Unions Te Kauae Kaimahi, Wellington, New Zealand",
+      1.0
+    ]
+  ]
+}

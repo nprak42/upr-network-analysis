@@ -1,0 +1,228 @@
+{
+  "num_nodes": 219,
+  "num_edges": 8196,
+  "density": 0.3433454819655649,
+  "top_degree_centrality": [
+    [
+      "AGeDO",
+      0.8027522935779817
+    ],
+    [
+      "CIAI",
+      0.8027522935779817
+    ],
+    [
+      "ANFAA",
+      0.8027522935779817
+    ],
+    [
+      "CISMAI",
+      0.8027522935779817
+    ],
+    [
+      "VIS",
+      0.8027522935779817
+    ],
+    [
+      "Cittadinanzattiva",
+      0.46788990825688076
+    ],
+    [
+      "ECPAT Italia",
+      0.4357798165137615
+    ],
+    [
+      "Comitato Gi\u00f9 le Mani dai Bambini",
+      0.43119266055045874
+    ],
+    [
+      "Onlus Opera Nomadi Milano",
+      0.43119266055045874
+    ],
+    [
+      "UNCM",
+      0.43119266055045874
+    ]
+  ],
+  "top_betweenness_centrality": [
+    [
+      "Cittadinanzattiva",
+      0.07440916585633957
+    ],
+    [
+      "AGeDO",
+      0.06917515748530816
+    ],
+    [
+      "CIAI",
+      0.06917515748530816
+    ],
+    [
+      "ANFAA",
+      0.06917515748530816
+    ],
+    [
+      "CISMAI",
+      0.06917515748530816
+    ],
+    [
+      "VIS",
+      0.06917515748530816
+    ],
+    [
+      "Consiglio Italiano per i Rifugiati",
+      0.015558280133598269
+    ],
+    [
+      "ECPAT Italia",
+      0.007821418001944783
+    ],
+    [
+      "Comitato Singh Mohinder",
+      0.0
+    ],
+    [
+      "UNICEF Italia",
+      0.0
+    ]
+  ],
+  "top_closeness_centrality": [
+    [
+      "AGeDO",
+      0.7974736065649348
+    ],
+    [
+      "CIAI",
+      0.7974736065649348
+    ],
+    [
+      "ANFAA",
+      0.7974736065649348
+    ],
+    [
+      "CISMAI",
+      0.7974736065649348
+    ],
+    [
+      "VIS",
+      0.7974736065649348
+    ],
+    [
+      "Cittadinanzattiva",
+      0.5877675840978593
+    ],
+    [
+      "ECPAT Italia",
+      0.5688073394495412
+    ],
+    [
+      "Comitato Gi\u00f9 le Mani dai Bambini",
+      0.5667758846657929
+    ],
+    [
+      "Onlus Opera Nomadi Milano",
+      0.5667758846657929
+    ],
+    [
+      "UNCM",
+      0.5667758846657929
+    ]
+  ],
+  "top_eigenvector_centrality": [
+    [
+      "AGeDO",
+      0.12725006947675924
+    ],
+    [
+      "CIAI",
+      0.12725006947675924
+    ],
+    [
+      "ANFAA",
+      0.12725006947675924
+    ],
+    [
+      "CISMAI",
+      0.12725006947675924
+    ],
+    [
+      "VIS",
+      0.12725006947675924
+    ],
+    [
+      "Cittadinanzattiva",
+      0.09363625149294516
+    ],
+    [
+      "ECPAT Italia",
+      0.09355919630412173
+    ],
+    [
+      "Comitato Gi\u00f9 le Mani dai Bambini",
+      0.09354910787440072
+    ],
+    [
+      "Onlus Opera Nomadi Milano",
+      0.09354910787440072
+    ],
+    [
+      "UNCM",
+      0.09354910787440072
+    ]
+  ],
+  "degree_distribution": {
+    "mean": 74.84931506849315,
+    "max": 175,
+    "min": 1,
+    "median": 85
+  },
+  "avg_clustering_coefficient": 0.9273210596950664,
+  "num_components": 11,
+  "largest_component_size": 187,
+  "diameter": 4,
+  "avg_path_length": 1.603415559772296,
+  "num_triangles": 240870,
+  "transitivity": 0.9509002239703549,
+  "top_brokers": [
+    [
+      "AGeDO",
+      0.022711575326590336
+    ],
+    [
+      "CIAI",
+      0.022711575326590336
+    ],
+    [
+      "ANFAA",
+      0.022711575326590336
+    ],
+    [
+      "CISMAI",
+      0.022711575326590336
+    ],
+    [
+      "VIS",
+      0.022711575326590336
+    ],
+    [
+      "Cittadinanzattiva",
+      0.0375229504484873
+    ],
+    [
+      "ECPAT Italia",
+      0.04029381565926058
+    ],
+    [
+      "Comitato Gi\u00f9 le Mani dai Bambini",
+      0.04103788775678019
+    ],
+    [
+      "Onlus Opera Nomadi Milano",
+      0.04103788775678019
+    ],
+    [
+      "UNCM",
+      0.04103788775678019
+    ]
+  ]
+}
