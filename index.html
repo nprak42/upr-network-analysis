@@ -257,15 +257,15 @@
                 </div>
                 <div class="stat-item">
                     <h3>Period</h3>
-                    <p>2022-23</p>
+                    <p>2018-23</p>
                 </div>
             </div>
 
             <div class="data-links">
-                <a href="https://github.com/npra42/upr-network-analysis" class="data-link" target="_blank">
+                <a href="https://github.com/nprak42/upr-network-analysis" class="data-link" target="_blank">
                     View Code on GitHub
                 </a>
-                <a href="https://github.com/nprak42/upr-network-analysi/tree/main/edgelists" class="data-link secondary" target="_blank">
+                <a href="https://github.com/nprak42/upr-network-analysis/tree/main/edgelists" class="data-link secondary" target="_blank">
                     Browse Raw Data
                 </a>
                 <a href="https://github.com/nprak42/upr-network-analysis/tree/main/network_metrics" class="data-link secondary" target="_blank">
@@ -320,7 +320,7 @@
         const grid = document.getElementById('countryGrid');
         countries.forEach(country => {
             const card = document.createElement('a');
-            card.href = `network_visualizations/${country}_network.html`;
+            card.href = `country.html?country=${country}`;
             card.className = 'country-card';
             card.innerHTML = `
                 <div class="country-name">${country.replace(/_/g, ' ')}</div>
