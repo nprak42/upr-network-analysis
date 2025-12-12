@@ -167,7 +167,7 @@ def load_countries():
     
     countries = []
     for file in graph_dir.glob("*.pkl"):
-        country = file.stem.replace("_graph", "").replace("_", " ")
+        country = file.stem.replace("_network", "").replace("_", " ")
         countries.append(country)
     
     return sorted(countries)
@@ -239,9 +239,9 @@ def create_network_visualization(G):
             size=10,
             color=[],
             colorbar=dict(
-                title=dict(
-                    text= 'Degree',
-                    side= 'right'
+            title=dict(
+                text='Degree',
+                side='right'  
                 )
             ),
             line=dict(width=1, color='white')
