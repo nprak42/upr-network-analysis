@@ -1,9 +1,9 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import json
 import pickle
 from pathlib import Path
-import plotly.graph_objects as go
 import networkx as nx
 
 # Page config
@@ -162,12 +162,14 @@ st.markdown("""
 def load_countries():
     """Load list of available countries from graph_objects folder"""
     graph_dir = Path("graph_objects")
+    
     if not graph_dir.exists():
         return []
     
     countries = []
     for file in graph_dir.glob("*.pkl"):
-        country = file.stem.replace("_network", "").replace("_", " ")
+        # Changed from _network to _graph
+        country = file.stem.replace("_graph", "").replace("_", " ")
         countries.append(country)
     
     return sorted(countries)
@@ -202,113 +204,98 @@ def load_metrics(country):
     
     return metrics
 
-# Create network visualization
-def create_network_visualization(G):
-    """Create interactive network visualization using Plotly"""
-    if G is None or len(G.nodes()) == 0:
+# Load network visualization HTML
+@st.cache_data
+def load_network_html(country):
+    """Load pre-generated pyvis HTML visualization"""
+    country_code = country.replace(" ", "_")
+    html_path = Path(f"network_visualizations/{country_code}_network.html")
+    
+    if not html_path.exists():
         return None
     
-    # Use spring layout
-    pos = nx.spring_layout(G, k=0.5, iterations=50, seed=42)
+    with open(html_path, 'r', encoding='utf-8') as f:
+        html_content = f.read()
     
-    # Create edge traces
-    edge_trace = go.Scatter(
-        x=[],
-        y=[],
-        line=dict(width=0.5, color='#e5e5e5'),
-        hoverinfo='none',
-        mode='lines'
-    )
-    
-    for edge in G.edges():
-        x0, y0 = pos[edge[0]]
-        x1, y1 = pos[edge[1]]
-        edge_trace['x'] += tuple([x0, x1, None])
-        edge_trace['y'] += tuple([y0, y1, None])
-    
-    # Create node traces
-    node_trace = go.Scatter(
-        x=[],
-        y=[],
-        text=[],
-        mode='markers',
-        hoverinfo='text',
-        marker=dict(
-            showscale=True,
-            colorscale='Teal',
-            size=10,
-            color=[],
-            colorbar=dict(
-            title=dict(
-                text='Degree',
-                side='right'  
-                )
-            ),
-            line=dict(width=1, color='white')
-        )
-    )
-    
-    for node in G.nodes():
-        x, y = pos[node]
-        node_trace['x'] += tuple([x])
-        node_trace['y'] += tuple([y])
-        node_trace['text'] += tuple([f"{node}<br>Degree: {G.degree(node)}"])
-        node_trace['marker']['color'] += tuple([G.degree(node)])
-    
-    # Create figure
-    fig = go.Figure(
-        data=[edge_trace, node_trace],
-        layout=go.Layout(
-            showlegend=False,
-            hovermode='closest',
-            margin=dict(b=0, l=0, r=0, t=0),
-            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            plot_bgcolor='white',
-            height=800
-        )
-    )
-    
-    return fig
+    return html_content
 
-# Display metric grid
+# Display metric grid using Streamlit columns
 def display_metric_grid(metrics_dict):
-    """Display metrics in a 2x2 grid with consistent sizing"""
-    html = '<div class="metric-grid">'
+    """Display metrics in a 2x2 grid with Streamlit native components"""
+    items = list(metrics_dict.items())
     
-    for label, value in metrics_dict.items():
-        if isinstance(value, float):
-            formatted_value = f"{value:.3f}" if value < 10 else f"{value:.1f}"
-        else:
-            formatted_value = str(value)
+    # Display in 2x2 grid
+    for i in range(0, len(items), 2):
+        col1, col2 = st.columns(2)
         
-        html += f'''
-        <div class="metric-item">
-            <div class="metric-value">{formatted_value}</div>
-            <div class="metric-label">{label}</div>
-        </div>
-        '''
-    
-    html += '</div>'
-    st.markdown(html, unsafe_allow_html=True)
+        # First metric
+        if i < len(items):
+            label, value = items[i]
+            with col1:
+                if isinstance(value, float):
+                    formatted_value = f"{value:.3f}" if value < 10 else f"{value:.1f}"
+                else:
+                    formatted_value = str(value)
+                
+                st.markdown(f"""
+                <div style="background: #e6f7f9; border: 1px solid #e5e5e5; padding: 18px; 
+                            border-radius: 6px; text-align: center;">
+                    <div style="font-size: 1.6rem; font-weight: 700; color: #2a2a2a;">
+                        {formatted_value}
+                    </div>
+                    <div style="color: #6b6b6b; font-size: 0.85rem; margin-top: 5px; 
+                                text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">
+                        {label}
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+        
+        # Second metric
+        if i + 1 < len(items):
+            label, value = items[i + 1]
+            with col2:
+                if isinstance(value, float):
+                    formatted_value = f"{value:.3f}" if value < 10 else f"{value:.1f}"
+                else:
+                    formatted_value = str(value)
+                
+                st.markdown(f"""
+                <div style="background: #e6f7f9; border: 1px solid #e5e5e5; padding: 18px; 
+                            border-radius: 6px; text-align: center;">
+                    <div style="font-size: 1.6rem; font-weight: 700; color: #2a2a2a;">
+                        {formatted_value}
+                    </div>
+                    <div style="color: #6b6b6b; font-size: 0.85rem; margin-top: 5px; 
+                                text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">
+                        {label}
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
 
 # Display top organizations list
 def display_top_list(items, label_suffix=""):
     """Display ranked list of organizations"""
-    html = '<div class="top-list">'
-    
     for i, (name, value) in enumerate(items[:5], 1):
         formatted_value = f"{value:.3f}"
-        html += f'''
-        <div class="top-list-item">
-            <span class="rank-badge">{i}</span>
-            <span class="org-name">{name}</span>
-            <span class="org-value">{formatted_value}</span>
+        
+        st.markdown(f"""
+        <div style="padding: 15px; margin-bottom: 10px; background: #e6f7f9; 
+                    border: 1px solid #e5e5e5; border-radius: 6px; display: flex; 
+                    justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="background: #5eadbd; color: white; width: 28px; height: 28px; 
+                         border-radius: 50%; display: inline-flex; align-items: center; 
+                         justify-content: center; font-weight: 700; font-size: 0.85rem;">
+                {i}
+            </span>
+            <span style="flex: 1; font-weight: 600; color: #2a2a2a;">
+                {name}
+            </span>
+            <span style="color: #5eadbd; font-weight: 700; 
+                         font-family: 'Monaco', 'Courier New', monospace; font-size: 0.85rem;">
+                {formatted_value}
+            </span>
         </div>
-        '''
-    
-    html += '</div>'
-    st.markdown(html, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 # Main app
 def main():
@@ -348,10 +335,10 @@ def main():
     
     # Load data
     with st.spinner(f"Loading network for {selected_country}..."):
-        G = load_network(selected_country)
+        html_viz = load_network_html(selected_country)
         metrics = load_metrics(selected_country)
     
-    if G is None:
+    if html_viz is None:
         st.error(f"Network data not found for {selected_country}")
         return
     
@@ -371,9 +358,9 @@ def main():
     # Left: Visualization
     with viz_col:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        fig = create_network_visualization(G)
-        if fig:
-            st.plotly_chart(fig, use_container_width=True)
+        if html_viz:
+            # Embed the pyvis HTML
+            components.html(html_viz, height=800, scrolling=False)
         else:
             st.info("Network visualization unavailable")
         st.markdown('</div>', unsafe_allow_html=True)
@@ -382,19 +369,18 @@ def main():
     with metrics_col:
         if metrics:
             # Network Overview
-            st.markdown('<div class="metric-card"><h3>Network Overview</h3>', unsafe_allow_html=True)
+            st.markdown('<h3 style="font-size: 1.3rem; font-weight: 800; color: #2a2a2a; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #5eadbd;">Network Overview</h3>', unsafe_allow_html=True)
             display_metric_grid({
                 'Organizations': metrics['num_nodes'],
                 'Collaborations': metrics['num_edges'],
                 'Density': metrics['density'],
                 'Transitivity': metrics['transitivity']
             })
-            st.markdown('</div>', unsafe_allow_html=True)
             
             st.markdown("<br>", unsafe_allow_html=True)
             
             # Structure
-            st.markdown('<div class="metric-card"><h3>Structure</h3>', unsafe_allow_html=True)
+            st.markdown('<h3 style="font-size: 1.3rem; font-weight: 800; color: #2a2a2a; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #5eadbd;">Structure</h3>', unsafe_allow_html=True)
             structure_metrics = {
                 'Components': metrics['num_components'],
                 'Triangles': metrics['num_triangles']
@@ -403,12 +389,11 @@ def main():
                 structure_metrics['Diameter'] = metrics['diameter']
                 structure_metrics['Avg Path Length'] = metrics['avg_path_length']
             display_metric_grid(structure_metrics)
-            st.markdown('</div>', unsafe_allow_html=True)
             
             st.markdown("<br>", unsafe_allow_html=True)
             
             # Key Organizations
-            st.markdown('<div class="metric-card"><h3>Key Organizations</h3>', unsafe_allow_html=True)
+            st.markdown('<h3 style="font-size: 1.3rem; font-weight: 800; color: #2a2a2a; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #5eadbd;">Key Organizations</h3>', unsafe_allow_html=True)
             
             tab1, tab2, tab3 = st.tabs(["Degree", "Betweenness", "Brokers"])
             
@@ -422,19 +407,16 @@ def main():
                 display_top_list(metrics['top_brokers'])
                 st.markdown('<p style="font-size: 0.9rem; color: #a3a3a3; margin-top: 15px; font-style: italic;">Lower constraint values indicate better brokerage positions</p>', unsafe_allow_html=True)
             
-            st.markdown('</div>', unsafe_allow_html=True)
-            
-            st.markdown("<br>", unsafe_allow_html=True)
+            st.markdown("<br><br>", unsafe_allow_html=True)
             
             # Degree Distribution
-            st.markdown('<div class="metric-card"><h3>Degree Distribution</h3>', unsafe_allow_html=True)
+            st.markdown('<h3 style="font-size: 1.3rem; font-weight: 800; color: #2a2a2a; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #5eadbd;">Degree Distribution</h3>', unsafe_allow_html=True)
             display_metric_grid({
                 'Mean': metrics['degree_distribution']['mean'],
                 'Median': metrics['degree_distribution']['median'],
                 'Maximum': metrics['degree_distribution']['max'],
                 'Minimum': metrics['degree_distribution']['min']
             })
-            st.markdown('</div>', unsafe_allow_html=True)
         
         else:
             st.info("Metrics not available for this country")
