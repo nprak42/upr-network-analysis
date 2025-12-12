@@ -167,7 +167,7 @@ def load_countries():
     
     countries = []
     for file in graph_dir.glob("*.pkl"):
-        country = file.stem.replace("_network", "").replace("_", " ")
+        country = file.stem.replace("_graph", "").replace("_", " ")
         countries.append(country)
     
     return sorted(countries)
