@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPR Network Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal: #5eadbd;
+            --teal-light: #e6f7f9;
+            --gray: #6b6b6b;
+            --gray-light: #a3a3a3;
+            --gray-lighter: #e5e5e5;
+            --text: #2a2a2a;
+            --bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding-top: 70px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-lighter);
+            z-index: 1000;
+        }
+
+        nav .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(94, 173, 189, 0.08) 0%, rgba(94, 173, 189, 0.03) 100%);
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            color: var(--text);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--teal-light);
+            border: 1px solid var(--gray-lighter);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            flex: 1;
+        }
+
+        .stat-item h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stat-item p {
+            font-size: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        /* Main Section */
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        /* Search Box */
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1rem;
+            border: 1px solid var(--gray-lighter);
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(94, 173, 189, 0.1);
+        }
+
+        .search-box input::placeholder {
+            color: var(--gray-light);
+        }
+
+        /* Country Cards */
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .country-card {
+            border: 1px solid var(--gray-lighter);
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 25px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: block;
+        }
+
+        .country-card:hover {
+            border-color: var(--teal);
+            box-shadow: 0 4px 12px rgba(94, 173, 189, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .country-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .country-arrow {
+            font-size: 0.9rem;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray-light);
+            font-size: 1.1rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--teal-light);
+            border: 1px dashed var(--gray-lighter);
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            nav .nav-container {
+                padding: 15px 25px;
+            }
+
+            nav .nav-links {
+                gap: 20px;
+            }
+
+            .container {
+                padding: 0 25px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+                align-items: stretch;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .country-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">UPR Network Analysis</a>
+            <ul class="nav-links">
+                <li><a href="#countries">Countries</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Civil Society Networks</h1>
+            <p class="subtitle">Exploring collaboration patterns among organizations in the UN Universal Periodic Review process</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section id="countries">
+        <div class="container">
+            {% if countries %}
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <h3>Countries</h3>
+                    <p>{{ countries|length }}</p>
+                </div>
+                <div class="stat-item">
+                    <h3>UPR Cycle</h3>
+                    <p>Third</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Period</h3>
+                    <p>2018-23</p>
+                </div>
+            </div>
+
+            <h2>Select a Country</h2>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search countries...">
+            </div>
+
+            <div class="country-grid" id="countryGrid">
+                {% for country in countries %}
+                <a href="/network/{{ country }}" class="country-card" data-country="{{ country|lower }}">
+                    <div class="country-name">{{ country.replace('_', ' ') }}</div>
+                    <div class="country-arrow">View network →</div>
+                </a>
+                {% endfor %}
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                No countries found matching your search
+            </div>
+
+            {% else %}
+            <div class="empty-state">
+                <h3>No Networks Available</h3>
+                <p>Run the network analysis script to generate visualizations</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About This Project</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--gray); margin-bottom: 20px;">
+                This project analyzes collaboration networks among civil society organizations (CSOs) participating in the UN Universal Periodic Review. By examining joint submissions, we can identify key organizations, brokerage positions, and patterns of advocacy coalition formation.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--gray);">
+                Each network visualization shows organizations as nodes and collaborations as edges, with size and color indicating centrality and brokerage positions. Click any country above to explore its network structure and key metrics.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const countryCards = document.querySelectorAll('.country-card');
+        const countryGrid = document.getElementById('countryGrid');
+        const noResults = document.getElementById('noResults');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                let visibleCount = 0;
+
+                countryCards.forEach(card => {
+                    const countryName = card.getAttribute('data-country');
+                    if (countryName.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    countryGrid.style.display = 'none';
+                    noResults.style.display = 'block';
+                } else {
+                    countryGrid.style.display = 'grid';
+                    noResults.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

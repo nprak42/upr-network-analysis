@@ -1,0 +1,4 @@
+flask==3.0.0
+pandas==2.1.4
+networkx==3.2.1
+pyvis==0.3.2
