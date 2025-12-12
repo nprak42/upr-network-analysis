@@ -177,7 +177,7 @@ def load_countries():
 def load_network(country):
     """Load network graph from pickle file"""
     country_code = country.replace(" ", "_")
-    graph_path = Path(f"graph_objects/{country_code}_network.pkl")
+    graph_path = Path(f"graph_objects/{country_code}_graph.pkl")
     
     if not graph_path.exists():
         return None
