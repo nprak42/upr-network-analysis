@@ -239,10 +239,10 @@ def create_network_visualization(G):
             size=10,
             color=[],
             colorbar=dict(
-                thickness=15,
-                title='Degree',
-                xanchor='left',
-                titleside='right'
+                title=dict(
+                    text= 'Degree',
+                    side= 'right'
+                )
             ),
             line=dict(width=1, color='white')
         )
