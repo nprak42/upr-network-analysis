@@ -351,10 +351,7 @@ def main():
     # Description and selector
     st.markdown("""
     <div class="description-text">
-        This interactive tool visualizes collaboration networks between civil society organizations (CSOs)
-        submitting stakeholder reports to the United Nations Universal Periodic Review (UPR).
-        Each network represents organizations that have jointly submitted reports for a specific country's review,
-        revealing patterns of cooperation and key organizational actors in the human rights monitoring ecosystem.
+                This interactive tool is intended to explore Civil Society collaboration through Joint Submission participation in a nations UPR submission. Future work to include further edge and node attributes is on going.
     </div>
     """, unsafe_allow_html=True)
 
