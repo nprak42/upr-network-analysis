@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "All for Education! National Civil Society Coalition Mongolia, Ulaanbaatar (Mongolia)", "label": "All for Education! Nation...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAll for Education! National Civil Society Coalition Mongolia, Ulaanbaatar (Mongolia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: All for Education! National Civil Society Coalition Mongolia, Ulaanbaatar (Mongolia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "MONFEMNET National Network Mongolia, Ulaanbaatar (Mongolia)", "label": "MONFEMNET National Networ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eMONFEMNET National Network Mongolia, Ulaanbaatar (Mongolia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: MONFEMNET National Network Mongolia, Ulaanbaatar (Mongolia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Asian-Pacific Resource and Research Centre for Women (ARROW), Kuala Lumpur (Malaysia)", "label": "Asian-Pacific Resource an...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAsian-Pacific Resource and Research Centre for Women (ARROW), Kuala Lumpur (Malaysia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Asian-Pacific Resource and Research Centre for Women (ARROW), Kuala Lumpur (Malaysia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "\u0425\u04af\u043d\u0438\u0439 \u044d\u0440\u0445 \u0445\u04e9\u0433\u0436\u0438\u043b \u0442\u04e9\u0432", "label": "\u0425\u04af\u043d\u0438\u0439 \u044d\u0440\u0445 \u0445\u04e9\u0433\u0436\u0438\u043b \u0442\u04e9\u0432", "shape": "dot", "size": 20.0, "title": "\u003cb\u003e\u0425\u04af\u043d\u0438\u0439 \u044d\u0440\u0445 \u0445\u04e9\u0433\u0436\u0438\u043b \u0442\u04e9\u0432\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: \u0425\u04af\u043d\u0438\u0439 \u044d\u0440\u0445 \u0445\u04e9\u0433\u0436\u0438\u043b \u0442\u04e9\u0432\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Global Meridian NGO, Ulaanbaatar (Mongolia)", "label": "Global Meridian NGO, Ulaa...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eGlobal Meridian NGO, Ulaanbaatar (Mongolia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Global Meridian NGO, Ulaanbaatar (Mongolia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Child Education Institute of Mongolia", "label": "Child Education Institute...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eChild Education Institute of Mongolia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Child Education Institute of Mongolia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness and Inclusion, Eindhoven (Netherlands)", "label": "Institute on Statelessnes...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eInstitute on Statelessness and Inclusion, Eindhoven (Netherlands)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion, Eindhoven (Netherlands)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "MONFEMNET National Network, \u201cStep by Step for Development\u201d NGO, \u201cOur Participation Advocacy\u201d NGO, \u201cWomen in the 21st Century\u201d NGO, \u201cDemoCrazy Youth Center\u201d NGO, \u201cCenter for Citizens\u2019 Alliance\u201d NGO, \u201cHuman Rights Center for Aiding Citizens\u201d NGO, \u201cKazakh Women\u2019s \"Arular\" Union\u201d NGO, \u201cLiberal Women\u2019s Brain Pool\u201d NGO, \u201cPrincess\u201d Center for Protecting Girls\u2019 and Young Women\u2019s Rights\u201d NGO, \u201cOyu Tolgoi Watch\u201d NGO, \u201cWomen for Change\u201d NGO, \u201cSteps Without Borders\u201d NGO, \u201cLaw and Human Rights Center\u201d NGO, \u201cCenter for Human Rights and Development\u201d NGO, \u201cNational Center against Violence\u201d NGO, \u201cWomen and Life Center\u201d NGO, \u201cWomen Leaders Foundation\u201d NGO, \u201cMen- Healthy Family Center\u201d NGO, \u201cBeautiful hearts\u201d NGO, \u201cMongolian Center for Social Liberation, \u201cTuva eej\u201d NGO, Mongolian Family Welfare Association NGO, Ulaanbaatar (Mongolia)", "label": "MONFEMNET National Networ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eMONFEMNET National Network, \u201cStep by Step for Development\u201d NGO, \u201cOur Participation Advocacy\u201d NGO, \u201cWomen in the 21st Century\u201d NGO, \u201cDemoCrazy Youth Center\u201d NGO, \u201cCenter for Citizens\u2019 Alliance\u201d NGO, \u201cHuman Rights Center for Aiding Citizens\u201d NGO, \u201cKazakh Women\u2019s \"Arular\" Union\u201d NGO, \u201cLiberal Women\u2019s Brain Pool\u201d NGO, \u201cPrincess\u201d Center for Protecting Girls\u2019 and Young Women\u2019s Rights\u201d NGO, \u201cOyu Tolgoi Watch\u201d NGO, \u201cWomen for Change\u201d NGO, \u201cSteps Without Borders\u201d NGO, \u201cLaw and Human Rights Center\u201d NGO, \u201cCenter for Human Rights and Development\u201d NGO, \u201cNational Center against Violence\u201d NGO, \u201cWomen and Life Center\u201d NGO, \u201cWomen Leaders Foundation\u201d NGO, \u201cMen- Healthy Family Center\u201d NGO, \u201cBeautiful hearts\u201d NGO, \u201cMongolian Center for Social Liberation, \u201cTuva eej\u201d NGO, Mongolian Family Welfare Association NGO, Ulaanbaatar (Mongolia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: MONFEMNET National Network, \u201cStep by Step for Development\u201d NGO, \u201cOur Participation Advocacy\u201d NGO, \u201cWomen in the 21st Century\u201d NGO, \u201cDemoCrazy Youth Center\u201d NGO, \u201cCenter for Citizens\u2019 Alliance\u201d NGO, \u201cHuman Rights Center for Aiding Citizens\u201d NGO, \u201cKazakh Women\u2019s \"Arular\" Union\u201d NGO, \u201cLiberal Women\u2019s Brain Pool\u201d NGO, \u201cPrincess\u201d Center for Protecting Girls\u2019 and Young Women\u2019s Rights\u201d NGO, \u201cOyu Tolgoi Watch\u201d NGO, \u201cWomen for Change\u201d NGO, \u201cSteps Without Borders\u201d NGO, \u201cLaw and Human Rights Center\u201d NGO, \u201cCenter for Human Rights and Development\u201d NGO, \u201cNational Center against Violence\u201d NGO, \u201cWomen and Life Center\u201d NGO, \u201cWomen Leaders Foundation\u201d NGO, \u201cMen- Healthy Family Center\u201d NGO, \u201cBeautiful hearts\u201d NGO, \u201cMongolian Center for Social Liberation, \u201cTuva eej\u201d NGO, Mongolian Family Welfare Association NGO, Ulaanbaatar (Mongolia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "\u041c\u043e\u043d\u0433\u043e\u043b\u044b\u043d \u042d\u043c\u044d\u0433\u0442\u044d\u0439\u0447\u04af\u04af\u0434\u0438\u0439\u043d \u0425\u04e9\u0434\u04e9\u043b\u043c\u04e9\u0440\u0438\u0439\u0433 \u0414\u044d\u043c\u0436\u0438\u0445 \u0425\u043e\u043b\u0431\u043e\u043e, Ulaanbaatar (Mongolia)", "label": "\u041c\u043e\u043d\u0433\u043e\u043b\u044b\u043d \u042d\u043c\u044d\u0433\u0442\u044d\u0439\u0447\u04af\u04af\u0434\u0438\u0439\u043d \u0425...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003e\u041c\u043e\u043d\u0433\u043e\u043b\u044b\u043d \u042d\u043c\u044d\u0433\u0442\u044d\u0439\u0447\u04af\u04af\u0434\u0438\u0439\u043d \u0425\u04e9\u0434\u04e9\u043b\u043c\u04e9\u0440\u0438\u0439\u0433 \u0414\u044d\u043c\u0436\u0438\u0445 \u0425\u043e\u043b\u0431\u043e\u043e, Ulaanbaatar (Mongolia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: \u041c\u043e\u043d\u0433\u043e\u043b\u044b\u043d \u042d\u043c\u044d\u0433\u0442\u044d\u0439\u0447\u04af\u04af\u0434\u0438\u0439\u043d \u0425\u04e9\u0434\u04e9\u043b\u043c\u04e9\u0440\u0438\u0439\u0433 \u0414\u044d\u043c\u0436\u0438\u0445 \u0425\u043e\u043b\u0431\u043e\u043e, Ulaanbaatar (Mongolia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mongolian Youth Council, Wind of Change NGO, Democrazy youth center NGO, Universal progress NGO, Youth LEAD Mongolia NGO, YPEER Mongolia NGO, Youth Policy Watch NGO, Ulaanbaatar (Mongolia)", "label": "Mongolian Youth Council, ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eMongolian Youth Council, Wind of Change NGO, Democrazy youth center NGO, Universal progress NGO, Youth LEAD Mongolia NGO, YPEER Mongolia NGO, Youth Policy Watch NGO, Ulaanbaatar (Mongolia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mongolian Youth Council, Wind of Change NGO, Democrazy youth center NGO, Universal progress NGO, Youth LEAD Mongolia NGO, YPEER Mongolia NGO, Youth Policy Watch NGO, Ulaanbaatar (Mongolia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "All for Education! National Civil Society Coalition Mongolia, Ulaanbaatar (Mongolia)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "MONFEMNET National Network Mongolia, Ulaanbaatar (Mongolia)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Asian-Pacific Resource and Research Centre for Women (ARROW), Kuala Lumpur (Malaysia)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "\u0425\u04af\u043d\u0438\u0439 \u044d\u0440\u0445 \u0445\u04e9\u0433\u0436\u0438\u043b \u0442\u04e9\u0432", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Global Meridian NGO, Ulaanbaatar (Mongolia)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Child Education Institute of Mongolia", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness and Inclusion, Eindhoven (Netherlands)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "MONFEMNET National Network, \u201cStep by Step for Development\u201d NGO, \u201cOur Participation Advocacy\u201d NGO, \u201cWomen in the 21st Century\u201d NGO, \u201cDemoCrazy Youth Center\u201d NGO, \u201cCenter for Citizens\u2019 Alliance\u201d NGO, \u201cHuman Rights Center for Aiding Citizens\u201d NGO, \u201cKazakh Women\u2019s \"Arular\" Union\u201d NGO, \u201cLiberal Women\u2019s Brain Pool\u201d NGO, \u201cPrincess\u201d Center for Protecting Girls\u2019 and Young Women\u2019s Rights\u201d NGO, \u201cOyu Tolgoi Watch\u201d NGO, \u201cWomen for Change\u201d NGO, \u201cSteps Without Borders\u201d NGO, \u201cLaw and Human Rights Center\u201d NGO, \u201cCenter for Human Rights and Development\u201d NGO, \u201cNational Center against Violence\u201d NGO, \u201cWomen and Life Center\u201d NGO, \u201cWomen Leaders Foundation\u201d NGO, \u201cMen- Healthy Family Center\u201d NGO, \u201cBeautiful hearts\u201d NGO, \u201cMongolian Center for Social Liberation, \u201cTuva eej\u201d NGO, Mongolian Family Welfare Association NGO, Ulaanbaatar (Mongolia)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "\u041c\u043e\u043d\u0433\u043e\u043b\u044b\u043d \u042d\u043c\u044d\u0433\u0442\u044d\u0439\u0447\u04af\u04af\u0434\u0438\u0439\u043d \u0425\u04e9\u0434\u04e9\u043b\u043c\u04e9\u0440\u0438\u0439\u0433 \u0414\u044d\u043c\u0436\u0438\u0445 \u0425\u043e\u043b\u0431\u043e\u043e, Ulaanbaatar (Mongolia)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Mongolian Youth Council, Wind of Change NGO, Democrazy youth center NGO, Universal progress NGO, Youth LEAD Mongolia NGO, YPEER Mongolia NGO, Youth Policy Watch NGO, Ulaanbaatar (Mongolia)", "title": "Member of JS7", "to": "JS7", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

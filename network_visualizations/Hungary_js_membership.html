@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "The Advocates for Human Rights, NANE Women\u2019s Rights Association, and PATENT (People Opposing Patriarchy)", "label": "The Advocates for Human R...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe Advocates for Human Rights, NANE Women\u2019s Rights Association, and PATENT (People Opposing Patriarchy)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Advocates for Human Rights, NANE Women\u2019s Rights Association, and PATENT (People Opposing Patriarchy)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Amnesty International, Hungarian Helsinki Committee", "label": "Amnesty International, Hu...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAmnesty International, Hungarian Helsinki Committee\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Amnesty International, Hungarian Helsinki Committee\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "E\u00f6tv\u00f6s K\u00e1roly Institute", "label": "E\u00f6tv\u00f6s K\u00e1roly Institute", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eE\u00f6tv\u00f6s K\u00e1roly Institute\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: E\u00f6tv\u00f6s K\u00e1roly Institute\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coordination des Associations et des Particuliers pour la Libert\u00e9 de Conscience and Fundaci\u00f3n para la Mejora de la Vida, la Cultura y la Sociedad", "label": "Coordination des Associat...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCoordination des Associations et des Particuliers pour la Libert\u00e9 de Conscience and Fundaci\u00f3n para la Mejora de la Vida, la Cultura y la Sociedad\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coordination des Associations et des Particuliers pour la Libert\u00e9 de Conscience and Fundaci\u00f3n para la Mejora de la Vida, la Cultura y la Sociedad\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Hungarian LGBT Alliance. H\u00e1tt\u00e9r Society, Transvanilla Transgender Association and Labrisz Lesbian Association", "label": "The Hungarian LGBT Allian...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe Hungarian LGBT Alliance. H\u00e1tt\u00e9r Society, Transvanilla Transgender Association and Labrisz Lesbian Association\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Hungarian LGBT Alliance. H\u00e1tt\u00e9r Society, Transvanilla Transgender Association and Labrisz Lesbian Association\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rosa Parks Foundation, Hungarian Association of European Parents (ESZME), Hungarian LGBT Alliance, Validity Foundation, Hintalovon Child Rights Foundation, Mened\u00e9k Hungarian Association for Migrants, Hungarian Civil Liberties Union and UNICEF Hungary", "label": "Rosa Parks Foundation, Hu...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eRosa Parks Foundation, Hungarian Association of European Parents (ESZME), Hungarian LGBT Alliance, Validity Foundation, Hintalovon Child Rights Foundation, Mened\u00e9k Hungarian Association for Migrants, Hungarian Civil Liberties Union and UNICEF Hungary\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rosa Parks Foundation, Hungarian Association of European Parents (ESZME), Hungarian LGBT Alliance, Validity Foundation, Hintalovon Child Rights Foundation, Mened\u00e9k Hungarian Association for Migrants, Hungarian Civil Liberties Union and UNICEF Hungary\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The European Roma Rights Centre and the Rosa Parks Foundation", "label": "The European Roma Rights ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe European Roma Rights Centre and the Rosa Parks Foundation\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The European Roma Rights Centre and the Rosa Parks Foundation\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Global Detention Project and the Hungarian Helsinki Committee", "label": "The Global Detention Proj...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe Global Detention Project and the Hungarian Helsinki Committee\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Global Detention Project and the Hungarian Helsinki Committee\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Amnesty International Hungary, H\u00e1tt\u00e9r Society, Hungarian Helsinki Committee and Hungarian Civil Liberties Union", "label": "Amnesty International Hun...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAmnesty International Hungary, H\u00e1tt\u00e9r Society, Hungarian Helsinki Committee and Hungarian Civil Liberties Union\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Amnesty International Hungary, H\u00e1tt\u00e9r Society, Hungarian Helsinki Committee and Hungarian Civil Liberties Union\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Hungarian Civil Liberties Union", "label": "The Hungarian Civil Liber...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe Hungarian Civil Liberties Union\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Hungarian Civil Liberties Union\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Civic Roma Women of B\u00f3dva-v\u00f6lgy", "label": "Civic Roma Women of B\u00f3dva...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCivic Roma Women of B\u00f3dva-v\u00f6lgy\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Civic Roma Women of B\u00f3dva-v\u00f6lgy\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "\u00d6kot\u00e1rs \u2013 Hungarian Environmental Partnership Foundation, Amnesty International Hungary, Hungarian Civil Liberties Union, Hungarian Helsinki Committee and Power of Humanity Foundation", "label": "\u00d6kot\u00e1rs \u2013 Hungarian Envir...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003e\u00d6kot\u00e1rs \u2013 Hungarian Environmental Partnership Foundation, Amnesty International Hungary, Hungarian Civil Liberties Union, Hungarian Helsinki Committee and Power of Humanity Foundation\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: \u00d6kot\u00e1rs \u2013 Hungarian Environmental Partnership Foundation, Amnesty International Hungary, Hungarian Civil Liberties Union, Hungarian Helsinki Committee and Power of Humanity Foundation\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The International Bar Association\u2019s Human Rights Institute (IBAHRI) and Lawyers for Lawyers (L4L)", "label": "The International Bar Ass...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe International Bar Association\u2019s Human Rights Institute (IBAHRI) and Lawyers for Lawyers (L4L)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The International Bar Association\u2019s Human Rights Institute (IBAHRI) and Lawyers for Lawyers (L4L)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Hungarian Helsinki Committee, the European Network on Statelessness and the Institute on Statelessness and Inclusion", "label": "The Hungarian Helsinki Co...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe Hungarian Helsinki Committee, the European Network on Statelessness and the Institute on Statelessness and Inclusion\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Hungarian Helsinki Committee, the European Network on Statelessness and the Institute on Statelessness and Inclusion\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS12", "label": "JS12", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS12\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS12\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Hungarian Helsinki Committee and Mened\u00e9k Association for Migrants", "label": "Hungarian Helsinki Commit...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eHungarian Helsinki Committee and Mened\u00e9k Association for Migrants\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Hungarian Helsinki Committee and Mened\u00e9k Association for Migrants\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS13", "label": "JS13", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS13\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS13\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "PATENT Association of People Opposing Patriarchy and Sexual Rights Initiative", "label": "PATENT Association of Peo...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003ePATENT Association of People Opposing Patriarchy and Sexual Rights Initiative\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: PATENT Association of People Opposing Patriarchy and Sexual Rights Initiative\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS14", "label": "JS14", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS14\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS14\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Utc\u00e1r\u00f3l Lak\u00e1sba! Egyes\u00fclet (ULE / From Streets to Homes Association)", "label": "Utc\u00e1r\u00f3l Lak\u00e1sba! Egyes\u00fcle...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eUtc\u00e1r\u00f3l Lak\u00e1sba! Egyes\u00fclet (ULE / From Streets to Homes Association)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Utc\u00e1r\u00f3l Lak\u00e1sba! Egyes\u00fclet (ULE / From Streets to Homes Association)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS15", "label": "JS15", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS15\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS15\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Hungarian Autistic Society, Hungarian Civil Liberties Union, Living Independently in the Community Advocacy Group, Step by Step! Association and Validity Foundation \u2013 Mental Disability Advocacy Centre", "label": "Hungarian Autistic Societ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eHungarian Autistic Society, Hungarian Civil Liberties Union, Living Independently in the Community Advocacy Group, Step by Step! Association and Validity Foundation \u2013 Mental Disability Advocacy Centre\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Hungarian Autistic Society, Hungarian Civil Liberties Union, Living Independently in the Community Advocacy Group, Step by Step! Association and Validity Foundation \u2013 Mental Disability Advocacy Centre\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS16", "label": "JS16", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS16\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS16\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "NANE Association, PATENT Association, Hungarian Women\u2019s Lobby", "label": "NANE Association, PATENT ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eNANE Association, PATENT Association, Hungarian Women\u2019s Lobby\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: NANE Association, PATENT Association, Hungarian Women\u2019s Lobby\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS17", "label": "JS17", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS17\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS17\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Jol- Let Foundation", "label": "Jol- Let Foundation", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eJol- Let Foundation\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Jol- Let Foundation\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "The Advocates for Human Rights, NANE Women\u2019s Rights Association, and PATENT (People Opposing Patriarchy)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Amnesty International, Hungarian Helsinki Committee", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "E\u00f6tv\u00f6s K\u00e1roly Institute", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Coordination des Associations et des Particuliers pour la Libert\u00e9 de Conscience and Fundaci\u00f3n para la Mejora de la Vida, la Cultura y la Sociedad", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "The Hungarian LGBT Alliance. H\u00e1tt\u00e9r Society, Transvanilla Transgender Association and Labrisz Lesbian Association", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Rosa Parks Foundation, Hungarian Association of European Parents (ESZME), Hungarian LGBT Alliance, Validity Foundation, Hintalovon Child Rights Foundation, Mened\u00e9k Hungarian Association for Migrants, Hungarian Civil Liberties Union and UNICEF Hungary", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "The European Roma Rights Centre and the Rosa Parks Foundation", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "The Global Detention Project and the Hungarian Helsinki Committee", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Amnesty International Hungary, H\u00e1tt\u00e9r Society, Hungarian Helsinki Committee and Hungarian Civil Liberties Union", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "The Hungarian Civil Liberties Union", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Civic Roma Women of B\u00f3dva-v\u00f6lgy", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "\u00d6kot\u00e1rs \u2013 Hungarian Environmental Partnership Foundation, Amnesty International Hungary, Hungarian Civil Liberties Union, Hungarian Helsinki Committee and Power of Humanity Foundation", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "The International Bar Association\u2019s Human Rights Institute (IBAHRI) and Lawyers for Lawyers (L4L)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "The Hungarian Helsinki Committee, the European Network on Statelessness and the Institute on Statelessness and Inclusion", "title": "Member of JS12", "to": "JS12", "width": 1}, {"color": "#95a5a6", "from": "Hungarian Helsinki Committee and Mened\u00e9k Association for Migrants", "title": "Member of JS13", "to": "JS13", "width": 1}, {"color": "#95a5a6", "from": "PATENT Association of People Opposing Patriarchy and Sexual Rights Initiative", "title": "Member of JS14", "to": "JS14", "width": 1}, {"color": "#95a5a6", "from": "Utc\u00e1r\u00f3l Lak\u00e1sba! Egyes\u00fclet (ULE / From Streets to Homes Association)", "title": "Member of JS15", "to": "JS15", "width": 1}, {"color": "#95a5a6", "from": "Hungarian Autistic Society, Hungarian Civil Liberties Union, Living Independently in the Community Advocacy Group, Step by Step! Association and Validity Foundation \u2013 Mental Disability Advocacy Centre", "title": "Member of JS16", "to": "JS16", "width": 1}, {"color": "#95a5a6", "from": "NANE Association, PATENT Association, Hungarian Women\u2019s Lobby", "title": "Member of JS17", "to": "JS17", "width": 1}, {"color": "#95a5a6", "from": "Jol- Let Foundation", "title": "Member of JS17", "to": "JS17", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

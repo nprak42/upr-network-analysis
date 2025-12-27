@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Professional Associates for Representation, Equality and Acceptance, Paramaribo (Suriname)", "label": "Professional Associates f...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eProfessional Associates for Representation, Equality and Acceptance, Paramaribo (Suriname)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Professional Associates for Representation, Equality and Acceptance, Paramaribo (Suriname)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Stichting Lobi Health Center, Paramaribo (Suriname)", "label": "Stichting Lobi Health Cen...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eStichting Lobi Health Center, Paramaribo (Suriname)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Stichting Lobi Health Center, Paramaribo (Suriname)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Women\u2019s Rights Centre, Paramaribo (Suriname)", "label": "Women\u2019s Rights Centre, Pa...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eWomen\u2019s Rights Centre, Paramaribo (Suriname)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Women\u2019s Rights Centre, Paramaribo (Suriname)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Mulokot Foundation, Village Kawemhakan (Suriname)", "label": "The Mulokot Foundation, V...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eThe Mulokot Foundation, Village Kawemhakan (Suriname)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Mulokot Foundation, Village Kawemhakan (Suriname)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "the Association of Village Leaders Suriname, Paramaribo (Suriname)", "label": "the Association of Villag...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003ethe Association of Village Leaders Suriname, Paramaribo (Suriname)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: the Association of Village Leaders Suriname, Paramaribo (Suriname)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Cultural Survival, Cambridge (United States of America). For relevant recommendations see , paras. 133.1\u2013133.22, 133.39\u2013133.41, 134.1, 135.1\u2013 21, 135.23 and 135.26\u2013135.31. OIS, para. 2.1.2. CGNK, p. 6. ICAN, p. 1. IHRC-OU, p. 3. JS2, p. 12. For relevant recommendations see , paras. 133.23\u2013133.24, 133.27\u2013133.37, 135.22 and 135.24\u2013135.25. Projekta, para. 7. For relevant recommendations see , paras. 133.38, 133.55\u2013133.61 and 135.32\u2013135.33. Projekta, para. 1. JS2, p. 2. JS1, para. 43. Ibid., p. 10. Ibid., p. 10. Ibid., p. 10. For relevant recommendations see , paras. 133.102 and 135.43. JS2, para. 3. OIS, para. 1.3.4. JS2, pp. 11-12. IHRC-OU, p. 3. Ibid., p. 3. Projekta, para. 25 (a), (e) and (f). For relevant recommendations see , paras. 133.62\u2013133.66 and 135.34. GPEVAC, p. 1. Ibid., p. 2. Ibid., p. 2. For relevant recommendations see , paras. 133.69, 133.81\u2013133.83 and 134.2\u2013134.3. IHRC-OU, p. 3. For relevant recommendations see , para. 135.40. Projekta, paras. 9\u201310. Ibid., para. 10. Ibid., para. 13 (a). Ibid., paras. 13 (b) and 19 (b). Ibid. para. 19 (a). ADF International, para. 27 (a). Ibid., para. 27 (b). For relevant recommendations see , paras. 133.75\u2013133.80. ECLJ, para. 10. Ibid., para. 11. Ibid., para. 11. Ibid., para. 14. JS1, paras. 44 and 48. Ibid., para. 51. For relevant recommendations see , para. 133.26. Projekta, para. 42 (b). Ibid., para. 42 (a). For relevant recommendations see , paras. 133.25 and 133.85. JS2, para. 13. Ibid., para. 25. IHRC-OU, p. 2. JS2, paras. 18 and 21\u201322. Ibid., p. 12. OIS, para. 2.4.2. For relevant recommendations see , paras. 133.86\u2013133.89. JS2, para. 27. Ibid., para. 28. Ibid., para. 5. Ibid., p. 12. IHRC-OU, p. 3. JS1, paras. 21\u201322 and 24. Ibid., pp. 9\u201310. ADF International, para. 17. Ibid., para. 27 (d). Ibid., para. 27 (e). JS1, para. 4. Ibid., p. 9. Ibid., para. 8. Ibid., p. 9. Ibid., para. 14. For relevant recommendations see , paras. 133.90\u2013133.95 and 135.41. OIS, para. 1.4.6. JS2, para. 6. OIS, para. 1.4.6. JS2, p. 12. OIS, para. 2.4.3. JS2, para. 31. Ibid., para. 32. Ibid., para. 33. Ibid. para. 34. Ibid., para. 35. OIS, para. 1.4.7. Ibid., para. 1.4.8. For relevant recommendations see , paras. 133.42\u2013133.54 and 133.67\u2013133.68. JS1, paras. 28\u201329. Ibid., para. 34. Ibid., p. 10. For relevant recommendations see , paras. 133.70\u2013133.74, 133.84 and 135.35\u2013135.39. Projekta, paras. 27\u201329. Ibid., paras. 30\u201331. Ibid., paras. 33 and 35. Ibid., para. 36 (a) and (c). For relevant recommendations see , para. 135.42. Projekta, para. 39. Ibid., para. 40. Ibid., para. 41. For relevant recommendations see , paras. 133.96\u2013133.101. IHRC-OU, p. 4. JS2, p. 2. 100 Ibid., p. 11. 101 OIS, para. 2.2.2. 102 Ibid., para. 2.3.2. 103 IHRC-OU, p. 4. 104 OIS, paras. 1.1.2 and 2.1.1. See also IHRC-OU, p. 4. 105 JS2, para. 1. 106 OIS, para. 2.1.1. 107 IHCR-OU, p. 4. 108 OIS, paras. 1.3.2. 109 JS2, para. 10. 110 OIS, para. 1.2.1. 111 Ibid., para. 2.2.1. 112 IHRC-OU, p. 4. 113 Ibid., p. 4. 114 JS2, p. 12. 115 Ibid., para. 12. 116 OIS, para. 1.4.3. 12", "label": "Cultural Survival, Cambri...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eCultural Survival, Cambridge (United States of America). For relevant recommendations see , paras. 133.1\u2013133.22, 133.39\u2013133.41, 134.1, 135.1\u2013 21, 135.23 and 135.26\u2013135.31. OIS, para. 2.1.2. CGNK, p. 6. ICAN, p. 1. IHRC-OU, p. 3. JS2, p. 12. For relevant recommendations see , paras. 133.23\u2013133.24, 133.27\u2013133.37, 135.22 and 135.24\u2013135.25. Projekta, para. 7. For relevant recommendations see , paras. 133.38, 133.55\u2013133.61 and 135.32\u2013135.33. Projekta, para. 1. JS2, p. 2. JS1, para. 43. Ibid., p. 10. Ibid., p. 10. Ibid., p. 10. For relevant recommendations see , paras. 133.102 and 135.43. JS2, para. 3. OIS, para. 1.3.4. JS2, pp. 11-12. IHRC-OU, p. 3. Ibid., p. 3. Projekta, para. 25 (a), (e) and (f). For relevant recommendations see , paras. 133.62\u2013133.66 and 135.34. GPEVAC, p. 1. Ibid., p. 2. Ibid., p. 2. For relevant recommendations see , paras. 133.69, 133.81\u2013133.83 and 134.2\u2013134.3. IHRC-OU, p. 3. For relevant recommendations see , para. 135.40. Projekta, paras. 9\u201310. Ibid., para. 10. Ibid., para. 13 (a). Ibid., paras. 13 (b) and 19 (b). Ibid. para. 19 (a). ADF International, para. 27 (a). Ibid., para. 27 (b). For relevant recommendations see , paras. 133.75\u2013133.80. ECLJ, para. 10. Ibid., para. 11. Ibid., para. 11. Ibid., para. 14. JS1, paras. 44 and 48. Ibid., para. 51. For relevant recommendations see , para. 133.26. Projekta, para. 42 (b). Ibid., para. 42 (a). For relevant recommendations see , paras. 133.25 and 133.85. JS2, para. 13. Ibid., para. 25. IHRC-OU, p. 2. JS2, paras. 18 and 21\u201322. Ibid., p. 12. OIS, para. 2.4.2. For relevant recommendations see , paras. 133.86\u2013133.89. JS2, para. 27. Ibid., para. 28. Ibid., para. 5. Ibid., p. 12. IHRC-OU, p. 3. JS1, paras. 21\u201322 and 24. Ibid., pp. 9\u201310. ADF International, para. 17. Ibid., para. 27 (d). Ibid., para. 27 (e). JS1, para. 4. Ibid., p. 9. Ibid., para. 8. Ibid., p. 9. Ibid., para. 14. For relevant recommendations see , paras. 133.90\u2013133.95 and 135.41. OIS, para. 1.4.6. JS2, para. 6. OIS, para. 1.4.6. JS2, p. 12. OIS, para. 2.4.3. JS2, para. 31. Ibid., para. 32. Ibid., para. 33. Ibid. para. 34. Ibid., para. 35. OIS, para. 1.4.7. Ibid., para. 1.4.8. For relevant recommendations see , paras. 133.42\u2013133.54 and 133.67\u2013133.68. JS1, paras. 28\u201329. Ibid., para. 34. Ibid., p. 10. For relevant recommendations see , paras. 133.70\u2013133.74, 133.84 and 135.35\u2013135.39. Projekta, paras. 27\u201329. Ibid., paras. 30\u201331. Ibid., paras. 33 and 35. Ibid., para. 36 (a) and (c). For relevant recommendations see , para. 135.42. Projekta, para. 39. Ibid., para. 40. Ibid., para. 41. For relevant recommendations see , paras. 133.96\u2013133.101. IHRC-OU, p. 4. JS2, p. 2. 100 Ibid., p. 11. 101 OIS, para. 2.2.2. 102 Ibid., para. 2.3.2. 103 IHRC-OU, p. 4. 104 OIS, paras. 1.1.2 and 2.1.1. See also IHRC-OU, p. 4. 105 JS2, para. 1. 106 OIS, para. 2.1.1. 107 IHCR-OU, p. 4. 108 OIS, paras. 1.3.2. 109 JS2, para. 10. 110 OIS, para. 1.2.1. 111 Ibid., para. 2.2.1. 112 IHRC-OU, p. 4. 113 Ibid., p. 4. 114 JS2, p. 12. 115 Ibid., para. 12. 116 OIS, para. 1.4.3. 12\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Cultural Survival, Cambridge (United States of America). For relevant recommendations see , paras. 133.1\u2013133.22, 133.39\u2013133.41, 134.1, 135.1\u2013 21, 135.23 and 135.26\u2013135.31. OIS, para. 2.1.2. CGNK, p. 6. ICAN, p. 1. IHRC-OU, p. 3. JS2, p. 12. For relevant recommendations see , paras. 133.23\u2013133.24, 133.27\u2013133.37, 135.22 and 135.24\u2013135.25. Projekta, para. 7. For relevant recommendations see , paras. 133.38, 133.55\u2013133.61 and 135.32\u2013135.33. Projekta, para. 1. JS2, p. 2. JS1, para. 43. Ibid., p. 10. Ibid., p. 10. Ibid., p. 10. For relevant recommendations see , paras. 133.102 and 135.43. JS2, para. 3. OIS, para. 1.3.4. JS2, pp. 11-12. IHRC-OU, p. 3. Ibid., p. 3. Projekta, para. 25 (a), (e) and (f). For relevant recommendations see , paras. 133.62\u2013133.66 and 135.34. GPEVAC, p. 1. Ibid., p. 2. Ibid., p. 2. For relevant recommendations see , paras. 133.69, 133.81\u2013133.83 and 134.2\u2013134.3. IHRC-OU, p. 3. For relevant recommendations see , para. 135.40. Projekta, paras. 9\u201310. Ibid., para. 10. Ibid., para. 13 (a). Ibid., paras. 13 (b) and 19 (b). Ibid. para. 19 (a). ADF International, para. 27 (a). Ibid., para. 27 (b). For relevant recommendations see , paras. 133.75\u2013133.80. ECLJ, para. 10. Ibid., para. 11. Ibid., para. 11. Ibid., para. 14. JS1, paras. 44 and 48. Ibid., para. 51. For relevant recommendations see , para. 133.26. Projekta, para. 42 (b). Ibid., para. 42 (a). For relevant recommendations see , paras. 133.25 and 133.85. JS2, para. 13. Ibid., para. 25. IHRC-OU, p. 2. JS2, paras. 18 and 21\u201322. Ibid., p. 12. OIS, para. 2.4.2. For relevant recommendations see , paras. 133.86\u2013133.89. JS2, para. 27. Ibid., para. 28. Ibid., para. 5. Ibid., p. 12. IHRC-OU, p. 3. JS1, paras. 21\u201322 and 24. Ibid., pp. 9\u201310. ADF International, para. 17. Ibid., para. 27 (d). Ibid., para. 27 (e). JS1, para. 4. Ibid., p. 9. Ibid., para. 8. Ibid., p. 9. Ibid., para. 14. For relevant recommendations see , paras. 133.90\u2013133.95 and 135.41. OIS, para. 1.4.6. JS2, para. 6. OIS, para. 1.4.6. JS2, p. 12. OIS, para. 2.4.3. JS2, para. 31. Ibid., para. 32. Ibid., para. 33. Ibid. para. 34. Ibid., para. 35. OIS, para. 1.4.7. Ibid., para. 1.4.8. For relevant recommendations see , paras. 133.42\u2013133.54 and 133.67\u2013133.68. JS1, paras. 28\u201329. Ibid., para. 34. Ibid., p. 10. For relevant recommendations see , paras. 133.70\u2013133.74, 133.84 and 135.35\u2013135.39. Projekta, paras. 27\u201329. Ibid., paras. 30\u201331. Ibid., paras. 33 and 35. Ibid., para. 36 (a) and (c). For relevant recommendations see , para. 135.42. Projekta, para. 39. Ibid., para. 40. Ibid., para. 41. For relevant recommendations see , paras. 133.96\u2013133.101. IHRC-OU, p. 4. JS2, p. 2. 100 Ibid., p. 11. 101 OIS, para. 2.2.2. 102 Ibid., para. 2.3.2. 103 IHRC-OU, p. 4. 104 OIS, paras. 1.1.2 and 2.1.1. See also IHRC-OU, p. 4. 105 JS2, para. 1. 106 OIS, para. 2.1.1. 107 IHCR-OU, p. 4. 108 OIS, paras. 1.3.2. 109 JS2, para. 10. 110 OIS, para. 1.2.1. 111 Ibid., para. 2.2.1. 112 IHRC-OU, p. 4. 113 Ibid., p. 4. 114 JS2, p. 12. 115 Ibid., para. 12. 116 OIS, para. 1.4.3. 12\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Professional Associates for Representation, Equality and Acceptance, Paramaribo (Suriname)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Stichting Lobi Health Center, Paramaribo (Suriname)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Women\u2019s Rights Centre, Paramaribo (Suriname)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "The Mulokot Foundation, Village Kawemhakan (Suriname)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "the Association of Village Leaders Suriname, Paramaribo (Suriname)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Cultural Survival, Cambridge (United States of America). For relevant recommendations see , paras. 133.1\u2013133.22, 133.39\u2013133.41, 134.1, 135.1\u2013 21, 135.23 and 135.26\u2013135.31. OIS, para. 2.1.2. CGNK, p. 6. ICAN, p. 1. IHRC-OU, p. 3. JS2, p. 12. For relevant recommendations see , paras. 133.23\u2013133.24, 133.27\u2013133.37, 135.22 and 135.24\u2013135.25. Projekta, para. 7. For relevant recommendations see , paras. 133.38, 133.55\u2013133.61 and 135.32\u2013135.33. Projekta, para. 1. JS2, p. 2. JS1, para. 43. Ibid., p. 10. Ibid., p. 10. Ibid., p. 10. For relevant recommendations see , paras. 133.102 and 135.43. JS2, para. 3. OIS, para. 1.3.4. JS2, pp. 11-12. IHRC-OU, p. 3. Ibid., p. 3. Projekta, para. 25 (a), (e) and (f). For relevant recommendations see , paras. 133.62\u2013133.66 and 135.34. GPEVAC, p. 1. Ibid., p. 2. Ibid., p. 2. For relevant recommendations see , paras. 133.69, 133.81\u2013133.83 and 134.2\u2013134.3. IHRC-OU, p. 3. For relevant recommendations see , para. 135.40. Projekta, paras. 9\u201310. Ibid., para. 10. Ibid., para. 13 (a). Ibid., paras. 13 (b) and 19 (b). Ibid. para. 19 (a). ADF International, para. 27 (a). Ibid., para. 27 (b). For relevant recommendations see , paras. 133.75\u2013133.80. ECLJ, para. 10. Ibid., para. 11. Ibid., para. 11. Ibid., para. 14. JS1, paras. 44 and 48. Ibid., para. 51. For relevant recommendations see , para. 133.26. Projekta, para. 42 (b). Ibid., para. 42 (a). For relevant recommendations see , paras. 133.25 and 133.85. JS2, para. 13. Ibid., para. 25. IHRC-OU, p. 2. JS2, paras. 18 and 21\u201322. Ibid., p. 12. OIS, para. 2.4.2. For relevant recommendations see , paras. 133.86\u2013133.89. JS2, para. 27. Ibid., para. 28. Ibid., para. 5. Ibid., p. 12. IHRC-OU, p. 3. JS1, paras. 21\u201322 and 24. Ibid., pp. 9\u201310. ADF International, para. 17. Ibid., para. 27 (d). Ibid., para. 27 (e). JS1, para. 4. Ibid., p. 9. Ibid., para. 8. Ibid., p. 9. Ibid., para. 14. For relevant recommendations see , paras. 133.90\u2013133.95 and 135.41. OIS, para. 1.4.6. JS2, para. 6. OIS, para. 1.4.6. JS2, p. 12. OIS, para. 2.4.3. JS2, para. 31. Ibid., para. 32. Ibid., para. 33. Ibid. para. 34. Ibid., para. 35. OIS, para. 1.4.7. Ibid., para. 1.4.8. For relevant recommendations see , paras. 133.42\u2013133.54 and 133.67\u2013133.68. JS1, paras. 28\u201329. Ibid., para. 34. Ibid., p. 10. For relevant recommendations see , paras. 133.70\u2013133.74, 133.84 and 135.35\u2013135.39. Projekta, paras. 27\u201329. Ibid., paras. 30\u201331. Ibid., paras. 33 and 35. Ibid., para. 36 (a) and (c). For relevant recommendations see , para. 135.42. Projekta, para. 39. Ibid., para. 40. Ibid., para. 41. For relevant recommendations see , paras. 133.96\u2013133.101. IHRC-OU, p. 4. JS2, p. 2. 100 Ibid., p. 11. 101 OIS, para. 2.2.2. 102 Ibid., para. 2.3.2. 103 IHRC-OU, p. 4. 104 OIS, paras. 1.1.2 and 2.1.1. See also IHRC-OU, p. 4. 105 JS2, para. 1. 106 OIS, para. 2.1.1. 107 IHCR-OU, p. 4. 108 OIS, paras. 1.3.2. 109 JS2, para. 10. 110 OIS, para. 1.2.1. 111 Ibid., para. 2.2.1. 112 IHRC-OU, p. 4. 113 Ibid., p. 4. 114 JS2, p. 12. 115 Ibid., para. 12. 116 OIS, para. 1.4.3. 12", "title": "Member of JS2", "to": "JS2", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Access Now, New York USA", "label": "Access Now, New York USA", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eAccess Now, New York USA\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Access Now, New York USA\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Gulf Centre for Human Rights", "label": "The Gulf Centre for Human...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eThe Gulf Centre for Human Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Gulf Centre for Human Rights\u003cbr\u003eConnections: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Americans for Democracy \u0026 Human Rights in Bahrain", "label": "Americans for Democracy \u0026...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eAmericans for Democracy \u0026 Human Rights in Bahrain\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Americans for Democracy \u0026 Human Rights in Bahrain\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "by The Advocates for Human Rights", "label": "by The Advocates for Huma...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eby The Advocates for Human Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: by The Advocates for Human Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 34.44444444444444, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "The World Coalition Against the Death Penalty", "label": "The World Coalition Again...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eThe World Coalition Against the Death Penalty\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The World Coalition Against the Death Penalty\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CIVICUS: World Alliance for Citizen Participation", "label": "CIVICUS: World Alliance f...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCIVICUS: World Alliance for Citizen Participation\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CIVICUS: World Alliance for Citizen Participation\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 34.44444444444444, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness", "label": "Institute on Statelessnes...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eInstitute on Statelessness\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Inclusion Rights Realization Centre", "label": "Inclusion Rights Realizat...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eInclusion Rights Realization Centre\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Inclusion Rights Realization Centre\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "the Global Campaign for Equal Nationality Rights", "label": "the Global Campaign for E...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003ethe Global Campaign for Equal Nationality Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: the Global Campaign for Equal Nationality Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "MENA Rights Group", "label": "MENA Rights Group", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eMENA Rights Group\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: MENA Rights Group\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness and Inclusion Rights Realization Centre \u0026 Global Campaign for Equal Nationality Rights. NHRC, page 2. NHRC, page 7. NHRC, page 3. NHRC, page 3. NHRC, page 7. NHRC, pages 2-3. NHRC, page 3. NHRC, page 4. NHRC, page 4. NHRC, page 10. NHRC, page 3. NHRC, page 6. NHRC, page 5. ODVV, para. 6. JS4, para. 51. CGNK, page 5. CGNK, page 6. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination", "label": "Institute on Statelessnes...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eInstitute on Statelessness and Inclusion Rights Realization Centre \u0026 Global Campaign for Equal Nationality Rights. NHRC, page 2. NHRC, page 7. NHRC, page 3. NHRC, page 3. NHRC, page 7. NHRC, pages 2-3. NHRC, page 3. NHRC, page 4. NHRC, page 4. NHRC, page 10. NHRC, page 3. NHRC, page 6. NHRC, page 5. ODVV, para. 6. JS4, para. 51. CGNK, page 5. CGNK, page 6. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion Rights Realization Centre \u0026 Global Campaign for Equal Nationality Rights. NHRC, page 2. NHRC, page 7. NHRC, page 3. NHRC, page 3. NHRC, page 7. NHRC, pages 2-3. NHRC, page 3. NHRC, page 4. NHRC, page 4. NHRC, page 10. NHRC, page 3. NHRC, page 6. NHRC, page 5. ODVV, para. 6. JS4, para. 51. CGNK, page 5. CGNK, page 6. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 18\u003cbr\u003eParticipants: 18"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICESCR International Covenant on Economic, Social and Cultural Rights", "label": "ICESCR International Cove...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICESCR International Covenant on Economic, Social and Cultural Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICESCR International Covenant on Economic, Social and Cultural Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-ICESCR Optional Protocol to ICESCR", "label": "OP-ICESCR Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-ICESCR Optional Protocol to ICESCR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-ICESCR Optional Protocol to ICESCR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR International Covenant on Civil and Political Rights", "label": "ICCPR International Coven...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICCPR International Covenant on Civil and Political Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR International Covenant on Civil and Political Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR-OP Optional Protocol to ICCPR", "label": "ICCPR-OP Optional Protoco...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICCPR-OP Optional Protocol to ICCPR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR-OP Optional Protocol to ICCPR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty", "label": "ICCPR-OP Second Optional ...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CEDAW Convention on the Elimination of All Forms of Discrimination against Women", "label": "CEDAW Convention on the E...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCEDAW Convention on the Elimination of All Forms of Discrimination against Women\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CEDAW Convention on the Elimination of All Forms of Discrimination against Women\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CEDAW Optional Protocol to CEDAW", "label": "OP-CEDAW Optional Protoco...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CEDAW Optional Protocol to CEDAW\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CEDAW Optional Protocol to CEDAW\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment", "label": "CAT Convention against To...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CAT Optional Protocol to CAT", "label": "OP-CAT Optional Protocol ...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CAT Optional Protocol to CAT\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CAT Optional Protocol to CAT\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRC Convention on the Rights of the Child", "label": "CRC Convention on the Rig...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCRC Convention on the Rights of the Child\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRC Convention on the Rights of the Child\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict", "label": "OP-CRC-AC Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography", "label": "OP-CRC-SC Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "label": "OP-CRC-IC Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRC-IC Optional Protocol to CRC on a communications procedure\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-IC Optional Protocol to CRC on a communications procedure\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "label": "ICRMW International Conve...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRPD Convention on the Rights of Persons with Disabilities", "label": "CRPD Convention on the Ri...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCRPD Convention on the Rights of Persons with Disabilities\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRPD Convention on the Rights of Persons with Disabilities\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRPD Optional Protocol to CRPD", "label": "OP-CRPD Optional Protocol...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRPD Optional Protocol to CRPD\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRPD Optional Protocol to CRPD\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For the relevant recommendations, see /Add.1, paras. 124.2-124.12 and 124.32. JS4, para. 8. JS5, page 2, MAAT, page 1 and AI, page 5. AI, page 1. AI, page 1. JS5, pages 6-7. JS4, para. 9. QFSW, page 4. JS5, page 4. For the relevant recommendations, see /Add.1, paras. 124.33-34. ODVV, para. 10. JS5, page 3. JS5, page ICAN, page 1. ODVV, para. 11. ODVV, para. 11. AI, page 4. JS5, page 7. JS5, page 7. JS5, page 8. JS2, para. 1. JS2, para. 1. JS2, para. 19. For relevant recommendations see /Add.1, paras. 124.44. JS5, page 6. JS5, page 6. For relevant recommendations see /Add.1, paras. 124.45-54. ODVV, para. 14. AI, page 1. JS3, para. 6.3. JS5, page 6. JS5, page 4. AI, page 5. AI, page 5. CRIN, page 2. AI, page 2. JS3, para. 6.3. GIEACPC, page 1. JS3, para. 6.1 and JS1, para. 20. For relevant recommendations see /Add.1, paras. 124.59-124.62 and 124.77-124.81. JS3, para. 6.1. AI, page 3. AI, page 3. ODVV, para. 18. For relevant recommendations see /Add.1, paras. 124.42 and 124.43. AI, page 4. ODVV, para. 15. AI, page .4. QFSW, page 5. CRIN, page 1. QFSW, page 5. CRIN, page 1. For relevant recommendations see /Add.1, paras. 124.63-124.66, 124.68-124.76 and 124.83. AI, pages 1-2. AI, page 3. JS5, page 2. JS5, page 3. AI, page 2. ODVV, para. 20. ODVV, para. 25. ODVV, para. 24. JS5, page 10. JS4, para. 21. JS4, para. 21. JS4, para. 51. JS5, page 10. 11", "label": "ICPPED International Conv...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For the relevant recommendations, see /Add.1, paras. 124.2-124.12 and 124.32. JS4, para. 8. JS5, page 2, MAAT, page 1 and AI, page 5. AI, page 1. AI, page 1. JS5, pages 6-7. JS4, para. 9. QFSW, page 4. JS5, page 4. For the relevant recommendations, see /Add.1, paras. 124.33-34. ODVV, para. 10. JS5, page 3. JS5, page ICAN, page 1. ODVV, para. 11. ODVV, para. 11. AI, page 4. JS5, page 7. JS5, page 7. JS5, page 8. JS2, para. 1. JS2, para. 1. JS2, para. 19. For relevant recommendations see /Add.1, paras. 124.44. JS5, page 6. JS5, page 6. For relevant recommendations see /Add.1, paras. 124.45-54. ODVV, para. 14. AI, page 1. JS3, para. 6.3. JS5, page 6. JS5, page 4. AI, page 5. AI, page 5. CRIN, page 2. AI, page 2. JS3, para. 6.3. GIEACPC, page 1. JS3, para. 6.1 and JS1, para. 20. For relevant recommendations see /Add.1, paras. 124.59-124.62 and 124.77-124.81. JS3, para. 6.1. AI, page 3. AI, page 3. ODVV, para. 18. For relevant recommendations see /Add.1, paras. 124.42 and 124.43. AI, page 4. ODVV, para. 15. AI, page .4. QFSW, page 5. CRIN, page 1. QFSW, page 5. CRIN, page 1. For relevant recommendations see /Add.1, paras. 124.63-124.66, 124.68-124.76 and 124.83. AI, pages 1-2. AI, page 3. JS5, page 2. JS5, page 3. AI, page 2. ODVV, para. 20. ODVV, para. 25. ODVV, para. 24. JS5, page 10. JS4, para. 21. JS4, para. 21. JS4, para. 51. JS5, page 10. 11\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For the relevant recommendations, see /Add.1, paras. 124.2-124.12 and 124.32. JS4, para. 8. JS5, page 2, MAAT, page 1 and AI, page 5. AI, page 1. AI, page 1. JS5, pages 6-7. JS4, para. 9. QFSW, page 4. JS5, page 4. For the relevant recommendations, see /Add.1, paras. 124.33-34. ODVV, para. 10. JS5, page 3. JS5, page ICAN, page 1. ODVV, para. 11. ODVV, para. 11. AI, page 4. JS5, page 7. JS5, page 7. JS5, page 8. JS2, para. 1. JS2, para. 1. JS2, para. 19. For relevant recommendations see /Add.1, paras. 124.44. JS5, page 6. JS5, page 6. For relevant recommendations see /Add.1, paras. 124.45-54. ODVV, para. 14. AI, page 1. JS3, para. 6.3. JS5, page 6. JS5, page 4. AI, page 5. AI, page 5. CRIN, page 2. AI, page 2. JS3, para. 6.3. GIEACPC, page 1. JS3, para. 6.1 and JS1, para. 20. For relevant recommendations see /Add.1, paras. 124.59-124.62 and 124.77-124.81. JS3, para. 6.1. AI, page 3. AI, page 3. ODVV, para. 18. For relevant recommendations see /Add.1, paras. 124.42 and 124.43. AI, page 4. ODVV, para. 15. AI, page .4. QFSW, page 5. CRIN, page 1. QFSW, page 5. CRIN, page 1. For relevant recommendations see /Add.1, paras. 124.63-124.66, 124.68-124.76 and 124.83. AI, pages 1-2. AI, page 3. JS5, page 2. JS5, page 3. AI, page 2. ODVV, para. 20. ODVV, para. 25. ODVV, para. 24. JS5, page 10. JS4, para. 21. JS4, para. 21. JS4, para. 51. JS5, page 10. 11\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Access Now, New York USA", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "The Gulf Centre for Human Rights", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Americans for Democracy \u0026 Human Rights in Bahrain", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "by The Advocates for Human Rights", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "The World Coalition Against the Death Penalty", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "CIVICUS: World Alliance for Citizen Participation", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "The Gulf Centre for Human Rights", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Inclusion Rights Realization Centre", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "the Global Campaign for Equal Nationality Rights", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "MENA Rights Group", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness and Inclusion Rights Realization Centre \u0026 Global Campaign for Equal Nationality Rights. NHRC, page 2. NHRC, page 7. NHRC, page 3. NHRC, page 3. NHRC, page 7. NHRC, pages 2-3. NHRC, page 3. NHRC, page 4. NHRC, page 4. NHRC, page 10. NHRC, page 3. NHRC, page 6. NHRC, page 5. ODVV, para. 6. JS4, para. 51. CGNK, page 5. CGNK, page 6. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ICESCR International Covenant on Economic, Social and Cultural Rights", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-ICESCR Optional Protocol to ICESCR", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ICCPR International Covenant on Civil and Political Rights", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ICCPR-OP Optional Protocol to ICCPR", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "CEDAW Convention on the Elimination of All Forms of Discrimination against Women", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-CEDAW Optional Protocol to CEDAW", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-CAT Optional Protocol to CAT", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "CRC Convention on the Rights of the Child", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "CRPD Convention on the Rights of Persons with Disabilities", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "OP-CRPD Optional Protocol to CRPD", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For the relevant recommendations, see /Add.1, paras. 124.2-124.12 and 124.32. JS4, para. 8. JS5, page 2, MAAT, page 1 and AI, page 5. AI, page 1. AI, page 1. JS5, pages 6-7. JS4, para. 9. QFSW, page 4. JS5, page 4. For the relevant recommendations, see /Add.1, paras. 124.33-34. ODVV, para. 10. JS5, page 3. JS5, page ICAN, page 1. ODVV, para. 11. ODVV, para. 11. AI, page 4. JS5, page 7. JS5, page 7. JS5, page 8. JS2, para. 1. JS2, para. 1. JS2, para. 19. For relevant recommendations see /Add.1, paras. 124.44. JS5, page 6. JS5, page 6. For relevant recommendations see /Add.1, paras. 124.45-54. ODVV, para. 14. AI, page 1. JS3, para. 6.3. JS5, page 6. JS5, page 4. AI, page 5. AI, page 5. CRIN, page 2. AI, page 2. JS3, para. 6.3. GIEACPC, page 1. JS3, para. 6.1 and JS1, para. 20. For relevant recommendations see /Add.1, paras. 124.59-124.62 and 124.77-124.81. JS3, para. 6.1. AI, page 3. AI, page 3. ODVV, para. 18. For relevant recommendations see /Add.1, paras. 124.42 and 124.43. AI, page 4. ODVV, para. 15. AI, page .4. QFSW, page 5. CRIN, page 1. QFSW, page 5. CRIN, page 1. For relevant recommendations see /Add.1, paras. 124.63-124.66, 124.68-124.76 and 124.83. AI, pages 1-2. AI, page 3. JS5, page 2. JS5, page 3. AI, page 2. ODVV, para. 20. ODVV, para. 25. ODVV, para. 24. JS5, page 10. JS4, para. 21. JS4, para. 21. JS4, para. 51. JS5, page 10. 11", "title": "Member of JS6", "to": "JS6", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

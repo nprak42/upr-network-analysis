@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "the Advocates for Human Rights (AHR), Minneapolis, USA, The Greater Caribbean for Life, Tacarigua, Trinidad and Tobago and The World Coalition against the Death Penalty, Montreuil, France", "label": "the Advocates for Human R...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003ethe Advocates for Human Rights (AHR), Minneapolis, USA, The Greater Caribbean for Life, Tacarigua, Trinidad and Tobago and The World Coalition against the Death Penalty, Montreuil, France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: the Advocates for Human Rights (AHR), Minneapolis, USA, The Greater Caribbean for Life, Tacarigua, Trinidad and Tobago and The World Coalition against the Death Penalty, Montreuil, France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Barbados Council for the Disabled (BCD), St. Michael, Barbados and Barbados National Organisation of the Disabled \u2013 Barnod.Inc., Bridgetown, Barbados", "label": "Barbados Council for the ...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eBarbados Council for the Disabled (BCD), St. Michael, Barbados and Barbados National Organisation of the Disabled \u2013 Barnod.Inc., Bridgetown, Barbados\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Barbados Council for the Disabled (BCD), St. Michael, Barbados and Barbados National Organisation of the Disabled \u2013 Barnod.Inc., Bridgetown, Barbados\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "EQUALS, Eastern Caribbean Alliance for Diversity and Equality (ECADE) and ARC International, St Michael, Barbados", "label": "EQUALS, Eastern Caribbean...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eEQUALS, Eastern Caribbean Alliance for Diversity and Equality (ECADE) and ARC International, St Michael, Barbados\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: EQUALS, Eastern Caribbean Alliance for Diversity and Equality (ECADE) and ARC International, St Michael, Barbados\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Global Campaign for Equal Nationality Rights, New York, USA, and Institute on Statelessness and Inclusion, Eindhoven, The Netherlands. For relevant recommendations see and Add.1, paras", "label": "Global Campaign for Equal...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eGlobal Campaign for Equal Nationality Rights, New York, USA, and Institute on Statelessness and Inclusion, Eindhoven, The Netherlands. For relevant recommendations see and Add.1, paras\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Global Campaign for Equal Nationality Rights, New York, USA, and Institute on Statelessness and Inclusion, Eindhoven, The Netherlands. For relevant recommendations see and Add.1, paras\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 18\u003cbr\u003eParticipants: 70"}, {"font": {"color": "black"}, "group": "Organization", "id": "JS2, p.2", "label": "JS2, p.2", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eJS2, p.2\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: JS2, p.2\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "JS1, para", "label": "JS1, para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eJS1, para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: JS1, para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "JS3, p", "label": "JS3, p", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eJS3, p\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: JS3, p\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "For relevant recommendations see and Add.1, paras", "label": "For relevant recommendati...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eFor relevant recommendations see and Add.1, paras\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: For relevant recommendations see and Add.1, paras\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "JS3, p.2", "label": "JS3, p.2", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eJS3, p.2\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: JS3, p.2\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRIN, para", "label": "CRIN, para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCRIN, para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRIN, para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ibid.,para", "label": "Ibid.,para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eIbid.,para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ibid.,para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ibid. para", "label": "Ibid. para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eIbid. para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ibid. para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ADF International, para", "label": "ADF International, para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eADF International, para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ADF International, para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ibid. para Ibid. para", "label": "Ibid. para Ibid. para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eIbid. para Ibid. para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ibid. para Ibid. para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "LIL, p", "label": "LIL, p", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eLIL, p\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: LIL, p\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ibid. p", "label": "Ibid. p", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eIbid. p\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ibid. p\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "GIEACPC, para", "label": "GIEACPC, para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eGIEACPC, para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: GIEACPC, para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "JS4, para", "label": "JS4, para", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eJS4, para\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: JS4, para\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "IAAGB, p", "label": "IAAGB, p", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eIAAGB, p\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: IAAGB, p\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "JS2, p", "label": "JS2, p", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eJS2, p\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: JS2, p\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "S2, p", "label": "S2, p", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eS2, p\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: S2, p\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "the Advocates for Human Rights (AHR), Minneapolis, USA, The Greater Caribbean for Life, Tacarigua, Trinidad and Tobago and The World Coalition against the Death Penalty, Montreuil, France", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Barbados Council for the Disabled (BCD), St. Michael, Barbados and Barbados National Organisation of the Disabled \u2013 Barnod.Inc., Bridgetown, Barbados", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "EQUALS, Eastern Caribbean Alliance for Diversity and Equality (ECADE) and ARC International, St Michael, Barbados", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Global Campaign for Equal Nationality Rights, New York, USA, and Institute on Statelessness and Inclusion, Eindhoven, The Netherlands. For relevant recommendations see and Add.1, paras", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "JS2, p.2", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "JS1, para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "JS3, p", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "For relevant recommendations see and Add.1, paras", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "JS3, p.2", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "CRIN, para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Ibid.,para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Ibid. para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "ADF International, para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Ibid. para Ibid. para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "LIL, p", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Ibid. p", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "GIEACPC, para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "JS4, para", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "IAAGB, p", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "JS2, p", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "S2, p", "title": "Member of JS4", "to": "JS4", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

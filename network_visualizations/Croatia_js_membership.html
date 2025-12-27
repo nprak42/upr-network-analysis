@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Global Detention Project", "label": "Global Detention Project", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eGlobal Detention Project\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Global Detention Project\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 42.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Centre for Peace Studies (CMS", "label": "Centre for Peace Studies ...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eCentre for Peace Studies (CMS\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centre for Peace Studies (CMS\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CPS), Geneva (Switzerland)", "label": "CPS), Geneva (Switzerland...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eCPS), Geneva (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CPS), Geneva (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "LGBTI CSOs Coalition", "label": "LGBTI CSOs Coalition", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eLGBTI CSOs Coalition\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: LGBTI CSOs Coalition\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 46.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 4\u003cbr\u003eParticipants: 4"}, {"font": {"color": "black"}, "group": "Organization", "id": "ERA - LGBTI Equal Rights Association for Western Balkans and Turkey", "label": "ERA - LGBTI Equal Rights ...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eERA - LGBTI Equal Rights Association for Western Balkans and Turkey\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ERA - LGBTI Equal Rights Association for Western Balkans and Turkey\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Dugine Obitelji", "label": "Dugine Obitelji", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eDugine Obitelji\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Dugine Obitelji\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "LGBT Centar Split, Belgrade (Serbia)", "label": "LGBT Centar Split, Belgra...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eLGBT Centar Split, Belgrade (Serbia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: LGBT Centar Split, Belgrade (Serbia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Advocates for Human Rights", "label": "Advocates for Human Right...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eAdvocates for Human Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Advocates for Human Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)", "label": "Autonomous Women\u2019s House ...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eAutonomous Women\u2019s House Zagreb, Minneapolis (United States of America)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Human Rights House Zagreb", "label": "Human Rights House Zagreb", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eHuman Rights House Zagreb\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Human Rights House Zagreb\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 10\u003cbr\u003eParticipants: 11"}, {"font": {"color": "black"}, "group": "Organization", "id": "B.a.B.e", "label": "B.a.B.e", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eB.a.B.e\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: B.a.B.e\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Center for Peace Studies", "label": "Center for Peace Studies", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eCenter for Peace Studies\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Center for Peace Studies\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Documenta \u2013 Center for Dealing with the Past", "label": "Documenta \u2013 Center for De...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eDocumenta \u2013 Center for Dealing with the Past\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Documenta \u2013 Center for Dealing with the Past\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rainbow Families Croatia", "label": "Rainbow Families Croatia", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eRainbow Families Croatia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rainbow Families Croatia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Roma Youth Organization Croatia", "label": "Roma Youth Organization C...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eRoma Youth Organization Croatia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Roma Youth Organization Croatia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Serb National Council", "label": "Serb National Council", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eSerb National Council\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Serb National Council\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Victims and Witness Support Service Croatia", "label": "Victims and Witness Suppo...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eVictims and Witness Support Service Croatia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Victims and Witness Support Service Croatia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Youth Initiative for Human Rights \u2013 Croatia", "label": "Youth Initiative for Huma...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eYouth Initiative for Human Rights \u2013 Croatia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Youth Initiative for Human Rights \u2013 Croatia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Zagreb Pride, Zagreb (Croatia)", "label": "Zagreb Pride, Zagreb (Cro...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eZagreb Pride, Zagreb (Croatia)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Zagreb Pride, Zagreb (Croatia)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness and Inclusion", "label": "Institute on Statelessnes...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eInstitute on Statelessness and Inclusion\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 42.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Civil Rights Project SisakInstitute on Statelessness", "label": "The Civil Rights Project ...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eThe Civil Rights Project SisakInstitute on Statelessness\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Civil Rights Project SisakInstitute on Statelessness\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Inclusion European Network on Statelessness, Eindhoven (Netherlands)", "label": "Inclusion European Networ...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eInclusion European Network on Statelessness, Eindhoven (Netherlands)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Inclusion European Network on Statelessness, Eindhoven (Netherlands)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Combatting Right-wing Extremism in Croatia", "label": "Combatting Right-wing Ext...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eCombatting Right-wing Extremism in Croatia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Combatting Right-wing Extremism in Croatia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Advocates for Human Rights Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)", "label": "The Advocates for Human R...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eThe Advocates for Human Rights Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Advocates for Human Rights Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Sexual Rights Initiative", "label": "The Sexual Rights Initiat...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eThe Sexual Rights Initiative\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Sexual Rights Initiative\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Be active. Be emancipated. B.a.B.e Croatia, Ottawa (Canada)", "label": "Be active. Be emancipated...", "shape": "dot", "size": 12.0, "title": "\u003cb\u003eBe active. Be emancipated. B.a.B.e Croatia, Ottawa (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Be active. Be emancipated. B.a.B.e Croatia, Ottawa (Canada)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Global Detention Project", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Centre for Peace Studies (CMS", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "CPS), Geneva (Switzerland)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "LGBTI CSOs Coalition", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "ERA - LGBTI Equal Rights Association for Western Balkans and Turkey", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Dugine Obitelji", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "LGBT Centar Split, Belgrade (Serbia)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Advocates for Human Rights", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Human Rights House Zagreb", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "B.a.B.e", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Center for Peace Studies", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Documenta \u2013 Center for Dealing with the Past", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Rainbow Families Croatia", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Roma Youth Organization Croatia", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Serb National Council", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Victims and Witness Support Service Croatia", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Youth Initiative for Human Rights \u2013 Croatia", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Zagreb Pride, Zagreb (Croatia)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness and Inclusion", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "The Civil Rights Project SisakInstitute on Statelessness", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Inclusion European Network on Statelessness, Eindhoven (Netherlands)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Combatting Right-wing Extremism in Croatia", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "The Advocates for Human Rights Autonomous Women\u2019s House Zagreb, Minneapolis (United States of America)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "The Sexual Rights Initiative", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Be active. Be emancipated. B.a.B.e Croatia, Ottawa (Canada)", "title": "Member of JS7", "to": "JS7", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

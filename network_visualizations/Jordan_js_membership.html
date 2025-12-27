@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Arab Network for Civic Education-ANHRE and the Jordanian Coalition for Education for all Amman, Jordan", "label": "Arab Network for Civic Ed...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eArab Network for Civic Education-ANHRE and the Jordanian Coalition for Education for all Amman, Jordan\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Arab Network for Civic Education-ANHRE and the Jordanian Coalition for Education for all Amman, Jordan\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Eye Jordan", "label": "Eye Jordan", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eEye Jordan\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Eye Jordan\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Arab NGO Network for Development \u0026 the Phoenix Center for Economics and Informatics Studies", "label": "The Arab NGO Network for ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eThe Arab NGO Network for Development \u0026 the Phoenix Center for Economics and Informatics Studies\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Arab NGO Network for Development \u0026 the Phoenix Center for Economics and Informatics Studies\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CIVICUS: World Alliance for Citizen Participation, Arab NGO Network for Development and The Phoenix Center for Economic \u0026 Informatics Studies", "label": "CIVICUS: World Alliance f...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eCIVICUS: World Alliance for Citizen Participation, Arab NGO Network for Development and The Phoenix Center for Economic \u0026 Informatics Studies\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CIVICUS: World Alliance for Citizen Participation, Arab NGO Network for Development and The Phoenix Center for Economic \u0026 Informatics Studies\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Advocates for Human Rights", "label": "The Advocates for Human R...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eThe Advocates for Human Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Advocates for Human Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Amman Center for Human Rights Studies, Society for Social and Economic Empowerment for Women, Amman Forum Society for Human Rights", "label": "Amman Center for Human Ri...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eAmman Center for Human Rights Studies, Society for Social and Economic Empowerment for Women, Amman Forum Society for Human Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Amman Center for Human Rights Studies, Society for Social and Economic Empowerment for Women, Amman Forum Society for Human Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "INSAN Coalition, which includes Phenix Economic and Informatics Studies Center, Justice Center for Legal Aid, Jordanian Women\u2019s Union, Federation of Independent Trade Unions, Lawyers without Borders, Wae\u2019e Center for Human Rights Studies, Ana Insan Society for Rights of the PwD, and Human defenders and Journalist: Rania Al-Sarayrah, Nadine Al-Nimri, Muhammad Shamma, and Najat Shana\u0027a", "label": "INSAN Coalition, which in...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eINSAN Coalition, which includes Phenix Economic and Informatics Studies Center, Justice Center for Legal Aid, Jordanian Women\u2019s Union, Federation of Independent Trade Unions, Lawyers without Borders, Wae\u2019e Center for Human Rights Studies, Ana Insan Society for Rights of the PwD, and Human defenders and Journalist: Rania Al-Sarayrah, Nadine Al-Nimri, Muhammad Shamma, and Najat Shana\u0027a\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: INSAN Coalition, which includes Phenix Economic and Informatics Studies Center, Justice Center for Legal Aid, Jordanian Women\u2019s Union, Federation of Independent Trade Unions, Lawyers without Borders, Wae\u2019e Center for Human Rights Studies, Ana Insan Society for Rights of the PwD, and Human defenders and Journalist: Rania Al-Sarayrah, Nadine Al-Nimri, Muhammad Shamma, and Najat Shana\u0027a\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Jordanian Civil Alliance Against Torture (JoCAT), which includes Jordanian Society for Human Rights, Tamkeen Fields for Aid, Arab Women\u2019s Legal Network, Institute for Family Health\u2013 Noor Al Hussein Foundation, Community Media Network, Al Balad Radio, Centre for Defending the Freedoms of Journalists (CDFJ), Bedaya Jadedah for Human Rights Training, Arab law Firm, Jordanian Jurist Association", "label": "The Jordanian Civil Allia...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eThe Jordanian Civil Alliance Against Torture (JoCAT), which includes Jordanian Society for Human Rights, Tamkeen Fields for Aid, Arab Women\u2019s Legal Network, Institute for Family Health\u2013 Noor Al Hussein Foundation, Community Media Network, Al Balad Radio, Centre for Defending the Freedoms of Journalists (CDFJ), Bedaya Jadedah for Human Rights Training, Arab law Firm, Jordanian Jurist Association\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Jordanian Civil Alliance Against Torture (JoCAT), which includes Jordanian Society for Human Rights, Tamkeen Fields for Aid, Arab Women\u2019s Legal Network, Institute for Family Health\u2013 Noor Al Hussein Foundation, Community Media Network, Al Balad Radio, Centre for Defending the Freedoms of Journalists (CDFJ), Bedaya Jadedah for Human Rights Training, Arab law Firm, Jordanian Jurist Association\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Jordanian Organisation Council for Human Rights (UNIHCRD)/Kamal al Mashreqi, which includes the Arab Center for Democracy and Human Rights, the Academy for Democracy and Development Studies, Lawyers Without Borders (Jordan), East and West Center for Sustainable Development, Jerash Charity Society, Madaba Foundation for Youth, and Child Welfare Association", "label": "The Jordanian Organisatio...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eThe Jordanian Organisation Council for Human Rights (UNIHCRD)/Kamal al Mashreqi, which includes the Arab Center for Democracy and Human Rights, the Academy for Democracy and Development Studies, Lawyers Without Borders (Jordan), East and West Center for Sustainable Development, Jerash Charity Society, Madaba Foundation for Youth, and Child Welfare Association\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Jordanian Organisation Council for Human Rights (UNIHCRD)/Kamal al Mashreqi, which includes the Arab Center for Democracy and Human Rights, the Academy for Democracy and Development Studies, Lawyers Without Borders (Jordan), East and West Center for Sustainable Development, Jerash Charity Society, Madaba Foundation for Youth, and Child Welfare Association\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Privacy International (PI) and the Jordan Open Source Association (JOSA)", "label": "Privacy International (PI...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003ePrivacy International (PI) and the Jordan Open Source Association (JOSA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Privacy International (PI) and the Jordan Open Source Association (JOSA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mistika Center for Training and Development, which includes Hamza Abdallah Abualhayja\u2019a - manager of Mestika Center and leader of this alliance", "label": "Mistika Center for Traini...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eMistika Center for Training and Development, which includes Hamza Abdallah Abualhayja\u2019a - manager of Mestika Center and leader of this alliance\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mistika Center for Training and Development, which includes Hamza Abdallah Abualhayja\u2019a - manager of Mestika Center and leader of this alliance\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 6\u003cbr\u003eParticipants: 6"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mohamed Ali Alawneh \u2013 activist in Human Rights at Yarmouk University", "label": "Mohamed Ali Alawneh \u2013 act...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eMohamed Ali Alawneh \u2013 activist in Human Rights at Yarmouk University\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mohamed Ali Alawneh \u2013 activist in Human Rights at Yarmouk University\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Leen Hosam Gharaibeh - activist in Human Rights at- University of Jordan", "label": "Leen Hosam Gharaibeh - ac...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eLeen Hosam Gharaibeh - activist in Human Rights at- University of Jordan\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Leen Hosam Gharaibeh - activist in Human Rights at- University of Jordan\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mohamed Swedat - activist in Human Rights at Jordan University of Science and Technology, Sameer Mashhour - Manager of Human Rights Club in University of Jordan", "label": "Mohamed Swedat - activist...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eMohamed Swedat - activist in Human Rights at Jordan University of Science and Technology, Sameer Mashhour - Manager of Human Rights Club in University of Jordan\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mohamed Swedat - activist in Human Rights at Jordan University of Science and Technology, Sameer Mashhour - Manager of Human Rights Club in University of Jordan\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Abraheem Qushear \u2013 activist in Human Rights at Albalqa\u2019a Applied University", "label": "Abraheem Qushear \u2013 activi...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eAbraheem Qushear \u2013 activist in Human Rights at Albalqa\u2019a Applied University\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Abraheem Qushear \u2013 activist in Human Rights at Albalqa\u2019a Applied University\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Abdualrahman Abu Shaban- activist in Human Rights at Jordan University of science and Technology", "label": "Abdualrahman Abu Shaban- ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eAbdualrahman Abu Shaban- activist in Human Rights at Jordan University of science and Technology\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Abdualrahman Abu Shaban- activist in Human Rights at Jordan University of science and Technology\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Arab Network for Civic Education-ANHRE and the Jordanian Coalition for Education for all Amman, Jordan", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Eye Jordan", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "The Arab NGO Network for Development \u0026 the Phoenix Center for Economics and Informatics Studies", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "CIVICUS: World Alliance for Citizen Participation, Arab NGO Network for Development and The Phoenix Center for Economic \u0026 Informatics Studies", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "The Advocates for Human Rights", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Amman Center for Human Rights Studies, Society for Social and Economic Empowerment for Women, Amman Forum Society for Human Rights", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "INSAN Coalition, which includes Phenix Economic and Informatics Studies Center, Justice Center for Legal Aid, Jordanian Women\u2019s Union, Federation of Independent Trade Unions, Lawyers without Borders, Wae\u2019e Center for Human Rights Studies, Ana Insan Society for Rights of the PwD, and Human defenders and Journalist: Rania Al-Sarayrah, Nadine Al-Nimri, Muhammad Shamma, and Najat Shana\u0027a", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "The Jordanian Civil Alliance Against Torture (JoCAT), which includes Jordanian Society for Human Rights, Tamkeen Fields for Aid, Arab Women\u2019s Legal Network, Institute for Family Health\u2013 Noor Al Hussein Foundation, Community Media Network, Al Balad Radio, Centre for Defending the Freedoms of Journalists (CDFJ), Bedaya Jadedah for Human Rights Training, Arab law Firm, Jordanian Jurist Association", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "The Jordanian Organisation Council for Human Rights (UNIHCRD)/Kamal al Mashreqi, which includes the Arab Center for Democracy and Human Rights, the Academy for Democracy and Development Studies, Lawyers Without Borders (Jordan), East and West Center for Sustainable Development, Jerash Charity Society, Madaba Foundation for Youth, and Child Welfare Association", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Privacy International (PI) and the Jordan Open Source Association (JOSA)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Mistika Center for Training and Development, which includes Hamza Abdallah Abualhayja\u2019a - manager of Mestika Center and leader of this alliance", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Mohamed Ali Alawneh \u2013 activist in Human Rights at Yarmouk University", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Leen Hosam Gharaibeh - activist in Human Rights at- University of Jordan", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Mohamed Swedat - activist in Human Rights at Jordan University of Science and Technology, Sameer Mashhour - Manager of Human Rights Club in University of Jordan", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Abraheem Qushear \u2013 activist in Human Rights at Albalqa\u2019a Applied University", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Abdualrahman Abu Shaban- activist in Human Rights at Jordan University of science and Technology", "title": "Member of JS11", "to": "JS11", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

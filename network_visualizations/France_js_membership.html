@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Apprentis d\u2019Auteuil, Secours catholique \u2014 Caritas France, Paris (France)", "label": "Apprentis d\u2019Auteuil, Seco...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eApprentis d\u2019Auteuil, Secours catholique \u2014 Caritas France, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Apprentis d\u2019Auteuil, Secours catholique \u2014 Caritas France, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Conf\u00e9rence des grandes \u00e9coles, La f\u00e9d\u00e9eh, HanploiCed, Paris (France)", "label": "Conf\u00e9rence des grandes \u00e9c...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eConf\u00e9rence des grandes \u00e9coles, La f\u00e9d\u00e9eh, HanploiCed, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Conf\u00e9rence des grandes \u00e9coles, La f\u00e9d\u00e9eh, HanploiCed, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Collectif des associations oeuvrant contre les violences \u00e9ducatives ordinaires faites aux enfants (punitions corporelles et humiliations), \u00ab Arr\u00eate ! Association contre les violences faites aux enfants \u00bb Association Bien-Traitance, Formation et Recherches Association PEPS Ensemble pour l\u2019Education Family Lab Fondation pour l\u2019Enfance La Maison de l\u2019Enfant M\u00e9moire traumatique et victimologie Ni claques ni fess\u00e9es L\u2019Observatoire de la violence \u00e9ducative ordinaire (OVEO) Les Parents d\u2019amour StopVEO, Enfance sans violences Et les personnalit\u00e9s oeuvrant contre la VEO : Arnaud Deroo, Isabelle Filliozat, Catherine Gueguen et Gilles Lazimi, Paris (France)", "label": "Collectif des association...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCollectif des associations oeuvrant contre les violences \u00e9ducatives ordinaires faites aux enfants (punitions corporelles et humiliations), \u00ab Arr\u00eate ! Association contre les violences faites aux enfants \u00bb Association Bien-Traitance, Formation et Recherches Association PEPS Ensemble pour l\u2019Education Family Lab Fondation pour l\u2019Enfance La Maison de l\u2019Enfant M\u00e9moire traumatique et victimologie Ni claques ni fess\u00e9es L\u2019Observatoire de la violence \u00e9ducative ordinaire (OVEO) Les Parents d\u2019amour StopVEO, Enfance sans violences Et les personnalit\u00e9s oeuvrant contre la VEO : Arnaud Deroo, Isabelle Filliozat, Catherine Gueguen et Gilles Lazimi, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Collectif des associations oeuvrant contre les violences \u00e9ducatives ordinaires faites aux enfants (punitions corporelles et humiliations), \u00ab Arr\u00eate ! Association contre les violences faites aux enfants \u00bb Association Bien-Traitance, Formation et Recherches Association PEPS Ensemble pour l\u2019Education Family Lab Fondation pour l\u2019Enfance La Maison de l\u2019Enfant M\u00e9moire traumatique et victimologie Ni claques ni fess\u00e9es L\u2019Observatoire de la violence \u00e9ducative ordinaire (OVEO) Les Parents d\u2019amour StopVEO, Enfance sans violences Et les personnalit\u00e9s oeuvrant contre la VEO : Arnaud Deroo, Isabelle Filliozat, Catherine Gueguen et Gilles Lazimi, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Collectif National des Citoyens Itin\u00e9rants, France Libert\u00e9 Voyage, Association de D\u00e9fense des Cirques de Familles, \u00ab Dif\u00e9rence \u00bb Gens du voyage, Les Gens du voyage de Gi\u00e8vres, l\u2019Union D\u00e9fence Active Foraine, Les Filles et Fils des intern\u00e9s du camp de Saliers, Espoir et Fraternit\u00e9 Tsiganes, Le Mouvement Intellectuel Tsiganes, AMPRALA, Nomades de France, (Association des Gens du Voyage d\u2019Ile-de- France), La Roulotte de la Solidarit\u00e9, Les Voyageurs des Hauts de France, Les Fran\u00e7ais du Voyage-Association Tzigane, Association D\u00e9fense Manouche des Hautes Pyr\u00e9n\u00e9es, Bourgneuf en Retz (France)", "label": "Collectif National des Ci...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCollectif National des Citoyens Itin\u00e9rants, France Libert\u00e9 Voyage, Association de D\u00e9fense des Cirques de Familles, \u00ab Dif\u00e9rence \u00bb Gens du voyage, Les Gens du voyage de Gi\u00e8vres, l\u2019Union D\u00e9fence Active Foraine, Les Filles et Fils des intern\u00e9s du camp de Saliers, Espoir et Fraternit\u00e9 Tsiganes, Le Mouvement Intellectuel Tsiganes, AMPRALA, Nomades de France, (Association des Gens du Voyage d\u2019Ile-de- France), La Roulotte de la Solidarit\u00e9, Les Voyageurs des Hauts de France, Les Fran\u00e7ais du Voyage-Association Tzigane, Association D\u00e9fense Manouche des Hautes Pyr\u00e9n\u00e9es, Bourgneuf en Retz (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Collectif National des Citoyens Itin\u00e9rants, France Libert\u00e9 Voyage, Association de D\u00e9fense des Cirques de Familles, \u00ab Dif\u00e9rence \u00bb Gens du voyage, Les Gens du voyage de Gi\u00e8vres, l\u2019Union D\u00e9fence Active Foraine, Les Filles et Fils des intern\u00e9s du camp de Saliers, Espoir et Fraternit\u00e9 Tsiganes, Le Mouvement Intellectuel Tsiganes, AMPRALA, Nomades de France, (Association des Gens du Voyage d\u2019Ile-de- France), La Roulotte de la Solidarit\u00e9, Les Voyageurs des Hauts de France, Les Fran\u00e7ais du Voyage-Association Tzigane, Association D\u00e9fense Manouche des Hautes Pyr\u00e9n\u00e9es, Bourgneuf en Retz (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Direction aux Affaires Savoisiennes, ANH Association des nations de l\u2019hexagone KAD, Saint-Gervais-les-Bains (France)", "label": "Direction aux Affaires Sa...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eDirection aux Affaires Savoisiennes, ANH Association des nations de l\u2019hexagone KAD, Saint-Gervais-les-Bains (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Direction aux Affaires Savoisiennes, ANH Association des nations de l\u2019hexagone KAD, Saint-Gervais-les-Bains (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associations membres du Collectif \u00ab Ensemble contre la traite des \u00eatres humains \u00bb : Action Catholique des Femmes, AFJ, Agir Contre la Prostitution des Enfants, Agir Ensemble pour les Droits de l\u2019Homme, Amicale du Nid, Arm\u00e9e du Salut, Association pour la R\u00e9adaptation Sociale, Comit\u00e9 Contre l\u2019Esclavage Moderne, Comit\u00e9 Protestant \u00e9vang\u00e9lique pour la Dignit\u00e9 Humaine, Congr\u00e9gation Notre Dame de Charit\u00e9 du Bon Pasteur, Conseil Fran\u00e7ais des Associations pour les Droits de l\u2019Enfant, ECPAT France, F\u00e9d\u00e9ration de l\u2019Entraide Protestante, Espoir CFDJ-Jeunes errants, Fondation Jean et Jeanne Scelles, Hors la rue, Justice et Paix France, La Cimade, Les Champs de Booz, Mouvement du Nid, Organisation Internationale Contre l\u2019Esclavage Moderne, Plan\u00e8te Enfants, SOS Esclaves", "label": "Associations membres du C...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAssociations membres du Collectif \u00ab Ensemble contre la traite des \u00eatres humains \u00bb : Action Catholique des Femmes, AFJ, Agir Contre la Prostitution des Enfants, Agir Ensemble pour les Droits de l\u2019Homme, Amicale du Nid, Arm\u00e9e du Salut, Association pour la R\u00e9adaptation Sociale, Comit\u00e9 Contre l\u2019Esclavage Moderne, Comit\u00e9 Protestant \u00e9vang\u00e9lique pour la Dignit\u00e9 Humaine, Congr\u00e9gation Notre Dame de Charit\u00e9 du Bon Pasteur, Conseil Fran\u00e7ais des Associations pour les Droits de l\u2019Enfant, ECPAT France, F\u00e9d\u00e9ration de l\u2019Entraide Protestante, Espoir CFDJ-Jeunes errants, Fondation Jean et Jeanne Scelles, Hors la rue, Justice et Paix France, La Cimade, Les Champs de Booz, Mouvement du Nid, Organisation Internationale Contre l\u2019Esclavage Moderne, Plan\u00e8te Enfants, SOS Esclaves\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associations membres du Collectif \u00ab Ensemble contre la traite des \u00eatres humains \u00bb : Action Catholique des Femmes, AFJ, Agir Contre la Prostitution des Enfants, Agir Ensemble pour les Droits de l\u2019Homme, Amicale du Nid, Arm\u00e9e du Salut, Association pour la R\u00e9adaptation Sociale, Comit\u00e9 Contre l\u2019Esclavage Moderne, Comit\u00e9 Protestant \u00e9vang\u00e9lique pour la Dignit\u00e9 Humaine, Congr\u00e9gation Notre Dame de Charit\u00e9 du Bon Pasteur, Conseil Fran\u00e7ais des Associations pour les Droits de l\u2019Enfant, ECPAT France, F\u00e9d\u00e9ration de l\u2019Entraide Protestante, Espoir CFDJ-Jeunes errants, Fondation Jean et Jeanne Scelles, Hors la rue, Justice et Paix France, La Cimade, Les Champs de Booz, Mouvement du Nid, Organisation Internationale Contre l\u2019Esclavage Moderne, Plan\u00e8te Enfants, SOS Esclaves\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "coordonn\u00e9 par le Secours Catholique \u2014 Caritas France, Paris (France)", "label": "coordonn\u00e9 par le Secours ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003ecoordonn\u00e9 par le Secours Catholique \u2014 Caritas France, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: coordonn\u00e9 par le Secours Catholique \u2014 Caritas France, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ECPAT France", "label": "ECPAT France", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eECPAT France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ECPAT France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture, ACAT France", "label": "F\u00e9deration Internationale...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eF\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture, ACAT France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture, ACAT France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fondation J\u00e9r\u00f4me Lejeune, Downpride Collectif contre l\u2019Handiphobie, Stop Discriminating Down, Paris (France)", "label": "Fondation J\u00e9r\u00f4me Lejeune,...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eFondation J\u00e9r\u00f4me Lejeune, Downpride Collectif contre l\u2019Handiphobie, Stop Discriminating Down, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fondation J\u00e9r\u00f4me Lejeune, Downpride Collectif contre l\u2019Handiphobie, Stop Discriminating Down, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "World Evangelical Alliance, Conseil National des Evangeliques de France (CNEF) European Evangelical Alliance (EEA) Comit\u00e9 Protestant pour la Dignit\u00e9 Humaine (CPDH)", "label": "World Evangelical Allianc...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eWorld Evangelical Alliance, Conseil National des Evangeliques de France (CNEF) European Evangelical Alliance (EEA) Comit\u00e9 Protestant pour la Dignit\u00e9 Humaine (CPDH)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: World Evangelical Alliance, Conseil National des Evangeliques de France (CNEF) European Evangelical Alliance (EEA) Comit\u00e9 Protestant pour la Dignit\u00e9 Humaine (CPDH)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Apprentis d\u2019Auteuil, Secours catholique \u2014 Caritas France, Paris (France)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Conf\u00e9rence des grandes \u00e9coles, La f\u00e9d\u00e9eh, HanploiCed, Paris (France)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Collectif des associations oeuvrant contre les violences \u00e9ducatives ordinaires faites aux enfants (punitions corporelles et humiliations), \u00ab Arr\u00eate ! Association contre les violences faites aux enfants \u00bb Association Bien-Traitance, Formation et Recherches Association PEPS Ensemble pour l\u2019Education Family Lab Fondation pour l\u2019Enfance La Maison de l\u2019Enfant M\u00e9moire traumatique et victimologie Ni claques ni fess\u00e9es L\u2019Observatoire de la violence \u00e9ducative ordinaire (OVEO) Les Parents d\u2019amour StopVEO, Enfance sans violences Et les personnalit\u00e9s oeuvrant contre la VEO : Arnaud Deroo, Isabelle Filliozat, Catherine Gueguen et Gilles Lazimi, Paris (France)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Collectif National des Citoyens Itin\u00e9rants, France Libert\u00e9 Voyage, Association de D\u00e9fense des Cirques de Familles, \u00ab Dif\u00e9rence \u00bb Gens du voyage, Les Gens du voyage de Gi\u00e8vres, l\u2019Union D\u00e9fence Active Foraine, Les Filles et Fils des intern\u00e9s du camp de Saliers, Espoir et Fraternit\u00e9 Tsiganes, Le Mouvement Intellectuel Tsiganes, AMPRALA, Nomades de France, (Association des Gens du Voyage d\u2019Ile-de- France), La Roulotte de la Solidarit\u00e9, Les Voyageurs des Hauts de France, Les Fran\u00e7ais du Voyage-Association Tzigane, Association D\u00e9fense Manouche des Hautes Pyr\u00e9n\u00e9es, Bourgneuf en Retz (France)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Direction aux Affaires Savoisiennes, ANH Association des nations de l\u2019hexagone KAD, Saint-Gervais-les-Bains (France)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Associations membres du Collectif \u00ab Ensemble contre la traite des \u00eatres humains \u00bb : Action Catholique des Femmes, AFJ, Agir Contre la Prostitution des Enfants, Agir Ensemble pour les Droits de l\u2019Homme, Amicale du Nid, Arm\u00e9e du Salut, Association pour la R\u00e9adaptation Sociale, Comit\u00e9 Contre l\u2019Esclavage Moderne, Comit\u00e9 Protestant \u00e9vang\u00e9lique pour la Dignit\u00e9 Humaine, Congr\u00e9gation Notre Dame de Charit\u00e9 du Bon Pasteur, Conseil Fran\u00e7ais des Associations pour les Droits de l\u2019Enfant, ECPAT France, F\u00e9d\u00e9ration de l\u2019Entraide Protestante, Espoir CFDJ-Jeunes errants, Fondation Jean et Jeanne Scelles, Hors la rue, Justice et Paix France, La Cimade, Les Champs de Booz, Mouvement du Nid, Organisation Internationale Contre l\u2019Esclavage Moderne, Plan\u00e8te Enfants, SOS Esclaves", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "coordonn\u00e9 par le Secours Catholique \u2014 Caritas France, Paris (France)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ECPAT France", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture, ACAT France", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Fondation J\u00e9r\u00f4me Lejeune, Downpride Collectif contre l\u2019Handiphobie, Stop Discriminating Down, Paris (France)", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "World Evangelical Alliance, Conseil National des Evangeliques de France (CNEF) European Evangelical Alliance (EEA) Comit\u00e9 Protestant pour la Dignit\u00e9 Humaine (CPDH)", "title": "Member of JS10", "to": "JS10", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

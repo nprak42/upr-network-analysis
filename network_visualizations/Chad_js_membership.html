@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "La plateforme des organisations Tchadiennes de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad", "label": "La plateforme des organis...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eLa plateforme des organisations Tchadiennes de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: La plateforme des organisations Tchadiennes de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Le collectif des associations de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad", "label": "Le collectif des associat...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eLe collectif des associations de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Le collectif des associations de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Internet without borders, Access Now, Utopie Nord-Sud and R\u00e9seau des d\u00e9fenseurs des droits humain en Afrique centrale", "label": "Internet without borders,...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eInternet without borders, Access Now, Utopie Nord-Sud and R\u00e9seau des d\u00e9fenseurs des droits humain en Afrique centrale\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Internet without borders, Access Now, Utopie Nord-Sud and R\u00e9seau des d\u00e9fenseurs des droits humain en Afrique centrale\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Word alliance for citizen participation (CIVICUS) and R\u00e9seau des d\u00e9fenseurs des droits de l\u2019homme en Afrique Centrale, Geneva, Switzerland", "label": "Word alliance for citizen...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eWord alliance for citizen participation (CIVICUS) and R\u00e9seau des d\u00e9fenseurs des droits de l\u2019homme en Afrique Centrale, Geneva, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Word alliance for citizen participation (CIVICUS) and R\u00e9seau des d\u00e9fenseurs des droits de l\u2019homme en Afrique Centrale, Geneva, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 32.22222222222222, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Le collectif Tchadien pour la d\u00e9fense des droits des femmes et des enfants, Ndjamena, Tchad. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination", "label": "Le collectif Tchadien pou...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eLe collectif Tchadien pour la d\u00e9fense des droits des femmes et des enfants, Ndjamena, Tchad. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Le collectif Tchadien pour la d\u00e9fense des droits des femmes et des enfants, Ndjamena, Tchad. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 18\u003cbr\u003eParticipants: 18"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICESCR International Covenant on Economic, Social and Cultural Rights", "label": "ICESCR International Cove...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICESCR International Covenant on Economic, Social and Cultural Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICESCR International Covenant on Economic, Social and Cultural Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-ICESCR Optional Protocol to ICESCR", "label": "OP-ICESCR Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-ICESCR Optional Protocol to ICESCR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-ICESCR Optional Protocol to ICESCR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR International Covenant on Civil and Political Rights", "label": "ICCPR International Coven...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICCPR International Covenant on Civil and Political Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR International Covenant on Civil and Political Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR-OP Optional Protocol to ICCPR", "label": "ICCPR-OP Optional Protoco...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICCPR-OP Optional Protocol to ICCPR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR-OP Optional Protocol to ICCPR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty", "label": "ICCPR-OP Second Optional ...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CEDAW Convention on the Elimination of All Forms of Discrimination against Women", "label": "CEDAW Convention on the E...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCEDAW Convention on the Elimination of All Forms of Discrimination against Women\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CEDAW Convention on the Elimination of All Forms of Discrimination against Women\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CEDAW Optional Protocol to CEDAW", "label": "OP-CEDAW Optional Protoco...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CEDAW Optional Protocol to CEDAW\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CEDAW Optional Protocol to CEDAW\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment", "label": "CAT Convention against To...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CAT Optional Protocol to CAT", "label": "OP-CAT Optional Protocol ...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CAT Optional Protocol to CAT\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CAT Optional Protocol to CAT\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "RSC Convention on the Rights of the Child", "label": "RSC Convention on the Rig...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eRSC Convention on the Rights of the Child\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: RSC Convention on the Rights of the Child\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict", "label": "OP-CRC-AC Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography", "label": "OP-CRC-SC Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "label": "OP-CRC-IC Optional Protoc...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRC-IC Optional Protocol to CRC on a communications procedure\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-IC Optional Protocol to CRC on a communications procedure\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "label": "ICRMW International Conve...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRPD Convention on the Rights of Persons with Disabilities", "label": "CRPD Convention on the Ri...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eCRPD Convention on the Rights of Persons with Disabilities\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRPD Convention on the Rights of Persons with Disabilities\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRPD Optional Protocol to CRPD", "label": "OP-CRPD Optional Protocol...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eOP-CRPD Optional Protocol to CRPD\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRPD Optional Protocol to CRPD\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see , paras. 110.1\u201330. Platform of human rights organizations (JS1), p. 3. FIACAT para. 10. CIVICUS, R\u00e9seau des d\u00e9fenseurs des droits humains en Afrique centrale, para. 4.1. IBID. para. 4.1. For relevant recommendations see , paras. 110.31\u201397. Amnesty International, p. 2. JS1. P. 3. FIACAT, para. 5. JS1, p. 3. Ibid. p. 4. FIACAT, para. 11. FIACAT, para. 12. For relevant recommendations see , paras. 110.9\u201392. Amnesty international, P 7. For relevant recommendations see , paras. 110.149-174. Collectif des Associations de D\u00e9fense des Droits de l\u2019Homme, para. 27. Front Line Defenders, para. 4. FIACAT para. 3. JS1 p. 8 et 9. JS2 p. 10. For relevant recommendations see , paras. 110.93\u201395 and 110.136\u2013114. JS1 p. 9. IBID. p. 9. FIACAT para. 8 et 9. IBID. para. 13 et 17. Amnesty International, P6. FIACAT, para. 24. For relevant recommendations see , paras. 110.99\u2013101 and 127\u2013132. FIACAT, para. 28. HRW, p. 1. IBID. p. 3. For relevant recommendations see , paras. 110.98\u2013145, 148. JS1 p. 6 et 7. Amnesty International, p. 6. FIACAT, para. 23. ISHR, p. 2. JS3, paras. 31, 32 and 33. IBID. para. 34. For relevant recommendations see , paras. 110.149\u2013153. JS2, para. 26. For relevant recommendations see , paras. 110.156\u2013158. JS2, para. 20. IBID. para. 21. Amnesty international, p. 2. For relevant recommendations see , para. 110.155. JS2, para. 24. Amnesty international, p. 5. JS2, para. 24. For relevant recommendations see , paras. 110.160\u2013172. JS2, para. 22. For relevant recommendations see , paras. 110.102-119. JS2, para. 32. For relevant recommendations see , paras. 110.120\u2013126. Global Initiative to end all corporal punishment of children, Briefing for UPR 31, P 1. IBID. P 3. JS2, p. 5. For relevant recommendations see , para. 110.173. JS2, para. 35. 9", "label": "ICPPED International Conv...", "shape": "dot", "size": 11.11111111111111, "title": "\u003cb\u003eICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see , paras. 110.1\u201330. Platform of human rights organizations (JS1), p. 3. FIACAT para. 10. CIVICUS, R\u00e9seau des d\u00e9fenseurs des droits humains en Afrique centrale, para. 4.1. IBID. para. 4.1. For relevant recommendations see , paras. 110.31\u201397. Amnesty International, p. 2. JS1. P. 3. FIACAT, para. 5. JS1, p. 3. Ibid. p. 4. FIACAT, para. 11. FIACAT, para. 12. For relevant recommendations see , paras. 110.9\u201392. Amnesty international, P 7. For relevant recommendations see , paras. 110.149-174. Collectif des Associations de D\u00e9fense des Droits de l\u2019Homme, para. 27. Front Line Defenders, para. 4. FIACAT para. 3. JS1 p. 8 et 9. JS2 p. 10. For relevant recommendations see , paras. 110.93\u201395 and 110.136\u2013114. JS1 p. 9. IBID. p. 9. FIACAT para. 8 et 9. IBID. para. 13 et 17. Amnesty International, P6. FIACAT, para. 24. For relevant recommendations see , paras. 110.99\u2013101 and 127\u2013132. FIACAT, para. 28. HRW, p. 1. IBID. p. 3. For relevant recommendations see , paras. 110.98\u2013145, 148. JS1 p. 6 et 7. Amnesty International, p. 6. FIACAT, para. 23. ISHR, p. 2. JS3, paras. 31, 32 and 33. IBID. para. 34. For relevant recommendations see , paras. 110.149\u2013153. JS2, para. 26. For relevant recommendations see , paras. 110.156\u2013158. JS2, para. 20. IBID. para. 21. Amnesty international, p. 2. For relevant recommendations see , para. 110.155. JS2, para. 24. Amnesty international, p. 5. JS2, para. 24. For relevant recommendations see , paras. 110.160\u2013172. JS2, para. 22. For relevant recommendations see , paras. 110.102-119. JS2, para. 32. For relevant recommendations see , paras. 110.120\u2013126. Global Initiative to end all corporal punishment of children, Briefing for UPR 31, P 1. IBID. P 3. JS2, p. 5. For relevant recommendations see , para. 110.173. JS2, para. 35. 9\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see , paras. 110.1\u201330. Platform of human rights organizations (JS1), p. 3. FIACAT para. 10. CIVICUS, R\u00e9seau des d\u00e9fenseurs des droits humains en Afrique centrale, para. 4.1. IBID. para. 4.1. For relevant recommendations see , paras. 110.31\u201397. Amnesty International, p. 2. JS1. P. 3. FIACAT, para. 5. JS1, p. 3. Ibid. p. 4. FIACAT, para. 11. FIACAT, para. 12. For relevant recommendations see , paras. 110.9\u201392. Amnesty international, P 7. For relevant recommendations see , paras. 110.149-174. Collectif des Associations de D\u00e9fense des Droits de l\u2019Homme, para. 27. Front Line Defenders, para. 4. FIACAT para. 3. JS1 p. 8 et 9. JS2 p. 10. For relevant recommendations see , paras. 110.93\u201395 and 110.136\u2013114. JS1 p. 9. IBID. p. 9. FIACAT para. 8 et 9. IBID. para. 13 et 17. Amnesty International, P6. FIACAT, para. 24. For relevant recommendations see , paras. 110.99\u2013101 and 127\u2013132. FIACAT, para. 28. HRW, p. 1. IBID. p. 3. For relevant recommendations see , paras. 110.98\u2013145, 148. JS1 p. 6 et 7. Amnesty International, p. 6. FIACAT, para. 23. ISHR, p. 2. JS3, paras. 31, 32 and 33. IBID. para. 34. For relevant recommendations see , paras. 110.149\u2013153. JS2, para. 26. For relevant recommendations see , paras. 110.156\u2013158. JS2, para. 20. IBID. para. 21. Amnesty international, p. 2. For relevant recommendations see , para. 110.155. JS2, para. 24. Amnesty international, p. 5. JS2, para. 24. For relevant recommendations see , paras. 110.160\u2013172. JS2, para. 22. For relevant recommendations see , paras. 110.102-119. JS2, para. 32. For relevant recommendations see , paras. 110.120\u2013126. Global Initiative to end all corporal punishment of children, Briefing for UPR 31, P 1. IBID. P 3. JS2, p. 5. For relevant recommendations see , para. 110.173. JS2, para. 35. 9\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "La plateforme des organisations Tchadiennes de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Le collectif des associations de d\u00e9fense des droits de l\u2019homme, N\u2019Djamena, Tchad", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Internet without borders, Access Now, Utopie Nord-Sud and R\u00e9seau des d\u00e9fenseurs des droits humain en Afrique centrale", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Word alliance for citizen participation (CIVICUS) and R\u00e9seau des d\u00e9fenseurs des droits de l\u2019homme en Afrique Centrale, Geneva, Switzerland", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Le collectif Tchadien pour la d\u00e9fense des droits des femmes et des enfants, Ndjamena, Tchad. The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "ICESCR International Covenant on Economic, Social and Cultural Rights", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-ICESCR Optional Protocol to ICESCR", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "ICCPR International Covenant on Civil and Political Rights", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "ICCPR-OP Optional Protocol to ICCPR", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "CEDAW Convention on the Elimination of All Forms of Discrimination against Women", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-CEDAW Optional Protocol to CEDAW", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-CAT Optional Protocol to CAT", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "RSC Convention on the Rights of the Child", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "CRPD Convention on the Rights of Persons with Disabilities", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "OP-CRPD Optional Protocol to CRPD", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see , paras. 110.1\u201330. Platform of human rights organizations (JS1), p. 3. FIACAT para. 10. CIVICUS, R\u00e9seau des d\u00e9fenseurs des droits humains en Afrique centrale, para. 4.1. IBID. para. 4.1. For relevant recommendations see , paras. 110.31\u201397. Amnesty International, p. 2. JS1. P. 3. FIACAT, para. 5. JS1, p. 3. Ibid. p. 4. FIACAT, para. 11. FIACAT, para. 12. For relevant recommendations see , paras. 110.9\u201392. Amnesty international, P 7. For relevant recommendations see , paras. 110.149-174. Collectif des Associations de D\u00e9fense des Droits de l\u2019Homme, para. 27. Front Line Defenders, para. 4. FIACAT para. 3. JS1 p. 8 et 9. JS2 p. 10. For relevant recommendations see , paras. 110.93\u201395 and 110.136\u2013114. JS1 p. 9. IBID. p. 9. FIACAT para. 8 et 9. IBID. para. 13 et 17. Amnesty International, P6. FIACAT, para. 24. For relevant recommendations see , paras. 110.99\u2013101 and 127\u2013132. FIACAT, para. 28. HRW, p. 1. IBID. p. 3. For relevant recommendations see , paras. 110.98\u2013145, 148. JS1 p. 6 et 7. Amnesty International, p. 6. FIACAT, para. 23. ISHR, p. 2. JS3, paras. 31, 32 and 33. IBID. para. 34. For relevant recommendations see , paras. 110.149\u2013153. JS2, para. 26. For relevant recommendations see , paras. 110.156\u2013158. JS2, para. 20. IBID. para. 21. Amnesty international, p. 2. For relevant recommendations see , para. 110.155. JS2, para. 24. Amnesty international, p. 5. JS2, para. 24. For relevant recommendations see , paras. 110.160\u2013172. JS2, para. 22. For relevant recommendations see , paras. 110.102-119. JS2, para. 32. For relevant recommendations see , paras. 110.120\u2013126. Global Initiative to end all corporal punishment of children, Briefing for UPR 31, P 1. IBID. P 3. JS2, p. 5. For relevant recommendations see , para. 110.173. JS2, para. 35. 9", "title": "Member of JS5", "to": "JS5", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

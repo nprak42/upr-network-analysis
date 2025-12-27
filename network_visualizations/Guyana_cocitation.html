@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Individual Submission", "id": "GIEACPC", "label": "GIEACPC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGIEACPC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Global Initiative to End All Corporal Punishment of Children\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "JI", "label": "JI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eJI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Justice Institute Guyana\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "TCC", "label": "TCC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eTCC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: The Carter Center (United States of America). Regional intergovernmental organization(s): IACHR Inter-American Commission on Human Rights (United States of America). 2 For the relevant recommendations, see A/HRC/29/16, paras. 130.1, 132.1\u2013132.4, 132.7\u2013132.19, and 132.24\u2013132.27. 3 INHR, p. 6. See also CGNK, p. 7. 4 CGNK, p. 6. 5 TCC, p. 4. See also INHR, p. 6. 6 ICAN, p. 1. 7 For the relevant recommendations, see A/HRC/29/16, paras. 130.7, 130.8, 132.20, 130.25\u2013130.27, 130.29, and 132.31\u2013132.42. 8 INHR, p. 4. 5 A/HRC/WG.6/35/GUY/3 9 INHR, p. 5. See also JI, p. 5 and JAI, p. 3. 10 JI, p. 5. 11 INHR, pp. 3 and 5. 12 JI, p. 5. 13 INHR, p. 5. See also JAI, p. 3. 14 JAI, p. 3. 15 INHR, p. 5. 16 For the relevant recommendations, see A/HRC/29/16, para. 130.3. 17 JI, pp. 3\u20134. 18 For relevant recommendations, see A/HRC/29/16, paras. 130.26, 130.28\u2013130.32, 130.55\u2013130.57, 131.3, 132.5, 132.6, 132.13, 132.43\u2013132.50, and 132.56. 19 CGNK, p. 6. See also JAI, p. 3. 20 JI, p. 3. 21 CGNK, p. 7. 22 IACHR, p. 1. See also JAI, pp. 2\u20133. 23 For relevant recommendations, see A/HRC/29/16, paras. 130.54, 130.53, 132.57\u2013132.59, and 132.60. 24 IACHR, pp. 2\u20133. 25 TCC, p. 2. 26 JI, pp. 3\u20134. 27 JI, p. 5. 28 For relevant recommendations, see A/HRC/29/16, paras. 130.74, 132.58, and 132.61. 29 JI, p. 2. See also TCC, p. 2. 30 TCC, p. 2. 31 TCC, pp. 2\u20133. See also JI, p. 2. 32 JI, pp. 2\u20133. 33 TCC, p. 4. 34 TCC, p. 3. 35 TCC, p. 4. 36 TCC, pp. 5\u20136. 37 For relevant recommendations, see A/HRC/29/16, para. 131.1. 38 INHR, pp. 4 and 6. 39 For relevant recommendations, see A/HRC/29/16, paras. 130.60\u2013130.65. 40 IACHR, p. 2. 41 IACHR, pp. 1\u20132. 42 For relevant recommendations, see A/HRC/29/16, paras. 130.59, and 130.66\u2013130.68. 43 GRPA, p. 2. 44 GRPA, pp. 2\u20133. 45 GRPA, p. 5. 46 GCNK, p. 7. 47 For relevant recommendations, see A/HRC/29/16, paras. 130.46, 130.69, 130.70, 132.62, and 132.63. 48 GRPA, p. 4. 49 GRPA, pp. 4\u20135. 50 GRPA, p. 5. 51 For relevant recommendations, see A/HRC/29/16, paras. 130.2, 130.9\u2013130.22, 130.33\u2013130.38, 130.40 - 130.44, 130.49, 130.53, and 132.28. 52 GRPA, p. 4. See also JAI, p. 3\u20134. 53 For relevant recommendations, see A/HRC/29/16, paras. 130.2, 130.39, 130.45\u2013130.48, 130.52, 131.2, 131.4, and 132.51\u2013132.55. 54 GIEACPC, pp. 2\u20134. 55 GIEACPC, p. 1. 56 JI, p. 4. 57 IACHR, p. 4. 58 For relevant recommendations, see A/HRC/29/16, paras. 130.23, 130.24, 130.74, 130.75, and 132.64. 59 JI, pp. 5\u20136. 60 JI, p. 5. 61 JI\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICAN", "label": "ICAN", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICAN\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: The International Campaign to Abolish Nuclear Weapons\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "GRPA", "label": "GRPA", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGRPA\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Guyana Responsible Parenthood Association\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CGNK", "label": "CGNK", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCGNK\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Center for Global Nonkilling\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "INHR", "label": "INHR", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eINHR\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International Network of Human Rights\u003cbr\u003eCo-citations: 7"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "JAI", "label": "JAI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eJAI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Just Atonement Inc\u003cbr\u003eCo-citations: 7"}]);
+                  edges = new vis.DataSet([{"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "JI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ICAN", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "GRPA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "INHR", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "JAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "JI", "title": "Cited together 3 time(s)", "to": "TCC", "width": 6.0}, {"color": "#3498db", "from": "JI", "title": "Cited together 1 time(s)", "to": "ICAN", "width": 2.6666666666666665}, {"color": "#3498db", "from": "JI", "title": "Cited together 1 time(s)", "to": "GRPA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "JI", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 2.6666666666666665}, {"color": "#3498db", "from": "JI", "title": "Cited together 2 time(s)", "to": "INHR", "width": 4.333333333333333}, {"color": "#3498db", "from": "JI", "title": "Cited together 2 time(s)", "to": "JAI", "width": 4.333333333333333}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "ICAN", "width": 2.6666666666666665}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "GRPA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 2.6666666666666665}, {"color": "#3498db", "from": "TCC", "title": "Cited together 2 time(s)", "to": "INHR", "width": 4.333333333333333}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "JAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ICAN", "title": "Cited together 1 time(s)", "to": "GRPA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ICAN", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ICAN", "title": "Cited together 1 time(s)", "to": "INHR", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ICAN", "title": "Cited together 1 time(s)", "to": "JAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GRPA", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GRPA", "title": "Cited together 1 time(s)", "to": "INHR", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GRPA", "title": "Cited together 2 time(s)", "to": "JAI", "width": 4.333333333333333}, {"color": "#3498db", "from": "CGNK", "title": "Cited together 2 time(s)", "to": "INHR", "width": 4.333333333333333}, {"color": "#3498db", "from": "CGNK", "title": "Cited together 2 time(s)", "to": "JAI", "width": 4.333333333333333}, {"color": "#3498db", "from": "INHR", "title": "Cited together 3 time(s)", "to": "JAI", "width": 6.0}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -3000,
+            "springConstant": 0.005,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

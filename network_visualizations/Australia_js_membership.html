@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "202 Australian NGOs and coordinated by the Human Rights Law Centre, the Kingsford Legal Centre and the Caxton Legal Centre", "label": "202 Australian NGOs and c...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003e202 Australian NGOs and coordinated by the Human Rights Law Centre, the Kingsford Legal Centre and the Caxton Legal Centre\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: 202 Australian NGOs and coordinated by the Human Rights Law Centre, the Kingsford Legal Centre and the Caxton Legal Centre\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Feminist Legal Clinic Inc", "label": "Feminist Legal Clinic Inc", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eFeminist Legal Clinic Inc\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Feminist Legal Clinic Inc\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 56.666666666666664, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "the Women\u2019s Human Rights Campaign in Australia", "label": "the Women\u2019s Human Rights ...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003ethe Women\u2019s Human Rights Campaign in Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: the Women\u2019s Human Rights Campaign in Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "World Council of Churches, Geneva Switzerland and National Council of Churches in Australia", "label": "World Council of Churches...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eWorld Council of Churches, Geneva Switzerland and National Council of Churches in Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: World Council of Churches, Geneva Switzerland and National Council of Churches in Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Congregations of the Sisters of St Joseph of the Sacred Heart rsj, Sisters of St Joseph of Lochinvar ssj, the Loreto Sisters of Australia and South East Asia ibvm, and the Mercy Sisters of Parramatta rsm, Australia", "label": "Congregations of the Sist...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eCongregations of the Sisters of St Joseph of the Sacred Heart rsj, Sisters of St Joseph of Lochinvar ssj, the Loreto Sisters of Australia and South East Asia ibvm, and the Mercy Sisters of Parramatta rsm, Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Congregations of the Sisters of St Joseph of the Sacred Heart rsj, Sisters of St Joseph of Lochinvar ssj, the Loreto Sisters of Australia and South East Asia ibvm, and the Mercy Sisters of Parramatta rsm, Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Peter McMullin Centre on Statelessness, Australia", "label": "The Peter McMullin Centre...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eThe Peter McMullin Centre on Statelessness, Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Peter McMullin Centre on Statelessness, Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Refugee Advice \u0026 Casework Service, Australia", "label": "Refugee Advice \u0026 Casework...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eRefugee Advice \u0026 Casework Service, Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Refugee Advice \u0026 Casework Service, Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Statelessness Network Asia Pacific, Malaysia and Institute on Statelessness and Inclusion, the Netherlands", "label": "Statelessness Network Asi...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eStatelessness Network Asia Pacific, Malaysia and Institute on Statelessness and Inclusion, the Netherlands\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Statelessness Network Asia Pacific, Malaysia and Institute on Statelessness and Inclusion, the Netherlands\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Access Now, United States of America and Digital Rights Watch, Australia", "label": "Access Now, United States...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eAccess Now, United States of America and Digital Rights Watch, Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Access Now, United States of America and Digital Rights Watch, Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Edmund Rice International, Edmund Rice Centre, Australia, Dominicans for Justice and Peace (Order of Preachers), Franciscans International, International Presentation Association, Marist Foundation for International Solidarity, Brisbane Catholic Aboriginal Ministry, the Congregation of Our Lady of Charity of the Good Shepherd, the Australian Catholic Religious Against Trafficking in Humans, Parade College Advocacy Team and St James College", "label": "Edmund Rice International...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eEdmund Rice International, Edmund Rice Centre, Australia, Dominicans for Justice and Peace (Order of Preachers), Franciscans International, International Presentation Association, Marist Foundation for International Solidarity, Brisbane Catholic Aboriginal Ministry, the Congregation of Our Lady of Charity of the Good Shepherd, the Australian Catholic Religious Against Trafficking in Humans, Parade College Advocacy Team and St James College\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Edmund Rice International, Edmund Rice Centre, Australia, Dominicans for Justice and Peace (Order of Preachers), Franciscans International, International Presentation Association, Marist Foundation for International Solidarity, Brisbane Catholic Aboriginal Ministry, the Congregation of Our Lady of Charity of the Good Shepherd, the Australian Catholic Religious Against Trafficking in Humans, Parade College Advocacy Team and St James College\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ethos- the Australian Evangelical Alliance\u2019s Centre for Christianity and Society, Australia and the World Evangelical Alliance, Switzerland", "label": "Ethos- the Australian Eva...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eEthos- the Australian Evangelical Alliance\u2019s Centre for Christianity and Society, Australia and the World Evangelical Alliance, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ethos- the Australian Evangelical Alliance\u2019s Centre for Christianity and Society, Australia and the World Evangelical Alliance, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Environmental Justice Australia and Environmental Defenders Office, Australia and Earthjustice, United States of America", "label": "Environmental Justice Aus...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eEnvironmental Justice Australia and Environmental Defenders Office, Australia and Earthjustice, United States of America\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Environmental Justice Australia and Environmental Defenders Office, Australia and Earthjustice, United States of America\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Cultural Survival and the American Indian Law Clinic of the University of Colorado, United States of America", "label": "Cultural Survival and the...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eCultural Survival and the American Indian Law Clinic of the University of Colorado, United States of America\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Cultural Survival and the American Indian Law Clinic of the University of Colorado, United States of America\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "the International Federation of Library Associations, Hague, The Netherlands and the Australian Library and Information Association, Australia", "label": "the International Federat...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003ethe International Federation of Library Associations, Hague, The Netherlands and the Australian Library and Information Association, Australia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: the International Federation of Library Associations, Hague, The Netherlands and the Australian Library and Information Association, Australia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "202 Australian NGOs and coordinated by the Human Rights Law Centre, the Kingsford Legal Centre and the Caxton Legal Centre", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Feminist Legal Clinic Inc", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "the Women\u2019s Human Rights Campaign in Australia", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "World Council of Churches, Geneva Switzerland and National Council of Churches in Australia", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Congregations of the Sisters of St Joseph of the Sacred Heart rsj, Sisters of St Joseph of Lochinvar ssj, the Loreto Sisters of Australia and South East Asia ibvm, and the Mercy Sisters of Parramatta rsm, Australia", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "The Peter McMullin Centre on Statelessness, Australia", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Refugee Advice \u0026 Casework Service, Australia", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Statelessness Network Asia Pacific, Malaysia and Institute on Statelessness and Inclusion, the Netherlands", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Access Now, United States of America and Digital Rights Watch, Australia", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Edmund Rice International, Edmund Rice Centre, Australia, Dominicans for Justice and Peace (Order of Preachers), Franciscans International, International Presentation Association, Marist Foundation for International Solidarity, Brisbane Catholic Aboriginal Ministry, the Congregation of Our Lady of Charity of the Good Shepherd, the Australian Catholic Religious Against Trafficking in Humans, Parade College Advocacy Team and St James College", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Ethos- the Australian Evangelical Alliance\u2019s Centre for Christianity and Society, Australia and the World Evangelical Alliance, Switzerland", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Environmental Justice Australia and Environmental Defenders Office, Australia and Earthjustice, United States of America", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Cultural Survival and the American Indian Law Clinic of the University of Colorado, United States of America", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "the International Federation of Library Associations, Hague, The Netherlands and the Australian Library and Information Association, Australia", "title": "Member of JS11", "to": "JS11", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "The World Coalition Against the Death Penalty The Society for Human Rights and Development Organisation, Mineapolis, USA", "label": "The World Coalition Again...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe World Coalition Against the Death Penalty The Society for Human Rights and Development Organisation, Mineapolis, USA\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The World Coalition Against the Death Penalty The Society for Human Rights and Development Organisation, Mineapolis, USA\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance", "label": "Child Rights Coalition: C...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eChild Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Freetown, Sierra Leone", "label": "Freetown, Sierra Leone", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eFreetown, Sierra Leone\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Freetown, Sierra Leone\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Equality Now, Defence for Children International - Sierra Leone and Women Against Violence and Exploitation in Society (WAVES) Nairobi, Kenya", "label": "Equality Now, Defence for...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eEquality Now, Defence for Children International - Sierra Leone and Women Against Violence and Exploitation in Society (WAVES) Nairobi, Kenya\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Equality Now, Defence for Children International - Sierra Leone and Women Against Violence and Exploitation in Society (WAVES) Nairobi, Kenya\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association", "label": "National Association of P...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eNational Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Chatelaine, Switzerland", "label": "Chatelaine, Switzerland", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eChatelaine, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Chatelaine, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union", "label": "The Collaboration on Inte...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eThe Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "London, United Kingdom of Great Britain and Northern Ireland", "label": "London, United Kingdom of...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eLondon, United Kingdom of Great Britain and Northern Ireland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: London, United Kingdom of Great Britain and Northern Ireland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Child Rights Coalition - Sierra Leone (CRC-SL), participated in the preparation of the report: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance", "label": "Child Rights Coalition - ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eChild Rights Coalition - Sierra Leone (CRC-SL), participated in the preparation of the report: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Child Rights Coalition - Sierra Leone (CRC-SL), participated in the preparation of the report: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "AdvocAid and the Vance Center NGO Coalition for UPR-Sierra Leone, NY, USA", "label": "AdvocAid and the Vance Ce...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAdvocAid and the Vance Center NGO Coalition for UPR-Sierra Leone, NY, USA\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: AdvocAid and the Vance Center NGO Coalition for UPR-Sierra Leone, NY, USA\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "International Service for Human Rights and Human Rights Defenders Network Sierra Leone", "label": "International Service for...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eInternational Service for Human Rights and Human Rights Defenders Network Sierra Leone\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Service for Human Rights and Human Rights Defenders Network Sierra Leone\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Geneva, Switzerland", "label": "Geneva, Switzerland", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eGeneva, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Geneva, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home", "label": "Sierra Leone Union on Dis...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eSierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "The World Coalition Against the Death Penalty The Society for Human Rights and Development Organisation, Mineapolis, USA", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Child Rights Coalition: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Freetown, Sierra Leone", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Equality Now, Defence for Children International - Sierra Leone and Women Against Violence and Exploitation in Society (WAVES) Nairobi, Kenya", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "National Association of Persons Affected by Leprosy \u2013 Sierra Leone German Leprosy and Tuberculosis Relief Association", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Chatelaine, Switzerland", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "The Collaboration on International ICT Policy in East and Southern Africa (CIPESA) The Institute for Governance Reform (IGR) Citizens Advocacy Network (CAN) Campaign for Human Rights and Development International (CHRDI) Sierra Leone Reporters Union", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "London, United Kingdom of Great Britain and Northern Ireland", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Child Rights Coalition - Sierra Leone (CRC-SL), participated in the preparation of the report: Children\u2019s Forum Network, Grassroots Community Development Advocates \u2013Sierra Leone, Advocacy Movement Network, Defence for Children International, Youth and Child Advocacy Network, Youth and Children\u2019s Advocacy Panel, Network Movement for Youth and Children\u2019s Welfare, Foundation for Rural and Urban Transformation, Youth Arise for Rural Development, Empowerment and Peace Building, Plan International Sierra Leone, Youth Welfare and Development Organization, Centre For Social Economic Empowerment And Development Sierra Leone, Ngopee Foundation, SOS Children\u2019s Villages Sierra Leone, and Campaign for Good Governance", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "AdvocAid and the Vance Center NGO Coalition for UPR-Sierra Leone, NY, USA", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "International Service for Human Rights and Human Rights Defenders Network Sierra Leone", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Geneva, Switzerland", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Sierra Leone Union on Disability Issues, Disability Awareness Action Group, Kono Cheshire Services, Polio Persons Development Association, Welfare Society for the disabled and Freetown Cheshire Home", "title": "Member of JS10", "to": "JS10", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Centro de Estudios de G\u00e9nero de Intec. Centro de Desarrollo Social (CEDESO). Centro de Investigaci\u00f3n para la Acci\u00f3n Femenina (CIPAF). Centro de Solidaridad para el Desarrollo de la Mujer (CE- MUJER). Colectiva Mujer y Salud (CMS). Confederaci\u00f3n Nacional de Mujeres del Campo (CONAMUCA. Coordinadora de Mujeres del Cibao (CMC). Foro Feminista Magaly Pineda. Fund. Mujeres Empoderadas Abriendo Caminos. Movimiento de Mujeres Dominico Haitianas (MUDHA). Movimiento Feminista Hermanas Mirabal. Movimiento Sociocultural para los Trabajadores Haitianos (MOSCTHA). N\u00facleo de Apoyo a la Mujer (NAM). Oxfam en Rep\u00fablica Dominicana. Profamilia. Plan Internacional (Dominican Republic)", "label": "Centro de Estudios de G\u00e9n...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eCentro de Estudios de G\u00e9nero de Intec. Centro de Desarrollo Social (CEDESO). Centro de Investigaci\u00f3n para la Acci\u00f3n Femenina (CIPAF). Centro de Solidaridad para el Desarrollo de la Mujer (CE- MUJER). Colectiva Mujer y Salud (CMS). Confederaci\u00f3n Nacional de Mujeres del Campo (CONAMUCA. Coordinadora de Mujeres del Cibao (CMC). Foro Feminista Magaly Pineda. Fund. Mujeres Empoderadas Abriendo Caminos. Movimiento de Mujeres Dominico Haitianas (MUDHA). Movimiento Feminista Hermanas Mirabal. Movimiento Sociocultural para los Trabajadores Haitianos (MOSCTHA). N\u00facleo de Apoyo a la Mujer (NAM). Oxfam en Rep\u00fablica Dominicana. Profamilia. Plan Internacional (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centro de Estudios de G\u00e9nero de Intec. Centro de Desarrollo Social (CEDESO). Centro de Investigaci\u00f3n para la Acci\u00f3n Femenina (CIPAF). Centro de Solidaridad para el Desarrollo de la Mujer (CE- MUJER). Colectiva Mujer y Salud (CMS). Confederaci\u00f3n Nacional de Mujeres del Campo (CONAMUCA. Coordinadora de Mujeres del Cibao (CMC). Foro Feminista Magaly Pineda. Fund. Mujeres Empoderadas Abriendo Caminos. Movimiento de Mujeres Dominico Haitianas (MUDHA). Movimiento Feminista Hermanas Mirabal. Movimiento Sociocultural para los Trabajadores Haitianos (MOSCTHA). N\u00facleo de Apoyo a la Mujer (NAM). Oxfam en Rep\u00fablica Dominicana. Profamilia. Plan Internacional (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Movimiento Socio Cultural para los trabajadores haitianos, Inc MOSCTHA Afro Alianza Dominicana Fundaci\u00f3n derechos vigentes (Dominican Republic)", "label": "Movimiento Socio Cultural...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eMovimiento Socio Cultural para los trabajadores haitianos, Inc MOSCTHA Afro Alianza Dominicana Fundaci\u00f3n derechos vigentes (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Movimiento Socio Cultural para los trabajadores haitianos, Inc MOSCTHA Afro Alianza Dominicana Fundaci\u00f3n derechos vigentes (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Alianza Discapacidad Por Nuestros Derechos (ADIDE), Asociaci\u00f3n de Personas con Discapacidad F\u00edsico- Motora 10 (ASODIFIMO), C\u00edrculo de Mujeres con Discapacidad (CIMUDIS), Fundaci\u00f3n Dominicana de Ciegos (FUDCI), Fundaci\u00f3n para la Integraci\u00f3n y Desarrollo del Sordo (FUNDEISOR), Fundaci\u00f3n de Preparaci\u00f3n y Asistencia a la Juventud y Personas con Discapacidad (FUPAJUDI), y la Asociaci\u00f3n Dominicana de S\u00edndrome de Down (ADOSID). (Dominican Republic)", "label": "Alianza Discapacidad Por ...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eAlianza Discapacidad Por Nuestros Derechos (ADIDE), Asociaci\u00f3n de Personas con Discapacidad F\u00edsico- Motora 10 (ASODIFIMO), C\u00edrculo de Mujeres con Discapacidad (CIMUDIS), Fundaci\u00f3n Dominicana de Ciegos (FUDCI), Fundaci\u00f3n para la Integraci\u00f3n y Desarrollo del Sordo (FUNDEISOR), Fundaci\u00f3n de Preparaci\u00f3n y Asistencia a la Juventud y Personas con Discapacidad (FUPAJUDI), y la Asociaci\u00f3n Dominicana de S\u00edndrome de Down (ADOSID). (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Alianza Discapacidad Por Nuestros Derechos (ADIDE), Asociaci\u00f3n de Personas con Discapacidad F\u00edsico- Motora 10 (ASODIFIMO), C\u00edrculo de Mujeres con Discapacidad (CIMUDIS), Fundaci\u00f3n Dominicana de Ciegos (FUDCI), Fundaci\u00f3n para la Integraci\u00f3n y Desarrollo del Sordo (FUNDEISOR), Fundaci\u00f3n de Preparaci\u00f3n y Asistencia a la Juventud y Personas con Discapacidad (FUPAJUDI), y la Asociaci\u00f3n Dominicana de S\u00edndrome de Down (ADOSID). (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "SOS Children\u00b4s Villages Dominican Republic, Plan International, World Vision, Muchachos y Muchachas con Don Bosco, Proyecto Caminantes de Boca Chica, Children International, Casa Abierta, ACOPRO, Aprendices con Don Bosco, Hogar Renacer, Save the Children, Acci\u00f3n Callejera, FUNDEBMUNI, Proyecto MAIS, Pastoral Juvenil, Ni\u00f1os del Camino, Compasion International, CIPAF, CIDAIL, ODESA, PROFAMILIA, PROINFANCIA, UJEDO. (Dominican Republic)", "label": "SOS Children\u00b4s Villages D...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eSOS Children\u00b4s Villages Dominican Republic, Plan International, World Vision, Muchachos y Muchachas con Don Bosco, Proyecto Caminantes de Boca Chica, Children International, Casa Abierta, ACOPRO, Aprendices con Don Bosco, Hogar Renacer, Save the Children, Acci\u00f3n Callejera, FUNDEBMUNI, Proyecto MAIS, Pastoral Juvenil, Ni\u00f1os del Camino, Compasion International, CIPAF, CIDAIL, ODESA, PROFAMILIA, PROINFANCIA, UJEDO. (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: SOS Children\u00b4s Villages Dominican Republic, Plan International, World Vision, Muchachos y Muchachas con Don Bosco, Proyecto Caminantes de Boca Chica, Children International, Casa Abierta, ACOPRO, Aprendices con Don Bosco, Hogar Renacer, Save the Children, Acci\u00f3n Callejera, FUNDEBMUNI, Proyecto MAIS, Pastoral Juvenil, Ni\u00f1os del Camino, Compasion International, CIPAF, CIDAIL, ODESA, PROFAMILIA, PROINFANCIA, UJEDO. (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Centro de Solidaridad para el Desarrollo de la Mujer, CE-MUJER", "label": "Centro de Solidaridad par...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eCentro de Solidaridad para el Desarrollo de la Mujer, CE-MUJER\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centro de Solidaridad para el Desarrollo de la Mujer, CE-MUJER\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 62.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 4\u003cbr\u003eParticipants: 4"}, {"font": {"color": "black"}, "group": "Organization", "id": "Colectiva Mujer y Salud", "label": "Colectiva Mujer y Salud", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eColectiva Mujer y Salud\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Colectiva Mujer y Salud\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Comit\u00e9 de Am\u00e9rica Latina y el Caribe para la Defensa de los Derechos de la Mujer-Rep\u00fablica Dominicana (CLADEM-RD)", "label": "Comit\u00e9 de Am\u00e9rica Latina ...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eComit\u00e9 de Am\u00e9rica Latina y el Caribe para la Defensa de los Derechos de la Mujer-Rep\u00fablica Dominicana (CLADEM-RD)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Comit\u00e9 de Am\u00e9rica Latina y el Caribe para la Defensa de los Derechos de la Mujer-Rep\u00fablica Dominicana (CLADEM-RD)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "N\u00facleo de Apoyo a la Mujer (NAM), Save The Children Dominicana (SCRD). (Dominican Republic)", "label": "N\u00facleo de Apoyo a la Muje...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eN\u00facleo de Apoyo a la Mujer (NAM), Save The Children Dominicana (SCRD). (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: N\u00facleo de Apoyo a la Mujer (NAM), Save The Children Dominicana (SCRD). (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Dominicanos por Derechos The Institute on Statelessness and Inclusion The Center for Justice and International Law (The Netherlands)", "label": "Dominicanos por Derechos ...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eDominicanos por Derechos The Institute on Statelessness and Inclusion The Center for Justice and International Law (The Netherlands)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Dominicanos por Derechos The Institute on Statelessness and Inclusion The Center for Justice and International Law (The Netherlands)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Trans Siempre Amigas (TRANSSA)", "label": "Trans Siempre Amigas (TRA...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eTrans Siempre Amigas (TRANSSA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Trans Siempre Amigas (TRANSSA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 46.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Observatorio Derechos Humanos Grupos Vulnerabilizados (Dominican Republic)", "label": "Observatorio Derechos Hum...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eObservatorio Derechos Humanos Grupos Vulnerabilizados (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Observatorio Derechos Humanos Grupos Vulnerabilizados (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Movimiento Socio Cultural para Trabajadores Haitianos (MODCTHA), Instituto de Acci\u00f3n Comunitaria (IDAC), Plataforma de Instituciones Haitianas y sus Familias PIHF-RD, Fundaci\u00f3n \u00c9tnica Integral (FEI) Movimiento de Mujeres Dominico Haitiana (MUDHA), Comisi\u00f3n Nacional de Derechos Humanos (CNDH-RD) Comit\u00e9 Dominicano de los Derechos Humanos (C.D.H.)", "label": "Movimiento Socio Cultural...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eMovimiento Socio Cultural para Trabajadores Haitianos (MODCTHA), Instituto de Acci\u00f3n Comunitaria (IDAC), Plataforma de Instituciones Haitianas y sus Familias PIHF-RD, Fundaci\u00f3n \u00c9tnica Integral (FEI) Movimiento de Mujeres Dominico Haitiana (MUDHA), Comisi\u00f3n Nacional de Derechos Humanos (CNDH-RD) Comit\u00e9 Dominicano de los Derechos Humanos (C.D.H.)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Movimiento Socio Cultural para Trabajadores Haitianos (MODCTHA), Instituto de Acci\u00f3n Comunitaria (IDAC), Plataforma de Instituciones Haitianas y sus Familias PIHF-RD, Fundaci\u00f3n \u00c9tnica Integral (FEI) Movimiento de Mujeres Dominico Haitiana (MUDHA), Comisi\u00f3n Nacional de Derechos Humanos (CNDH-RD) Comit\u00e9 Dominicano de los Derechos Humanos (C.D.H.)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 46.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fundaci\u00f3n Derechos Vigentes (FDV), (Dominican Republic)", "label": "Fundaci\u00f3n Derechos Vigent...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eFundaci\u00f3n Derechos Vigentes (FDV), (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fundaci\u00f3n Derechos Vigentes (FDV), (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fundaci\u00f3n Comunidad Esperanza y Justicia Internacional, Inc. (FUNCJEI) Centro de Estudios Biopsicosociales LGBT (CEB-LGBT) (Dominican Republic)", "label": "Fundaci\u00f3n Comunidad Esper...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eFundaci\u00f3n Comunidad Esperanza y Justicia Internacional, Inc. (FUNCJEI) Centro de Estudios Biopsicosociales LGBT (CEB-LGBT) (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fundaci\u00f3n Comunidad Esperanza y Justicia Internacional, Inc. (FUNCJEI) Centro de Estudios Biopsicosociales LGBT (CEB-LGBT) (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Diversidad Dominicana (DIVERDOM), Coordinadora Lesbica a de Hombres Trans", "label": "Diversidad Dominicana (DI...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eDiversidad Dominicana (DIVERDOM), Coordinadora Lesbica a de Hombres Trans\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Diversidad Dominicana (DIVERDOM), Coordinadora Lesbica a de Hombres Trans\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 5\u003cbr\u003eParticipants: 5"}, {"font": {"color": "black"}, "group": "Organization", "id": "Gente Activa y Participativa (GAY)", "label": "Gente Activa y Participat...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eGente Activa y Participativa (GAY)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Gente Activa y Participativa (GAY)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fundacion Comunidad y Justicia Internacional (FUNJECI)", "label": "Fundacion Comunidad y Jus...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eFundacion Comunidad y Justicia Internacional (FUNJECI)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fundacion Comunidad y Justicia Internacional (FUNJECI)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Comunidad de Lesbianas Inclusivas Dominicanas (COLESDOM)", "label": "Comunidad de Lesbianas In...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eComunidad de Lesbianas Inclusivas Dominicanas (COLESDOM)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Comunidad de Lesbianas Inclusivas Dominicanas (COLESDOM)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Centro de Estudios Biopsicosociales (CEB LGBT) (Dominican Republic)", "label": "Centro de Estudios Biopsi...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eCentro de Estudios Biopsicosociales (CEB LGBT) (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centro de Estudios Biopsicosociales (CEB LGBT) (Dominican Republic)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Dominicans for Justice", "label": "Dominicans for Justice", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eDominicans for Justice\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Dominicans for Justice\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 54.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Peace, Acci\u00f3n Verapaz, Radio Seybo, Ciudad Alternativa, CasaYa, Centro Antonio Montesinos", "label": "Peace, Acci\u00f3n Verapaz, Ra...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003ePeace, Acci\u00f3n Verapaz, Radio Seybo, Ciudad Alternativa, CasaYa, Centro Antonio Montesinos\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Peace, Acci\u00f3n Verapaz, Radio Seybo, Ciudad Alternativa, CasaYa, Centro Antonio Montesinos\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Seibanos sin Techo del Callej\u00f3n Matencio (Dominican Republic)", "label": "Seibanos sin Techo del Ca...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eSeibanos sin Techo del Callej\u00f3n Matencio (Dominican Republic)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Seibanos sin Techo del Callej\u00f3n Matencio (Dominican Republic)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Centro de Estudios de G\u00e9nero de Intec. Centro de Desarrollo Social (CEDESO). Centro de Investigaci\u00f3n para la Acci\u00f3n Femenina (CIPAF). Centro de Solidaridad para el Desarrollo de la Mujer (CE- MUJER). Colectiva Mujer y Salud (CMS). Confederaci\u00f3n Nacional de Mujeres del Campo (CONAMUCA. Coordinadora de Mujeres del Cibao (CMC). Foro Feminista Magaly Pineda. Fund. Mujeres Empoderadas Abriendo Caminos. Movimiento de Mujeres Dominico Haitianas (MUDHA). Movimiento Feminista Hermanas Mirabal. Movimiento Sociocultural para los Trabajadores Haitianos (MOSCTHA). N\u00facleo de Apoyo a la Mujer (NAM). Oxfam en Rep\u00fablica Dominicana. Profamilia. Plan Internacional (Dominican Republic)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Movimiento Socio Cultural para los trabajadores haitianos, Inc MOSCTHA Afro Alianza Dominicana Fundaci\u00f3n derechos vigentes (Dominican Republic)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Alianza Discapacidad Por Nuestros Derechos (ADIDE), Asociaci\u00f3n de Personas con Discapacidad F\u00edsico- Motora 10 (ASODIFIMO), C\u00edrculo de Mujeres con Discapacidad (CIMUDIS), Fundaci\u00f3n Dominicana de Ciegos (FUDCI), Fundaci\u00f3n para la Integraci\u00f3n y Desarrollo del Sordo (FUNDEISOR), Fundaci\u00f3n de Preparaci\u00f3n y Asistencia a la Juventud y Personas con Discapacidad (FUPAJUDI), y la Asociaci\u00f3n Dominicana de S\u00edndrome de Down (ADOSID). (Dominican Republic)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "SOS Children\u00b4s Villages Dominican Republic, Plan International, World Vision, Muchachos y Muchachas con Don Bosco, Proyecto Caminantes de Boca Chica, Children International, Casa Abierta, ACOPRO, Aprendices con Don Bosco, Hogar Renacer, Save the Children, Acci\u00f3n Callejera, FUNDEBMUNI, Proyecto MAIS, Pastoral Juvenil, Ni\u00f1os del Camino, Compasion International, CIPAF, CIDAIL, ODESA, PROFAMILIA, PROINFANCIA, UJEDO. (Dominican Republic)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Centro de Solidaridad para el Desarrollo de la Mujer, CE-MUJER", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Colectiva Mujer y Salud", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Comit\u00e9 de Am\u00e9rica Latina y el Caribe para la Defensa de los Derechos de la Mujer-Rep\u00fablica Dominicana (CLADEM-RD)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "N\u00facleo de Apoyo a la Mujer (NAM), Save The Children Dominicana (SCRD). (Dominican Republic)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Dominicanos por Derechos The Institute on Statelessness and Inclusion The Center for Justice and International Law (The Netherlands)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Trans Siempre Amigas (TRANSSA)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Observatorio Derechos Humanos Grupos Vulnerabilizados (Dominican Republic)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Movimiento Socio Cultural para Trabajadores Haitianos (MODCTHA), Instituto de Acci\u00f3n Comunitaria (IDAC), Plataforma de Instituciones Haitianas y sus Familias PIHF-RD, Fundaci\u00f3n \u00c9tnica Integral (FEI) Movimiento de Mujeres Dominico Haitiana (MUDHA), Comisi\u00f3n Nacional de Derechos Humanos (CNDH-RD) Comit\u00e9 Dominicano de los Derechos Humanos (C.D.H.)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Fundaci\u00f3n Derechos Vigentes (FDV), (Dominican Republic)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Fundaci\u00f3n Comunidad Esperanza y Justicia Internacional, Inc. (FUNCJEI) Centro de Estudios Biopsicosociales LGBT (CEB-LGBT) (Dominican Republic)", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Diversidad Dominicana (DIVERDOM), Coordinadora Lesbica a de Hombres Trans", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Gente Activa y Participativa (GAY)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Fundacion Comunidad y Justicia Internacional (FUNJECI)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Comunidad de Lesbianas Inclusivas Dominicanas (COLESDOM)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Centro de Estudios Biopsicosociales (CEB LGBT) (Dominican Republic)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Dominicans for Justice", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Peace, Acci\u00f3n Verapaz, Radio Seybo, Ciudad Alternativa, CasaYa, Centro Antonio Montesinos", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Seibanos sin Techo del Callej\u00f3n Matencio (Dominican Republic)", "title": "Member of JS11", "to": "JS11", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

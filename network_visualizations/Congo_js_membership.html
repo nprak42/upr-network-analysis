@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Apprentis d\u2019Auteuil, REIPER (R\u00e9seau des intervenants sur le ph\u00e9nom\u00e8ne des enfants en rupture), Espace Jarrot, Caritas dioc\u00e9saines de Brazzaville et Pointe-Noire, Foyer P\u00e8re Anton, Handicap Afrique, Association de Solidarit\u00e9 Internationale, Paris (France)", "label": "Apprentis d\u2019Auteuil, REIP...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eApprentis d\u2019Auteuil, REIPER (R\u00e9seau des intervenants sur le ph\u00e9nom\u00e8ne des enfants en rupture), Espace Jarrot, Caritas dioc\u00e9saines de Brazzaville et Pointe-Noire, Foyer P\u00e8re Anton, Handicap Afrique, Association de Solidarit\u00e9 Internationale, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Apprentis d\u2019Auteuil, REIPER (R\u00e9seau des intervenants sur le ph\u00e9nom\u00e8ne des enfants en rupture), Espace Jarrot, Caritas dioc\u00e9saines de Brazzaville et Pointe-Noire, Foyer P\u00e8re Anton, Handicap Afrique, Association de Solidarit\u00e9 Internationale, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 32.35294117647059, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Observatoire Congolais des Droits de l\u2019Homme, Cercle Uni des Droits de l\u2019Homme et Culture de Paix, Brazzaville (Congo)", "label": "Observatoire Congolais de...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eObservatoire Congolais des Droits de l\u2019Homme, Cercle Uni des Droits de l\u2019Homme et Culture de Paix, Brazzaville (Congo)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Observatoire Congolais des Droits de l\u2019Homme, Cercle Uni des Droits de l\u2019Homme et Culture de Paix, Brazzaville (Congo)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 32.35294117647059, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "C\u0153ur Arc-en-Ciel, L\u0027Association de Soutien aux Groupes Vuln\u00e9rables, L\u0027Organisation pour le D\u00e9veloppement des Droits de l\u0027Homme au Congo, Comptoir Juridique Junior, Brazzaville (Congo)", "label": "C\u0153ur Arc-en-Ciel, L\u0027Assoc...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eC\u0153ur Arc-en-Ciel, L\u0027Association de Soutien aux Groupes Vuln\u00e9rables, L\u0027Organisation pour le D\u00e9veloppement des Droits de l\u0027Homme au Congo, Comptoir Juridique Junior, Brazzaville (Congo)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: C\u0153ur Arc-en-Ciel, L\u0027Association de Soutien aux Groupes Vuln\u00e9rables, L\u0027Organisation pour le D\u00e9veloppement des Droits de l\u0027Homme au Congo, Comptoir Juridique Junior, Brazzaville (Congo)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 32.35294117647059, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "F\u00e9d\u00e9ration internationale de l\u2019Action des chr\u00e9tiens pour l\u2019abolition de la torture, Action des chr\u00e9tiens pour l\u2019abolition de la torture au Congo, Paris (France). The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination", "label": "F\u00e9d\u00e9ration internationale...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eF\u00e9d\u00e9ration internationale de l\u2019Action des chr\u00e9tiens pour l\u2019abolition de la torture, Action des chr\u00e9tiens pour l\u2019abolition de la torture au Congo, Paris (France). The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: F\u00e9d\u00e9ration internationale de l\u2019Action des chr\u00e9tiens pour l\u2019abolition de la torture, Action des chr\u00e9tiens pour l\u2019abolition de la torture au Congo, Paris (France). The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 17\u003cbr\u003eParticipants: 17"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICESCR International Covenant on Economic, Social and Cultural Rights", "label": "ICESCR International Cove...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eICESCR International Covenant on Economic, Social and Cultural Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICESCR International Covenant on Economic, Social and Cultural Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-ICESCR Optional Protocol to ICESCR", "label": "OP-ICESCR Optional Protoc...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-ICESCR Optional Protocol to ICESCR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-ICESCR Optional Protocol to ICESCR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR International Covenant on Civil and Political Rights ICCPR-OP Optional Protocol to ICCPR", "label": "ICCPR International Coven...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eICCPR International Covenant on Civil and Political Rights ICCPR-OP Optional Protocol to ICCPR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR International Covenant on Civil and Political Rights ICCPR-OP Optional Protocol to ICCPR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty", "label": "ICCPR-OP Second Optional ...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CEDAW Convention on the Elimination of All Forms of Discrimination against Women", "label": "CEDAW Convention on the E...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eCEDAW Convention on the Elimination of All Forms of Discrimination against Women\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CEDAW Convention on the Elimination of All Forms of Discrimination against Women\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CEDAW Optional Protocol to CEDAW", "label": "OP-CEDAW Optional Protoco...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-CEDAW Optional Protocol to CEDAW\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CEDAW Optional Protocol to CEDAW\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment", "label": "CAT Convention against To...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eCAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CAT Optional Protocol to CAT", "label": "OP-CAT Optional Protocol ...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-CAT Optional Protocol to CAT\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CAT Optional Protocol to CAT\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRC Convention on the Rights of the Child", "label": "CRC Convention on the Rig...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eCRC Convention on the Rights of the Child\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRC Convention on the Rights of the Child\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict", "label": "OP-CRC-AC Optional Protoc...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography", "label": "OP-CRC-SC Optional Protoc...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "label": "OP-CRC-IC Optional Protoc...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-CRC-IC Optional Protocol to CRC on a communications procedure\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-IC Optional Protocol to CRC on a communications procedure\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "label": "ICRMW International Conve...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRPD Convention on the Rights of Persons with Disabilities", "label": "CRPD Convention on the Ri...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eCRPD Convention on the Rights of Persons with Disabilities\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRPD Convention on the Rights of Persons with Disabilities\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRPD Optional Protocol to CRPD", "label": "OP-CRPD Optional Protocol...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eOP-CRPD Optional Protocol to CRPD\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRPD Optional Protocol to CRPD\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see A/HRC//25/16, paras.111.1-19, 111.21-24, 111.26-28, 111.51, 111.66-67, 111.80, 111.73-77, 1112.1, and /Add.1 113.1-3, 113.5-7. JS4, page 2. CGNK, p. 5. AI, page 6. CGNK, p. 5. JS4, page 3. JS4, page 8. CGNK, p. 4. ICAN, p. 1. AI, page 1. For relevant recommendations see A/HRC//25/16, paras. 111.25, 111.30-46, 111.48-50, 111.59, 111.84 and A/HRC//25/16/Add.1, para.113.4. JS4, page 11. JS4, page 8. JS1, page 2, pp. 2-3. JS1, page 4. JS1, page 10. JS1, page 10. CS, page 7. For relevant recommendations see A/HRC//25/16, 111.78, 114.1-2. JS3, pp. 20-23. JS3, pp. 31. JS3, para.24. JS3, pp. 26-26.4. JS3, pp. 32. JS3, pp. 32 letter f. JS3, page 6, pp. 32 letter g-k. For relevant recommendations see A/HRC//25/16, paras. 111.62, 111.71, 111.91-92, 111.105-110. JS4, page 1. JS4, page 2. JS4, page 3. JS4, page 3. AI, page 2. AI, page 6. AI, page 6. AI, page 6. AI, page 6. JS4, pages 7 and 9. JS4, pages 4 and 5. JS2, page 9. For relevant recommendations see A/HRC//25/16, paras. 111.20, 111.60, 111.111-115. JS4, page 10. JS2, page 10. AI, page 6. AI, page 6. JS4, page 5. JS4, page 5. JS4, pages 6 and 7. JS4, page 7. JS1, page 10. JS1, page 6. AI, page 2. AI, page 6. AI, page 4. AI, page 6. AI, page 4. AI, page 4 and 6. JS2, page 5. AI, page 6. JS2, page 6. For relevant recommendations see A/HRC//25/16, paras. 111.65, 111.130.132, 111.132. JS1, page 4. CS, page 7. For relevant recommendations see A/HRC//25/16, paras. 111.17-18, 111.52, 111.55, 111.57, 111.61, 111.71, 112.6-13, 112.14-16, 112.22. JS1, page 5. For relevant recommendations see A/HRC//25/16, paras. 111.117-119. JS1, page 5. JS1, page 4, pp. 13. JS1, page 4, pp. 14-15. JS1, page 4. JS1, page 6. For relevant recommendations see A/HRC//25/16, paras. 112.19-20, 112.29. JS1, page 8. For relevant recommendations see A/HRC//25/16, paras. 112.21. CS, page 2. CS, page 7. CS, page 5. CS, page. 2. CS, page 7. CS, page 7. CS, page 7. For relevant recommendations see A/HRC//25/16, paras.111.135-137. AI, page 7. AI, page 7. 9", "label": "ICPPED International Conv...", "shape": "dot", "size": 11.176470588235293, "title": "\u003cb\u003eICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see A/HRC//25/16, paras.111.1-19, 111.21-24, 111.26-28, 111.51, 111.66-67, 111.80, 111.73-77, 1112.1, and /Add.1 113.1-3, 113.5-7. JS4, page 2. CGNK, p. 5. AI, page 6. CGNK, p. 5. JS4, page 3. JS4, page 8. CGNK, p. 4. ICAN, p. 1. AI, page 1. For relevant recommendations see A/HRC//25/16, paras. 111.25, 111.30-46, 111.48-50, 111.59, 111.84 and A/HRC//25/16/Add.1, para.113.4. JS4, page 11. JS4, page 8. JS1, page 2, pp. 2-3. JS1, page 4. JS1, page 10. JS1, page 10. CS, page 7. For relevant recommendations see A/HRC//25/16, 111.78, 114.1-2. JS3, pp. 20-23. JS3, pp. 31. JS3, para.24. JS3, pp. 26-26.4. JS3, pp. 32. JS3, pp. 32 letter f. JS3, page 6, pp. 32 letter g-k. For relevant recommendations see A/HRC//25/16, paras. 111.62, 111.71, 111.91-92, 111.105-110. JS4, page 1. JS4, page 2. JS4, page 3. JS4, page 3. AI, page 2. AI, page 6. AI, page 6. AI, page 6. AI, page 6. JS4, pages 7 and 9. JS4, pages 4 and 5. JS2, page 9. For relevant recommendations see A/HRC//25/16, paras. 111.20, 111.60, 111.111-115. JS4, page 10. JS2, page 10. AI, page 6. AI, page 6. JS4, page 5. JS4, page 5. JS4, pages 6 and 7. JS4, page 7. JS1, page 10. JS1, page 6. AI, page 2. AI, page 6. AI, page 4. AI, page 6. AI, page 4. AI, page 4 and 6. JS2, page 5. AI, page 6. JS2, page 6. For relevant recommendations see A/HRC//25/16, paras. 111.65, 111.130.132, 111.132. JS1, page 4. CS, page 7. For relevant recommendations see A/HRC//25/16, paras. 111.17-18, 111.52, 111.55, 111.57, 111.61, 111.71, 112.6-13, 112.14-16, 112.22. JS1, page 5. For relevant recommendations see A/HRC//25/16, paras. 111.117-119. JS1, page 5. JS1, page 4, pp. 13. JS1, page 4, pp. 14-15. JS1, page 4. JS1, page 6. For relevant recommendations see A/HRC//25/16, paras. 112.19-20, 112.29. JS1, page 8. For relevant recommendations see A/HRC//25/16, paras. 112.21. CS, page 2. CS, page 7. CS, page 5. CS, page. 2. CS, page 7. CS, page 7. CS, page 7. For relevant recommendations see A/HRC//25/16, paras.111.135-137. AI, page 7. AI, page 7. 9\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see A/HRC//25/16, paras.111.1-19, 111.21-24, 111.26-28, 111.51, 111.66-67, 111.80, 111.73-77, 1112.1, and /Add.1 113.1-3, 113.5-7. JS4, page 2. CGNK, p. 5. AI, page 6. CGNK, p. 5. JS4, page 3. JS4, page 8. CGNK, p. 4. ICAN, p. 1. AI, page 1. For relevant recommendations see A/HRC//25/16, paras. 111.25, 111.30-46, 111.48-50, 111.59, 111.84 and A/HRC//25/16/Add.1, para.113.4. JS4, page 11. JS4, page 8. JS1, page 2, pp. 2-3. JS1, page 4. JS1, page 10. JS1, page 10. CS, page 7. For relevant recommendations see A/HRC//25/16, 111.78, 114.1-2. JS3, pp. 20-23. JS3, pp. 31. JS3, para.24. JS3, pp. 26-26.4. JS3, pp. 32. JS3, pp. 32 letter f. JS3, page 6, pp. 32 letter g-k. For relevant recommendations see A/HRC//25/16, paras. 111.62, 111.71, 111.91-92, 111.105-110. JS4, page 1. JS4, page 2. JS4, page 3. JS4, page 3. AI, page 2. AI, page 6. AI, page 6. AI, page 6. AI, page 6. JS4, pages 7 and 9. JS4, pages 4 and 5. JS2, page 9. For relevant recommendations see A/HRC//25/16, paras. 111.20, 111.60, 111.111-115. JS4, page 10. JS2, page 10. AI, page 6. AI, page 6. JS4, page 5. JS4, page 5. JS4, pages 6 and 7. JS4, page 7. JS1, page 10. JS1, page 6. AI, page 2. AI, page 6. AI, page 4. AI, page 6. AI, page 4. AI, page 4 and 6. JS2, page 5. AI, page 6. JS2, page 6. For relevant recommendations see A/HRC//25/16, paras. 111.65, 111.130.132, 111.132. JS1, page 4. CS, page 7. For relevant recommendations see A/HRC//25/16, paras. 111.17-18, 111.52, 111.55, 111.57, 111.61, 111.71, 112.6-13, 112.14-16, 112.22. JS1, page 5. For relevant recommendations see A/HRC//25/16, paras. 111.117-119. JS1, page 5. JS1, page 4, pp. 13. JS1, page 4, pp. 14-15. JS1, page 4. JS1, page 6. For relevant recommendations see A/HRC//25/16, paras. 112.19-20, 112.29. JS1, page 8. For relevant recommendations see A/HRC//25/16, paras. 112.21. CS, page 2. CS, page 7. CS, page 5. CS, page. 2. CS, page 7. CS, page 7. CS, page 7. For relevant recommendations see A/HRC//25/16, paras.111.135-137. AI, page 7. AI, page 7. 9\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Apprentis d\u2019Auteuil, REIPER (R\u00e9seau des intervenants sur le ph\u00e9nom\u00e8ne des enfants en rupture), Espace Jarrot, Caritas dioc\u00e9saines de Brazzaville et Pointe-Noire, Foyer P\u00e8re Anton, Handicap Afrique, Association de Solidarit\u00e9 Internationale, Paris (France)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Observatoire Congolais des Droits de l\u2019Homme, Cercle Uni des Droits de l\u2019Homme et Culture de Paix, Brazzaville (Congo)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "C\u0153ur Arc-en-Ciel, L\u0027Association de Soutien aux Groupes Vuln\u00e9rables, L\u0027Organisation pour le D\u00e9veloppement des Droits de l\u0027Homme au Congo, Comptoir Juridique Junior, Brazzaville (Congo)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "F\u00e9d\u00e9ration internationale de l\u2019Action des chr\u00e9tiens pour l\u2019abolition de la torture, Action des chr\u00e9tiens pour l\u2019abolition de la torture au Congo, Paris (France). The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "ICESCR International Covenant on Economic, Social and Cultural Rights", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-ICESCR Optional Protocol to ICESCR", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "ICCPR International Covenant on Civil and Political Rights ICCPR-OP Optional Protocol to ICCPR", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "ICCPR-OP Second Optional Protocol to ICCPR, aiming at the abolition of the death penalty", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "CEDAW Convention on the Elimination of All Forms of Discrimination against Women", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-CEDAW Optional Protocol to CEDAW", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "CAT Convention against Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-CAT Optional Protocol to CAT", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "CRC Convention on the Rights of the Child", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-AC Optional Protocol to CRC on the involvement of children in armed conflict", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-SC Optional Protocol to CRC on the sale of children, child prostitution and child pornography", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "CRPD Convention on the Rights of Persons with Disabilities", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "OP-CRPD Optional Protocol to CRPD", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "ICPPED International Convention for the Protection of All Persons from Enforced Disappearance. For relevant recommendations see A/HRC//25/16, paras.111.1-19, 111.21-24, 111.26-28, 111.51, 111.66-67, 111.80, 111.73-77, 1112.1, and /Add.1 113.1-3, 113.5-7. JS4, page 2. CGNK, p. 5. AI, page 6. CGNK, p. 5. JS4, page 3. JS4, page 8. CGNK, p. 4. ICAN, p. 1. AI, page 1. For relevant recommendations see A/HRC//25/16, paras. 111.25, 111.30-46, 111.48-50, 111.59, 111.84 and A/HRC//25/16/Add.1, para.113.4. JS4, page 11. JS4, page 8. JS1, page 2, pp. 2-3. JS1, page 4. JS1, page 10. JS1, page 10. CS, page 7. For relevant recommendations see A/HRC//25/16, 111.78, 114.1-2. JS3, pp. 20-23. JS3, pp. 31. JS3, para.24. JS3, pp. 26-26.4. JS3, pp. 32. JS3, pp. 32 letter f. JS3, page 6, pp. 32 letter g-k. For relevant recommendations see A/HRC//25/16, paras. 111.62, 111.71, 111.91-92, 111.105-110. JS4, page 1. JS4, page 2. JS4, page 3. JS4, page 3. AI, page 2. AI, page 6. AI, page 6. AI, page 6. AI, page 6. JS4, pages 7 and 9. JS4, pages 4 and 5. JS2, page 9. For relevant recommendations see A/HRC//25/16, paras. 111.20, 111.60, 111.111-115. JS4, page 10. JS2, page 10. AI, page 6. AI, page 6. JS4, page 5. JS4, page 5. JS4, pages 6 and 7. JS4, page 7. JS1, page 10. JS1, page 6. AI, page 2. AI, page 6. AI, page 4. AI, page 6. AI, page 4. AI, page 4 and 6. JS2, page 5. AI, page 6. JS2, page 6. For relevant recommendations see A/HRC//25/16, paras. 111.65, 111.130.132, 111.132. JS1, page 4. CS, page 7. For relevant recommendations see A/HRC//25/16, paras. 111.17-18, 111.52, 111.55, 111.57, 111.61, 111.71, 112.6-13, 112.14-16, 112.22. JS1, page 5. For relevant recommendations see A/HRC//25/16, paras. 111.117-119. JS1, page 5. JS1, page 4, pp. 13. JS1, page 4, pp. 14-15. JS1, page 4. JS1, page 6. For relevant recommendations see A/HRC//25/16, paras. 112.19-20, 112.29. JS1, page 8. For relevant recommendations see A/HRC//25/16, paras. 112.21. CS, page 2. CS, page 7. CS, page 5. CS, page. 2. CS, page 7. CS, page 7. CS, page 7. For relevant recommendations see A/HRC//25/16, paras.111.135-137. AI, page 7. AI, page 7. 9", "title": "Member of JS4", "to": "JS4", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

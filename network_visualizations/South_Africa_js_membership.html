@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "International Bar Association\u0027s Human Rights Institute, The Law Society of South Africa (LSSA) The Southern Africa Litigation Centre (SALC), London, United Kingdom of Great Britain and Northern Ireland", "label": "International Bar Associa...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eInternational Bar Association\u0027s Human Rights Institute, The Law Society of South Africa (LSSA) The Southern Africa Litigation Centre (SALC), London, United Kingdom of Great Britain and Northern Ireland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Bar Association\u0027s Human Rights Institute, The Law Society of South Africa (LSSA) The Southern Africa Litigation Centre (SALC), London, United Kingdom of Great Britain and Northern Ireland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Advocates for Human Rights, Camissa Movement for Equality and Kiersten Dunbar Chace of Mond\u00e9 World Films, Minneapolis, United States of America", "label": "Advocates for Human Right...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eAdvocates for Human Rights, Camissa Movement for Equality and Kiersten Dunbar Chace of Mond\u00e9 World Films, Minneapolis, United States of America\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Advocates for Human Rights, Camissa Movement for Equality and Kiersten Dunbar Chace of Mond\u00e9 World Films, Minneapolis, United States of America\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Transgender \u0026 Intersex Coalition-South Africa- Legal Resources Centre (LRC)Gender DynamiX (GDX)Iranti-org Aids and Rights Alliance for Southern Africa (ARASA), Cape Town, South Africa", "label": "Transgender \u0026 Intersex Co...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eTransgender \u0026 Intersex Coalition-South Africa- Legal Resources Centre (LRC)Gender DynamiX (GDX)Iranti-org Aids and Rights Alliance for Southern Africa (ARASA), Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Transgender \u0026 Intersex Coalition-South Africa- Legal Resources Centre (LRC)Gender DynamiX (GDX)Iranti-org Aids and Rights Alliance for Southern Africa (ARASA), Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Disability UPR Reporting Coalition South Africa-BR Education and Training for Empowerment (CREATE) Deaf Federation of South Africa (DeafSA) Parents for Children with Special Education Needs (PACSEN) Pathways \u2013 Kloof South African Disability Alliance (SADA) South African Federation for Mental Health (SAFMH), Cape Town, South Africa", "label": "Disability UPR Reporting ...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eDisability UPR Reporting Coalition South Africa-BR Education and Training for Empowerment (CREATE) Deaf Federation of South Africa (DeafSA) Parents for Children with Special Education Needs (PACSEN) Pathways \u2013 Kloof South African Disability Alliance (SADA) South African Federation for Mental Health (SAFMH), Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Disability UPR Reporting Coalition South Africa-BR Education and Training for Empowerment (CREATE) Deaf Federation of South Africa (DeafSA) Parents for Children with Special Education Needs (PACSEN) Pathways \u2013 Kloof South African Disability Alliance (SADA) South African Federation for Mental Health (SAFMH), Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Sexual Rights Initiative-People Opposing Women Abuse (POWA), Sex Worker Education and Advocacy Taskforce (SWEAT), Sonke Gender Justice, WISH Associates, Coalition of African Lesbians, Sexual Rights Initiative, Ottawa, Canada", "label": "The Sexual Rights Initiat...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eThe Sexual Rights Initiative-People Opposing Women Abuse (POWA), Sex Worker Education and Advocacy Taskforce (SWEAT), Sonke Gender Justice, WISH Associates, Coalition of African Lesbians, Sexual Rights Initiative, Ottawa, Canada\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Sexual Rights Initiative-People Opposing Women Abuse (POWA), Sex Worker Education and Advocacy Taskforce (SWEAT), Sonke Gender Justice, WISH Associates, Coalition of African Lesbians, Sexual Rights Initiative, Ottawa, Canada\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Shukumisa Campaign- Legal Resources Centre (LRC)Women\u2019s Legal Centre (WLC)Lawyers for Human Rights (LHR)Gender, Health \u0026 Justice Research Unit (GHJRU) - University of Cape Town Cape Town, South Africa", "label": "Shukumisa Campaign- Legal...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eShukumisa Campaign- Legal Resources Centre (LRC)Women\u2019s Legal Centre (WLC)Lawyers for Human Rights (LHR)Gender, Health \u0026 Justice Research Unit (GHJRU) - University of Cape Town Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Shukumisa Campaign- Legal Resources Centre (LRC)Women\u2019s Legal Centre (WLC)Lawyers for Human Rights (LHR)Gender, Health \u0026 Justice Research Unit (GHJRU) - University of Cape Town Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness and Inclusion- Lawyers for Human Rights, Eindhoven, Netherlands", "label": "Institute on Statelessnes...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eInstitute on Statelessness and Inclusion- Lawyers for Human Rights, Eindhoven, Netherlands\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion- Lawyers for Human Rights, Eindhoven, Netherlands\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Detention Justice Forum, Sonke Gender Justice, Just Detention International \u2013 South Africa, NICRO, Civil Society Prison Reform Initiative, Centre for Applied Legal Studies, Footballers4Life, Zonk\u2019izizwe Odds Development, Beyond the Bars, Scalabrini, SECTION27 and Egon Oswald Attorneys at Law, Cape Town, South Africa", "label": "Detention Justice Forum, ...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eDetention Justice Forum, Sonke Gender Justice, Just Detention International \u2013 South Africa, NICRO, Civil Society Prison Reform Initiative, Centre for Applied Legal Studies, Footballers4Life, Zonk\u2019izizwe Odds Development, Beyond the Bars, Scalabrini, SECTION27 and Egon Oswald Attorneys at Law, Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Detention Justice Forum, Sonke Gender Justice, Just Detention International \u2013 South Africa, NICRO, Civil Society Prison Reform Initiative, Centre for Applied Legal Studies, Footballers4Life, Zonk\u2019izizwe Odds Development, Beyond the Bars, Scalabrini, SECTION27 and Egon Oswald Attorneys at Law, Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coalition for Rural Democracy - South Africa-Legal Resources Centre (LRC),Land and Accountability Research Centre \u2013 University Alliance for Rural Democracy (ARD), Cape Town, South Africa", "label": "Coalition for Rural Democ...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eCoalition for Rural Democracy - South Africa-Legal Resources Centre (LRC),Land and Accountability Research Centre \u2013 University Alliance for Rural Democracy (ARD), Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coalition for Rural Democracy - South Africa-Legal Resources Centre (LRC),Land and Accountability Research Centre \u2013 University Alliance for Rural Democracy (ARD), Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Right to Food Coalition, Legal Resources Centre (LRC), Department of Environmental and Geographical Science, University of Cape Town, Cape Town, South Africa", "label": "Right to Food Coalition, ...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eRight to Food Coalition, Legal Resources Centre (LRC), Department of Environmental and Geographical Science, University of Cape Town, Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Right to Food Coalition, Legal Resources Centre (LRC), Department of Environmental and Geographical Science, University of Cape Town, Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Alternate Report Coalition-Children\u2019s Rights South Africa- Centre for Child Law, University of Pretoria Dullah Omar Institute - University of the Western Cape Legal Resources Centre Carol Bower, independent expert, Cape Town, South Africa", "label": "Alternate Report Coalitio...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eAlternate Report Coalition-Children\u2019s Rights South Africa- Centre for Child Law, University of Pretoria Dullah Omar Institute - University of the Western Cape Legal Resources Centre Carol Bower, independent expert, Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Alternate Report Coalition-Children\u2019s Rights South Africa- Centre for Child Law, University of Pretoria Dullah Omar Institute - University of the Western Cape Legal Resources Centre Carol Bower, independent expert, Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Don\u0027t Forget Marikana Coalition - South Africa, Legal Resources Centre (LRC) Bench Marks Foundation (BMF), Cape Town, South Africa", "label": "Don\u0027t Forget Marikana Coa...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eDon\u0027t Forget Marikana Coalition - South Africa, Legal Resources Centre (LRC) Bench Marks Foundation (BMF), Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Don\u0027t Forget Marikana Coalition - South Africa, Legal Resources Centre (LRC) Bench Marks Foundation (BMF), Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS12", "label": "JS12", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS12\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS12\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "PEN South Africa and PEN Afrikaans, London WC1V 6ER, London, United Kingdom of Great Britain and Northern Ireland", "label": "PEN South Africa and PEN ...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003ePEN South Africa and PEN Afrikaans, London WC1V 6ER, London, United Kingdom of Great Britain and Northern Ireland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: PEN South Africa and PEN Afrikaans, London WC1V 6ER, London, United Kingdom of Great Britain and Northern Ireland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS13", "label": "JS13", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS13\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS13\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coalition of NGOs for UPR-South Africa Concerned About Human Rights Threats From Mining and Coal-Fired Power Generation- Centre for Environmental Rights Centre for Applied Legal Studies Earth justice ground Work South Durban Community Environmental Alliance Highveld Environmental Justice Network Vaal Environmental Justice Alliance, Cape Town, South Africa", "label": "Coalition of NGOs for UPR...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eCoalition of NGOs for UPR-South Africa Concerned About Human Rights Threats From Mining and Coal-Fired Power Generation- Centre for Environmental Rights Centre for Applied Legal Studies Earth justice ground Work South Durban Community Environmental Alliance Highveld Environmental Justice Network Vaal Environmental Justice Alliance, Cape Town, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coalition of NGOs for UPR-South Africa Concerned About Human Rights Threats From Mining and Coal-Fired Power Generation- Centre for Environmental Rights Centre for Applied Legal Studies Earth justice ground Work South Durban Community Environmental Alliance Highveld Environmental Justice Network Vaal Environmental Justice Alliance, Cape Town, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS14", "label": "JS14", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS14\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS14\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Privacy International, Right2Know Campaign", "label": "Privacy International, Ri...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003ePrivacy International, Right2Know Campaign\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Privacy International, Right2Know Campaign\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS15", "label": "JS15", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS15\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS15\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CIVICUS: World Alliance for Citizen Participation, HURISA", "label": "CIVICUS: World Alliance f...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eCIVICUS: World Alliance for Citizen Participation, HURISA\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CIVICUS: World Alliance for Citizen Participation, HURISA\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS16", "label": "JS16", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS16\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS16\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "International Bar Association\u0027s Human Rights Institute, The Law Society of South Africa (LSSA) The Southern Africa Litigation Centre (SALC), London, United Kingdom of Great Britain and Northern Ireland", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Advocates for Human Rights, Camissa Movement for Equality and Kiersten Dunbar Chace of Mond\u00e9 World Films, Minneapolis, United States of America", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Transgender \u0026 Intersex Coalition-South Africa- Legal Resources Centre (LRC)Gender DynamiX (GDX)Iranti-org Aids and Rights Alliance for Southern Africa (ARASA), Cape Town, South Africa", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Disability UPR Reporting Coalition South Africa-BR Education and Training for Empowerment (CREATE) Deaf Federation of South Africa (DeafSA) Parents for Children with Special Education Needs (PACSEN) Pathways \u2013 Kloof South African Disability Alliance (SADA) South African Federation for Mental Health (SAFMH), Cape Town, South Africa", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "The Sexual Rights Initiative-People Opposing Women Abuse (POWA), Sex Worker Education and Advocacy Taskforce (SWEAT), Sonke Gender Justice, WISH Associates, Coalition of African Lesbians, Sexual Rights Initiative, Ottawa, Canada", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Shukumisa Campaign- Legal Resources Centre (LRC)Women\u2019s Legal Centre (WLC)Lawyers for Human Rights (LHR)Gender, Health \u0026 Justice Research Unit (GHJRU) - University of Cape Town Cape Town, South Africa", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness and Inclusion- Lawyers for Human Rights, Eindhoven, Netherlands", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Detention Justice Forum, Sonke Gender Justice, Just Detention International \u2013 South Africa, NICRO, Civil Society Prison Reform Initiative, Centre for Applied Legal Studies, Footballers4Life, Zonk\u2019izizwe Odds Development, Beyond the Bars, Scalabrini, SECTION27 and Egon Oswald Attorneys at Law, Cape Town, South Africa", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Coalition for Rural Democracy - South Africa-Legal Resources Centre (LRC),Land and Accountability Research Centre \u2013 University Alliance for Rural Democracy (ARD), Cape Town, South Africa", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Right to Food Coalition, Legal Resources Centre (LRC), Department of Environmental and Geographical Science, University of Cape Town, Cape Town, South Africa", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Alternate Report Coalition-Children\u2019s Rights South Africa- Centre for Child Law, University of Pretoria Dullah Omar Institute - University of the Western Cape Legal Resources Centre Carol Bower, independent expert, Cape Town, South Africa", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Don\u0027t Forget Marikana Coalition - South Africa, Legal Resources Centre (LRC) Bench Marks Foundation (BMF), Cape Town, South Africa", "title": "Member of JS12", "to": "JS12", "width": 1}, {"color": "#95a5a6", "from": "PEN South Africa and PEN Afrikaans, London WC1V 6ER, London, United Kingdom of Great Britain and Northern Ireland", "title": "Member of JS13", "to": "JS13", "width": 1}, {"color": "#95a5a6", "from": "Coalition of NGOs for UPR-South Africa Concerned About Human Rights Threats From Mining and Coal-Fired Power Generation- Centre for Environmental Rights Centre for Applied Legal Studies Earth justice ground Work South Durban Community Environmental Alliance Highveld Environmental Justice Network Vaal Environmental Justice Alliance, Cape Town, South Africa", "title": "Member of JS14", "to": "JS14", "width": 1}, {"color": "#95a5a6", "from": "Privacy International, Right2Know Campaign", "title": "Member of JS15", "to": "JS15", "width": 1}, {"color": "#95a5a6", "from": "CIVICUS: World Alliance for Citizen Participation, HURISA", "title": "Member of JS16", "to": "JS16", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

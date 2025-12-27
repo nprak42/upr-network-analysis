@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Association Mauritanienne pour la Promotion du Droit, ONG Strat\u00e9gies et d\u00e9veloppement, ONG Un monde sans guerre sans violence, Observatoire national de lutte contre la gabegie et la corruption, Association Mauritanienne pour la promotion du droit, Nouakchott, Mauritanie", "label": "Association Mauritanienne...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eAssociation Mauritanienne pour la Promotion du Droit, ONG Strat\u00e9gies et d\u00e9veloppement, ONG Un monde sans guerre sans violence, Observatoire national de lutte contre la gabegie et la corruption, Association Mauritanienne pour la promotion du droit, Nouakchott, Mauritanie\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association Mauritanienne pour la Promotion du Droit, ONG Strat\u00e9gies et d\u00e9veloppement, ONG Un monde sans guerre sans violence, Observatoire national de lutte contre la gabegie et la corruption, Association Mauritanienne pour la promotion du droit, Nouakchott, Mauritanie\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "l\u2019Association des Femmes Chefs de Familles (AFCF) Anti-Slavery International (ASI) International Service for Human rights (ISHR) Minority Rights Group International (MRGI) SOS-Esclaves (SOS), London, United Kingdom of Great Britain and Northern Ireland", "label": "l\u2019Association des Femmes ...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003el\u2019Association des Femmes Chefs de Familles (AFCF) Anti-Slavery International (ASI) International Service for Human rights (ISHR) Minority Rights Group International (MRGI) SOS-Esclaves (SOS), London, United Kingdom of Great Britain and Northern Ireland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: l\u2019Association des Femmes Chefs de Familles (AFCF) Anti-Slavery International (ASI) International Service for Human rights (ISHR) Minority Rights Group International (MRGI) SOS-Esclaves (SOS), London, United Kingdom of Great Britain and Northern Ireland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Alliance et Solidarit\u00e9 des Organisations Nationales des Droits de l\u2019Homme contre la Haine et l\u2019Exclusion en Mauritanie, Arafatt, Mauritanie", "label": "Alliance et Solidarit\u00e9 de...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eAlliance et Solidarit\u00e9 des Organisations Nationales des Droits de l\u2019Homme contre la Haine et l\u2019Exclusion en Mauritanie, Arafatt, Mauritanie\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Alliance et Solidarit\u00e9 des Organisations Nationales des Droits de l\u2019Homme contre la Haine et l\u2019Exclusion en Mauritanie, Arafatt, Mauritanie\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Centre for Civil and Political Rights, Coordination des Organisations des Victimes de la Re\u0301pression", "label": "Centre for Civil and Poli...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eCentre for Civil and Political Rights, Coordination des Organisations des Victimes de la Re\u0301pression\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centre for Civil and Political Rights, Coordination des Organisations des Victimes de la Re\u0301pression\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 8\u003cbr\u003eParticipants: 8"}, {"font": {"color": "black"}, "group": "Organization", "id": "Cadre de Concertation des Rescape\u0301s Mauritaniens", "label": "Cadre de Concertation des...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eCadre de Concertation des Rescape\u0301s Mauritaniens\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Cadre de Concertation des Rescape\u0301s Mauritaniens\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Organisation pour le De\u0301veloppement International, Social, Solidaire et Inte\u0301gre\u0301", "label": "Organisation pour le De\u0301v...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eOrganisation pour le De\u0301veloppement International, Social, Solidaire et Inte\u0301gre\u0301\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Organisation pour le De\u0301veloppement International, Social, Solidaire et Inte\u0301gre\u0301\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association des Femmes Cheffes de Famille", "label": "Association des Femmes Ch...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eAssociation des Femmes Cheffes de Famille\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association des Femmes Cheffes de Famille\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association Mauritanienne d\u2019Aide aux Ne\u0301cessiteux", "label": "Association Mauritanienne...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eAssociation Mauritanienne d\u2019Aide aux Ne\u0301cessiteux\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association Mauritanienne d\u2019Aide aux Ne\u0301cessiteux\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Forum des Organisations Nationales des Droits Humains en Mauritanie", "label": "Forum des Organisations N...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eForum des Organisations Nationales des Droits Humains en Mauritanie\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Forum des Organisations Nationales des Droits Humains en Mauritanie\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Comite\u0301 de Solidarite\u0301 avec les Victimes de Violations des Droits de l\u2019Homme", "label": "Comite\u0301 de Solidarite\u0301 av...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eComite\u0301 de Solidarite\u0301 avec les Victimes de Violations des Droits de l\u2019Homme\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Comite\u0301 de Solidarite\u0301 avec les Victimes de Violations des Droits de l\u2019Homme\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "SOS- Esclaves, Geneva, Switzerland", "label": "SOS- Esclaves, Geneva, Sw...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eSOS- Esclaves, Geneva, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: SOS- Esclaves, Geneva, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CIVICUS: World Alliance for Citizen Participation, he R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (ROADDH, West African Human Right Defenders Network), Johannesburg, South Africa", "label": "CIVICUS: World Alliance f...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eCIVICUS: World Alliance for Citizen Participation, he R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (ROADDH, West African Human Right Defenders Network), Johannesburg, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CIVICUS: World Alliance for Citizen Participation, he R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (ROADDH, West African Human Right Defenders Network), Johannesburg, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association mauritanienne des droits de l\u2019homme (AMDH), Coalition mondiale Compos\u00e9e de plus de 160 ONG, barreaux d\u2019avocats et d\u2019avocates, collectivit\u00e9s locales et syndicats, la Coalition mondiale contre la peine de mort est n\u00e9e \u00e0 Rome le 13 mai 2002, Ensemble contre la peine de mort (ECPM), Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH), Paris, France", "label": "Association mauritanienne...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eAssociation mauritanienne des droits de l\u2019homme (AMDH), Coalition mondiale Compos\u00e9e de plus de 160 ONG, barreaux d\u2019avocats et d\u2019avocates, collectivit\u00e9s locales et syndicats, la Coalition mondiale contre la peine de mort est n\u00e9e \u00e0 Rome le 13 mai 2002, Ensemble contre la peine de mort (ECPM), Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH), Paris, France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association mauritanienne des droits de l\u2019homme (AMDH), Coalition mondiale Compos\u00e9e de plus de 160 ONG, barreaux d\u2019avocats et d\u2019avocates, collectivit\u00e9s locales et syndicats, la Coalition mondiale contre la peine de mort est n\u00e9e \u00e0 Rome le 13 mai 2002, Ensemble contre la peine de mort (ECPM), Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH), Paris, France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Global Detention Project, Association for Juridical Studies on Immigration (ASGI), Geneva, Switzerland", "label": "Global Detention Project,...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eGlobal Detention Project, Association for Juridical Studies on Immigration (ASGI), Geneva, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Global Detention Project, Association for Juridical Studies on Immigration (ASGI), Geneva, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness and Inclusion Association des femmes chefs de Famille SOS- Esclaves Anti-slavery International Minority Rights Group International Global Campaign for Equal Nationality Rights, Eindhoven, Netherlands", "label": "Institute on Statelessnes...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eInstitute on Statelessness and Inclusion Association des femmes chefs de Famille SOS- Esclaves Anti-slavery International Minority Rights Group International Global Campaign for Equal Nationality Rights, Eindhoven, Netherlands\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion Association des femmes chefs de Famille SOS- Esclaves Anti-slavery International Minority Rights Group International Global Campaign for Equal Nationality Rights, Eindhoven, Netherlands\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "MENA Rights Group, Cadre de Concertation des Rescap\u00e9s de Mauritanie (CCR-M), Chatelaine, Switzerland", "label": "MENA Rights Group, Cadre ...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eMENA Rights Group, Cadre de Concertation des Rescap\u00e9s de Mauritanie (CCR-M), Chatelaine, Switzerland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: MENA Rights Group, Cadre de Concertation des Rescap\u00e9s de Mauritanie (CCR-M), Chatelaine, Switzerland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH) ACAT-France SOS Esclaves Association Mauritanienne pour les Droits de l\u2019Homme (AMDH) Association des Femmes Cheffes de Famille (AFCF) Comit\u00e9 de Solidarit\u00e9 avec les Victimes des Violations des Droits Humains (CSVVDH) Forum des Organisations Nationales des Droits de l\u2019Homme (FONADH), Port-Vendres, France", "label": "Plan\u00e8te R\u00e9fugi\u00e9s-Droits d...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003ePlan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH) ACAT-France SOS Esclaves Association Mauritanienne pour les Droits de l\u2019Homme (AMDH) Association des Femmes Cheffes de Famille (AFCF) Comit\u00e9 de Solidarit\u00e9 avec les Victimes des Violations des Droits Humains (CSVVDH) Forum des Organisations Nationales des Droits de l\u2019Homme (FONADH), Port-Vendres, France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH) ACAT-France SOS Esclaves Association Mauritanienne pour les Droits de l\u2019Homme (AMDH) Association des Femmes Cheffes de Famille (AFCF) Comit\u00e9 de Solidarit\u00e9 avec les Victimes des Violations des Droits Humains (CSVVDH) Forum des Organisations Nationales des Droits de l\u2019Homme (FONADH), Port-Vendres, France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Reseau Ensemble Contre la Torture en Mauritanie, Association \u2018\u2018 Paix \u2018\u2018 pour la lutte contre la contrainte et l\u2019injustice, Nouakchott, Mauritanie", "label": "Reseau Ensemble Contre la...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eReseau Ensemble Contre la Torture en Mauritanie, Association \u2018\u2018 Paix \u2018\u2018 pour la lutte contre la contrainte et l\u2019injustice, Nouakchott, Mauritanie\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Reseau Ensemble Contre la Torture en Mauritanie, Association \u2018\u2018 Paix \u2018\u2018 pour la lutte contre la contrainte et l\u2019injustice, Nouakchott, Mauritanie\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Tewassoul pour la Sant\u00e9, la Femme et l\u2019Enfant (TPSFE), Association Mauritanienne pour la Promotion des Droits de l\u2019Homme (AMPDH), Assistance Communautaire et D\u00e9veloppement (ASCOM), Association pour l\u2019Education et la Sant\u00e9 de la Femme et de l\u2019Enfant (AESFE), Initiative d\u2019Opposition contre le Discours Extr\u00e9miste (IODE), Association du D\u00e9veloppement et de la Promotion de Droits de l\u2019Homme (ADPDH), Nouakchott, Mauritanie", "label": "Tewassoul pour la Sant\u00e9, ...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eTewassoul pour la Sant\u00e9, la Femme et l\u2019Enfant (TPSFE), Association Mauritanienne pour la Promotion des Droits de l\u2019Homme (AMPDH), Assistance Communautaire et D\u00e9veloppement (ASCOM), Association pour l\u2019Education et la Sant\u00e9 de la Femme et de l\u2019Enfant (AESFE), Initiative d\u2019Opposition contre le Discours Extr\u00e9miste (IODE), Association du D\u00e9veloppement et de la Promotion de Droits de l\u2019Homme (ADPDH), Nouakchott, Mauritanie\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Tewassoul pour la Sant\u00e9, la Femme et l\u2019Enfant (TPSFE), Association Mauritanienne pour la Promotion des Droits de l\u2019Homme (AMPDH), Assistance Communautaire et D\u00e9veloppement (ASCOM), Association pour l\u2019Education et la Sant\u00e9 de la Femme et de l\u2019Enfant (AESFE), Initiative d\u2019Opposition contre le Discours Extr\u00e9miste (IODE), Association du D\u00e9veloppement et de la Promotion de Droits de l\u2019Homme (ADPDH), Nouakchott, Mauritanie\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS12", "label": "JS12", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS12\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS12\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Unrepresented Nations and Peoples Organization, The Initiative for the Resurgence of the Abolitionist Movement (IRA)", "label": "Unrepresented Nations and...", "shape": "dot", "size": 12.5, "title": "\u003cb\u003eUnrepresented Nations and Peoples Organization, The Initiative for the Resurgence of the Abolitionist Movement (IRA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Unrepresented Nations and Peoples Organization, The Initiative for the Resurgence of the Abolitionist Movement (IRA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS13", "label": "JS13", "shape": "square", "size": 35.0, "title": "\u003cb\u003eJS13\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS13\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Association Mauritanienne pour la Promotion du Droit, ONG Strat\u00e9gies et d\u00e9veloppement, ONG Un monde sans guerre sans violence, Observatoire national de lutte contre la gabegie et la corruption, Association Mauritanienne pour la promotion du droit, Nouakchott, Mauritanie", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "l\u2019Association des Femmes Chefs de Familles (AFCF) Anti-Slavery International (ASI) International Service for Human rights (ISHR) Minority Rights Group International (MRGI) SOS-Esclaves (SOS), London, United Kingdom of Great Britain and Northern Ireland", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Alliance et Solidarit\u00e9 des Organisations Nationales des Droits de l\u2019Homme contre la Haine et l\u2019Exclusion en Mauritanie, Arafatt, Mauritanie", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Centre for Civil and Political Rights, Coordination des Organisations des Victimes de la Re\u0301pression", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Cadre de Concertation des Rescape\u0301s Mauritaniens", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Organisation pour le De\u0301veloppement International, Social, Solidaire et Inte\u0301gre\u0301", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Association des Femmes Cheffes de Famille", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Association Mauritanienne d\u2019Aide aux Ne\u0301cessiteux", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Forum des Organisations Nationales des Droits Humains en Mauritanie", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Comite\u0301 de Solidarite\u0301 avec les Victimes de Violations des Droits de l\u2019Homme", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "SOS- Esclaves, Geneva, Switzerland", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "CIVICUS: World Alliance for Citizen Participation, he R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (ROADDH, West African Human Right Defenders Network), Johannesburg, South Africa", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Association mauritanienne des droits de l\u2019homme (AMDH), Coalition mondiale Compos\u00e9e de plus de 160 ONG, barreaux d\u2019avocats et d\u2019avocates, collectivit\u00e9s locales et syndicats, la Coalition mondiale contre la peine de mort est n\u00e9e \u00e0 Rome le 13 mai 2002, Ensemble contre la peine de mort (ECPM), Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH), Paris, France", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Global Detention Project, Association for Juridical Studies on Immigration (ASGI), Geneva, Switzerland", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness and Inclusion Association des femmes chefs de Famille SOS- Esclaves Anti-slavery International Minority Rights Group International Global Campaign for Equal Nationality Rights, Eindhoven, Netherlands", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "MENA Rights Group, Cadre de Concertation des Rescap\u00e9s de Mauritanie (CCR-M), Chatelaine, Switzerland", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Plan\u00e8te R\u00e9fugi\u00e9s-Droits de l\u2019Homme (PRDH) ACAT-France SOS Esclaves Association Mauritanienne pour les Droits de l\u2019Homme (AMDH) Association des Femmes Cheffes de Famille (AFCF) Comit\u00e9 de Solidarit\u00e9 avec les Victimes des Violations des Droits Humains (CSVVDH) Forum des Organisations Nationales des Droits de l\u2019Homme (FONADH), Port-Vendres, France", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Reseau Ensemble Contre la Torture en Mauritanie, Association \u2018\u2018 Paix \u2018\u2018 pour la lutte contre la contrainte et l\u2019injustice, Nouakchott, Mauritanie", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Tewassoul pour la Sant\u00e9, la Femme et l\u2019Enfant (TPSFE), Association Mauritanienne pour la Promotion des Droits de l\u2019Homme (AMPDH), Assistance Communautaire et D\u00e9veloppement (ASCOM), Association pour l\u2019Education et la Sant\u00e9 de la Femme et de l\u2019Enfant (AESFE), Initiative d\u2019Opposition contre le Discours Extr\u00e9miste (IODE), Association du D\u00e9veloppement et de la Promotion de Droits de l\u2019Homme (ADPDH), Nouakchott, Mauritanie", "title": "Member of JS12", "to": "JS12", "width": 1}, {"color": "#95a5a6", "from": "Unrepresented Nations and Peoples Organization, The Initiative for the Resurgence of the Abolitionist Movement (IRA)", "title": "Member of JS13", "to": "JS13", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

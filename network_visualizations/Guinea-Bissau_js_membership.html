@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "R\u00e9seau National des D\u00e9fenseurs des Droits de l\u2019Homme de la Guin\u00e9e-Bissau, Bissau (Guin\u00e9e-Bissau)", "label": "R\u00e9seau National des D\u00e9fen...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eR\u00e9seau National des D\u00e9fenseurs des Droits de l\u2019Homme de la Guin\u00e9e-Bissau, Bissau (Guin\u00e9e-Bissau)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: R\u00e9seau National des D\u00e9fenseurs des Droits de l\u2019Homme de la Guin\u00e9e-Bissau, Bissau (Guin\u00e9e-Bissau)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 5\u003cbr\u003eParticipants: 5"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ligue Guin\u00e9enne des Droits de l\u2019Homme", "label": "Ligue Guin\u00e9enne des Droit...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eLigue Guin\u00e9enne des Droits de l\u2019Homme\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ligue Guin\u00e9enne des Droits de l\u2019Homme\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "R\u00e9seau national de lutte contre le genre et la violence \u00e0 l\u2019\u00e9gard des enfants en Guin\u00e9e-Bissau", "label": "R\u00e9seau national de lutte ...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eR\u00e9seau national de lutte contre le genre et la violence \u00e0 l\u2019\u00e9gard des enfants en Guin\u00e9e-Bissau\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: R\u00e9seau national de lutte contre le genre et la violence \u00e0 l\u2019\u00e9gard des enfants en Guin\u00e9e-Bissau\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "AMIC, Association Amis des Enfants", "label": "AMIC, Association Amis de...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAMIC, Association Amis des Enfants\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: AMIC, Association Amis des Enfants\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "R\u00e9seau National des Associations de Juv\u00e9niles", "label": "R\u00e9seau National des Assoc...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eR\u00e9seau National des Associations de Juv\u00e9niles\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: R\u00e9seau National des Associations de Juv\u00e9niles\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coalition for the Defense of Children\u2019s Rights in Guinea-Bissau, Bissau (Guinea- Bissau)", "label": "Coalition for the Defense...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eCoalition for the Defense of Children\u2019s Rights in Guinea-Bissau, Bissau (Guinea- Bissau)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coalition for the Defense of Children\u2019s Rights in Guinea-Bissau, Bissau (Guinea- Bissau)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 30\u003cbr\u003eParticipants: 30"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o dos Amigos da Crian\u00e7a", "label": "Associa\u00e7\u00e3o dos Amigos da ...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o dos Amigos da Crian\u00e7a\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o dos Amigos da Crian\u00e7a\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Aldeia de Crian\u00e7as SOS", "label": "Aldeia de Crian\u00e7as SOS", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAldeia de Crian\u00e7as SOS\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Aldeia de Crian\u00e7as SOS\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Parlamento Nacional Infantil", "label": "Parlamento Nacional Infan...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eParlamento Nacional Infantil\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Parlamento Nacional Infantil\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rede de Jovens Educadores", "label": "Rede de Jovens Educadores", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eRede de Jovens Educadores\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rede de Jovens Educadores\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rede de Crian\u00e7a e Jovens Jornalitas", "label": "Rede de Crian\u00e7a e Jovens ...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eRede de Crian\u00e7a e Jovens Jornalitas\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rede de Crian\u00e7a e Jovens Jornalitas\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Muscafo", "label": "Muscafo", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eMuscafo\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Muscafo\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "SOS Crian\u00e7as Talib\u00e9s", "label": "SOS Crian\u00e7as Talib\u00e9s", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eSOS Crian\u00e7as Talib\u00e9s\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: SOS Crian\u00e7as Talib\u00e9s\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o para os Direitos da Crian\u00e7a", "label": "Associa\u00e7\u00e3o para os Direit...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o para os Direitos da Crian\u00e7a\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o para os Direitos da Crian\u00e7a\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Plan International GNB", "label": "Plan International GNB", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003ePlan International GNB\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Plan International GNB\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ONG ESSOR", "label": "ONG ESSOR", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eONG ESSOR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ONG ESSOR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Crian\u00e7as e Jovens em A\u00e7\u00e3o", "label": "Crian\u00e7as e Jovens em A\u00e7\u00e3o", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eCrian\u00e7as e Jovens em A\u00e7\u00e3o\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Crian\u00e7as e Jovens em A\u00e7\u00e3o\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Movimento Africano de Crian\u00e7as e Jovens Trabalhadoras", "label": "Movimento Africano de Cri...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eMovimento Africano de Crian\u00e7as e Jovens Trabalhadoras\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Movimento Africano de Crian\u00e7as e Jovens Trabalhadoras\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Centro de Acolhimento Casa Emmanuel", "label": "Centro de Acolhimento Cas...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eCentro de Acolhimento Casa Emmanuel\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centro de Acolhimento Casa Emmanuel\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Funda\u00e7\u00e3o Ninho da Crian\u00e7a", "label": "Funda\u00e7\u00e3o Ninho da Crian\u00e7a", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eFunda\u00e7\u00e3o Ninho da Crian\u00e7a\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Funda\u00e7\u00e3o Ninho da Crian\u00e7a\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Liga Guineense dos Direitos Humanos", "label": "Liga Guineense dos Direit...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eLiga Guineense dos Direitos Humanos\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Liga Guineense dos Direitos Humanos\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o Guineense de Integra\u00e7\u00e3o e Reinser\u00e7\u00e3o de Cegos", "label": "Associa\u00e7\u00e3o Guineense de I...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o Guineense de Integra\u00e7\u00e3o e Reinser\u00e7\u00e3o de Cegos\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o Guineense de Integra\u00e7\u00e3o e Reinser\u00e7\u00e3o de Cegos\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Divutec", "label": "Divutec", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eDivutec\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Divutec\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o de Crian\u00e7as Rurais", "label": "Associa\u00e7\u00e3o de Crian\u00e7as Ru...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o de Crian\u00e7as Rurais\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o de Crian\u00e7as Rurais\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o Guineense para o Bem-Estar da Fam\u00edlia", "label": "Associa\u00e7\u00e3o Guineense para...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o Guineense para o Bem-Estar da Fam\u00edlia\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o Guineense para o Bem-Estar da Fam\u00edlia\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Aprodel", "label": "Aprodel", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAprodel\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Aprodel\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Pritege", "label": "Pritege", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003ePritege\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Pritege\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Funda\u00e7\u00e3o para o Desenvolvimento das Comunidades", "label": "Funda\u00e7\u00e3o para o Desenvolv...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eFunda\u00e7\u00e3o para o Desenvolvimento das Comunidades\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Funda\u00e7\u00e3o para o Desenvolvimento das Comunidades\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rede dos Jovens Defensores dos Direitos das Crian\u00e7as", "label": "Rede dos Jovens Defensore...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eRede dos Jovens Defensores dos Direitos das Crian\u00e7as\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rede dos Jovens Defensores dos Direitos das Crian\u00e7as\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o Juvenil para Promo\u00e7\u00e3o e Defesa dos Direitos Humanos", "label": "Associa\u00e7\u00e3o Juvenil para P...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o Juvenil para Promo\u00e7\u00e3o e Defesa dos Direitos Humanos\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o Juvenil para Promo\u00e7\u00e3o e Defesa dos Direitos Humanos\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Projeto Campos Irm\u00e3os-Brasil-\u00c1frica", "label": "Projeto Campos Irm\u00e3os-Bra...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eProjeto Campos Irm\u00e3os-Brasil-\u00c1frica\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Projeto Campos Irm\u00e3os-Brasil-\u00c1frica\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Movimento Nacional doe Escoteiros", "label": "Movimento Nacional doe Es...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eMovimento Nacional doe Escoteiros\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Movimento Nacional doe Escoteiros\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "A\u00e7\u00e3o Nacional para Desenvolvimento", "label": "A\u00e7\u00e3o Nacional para Desenv...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eA\u00e7\u00e3o Nacional para Desenvolvimento\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: A\u00e7\u00e3o Nacional para Desenvolvimento\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rede Nacional das Associa\u00e7\u00f5es Juvenis J\u00fanior", "label": "Rede Nacional das Associa...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eRede Nacional das Associa\u00e7\u00f5es Juvenis J\u00fanior\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rede Nacional das Associa\u00e7\u00f5es Juvenis J\u00fanior\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Associa\u00e7\u00e3o Nacional para Prote\u00e7\u00e3o e Promo\u00e7\u00e3o dos Direitos da Crian\u00e7a", "label": "Associa\u00e7\u00e3o Nacional para ...", "shape": "dot", "size": 10.666666666666666, "title": "\u003cb\u003eAssocia\u00e7\u00e3o Nacional para Prote\u00e7\u00e3o e Promo\u00e7\u00e3o dos Direitos da Crian\u00e7a\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Associa\u00e7\u00e3o Nacional para Prote\u00e7\u00e3o e Promo\u00e7\u00e3o dos Direitos da Crian\u00e7a\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "R\u00e9seau National des D\u00e9fenseurs des Droits de l\u2019Homme de la Guin\u00e9e-Bissau, Bissau (Guin\u00e9e-Bissau)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Ligue Guin\u00e9enne des Droits de l\u2019Homme", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "R\u00e9seau national de lutte contre le genre et la violence \u00e0 l\u2019\u00e9gard des enfants en Guin\u00e9e-Bissau", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "AMIC, Association Amis des Enfants", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "R\u00e9seau National des Associations de Juv\u00e9niles", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Coalition for the Defense of Children\u2019s Rights in Guinea-Bissau, Bissau (Guinea- Bissau)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o dos Amigos da Crian\u00e7a", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Aldeia de Crian\u00e7as SOS", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Parlamento Nacional Infantil", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Rede de Jovens Educadores", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Rede de Crian\u00e7a e Jovens Jornalitas", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Muscafo", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "SOS Crian\u00e7as Talib\u00e9s", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o para os Direitos da Crian\u00e7a", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Plan International GNB", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "ONG ESSOR", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Crian\u00e7as e Jovens em A\u00e7\u00e3o", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Movimento Africano de Crian\u00e7as e Jovens Trabalhadoras", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Centro de Acolhimento Casa Emmanuel", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Funda\u00e7\u00e3o Ninho da Crian\u00e7a", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Liga Guineense dos Direitos Humanos", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o Guineense de Integra\u00e7\u00e3o e Reinser\u00e7\u00e3o de Cegos", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Divutec", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o de Crian\u00e7as Rurais", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o Guineense para o Bem-Estar da Fam\u00edlia", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Aprodel", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Pritege", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Funda\u00e7\u00e3o para o Desenvolvimento das Comunidades", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Rede dos Jovens Defensores dos Direitos das Crian\u00e7as", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o Juvenil para Promo\u00e7\u00e3o e Defesa dos Direitos Humanos", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Projeto Campos Irm\u00e3os-Brasil-\u00c1frica", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Movimento Nacional doe Escoteiros", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "A\u00e7\u00e3o Nacional para Desenvolvimento", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Rede Nacional das Associa\u00e7\u00f5es Juvenis J\u00fanior", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Associa\u00e7\u00e3o Nacional para Prote\u00e7\u00e3o e Promo\u00e7\u00e3o dos Direitos da Crian\u00e7a", "title": "Member of JS2", "to": "JS2", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

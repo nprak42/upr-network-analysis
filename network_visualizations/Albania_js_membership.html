@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Child Rights Centre Albania (Albania), Albanian Coalition for Education (Albania), Albanian National Youth Network (Albania), Albanian National Child Rights Network \u201cAct for Children\u201d (Albania), Albanian National Child Helpline (Albania), ECPAT Albania, Tirana (Albania)", "label": "Child Rights Centre Alban...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eChild Rights Centre Albania (Albania), Albanian Coalition for Education (Albania), Albanian National Youth Network (Albania), Albanian National Child Rights Network \u201cAct for Children\u201d (Albania), Albanian National Child Helpline (Albania), ECPAT Albania, Tirana (Albania)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Child Rights Centre Albania (Albania), Albanian Coalition for Education (Albania), Albanian National Youth Network (Albania), Albanian National Child Rights Network \u201cAct for Children\u201d (Albania), Albanian National Child Helpline (Albania), ECPAT Albania, Tirana (Albania)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Albanian Women Empowerment Network (Albania), Woman to Woman, (Albania), Useful to Albanian Women Association (Albania), Gender Alliance for Development Center, \u201cMe the woman\u201d, Pogradec (Albania), Agritra-Vision Centre \u2013 Peshkopi (Albania), Woman\u2019s Forum Elbasan (Albania), Jona Association, Saranda (Albania), Office for Boys and Men, Shkod\u00ebr (Albania), Human Rights in Democracy Centre (Albania), Network of Community Centers \u201cToday for the Future\u201d (Albania), \u201cDifferent and Equal\u201d Association (Albania), YWCA (Albania), Institute of Social and Economic Development (Albania), Albanian Institute on Public Affairs (Albania), Albanian Center for Population and Development (Albania), Mary Ward Loreto Foundation (Albania) , Albanian Committee of Helsinki (Albania), \u201cChildren of Today\u201d Center (Albania), Albanian Group for Human Rights (Albania), National Center for Social Services (Albania), \u201cWoman Towards Integration\u201d (Albania), Center for Psychosocial Services \u201cVatra\u201d (Albania), Roma Women Rights Centre (Albania), Albanian Disability Rights Foundation (Albania), Organization of Professional Women Organization (Albania), \u201cIn the Family for Family\u201d Center (Albania), National Organization of Social Workers (Albania), Organization for Persons who live with HIV/AIDS (Albania), Organization for Women with Social Problems (Albania), National Organization \u201cSTOP \u2013 AIDS\u201d (Albania), Reflections Organization (Albania), Integrated Legal Practices and Services Center (Albania), Counselling Line for men and boys (Albania), Counseling National Line for Women and Girls , 116117 (Albania), Center \u201cFree legal Service\u201d, TLAS (Albania), The \u201cVoice of Children\u201d(Albania), \u2018Ad Litem\u2019 (Albania), Center for the Rights of Children in Albania (Albania), ALO 116 (Albania), Center for Development of Rural Women (Albania), Pink Embassy / LGBT Pro Albania (Albania), Center for Legal Civic Initiatives (Albania), Observatory for Children and Youth Rights (Albania), Shelter for Abused Women and Girls-Albania (Albania), Women\u0027s Democracy Network Albania (Albania), Albanian Center for Family Development (Albania), Women in Public Services Center, Tirana, (Albania)", "label": "Albanian Women Empowermen...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eAlbanian Women Empowerment Network (Albania), Woman to Woman, (Albania), Useful to Albanian Women Association (Albania), Gender Alliance for Development Center, \u201cMe the woman\u201d, Pogradec (Albania), Agritra-Vision Centre \u2013 Peshkopi (Albania), Woman\u2019s Forum Elbasan (Albania), Jona Association, Saranda (Albania), Office for Boys and Men, Shkod\u00ebr (Albania), Human Rights in Democracy Centre (Albania), Network of Community Centers \u201cToday for the Future\u201d (Albania), \u201cDifferent and Equal\u201d Association (Albania), YWCA (Albania), Institute of Social and Economic Development (Albania), Albanian Institute on Public Affairs (Albania), Albanian Center for Population and Development (Albania), Mary Ward Loreto Foundation (Albania) , Albanian Committee of Helsinki (Albania), \u201cChildren of Today\u201d Center (Albania), Albanian Group for Human Rights (Albania), National Center for Social Services (Albania), \u201cWoman Towards Integration\u201d (Albania), Center for Psychosocial Services \u201cVatra\u201d (Albania), Roma Women Rights Centre (Albania), Albanian Disability Rights Foundation (Albania), Organization of Professional Women Organization (Albania), \u201cIn the Family for Family\u201d Center (Albania), National Organization of Social Workers (Albania), Organization for Persons who live with HIV/AIDS (Albania), Organization for Women with Social Problems (Albania), National Organization \u201cSTOP \u2013 AIDS\u201d (Albania), Reflections Organization (Albania), Integrated Legal Practices and Services Center (Albania), Counselling Line for men and boys (Albania), Counseling National Line for Women and Girls , 116117 (Albania), Center \u201cFree legal Service\u201d, TLAS (Albania), The \u201cVoice of Children\u201d(Albania), \u2018Ad Litem\u2019 (Albania), Center for the Rights of Children in Albania (Albania), ALO 116 (Albania), Center for Development of Rural Women (Albania), Pink Embassy / LGBT Pro Albania (Albania), Center for Legal Civic Initiatives (Albania), Observatory for Children and Youth Rights (Albania), Shelter for Abused Women and Girls-Albania (Albania), Women\u0027s Democracy Network Albania (Albania), Albanian Center for Family Development (Albania), Women in Public Services Center, Tirana, (Albania)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Albanian Women Empowerment Network (Albania), Woman to Woman, (Albania), Useful to Albanian Women Association (Albania), Gender Alliance for Development Center, \u201cMe the woman\u201d, Pogradec (Albania), Agritra-Vision Centre \u2013 Peshkopi (Albania), Woman\u2019s Forum Elbasan (Albania), Jona Association, Saranda (Albania), Office for Boys and Men, Shkod\u00ebr (Albania), Human Rights in Democracy Centre (Albania), Network of Community Centers \u201cToday for the Future\u201d (Albania), \u201cDifferent and Equal\u201d Association (Albania), YWCA (Albania), Institute of Social and Economic Development (Albania), Albanian Institute on Public Affairs (Albania), Albanian Center for Population and Development (Albania), Mary Ward Loreto Foundation (Albania) , Albanian Committee of Helsinki (Albania), \u201cChildren of Today\u201d Center (Albania), Albanian Group for Human Rights (Albania), National Center for Social Services (Albania), \u201cWoman Towards Integration\u201d (Albania), Center for Psychosocial Services \u201cVatra\u201d (Albania), Roma Women Rights Centre (Albania), Albanian Disability Rights Foundation (Albania), Organization of Professional Women Organization (Albania), \u201cIn the Family for Family\u201d Center (Albania), National Organization of Social Workers (Albania), Organization for Persons who live with HIV/AIDS (Albania), Organization for Women with Social Problems (Albania), National Organization \u201cSTOP \u2013 AIDS\u201d (Albania), Reflections Organization (Albania), Integrated Legal Practices and Services Center (Albania), Counselling Line for men and boys (Albania), Counseling National Line for Women and Girls , 116117 (Albania), Center \u201cFree legal Service\u201d, TLAS (Albania), The \u201cVoice of Children\u201d(Albania), \u2018Ad Litem\u2019 (Albania), Center for the Rights of Children in Albania (Albania), ALO 116 (Albania), Center for Development of Rural Women (Albania), Pink Embassy / LGBT Pro Albania (Albania), Center for Legal Civic Initiatives (Albania), Observatory for Children and Youth Rights (Albania), Shelter for Abused Women and Girls-Albania (Albania), Women\u0027s Democracy Network Albania (Albania), Albanian Center for Family Development (Albania), Women in Public Services Center, Tirana, (Albania)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Aleanca LGBT (Albania), PINK Embassy Albania (Albania), Pro LGBT (Albania), Streha (Albania), ERA \u2013 LGBTI Equal Rights Association for Western Balkans and Turkey (Serbia), ILGA World (Switzerland)", "label": "Aleanca LGBT (Albania), P...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eAleanca LGBT (Albania), PINK Embassy Albania (Albania), Pro LGBT (Albania), Streha (Albania), ERA \u2013 LGBTI Equal Rights Association for Western Balkans and Turkey (Serbia), ILGA World (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Aleanca LGBT (Albania), PINK Embassy Albania (Albania), Pro LGBT (Albania), Streha (Albania), ERA \u2013 LGBTI Equal Rights Association for Western Balkans and Turkey (Serbia), ILGA World (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "the Child led Groups \u201cVoice 16+\u201d (Albania), Children Governments and children in street situation, Tirana, (Albania)", "label": "the Child led Groups \u201cVoi...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003ethe Child led Groups \u201cVoice 16+\u201d (Albania), Children Governments and children in street situation, Tirana, (Albania)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: the Child led Groups \u201cVoice 16+\u201d (Albania), Children Governments and children in street situation, Tirana, (Albania)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Advocates for Human Rights (Albania) and Human Rights in Democracy Center , (Albania)", "label": "Advocates for Human Right...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eAdvocates for Human Rights (Albania) and Human Rights in Democracy Center , (Albania)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Advocates for Human Rights (Albania) and Human Rights in Democracy Center , (Albania)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Tirana Legal Aid Society (Albania), European Roma Rights Centre (Hungary), Institute on Statelessness and Inclusion (Netherlands), European Network on Statelessness (UK)", "label": "Tirana Legal Aid Society ...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eTirana Legal Aid Society (Albania), European Roma Rights Centre (Hungary), Institute on Statelessness and Inclusion (Netherlands), European Network on Statelessness (UK)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Tirana Legal Aid Society (Albania), European Roma Rights Centre (Hungary), Institute on Statelessness and Inclusion (Netherlands), European Network on Statelessness (UK)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Albania Center for Population", "label": "Albania Center for Popula...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eAlbania Center for Population\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Albania Center for Population\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Development (Albania), Albanian Association of People Living with HIV/AIDS (Albania), Roma Active Albania (Albania), Stop AIDS, (Albania), Aksion Plus (Albania), National Center for Community Services (Albania), Psicho-Social Center \u201cVatra\u201d Center (Albania), Act for Society (Albania)", "label": "Development (Albania), Al...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eDevelopment (Albania), Albanian Association of People Living with HIV/AIDS (Albania), Roma Active Albania (Albania), Stop AIDS, (Albania), Aksion Plus (Albania), National Center for Community Services (Albania), Psicho-Social Center \u201cVatra\u201d Center (Albania), Act for Society (Albania)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Development (Albania), Albanian Association of People Living with HIV/AIDS (Albania), Roma Active Albania (Albania), Stop AIDS, (Albania), Aksion Plus (Albania), National Center for Community Services (Albania), Psicho-Social Center \u201cVatra\u201d Center (Albania), Act for Society (Albania)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Sexual Rights Initiative (Switzerland)", "label": "Sexual Rights Initiative ...", "shape": "dot", "size": 16.666666666666664, "title": "\u003cb\u003eSexual Rights Initiative (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Sexual Rights Initiative (Switzerland)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Child Rights Centre Albania (Albania), Albanian Coalition for Education (Albania), Albanian National Youth Network (Albania), Albanian National Child Rights Network \u201cAct for Children\u201d (Albania), Albanian National Child Helpline (Albania), ECPAT Albania, Tirana (Albania)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Albanian Women Empowerment Network (Albania), Woman to Woman, (Albania), Useful to Albanian Women Association (Albania), Gender Alliance for Development Center, \u201cMe the woman\u201d, Pogradec (Albania), Agritra-Vision Centre \u2013 Peshkopi (Albania), Woman\u2019s Forum Elbasan (Albania), Jona Association, Saranda (Albania), Office for Boys and Men, Shkod\u00ebr (Albania), Human Rights in Democracy Centre (Albania), Network of Community Centers \u201cToday for the Future\u201d (Albania), \u201cDifferent and Equal\u201d Association (Albania), YWCA (Albania), Institute of Social and Economic Development (Albania), Albanian Institute on Public Affairs (Albania), Albanian Center for Population and Development (Albania), Mary Ward Loreto Foundation (Albania) , Albanian Committee of Helsinki (Albania), \u201cChildren of Today\u201d Center (Albania), Albanian Group for Human Rights (Albania), National Center for Social Services (Albania), \u201cWoman Towards Integration\u201d (Albania), Center for Psychosocial Services \u201cVatra\u201d (Albania), Roma Women Rights Centre (Albania), Albanian Disability Rights Foundation (Albania), Organization of Professional Women Organization (Albania), \u201cIn the Family for Family\u201d Center (Albania), National Organization of Social Workers (Albania), Organization for Persons who live with HIV/AIDS (Albania), Organization for Women with Social Problems (Albania), National Organization \u201cSTOP \u2013 AIDS\u201d (Albania), Reflections Organization (Albania), Integrated Legal Practices and Services Center (Albania), Counselling Line for men and boys (Albania), Counseling National Line for Women and Girls , 116117 (Albania), Center \u201cFree legal Service\u201d, TLAS (Albania), The \u201cVoice of Children\u201d(Albania), \u2018Ad Litem\u2019 (Albania), Center for the Rights of Children in Albania (Albania), ALO 116 (Albania), Center for Development of Rural Women (Albania), Pink Embassy / LGBT Pro Albania (Albania), Center for Legal Civic Initiatives (Albania), Observatory for Children and Youth Rights (Albania), Shelter for Abused Women and Girls-Albania (Albania), Women\u0027s Democracy Network Albania (Albania), Albanian Center for Family Development (Albania), Women in Public Services Center, Tirana, (Albania)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Aleanca LGBT (Albania), PINK Embassy Albania (Albania), Pro LGBT (Albania), Streha (Albania), ERA \u2013 LGBTI Equal Rights Association for Western Balkans and Turkey (Serbia), ILGA World (Switzerland)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "the Child led Groups \u201cVoice 16+\u201d (Albania), Children Governments and children in street situation, Tirana, (Albania)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Advocates for Human Rights (Albania) and Human Rights in Democracy Center , (Albania)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Tirana Legal Aid Society (Albania), European Roma Rights Centre (Hungary), Institute on Statelessness and Inclusion (Netherlands), European Network on Statelessness (UK)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Albania Center for Population", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Development (Albania), Albanian Association of People Living with HIV/AIDS (Albania), Roma Active Albania (Albania), Stop AIDS, (Albania), Aksion Plus (Albania), National Center for Community Services (Albania), Psicho-Social Center \u201cVatra\u201d Center (Albania), Act for Society (Albania)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Sexual Rights Initiative (Switzerland)", "title": "Member of JS7", "to": "JS7", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

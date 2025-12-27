@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Centre Africain de formation et d\u2019information sur les droits humains et environnement (cafidhe)", "label": "Centre Africain de format...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCentre Africain de formation et d\u2019information sur les droits humains et environnement (cafidhe)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centre Africain de formation et d\u2019information sur les droits humains et environnement (cafidhe)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "\u2013 Centre Africain de formation et d\u2019information sur les droits humains et Environnement. (cafidhe) \u2013 Centre de promotion des droits humains. (cpdh) \u2013 Alliance des M\u00e9dias pour les droits humains. (AMDH)", "label": "\u2013 Centre Africain de form...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003e\u2013 Centre Africain de formation et d\u2019information sur les droits humains et Environnement. (cafidhe) \u2013 Centre de promotion des droits humains. (cpdh) \u2013 Alliance des M\u00e9dias pour les droits humains. (AMDH)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: \u2013 Centre Africain de formation et d\u2019information sur les droits humains et Environnement. (cafidhe) \u2013 Centre de promotion des droits humains. (cpdh) \u2013 Alliance des M\u00e9dias pour les droits humains. (AMDH)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ECPAT International et le Monde des Enfants", "label": "ECPAT International et le...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eECPAT International et le Monde des Enfants\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ECPAT International et le Monde des Enfants\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "International Service for Human Rights (ISHR), Coordination des Organisations de d\u00e9fense des Droits Humains, (CODDH)", "label": "International Service for...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eInternational Service for Human Rights (ISHR), Coordination des Organisations de d\u00e9fense des Droits Humains, (CODDH)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Service for Human Rights (ISHR), Coordination des Organisations de d\u00e9fense des Droits Humains, (CODDH)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Organisation guin\u00e9enne de d\u00e9fense des droits de l\u2019homme et du citoyen (OGDH), Association des Victimes, Parents et Amis du 28 septembre 2009 (AVIPA)", "label": "Organisation guin\u00e9enne de...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eOrganisation guin\u00e9enne de d\u00e9fense des droits de l\u2019homme et du citoyen (OGDH), Association des Victimes, Parents et Amis du 28 septembre 2009 (AVIPA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Organisation guin\u00e9enne de d\u00e9fense des droits de l\u2019homme et du citoyen (OGDH), Association des Victimes, Parents et Amis du 28 septembre 2009 (AVIPA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "World Coalition Against the Death Penalty", "label": "World Coalition Against t...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eWorld Coalition Against the Death Penalty\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: World Coalition Against the Death Penalty\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coalition des ONGs sur les Droits de l\u2019enfant: Sabou Guin\u00e9e, Appui aux femmes sans Enfants et Enfants d\u00e9sh\u00e9rit\u00e9s (AFEED), Initiative des Femmes pour le D\u00e9veloppement Durable(IFDED), Association des Enfants et Jeunes Travailleurs de Guin\u00e9e (AEJTG), le Parlement des enfants de Guin\u00e9e (PEG), SOS Villages d\u2019Enfants, Enfance du globe, Aide \u00e0 la Famille Africaine (AFA), Appui aux Femmes et aux Enfants pour un D\u00e9veloppement Durable (AFEDD), Association d\u2019aide aux personnes en situation difficile (2APSD), Conseil Consultatif des Enfants et jeunes de Guin\u00e9e (CCEJG), Action Int\u00e9gr\u00e9e pour le D\u00e9veloppement des Enfants et des Femmes (AIDEF)", "label": "Coalition des ONGs sur le...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCoalition des ONGs sur les Droits de l\u2019enfant: Sabou Guin\u00e9e, Appui aux femmes sans Enfants et Enfants d\u00e9sh\u00e9rit\u00e9s (AFEED), Initiative des Femmes pour le D\u00e9veloppement Durable(IFDED), Association des Enfants et Jeunes Travailleurs de Guin\u00e9e (AEJTG), le Parlement des enfants de Guin\u00e9e (PEG), SOS Villages d\u2019Enfants, Enfance du globe, Aide \u00e0 la Famille Africaine (AFA), Appui aux Femmes et aux Enfants pour un D\u00e9veloppement Durable (AFEDD), Association d\u2019aide aux personnes en situation difficile (2APSD), Conseil Consultatif des Enfants et jeunes de Guin\u00e9e (CCEJG), Action Int\u00e9gr\u00e9e pour le D\u00e9veloppement des Enfants et des Femmes (AIDEF)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coalition des ONGs sur les Droits de l\u2019enfant: Sabou Guin\u00e9e, Appui aux femmes sans Enfants et Enfants d\u00e9sh\u00e9rit\u00e9s (AFEED), Initiative des Femmes pour le D\u00e9veloppement Durable(IFDED), Association des Enfants et Jeunes Travailleurs de Guin\u00e9e (AEJTG), le Parlement des enfants de Guin\u00e9e (PEG), SOS Villages d\u2019Enfants, Enfance du globe, Aide \u00e0 la Famille Africaine (AFA), Appui aux Femmes et aux Enfants pour un D\u00e9veloppement Durable (AFEDD), Association d\u2019aide aux personnes en situation difficile (2APSD), Conseil Consultatif des Enfants et jeunes de Guin\u00e9e (CCEJG), Action Int\u00e9gr\u00e9e pour le D\u00e9veloppement des Enfants et des Femmes (AIDEF)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coalition d\u2019ONG pour les droits des femmes en Guin\u00e9e: WAFRICA Guin\u00e9e, Tostan, Korassy pour l\u2019autonomisation des femmes en Guin\u00e9e (KAFEG), Coalition nationale pour le droit et la citoyennet\u00e9 des femmes (CONAG DCF)", "label": "Coalition d\u2019ONG pour les ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCoalition d\u2019ONG pour les droits des femmes en Guin\u00e9e: WAFRICA Guin\u00e9e, Tostan, Korassy pour l\u2019autonomisation des femmes en Guin\u00e9e (KAFEG), Coalition nationale pour le droit et la citoyennet\u00e9 des femmes (CONAG DCF)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coalition d\u2019ONG pour les droits des femmes en Guin\u00e9e: WAFRICA Guin\u00e9e, Tostan, Korassy pour l\u2019autonomisation des femmes en Guin\u00e9e (KAFEG), Coalition nationale pour le droit et la citoyennet\u00e9 des femmes (CONAG DCF)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Alliance Guin\u00e9enne pour la promotion et la protection des droits \u00e9conomiques, sociaux et culturels (AGUIDESC)", "label": "Alliance Guin\u00e9enne pour l...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAlliance Guin\u00e9enne pour la promotion et la protection des droits \u00e9conomiques, sociaux et culturels (AGUIDESC)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Alliance Guin\u00e9enne pour la promotion et la protection des droits \u00e9conomiques, sociaux et culturels (AGUIDESC)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Centre Africain de formation et d\u2019information sur les droits humains et environnement (cafidhe)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "\u2013 Centre Africain de formation et d\u2019information sur les droits humains et Environnement. (cafidhe) \u2013 Centre de promotion des droits humains. (cpdh) \u2013 Alliance des M\u00e9dias pour les droits humains. (AMDH)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "ECPAT International et le Monde des Enfants", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "International Service for Human Rights (ISHR), Coordination des Organisations de d\u00e9fense des Droits Humains, (CODDH)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Organisation guin\u00e9enne de d\u00e9fense des droits de l\u2019homme et du citoyen (OGDH), Association des Victimes, Parents et Amis du 28 septembre 2009 (AVIPA)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "World Coalition Against the Death Penalty", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Coalition des ONGs sur les Droits de l\u2019enfant: Sabou Guin\u00e9e, Appui aux femmes sans Enfants et Enfants d\u00e9sh\u00e9rit\u00e9s (AFEED), Initiative des Femmes pour le D\u00e9veloppement Durable(IFDED), Association des Enfants et Jeunes Travailleurs de Guin\u00e9e (AEJTG), le Parlement des enfants de Guin\u00e9e (PEG), SOS Villages d\u2019Enfants, Enfance du globe, Aide \u00e0 la Famille Africaine (AFA), Appui aux Femmes et aux Enfants pour un D\u00e9veloppement Durable (AFEDD), Association d\u2019aide aux personnes en situation difficile (2APSD), Conseil Consultatif des Enfants et jeunes de Guin\u00e9e (CCEJG), Action Int\u00e9gr\u00e9e pour le D\u00e9veloppement des Enfants et des Femmes (AIDEF)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Coalition d\u2019ONG pour les droits des femmes en Guin\u00e9e: WAFRICA Guin\u00e9e, Tostan, Korassy pour l\u2019autonomisation des femmes en Guin\u00e9e (KAFEG), Coalition nationale pour le droit et la citoyennet\u00e9 des femmes (CONAG DCF)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Alliance Guin\u00e9enne pour la promotion et la protection des droits \u00e9conomiques, sociaux et culturels (AGUIDESC)", "title": "Member of JS8", "to": "JS8", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

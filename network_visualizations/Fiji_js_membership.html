@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "International Service for Human Rights (Geneva, Switzerland)", "label": "International Service for...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eInternational Service for Human Rights (Geneva, Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Service for Human Rights (Geneva, Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 37.27272727272727, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rainbow Pride Foundation (Suva, Fiji)", "label": "Rainbow Pride Foundation ...", "shape": "dot", "size": 15.454545454545453, "title": "\u003cb\u003eRainbow Pride Foundation (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rainbow Pride Foundation (Suva, Fiji)\u003cbr\u003eConnections: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fiji Women\u2019s Rights Movement (Suva, Fiji)", "label": "Fiji Women\u2019s Rights Movem...", "shape": "dot", "size": 15.454545454545453, "title": "\u003cb\u003eFiji Women\u2019s Rights Movement (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fiji Women\u2019s Rights Movement (Suva, Fiji)\u003cbr\u003eConnections: 3"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 11\u003cbr\u003eParticipants: 11"}, {"font": {"color": "black"}, "group": "Organization", "id": "Citizens Constitutional Forum (Suva, Fiji)", "label": "Citizens Constitutional F...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eCitizens Constitutional Forum (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Citizens Constitutional Forum (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fiji Women\u2019s Crisis Centre (Suva, Fiji)", "label": "Fiji Women\u2019s Crisis Centr...", "shape": "dot", "size": 13.636363636363637, "title": "\u003cb\u003eFiji Women\u2019s Crisis Centre (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fiji Women\u2019s Crisis Centre (Suva, Fiji)\u003cbr\u003eConnections: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Haus of Khameleon (Suva, Fiji)", "label": "Haus of Khameleon (Suva, ...", "shape": "dot", "size": 13.636363636363637, "title": "\u003cb\u003eHaus of Khameleon (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Haus of Khameleon (Suva, Fiji)\u003cbr\u003eConnections: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Youth Champs for Mental Health (Suva, Fiji)", "label": "Youth Champs for Mental H...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eYouth Champs for Mental Health (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Youth Champs for Mental Health (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Reproductive \u0026 Family Health Association of Fiji (Suva, Fiji)", "label": "Reproductive \u0026 Family Hea...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eReproductive \u0026 Family Health Association of Fiji (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Reproductive \u0026 Family Health Association of Fiji (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Interfaith Search Fiji (Suva, Fiji)", "label": "Interfaith Search Fiji (S...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eInterfaith Search Fiji (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Interfaith Search Fiji (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Medical Services Pacific (Suva, Fiji)", "label": "Medical Services Pacific ...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eMedical Services Pacific (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Medical Services Pacific (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Bua Urban Youth (Suva, Fiji)", "label": "Bua Urban Youth (Suva, Fi...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eBua Urban Youth (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Bua Urban Youth (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "National Union of Factory and Commercial Workers (Suva, Fiji)", "label": "National Union of Factory...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eNational Union of Factory and Commercial Workers (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: National Union of Factory and Commercial Workers (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CIVICUS: World Alliance for Citizen Participation (Johannesburg, South Africa)", "label": "CIVICUS: World Alliance f...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eCIVICUS: World Alliance for Citizen Participation (Johannesburg, South Africa)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CIVICUS: World Alliance for Citizen Participation (Johannesburg, South Africa)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 44.54545454545455, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 4\u003cbr\u003eParticipants: 4"}, {"font": {"color": "black"}, "group": "Organization", "id": "Pacific Islands Association of Non-Government Organisations (Suva, Fiji)", "label": "Pacific Islands Associati...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003ePacific Islands Association of Non-Government Organisations (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Pacific Islands Association of Non-Government Organisations (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Citizens\u2019 Constitutional Forum (Suva, Fiji)", "label": "Citizens\u2019 Constitutional ...", "shape": "dot", "size": 13.636363636363637, "title": "\u003cb\u003eCitizens\u2019 Constitutional Forum (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Citizens\u2019 Constitutional Forum (Suva, Fiji)\u003cbr\u003eConnections: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Save the Children Fiji (Suva, Fiji), ECPAT International (Bangkok, Thailand)", "label": "Save the Children Fiji (S...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eSave the Children Fiji (Suva, Fiji), ECPAT International (Bangkok, Thailand)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Save the Children Fiji (Suva, Fiji), ECPAT International (Bangkok, Thailand)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 33.63636363636364, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 11\u003cbr\u003eParticipants: 11"}, {"font": {"color": "black"}, "group": "Organization", "id": "Save the Children Fiji (Suva, Fiji)", "label": "Save the Children Fiji (S...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eSave the Children Fiji (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Save the Children Fiji (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ecumenical Centre for Research and Advocacy (Suva, Fiji), Social Empowerment and Education Programme (Suva, Fiji)", "label": "Ecumenical Centre for Res...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eEcumenical Centre for Research and Advocacy (Suva, Fiji), Social Empowerment and Education Programme (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ecumenical Centre for Research and Advocacy (Suva, Fiji), Social Empowerment and Education Programme (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fiji Disabled People\u2019s Federation (Suva, Fiji)", "label": "Fiji Disabled People\u2019s Fe...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eFiji Disabled People\u2019s Federation (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fiji Disabled People\u2019s Federation (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fiji Council of Social Services (Suva, Fiji)", "label": "Fiji Council of Social Se...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eFiji Council of Social Services (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fiji Council of Social Services (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Bua Urban Youth Network (Suva, Fiji)", "label": "Bua Urban Youth Network (...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eBua Urban Youth Network (Suva, Fiji)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Bua Urban Youth Network (Suva, Fiji)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Fiji Trades Union Congress (Suva, Fiji). For relevant recommendations see , paras. 99.1-99.16, 99.27-99.31, 100.1, 101.1-101.9, 101.13, and 101.15-101.29. HRADC, para. 52. JS4, p. 7. See also JS5, p. 12. JS2, para. 101. ICAN, p. 1. JS5, para. 1.13. JS3, para. 6.5. Ibid., para. 6.6. For relevant recommendations see , paras. 99.17-99.25, 100.2-100.3, 101.10-101.12, and 101.14. JS5, para. 1.17. Ibid., para. 1.37. HRADC, paras. 5 and 7. JS5, para. 1.14. HRADC, para. 51. JS1, p. 4. See also JS3, para. 3.2. Ibid., p. 4. For relevant recommendations see , paras. 99.49-99.51. HRADC, para. 53. JS5, para. 1.20. JS2, para. 65. See also JS5, p.7. JS1, p. 3. JS5, para. 1.38. For relevant recommendations see , para. 99.26. HRADC, paras. 55 and 56. See also JS2, paras. 96 and 100. JS5, para. 1.24 and p. 8. JS2, para. 97. JS5, p. 7. Ibid., para. 1.40. Ibid., para. 14. For relevant recommendations see , paras. 99.52-99.55, 99.57-99.58, and 100.5. JS5, para. 1.18. HRADC, Annex A, p. 2. Ibid., Annex A, p. 3. Ibid., Annex A, p. 3. JS3, para. 6.4. For relevant recommendations see , paras. 99.59-99.60, 99.56, 100.6-100.8, and 101.31. JS1, p. 3. Ibid., pp. 3 and 4. JS3, para. 6.2. JS2, paras. 12 and 13. Ibid., paras. 39-41. JS4, para. 21 and p. 7. Ibid., para. 19 and p. 7. See also JS5, para. 1.36 and p. 12. For relevant recommendations see , paras. 99.64-99.74, 100.10-100.12, and 101.33- 101.40. JS2, para. 7. See also JS3, para. 1.7. JS3, para. 4.7. JS2, para. 7. See also JS1, p. 2. JS3, para. 2.2. Ibid., p. 11. JS1, pp. 2 and 4. See also JS3, para. 6.2. JS3, para. 6.2. Ibid., paras. 4.3 and 6.3. See also JS5, para. 1.25. JS1, p. 2. See also JS3, para. 3.2. Ibid., p. 2. JS3, para. 4.5. JS5, p. 9. See also JS3, para. 6.3. JS3, para. 4.10. Ibid., para. 6.3. Ibid., para. 1.8. JS1, p. 3. Ibid., p. 3. See also JS3, para. 2.3. JS3, para. 6.4. See also JS5, paras. 1.28 and 1.29. Ibid., paras. 2.3 and 6.1. JS5, p.5. JS4, para. 24. For relevant recommendations see , paras. 99.61-99.63, 100.9, and 101.32. JS2, para. 75. Ibid., para. 79. JS3, paras. 2.6 and 6.1. JS5, para. 1.31 and p.11. Ibid., para. 1.32 and p. 11. JS2, para. 84. Ibid., para. 82. Ibid., para. 78. JS5, p. 13. JS4, p. 12. For relevant recommendations see , paras. 99.75-99.78. JS4, paras. 5 and 6. For relevant recommendations see , paras. 99.79-99.80. JS2, para. 48. Ibid., paras. 49 and 50. Ibid., para. 52. Ibid., para. 54. Ibid., para. 54. Ibid., paras. 56 and 57. JS5, p. 7. For relevant recommendations see , para. 99.81-99.84. JS4, para. 9. HRADC, para. 54. For relevant recommendations see , paras. 99.32-99.46, and 100.4. JS2, para. 8. JS5, p. 8. JS2, paras. 24 and 25. See also JS5, para. 1.22. Ibid., paras. 27 and 30. See also JS5, p.8. Ibid., paras. 22 and 32. JS5, p. 8. JS2, para. 70. GIEACPC, pp. 2 and 3. See also JS5, para. 1.34 and p. 12. 100 HRADC, para. 37. 101 JS4, para. 7. 102 Ibid., para. 15. 103 Ibid., paras. 8 and 9. 104 Ibid., para. 26 and p. 7. 105 Ibid., p. 7. 106 Ibid., p. 9. 107 Ibid., p. 9. 108 Ibid., para. 16. 109 For relevant recommendations see , paras. 99.85-99.86. 110 JS5, p. 13. 111 Ibid., para. 1.39. 112 For relevant recommendations see , para. 101.30. 113 JS5, para. 1.38 and p. 13. 12", "label": "Fiji Trades Union Congres...", "shape": "dot", "size": 11.818181818181818, "title": "\u003cb\u003eFiji Trades Union Congress (Suva, Fiji). For relevant recommendations see , paras. 99.1-99.16, 99.27-99.31, 100.1, 101.1-101.9, 101.13, and 101.15-101.29. HRADC, para. 52. JS4, p. 7. See also JS5, p. 12. JS2, para. 101. ICAN, p. 1. JS5, para. 1.13. JS3, para. 6.5. Ibid., para. 6.6. For relevant recommendations see , paras. 99.17-99.25, 100.2-100.3, 101.10-101.12, and 101.14. JS5, para. 1.17. Ibid., para. 1.37. HRADC, paras. 5 and 7. JS5, para. 1.14. HRADC, para. 51. JS1, p. 4. See also JS3, para. 3.2. Ibid., p. 4. For relevant recommendations see , paras. 99.49-99.51. HRADC, para. 53. JS5, para. 1.20. JS2, para. 65. See also JS5, p.7. JS1, p. 3. JS5, para. 1.38. For relevant recommendations see , para. 99.26. HRADC, paras. 55 and 56. See also JS2, paras. 96 and 100. JS5, para. 1.24 and p. 8. JS2, para. 97. JS5, p. 7. Ibid., para. 1.40. Ibid., para. 14. For relevant recommendations see , paras. 99.52-99.55, 99.57-99.58, and 100.5. JS5, para. 1.18. HRADC, Annex A, p. 2. Ibid., Annex A, p. 3. Ibid., Annex A, p. 3. JS3, para. 6.4. For relevant recommendations see , paras. 99.59-99.60, 99.56, 100.6-100.8, and 101.31. JS1, p. 3. Ibid., pp. 3 and 4. JS3, para. 6.2. JS2, paras. 12 and 13. Ibid., paras. 39-41. JS4, para. 21 and p. 7. Ibid., para. 19 and p. 7. See also JS5, para. 1.36 and p. 12. For relevant recommendations see , paras. 99.64-99.74, 100.10-100.12, and 101.33- 101.40. JS2, para. 7. See also JS3, para. 1.7. JS3, para. 4.7. JS2, para. 7. See also JS1, p. 2. JS3, para. 2.2. Ibid., p. 11. JS1, pp. 2 and 4. See also JS3, para. 6.2. JS3, para. 6.2. Ibid., paras. 4.3 and 6.3. See also JS5, para. 1.25. JS1, p. 2. See also JS3, para. 3.2. Ibid., p. 2. JS3, para. 4.5. JS5, p. 9. See also JS3, para. 6.3. JS3, para. 4.10. Ibid., para. 6.3. Ibid., para. 1.8. JS1, p. 3. Ibid., p. 3. See also JS3, para. 2.3. JS3, para. 6.4. See also JS5, paras. 1.28 and 1.29. Ibid., paras. 2.3 and 6.1. JS5, p.5. JS4, para. 24. For relevant recommendations see , paras. 99.61-99.63, 100.9, and 101.32. JS2, para. 75. Ibid., para. 79. JS3, paras. 2.6 and 6.1. JS5, para. 1.31 and p.11. Ibid., para. 1.32 and p. 11. JS2, para. 84. Ibid., para. 82. Ibid., para. 78. JS5, p. 13. JS4, p. 12. For relevant recommendations see , paras. 99.75-99.78. JS4, paras. 5 and 6. For relevant recommendations see , paras. 99.79-99.80. JS2, para. 48. Ibid., paras. 49 and 50. Ibid., para. 52. Ibid., para. 54. Ibid., para. 54. Ibid., paras. 56 and 57. JS5, p. 7. For relevant recommendations see , para. 99.81-99.84. JS4, para. 9. HRADC, para. 54. For relevant recommendations see , paras. 99.32-99.46, and 100.4. JS2, para. 8. JS5, p. 8. JS2, paras. 24 and 25. See also JS5, para. 1.22. Ibid., paras. 27 and 30. See also JS5, p.8. Ibid., paras. 22 and 32. JS5, p. 8. JS2, para. 70. GIEACPC, pp. 2 and 3. See also JS5, para. 1.34 and p. 12. 100 HRADC, para. 37. 101 JS4, para. 7. 102 Ibid., para. 15. 103 Ibid., paras. 8 and 9. 104 Ibid., para. 26 and p. 7. 105 Ibid., p. 7. 106 Ibid., p. 9. 107 Ibid., p. 9. 108 Ibid., para. 16. 109 For relevant recommendations see , paras. 99.85-99.86. 110 JS5, p. 13. 111 Ibid., para. 1.39. 112 For relevant recommendations see , para. 101.30. 113 JS5, para. 1.38 and p. 13. 12\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Fiji Trades Union Congress (Suva, Fiji). For relevant recommendations see , paras. 99.1-99.16, 99.27-99.31, 100.1, 101.1-101.9, 101.13, and 101.15-101.29. HRADC, para. 52. JS4, p. 7. See also JS5, p. 12. JS2, para. 101. ICAN, p. 1. JS5, para. 1.13. JS3, para. 6.5. Ibid., para. 6.6. For relevant recommendations see , paras. 99.17-99.25, 100.2-100.3, 101.10-101.12, and 101.14. JS5, para. 1.17. Ibid., para. 1.37. HRADC, paras. 5 and 7. JS5, para. 1.14. HRADC, para. 51. JS1, p. 4. See also JS3, para. 3.2. Ibid., p. 4. For relevant recommendations see , paras. 99.49-99.51. HRADC, para. 53. JS5, para. 1.20. JS2, para. 65. See also JS5, p.7. JS1, p. 3. JS5, para. 1.38. For relevant recommendations see , para. 99.26. HRADC, paras. 55 and 56. See also JS2, paras. 96 and 100. JS5, para. 1.24 and p. 8. JS2, para. 97. JS5, p. 7. Ibid., para. 1.40. Ibid., para. 14. For relevant recommendations see , paras. 99.52-99.55, 99.57-99.58, and 100.5. JS5, para. 1.18. HRADC, Annex A, p. 2. Ibid., Annex A, p. 3. Ibid., Annex A, p. 3. JS3, para. 6.4. For relevant recommendations see , paras. 99.59-99.60, 99.56, 100.6-100.8, and 101.31. JS1, p. 3. Ibid., pp. 3 and 4. JS3, para. 6.2. JS2, paras. 12 and 13. Ibid., paras. 39-41. JS4, para. 21 and p. 7. Ibid., para. 19 and p. 7. See also JS5, para. 1.36 and p. 12. For relevant recommendations see , paras. 99.64-99.74, 100.10-100.12, and 101.33- 101.40. JS2, para. 7. See also JS3, para. 1.7. JS3, para. 4.7. JS2, para. 7. See also JS1, p. 2. JS3, para. 2.2. Ibid., p. 11. JS1, pp. 2 and 4. See also JS3, para. 6.2. JS3, para. 6.2. Ibid., paras. 4.3 and 6.3. See also JS5, para. 1.25. JS1, p. 2. See also JS3, para. 3.2. Ibid., p. 2. JS3, para. 4.5. JS5, p. 9. See also JS3, para. 6.3. JS3, para. 4.10. Ibid., para. 6.3. Ibid., para. 1.8. JS1, p. 3. Ibid., p. 3. See also JS3, para. 2.3. JS3, para. 6.4. See also JS5, paras. 1.28 and 1.29. Ibid., paras. 2.3 and 6.1. JS5, p.5. JS4, para. 24. For relevant recommendations see , paras. 99.61-99.63, 100.9, and 101.32. JS2, para. 75. Ibid., para. 79. JS3, paras. 2.6 and 6.1. JS5, para. 1.31 and p.11. Ibid., para. 1.32 and p. 11. JS2, para. 84. Ibid., para. 82. Ibid., para. 78. JS5, p. 13. JS4, p. 12. For relevant recommendations see , paras. 99.75-99.78. JS4, paras. 5 and 6. For relevant recommendations see , paras. 99.79-99.80. JS2, para. 48. Ibid., paras. 49 and 50. Ibid., para. 52. Ibid., para. 54. Ibid., para. 54. Ibid., paras. 56 and 57. JS5, p. 7. For relevant recommendations see , para. 99.81-99.84. JS4, para. 9. HRADC, para. 54. For relevant recommendations see , paras. 99.32-99.46, and 100.4. JS2, para. 8. JS5, p. 8. JS2, paras. 24 and 25. See also JS5, para. 1.22. Ibid., paras. 27 and 30. See also JS5, p.8. Ibid., paras. 22 and 32. JS5, p. 8. JS2, para. 70. GIEACPC, pp. 2 and 3. See also JS5, para. 1.34 and p. 12. 100 HRADC, para. 37. 101 JS4, para. 7. 102 Ibid., para. 15. 103 Ibid., paras. 8 and 9. 104 Ibid., para. 26 and p. 7. 105 Ibid., p. 7. 106 Ibid., p. 9. 107 Ibid., p. 9. 108 Ibid., para. 16. 109 For relevant recommendations see , paras. 99.85-99.86. 110 JS5, p. 13. 111 Ibid., para. 1.39. 112 For relevant recommendations see , para. 101.30. 113 JS5, para. 1.38 and p. 13. 12\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "International Service for Human Rights (Geneva, Switzerland)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Rainbow Pride Foundation (Suva, Fiji)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Fiji Women\u2019s Rights Movement (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Citizens Constitutional Forum (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Fiji Women\u2019s Crisis Centre (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Haus of Khameleon (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Rainbow Pride Foundation (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Youth Champs for Mental Health (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Reproductive \u0026 Family Health Association of Fiji (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Interfaith Search Fiji (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Medical Services Pacific (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Bua Urban Youth (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "National Union of Factory and Commercial Workers (Suva, Fiji)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "CIVICUS: World Alliance for Citizen Participation (Johannesburg, South Africa)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Pacific Islands Association of Non-Government Organisations (Suva, Fiji)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Fiji Women\u2019s Rights Movement (Suva, Fiji)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Citizens\u2019 Constitutional Forum (Suva, Fiji)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Save the Children Fiji (Suva, Fiji), ECPAT International (Bangkok, Thailand)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Citizens\u2019 Constitutional Forum (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Fiji Women\u2019s Rights Movement (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Fiji Women\u2019s Crisis Centre (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Save the Children Fiji (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Ecumenical Centre for Research and Advocacy (Suva, Fiji), Social Empowerment and Education Programme (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Fiji Disabled People\u2019s Federation (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Fiji Council of Social Services (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Haus of Khameleon (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Rainbow Pride Foundation (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Bua Urban Youth Network (Suva, Fiji)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Fiji Trades Union Congress (Suva, Fiji). For relevant recommendations see , paras. 99.1-99.16, 99.27-99.31, 100.1, 101.1-101.9, 101.13, and 101.15-101.29. HRADC, para. 52. JS4, p. 7. See also JS5, p. 12. JS2, para. 101. ICAN, p. 1. JS5, para. 1.13. JS3, para. 6.5. Ibid., para. 6.6. For relevant recommendations see , paras. 99.17-99.25, 100.2-100.3, 101.10-101.12, and 101.14. JS5, para. 1.17. Ibid., para. 1.37. HRADC, paras. 5 and 7. JS5, para. 1.14. HRADC, para. 51. JS1, p. 4. See also JS3, para. 3.2. Ibid., p. 4. For relevant recommendations see , paras. 99.49-99.51. HRADC, para. 53. JS5, para. 1.20. JS2, para. 65. See also JS5, p.7. JS1, p. 3. JS5, para. 1.38. For relevant recommendations see , para. 99.26. HRADC, paras. 55 and 56. See also JS2, paras. 96 and 100. JS5, para. 1.24 and p. 8. JS2, para. 97. JS5, p. 7. Ibid., para. 1.40. Ibid., para. 14. For relevant recommendations see , paras. 99.52-99.55, 99.57-99.58, and 100.5. JS5, para. 1.18. HRADC, Annex A, p. 2. Ibid., Annex A, p. 3. Ibid., Annex A, p. 3. JS3, para. 6.4. For relevant recommendations see , paras. 99.59-99.60, 99.56, 100.6-100.8, and 101.31. JS1, p. 3. Ibid., pp. 3 and 4. JS3, para. 6.2. JS2, paras. 12 and 13. Ibid., paras. 39-41. JS4, para. 21 and p. 7. Ibid., para. 19 and p. 7. See also JS5, para. 1.36 and p. 12. For relevant recommendations see , paras. 99.64-99.74, 100.10-100.12, and 101.33- 101.40. JS2, para. 7. See also JS3, para. 1.7. JS3, para. 4.7. JS2, para. 7. See also JS1, p. 2. JS3, para. 2.2. Ibid., p. 11. JS1, pp. 2 and 4. See also JS3, para. 6.2. JS3, para. 6.2. Ibid., paras. 4.3 and 6.3. See also JS5, para. 1.25. JS1, p. 2. See also JS3, para. 3.2. Ibid., p. 2. JS3, para. 4.5. JS5, p. 9. See also JS3, para. 6.3. JS3, para. 4.10. Ibid., para. 6.3. Ibid., para. 1.8. JS1, p. 3. Ibid., p. 3. See also JS3, para. 2.3. JS3, para. 6.4. See also JS5, paras. 1.28 and 1.29. Ibid., paras. 2.3 and 6.1. JS5, p.5. JS4, para. 24. For relevant recommendations see , paras. 99.61-99.63, 100.9, and 101.32. JS2, para. 75. Ibid., para. 79. JS3, paras. 2.6 and 6.1. JS5, para. 1.31 and p.11. Ibid., para. 1.32 and p. 11. JS2, para. 84. Ibid., para. 82. Ibid., para. 78. JS5, p. 13. JS4, p. 12. For relevant recommendations see , paras. 99.75-99.78. JS4, paras. 5 and 6. For relevant recommendations see , paras. 99.79-99.80. JS2, para. 48. Ibid., paras. 49 and 50. Ibid., para. 52. Ibid., para. 54. Ibid., para. 54. Ibid., paras. 56 and 57. JS5, p. 7. For relevant recommendations see , para. 99.81-99.84. JS4, para. 9. HRADC, para. 54. For relevant recommendations see , paras. 99.32-99.46, and 100.4. JS2, para. 8. JS5, p. 8. JS2, paras. 24 and 25. See also JS5, para. 1.22. Ibid., paras. 27 and 30. See also JS5, p.8. Ibid., paras. 22 and 32. JS5, p. 8. JS2, para. 70. GIEACPC, pp. 2 and 3. See also JS5, para. 1.34 and p. 12. 100 HRADC, para. 37. 101 JS4, para. 7. 102 Ibid., para. 15. 103 Ibid., paras. 8 and 9. 104 Ibid., para. 26 and p. 7. 105 Ibid., p. 7. 106 Ibid., p. 9. 107 Ibid., p. 9. 108 Ibid., para. 16. 109 For relevant recommendations see , paras. 99.85-99.86. 110 JS5, p. 13. 111 Ibid., para. 1.39. 112 For relevant recommendations see , para. 101.30. 113 JS5, para. 1.38 and p. 13. 12", "title": "Member of JS5", "to": "JS5", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

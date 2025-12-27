@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Anti-Slavery International ANTD (Association Nig\u00e9rienne pour le Traitement de la D\u00e9linquance et la pr\u00e9vention du crime) Timidria, London, United Kingdom of Great Britain and Northern Ireland", "label": "Anti-Slavery Internationa...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eAnti-Slavery International ANTD (Association Nig\u00e9rienne pour le Traitement de la D\u00e9linquance et la pr\u00e9vention du crime) Timidria, London, United Kingdom of Great Britain and Northern Ireland\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Anti-Slavery International ANTD (Association Nig\u00e9rienne pour le Traitement de la D\u00e9linquance et la pr\u00e9vention du crime) Timidria, London, United Kingdom of Great Britain and Northern Ireland\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (West African Human Rights Defenders Network), Johannesburg, South Africa", "label": "R\u00e9seau Ouest Africain des...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eR\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (West African Human Rights Defenders Network), Johannesburg, South Africa\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (West African Human Rights Defenders Network), Johannesburg, South Africa\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ACAT Niger Coalition mondiale contre la peine de mort Coalition nig\u00e9rienne contre la peine de mort SYNAFEN REPRODEVH-Niger, Paris, France", "label": "ACAT Niger Coalition mond...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eACAT Niger Coalition mondiale contre la peine de mort Coalition nig\u00e9rienne contre la peine de mort SYNAFEN REPRODEVH-Niger, Paris, France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ACAT Niger Coalition mondiale contre la peine de mort Coalition nig\u00e9rienne contre la peine de mort SYNAFEN REPRODEVH-Niger, Paris, France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association des femmes juristes du Niger (AFJN)", "label": "Association des femmes ju...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eAssociation des femmes juristes du Niger (AFJN)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association des femmes juristes du Niger (AFJN)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 5\u003cbr\u003eParticipants: 5"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association pour la Redynamisation de l\u2019\u00c9levage au Niger (AREN)", "label": "Association pour la Redyn...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eAssociation pour la Redynamisation de l\u2019\u00c9levage au Niger (AREN)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association pour la Redynamisation de l\u2019\u00c9levage au Niger (AREN)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Forum des Acteurs de la Promotion et la D\u00e9fense des Droits \u00c9conomiques, Sociaux et Culturels au Niger (FODA-DESC)", "label": "Forum des Acteurs de la P...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eForum des Acteurs de la Promotion et la D\u00e9fense des Droits \u00c9conomiques, Sociaux et Culturels au Niger (FODA-DESC)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Forum des Acteurs de la Promotion et la D\u00e9fense des Droits \u00c9conomiques, Sociaux et Culturels au Niger (FODA-DESC)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Syndicat National des Agents de la Formation et de l\u2019\u00c9ducation du Niger (SYNAFEN)", "label": "Syndicat National des Age...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eSyndicat National des Agents de la Formation et de l\u2019\u00c9ducation du Niger (SYNAFEN)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Syndicat National des Agents de la Formation et de l\u2019\u00c9ducation du Niger (SYNAFEN)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "R\u00e9seau Progr\u00e8s Et D\u00e9veloppement Humanitaire du Niger (REPRODEVH Niger), Paris, France", "label": "R\u00e9seau Progr\u00e8s Et D\u00e9velop...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eR\u00e9seau Progr\u00e8s Et D\u00e9veloppement Humanitaire du Niger (REPRODEVH Niger), Paris, France\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: R\u00e9seau Progr\u00e8s Et D\u00e9veloppement Humanitaire du Niger (REPRODEVH Niger), Paris, France\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "le Collectif des Organisations de D\u00e9fense des Droits de l\u2019Homme et de la D\u00e9mocratie (CODDHD), le R\u00e9seau des Organisations pour la Transparence et l\u2019Analyse Budg\u00e9taire (ROTAB) et Tournons La Page Niger, Gen\u00e8ve, Suisse", "label": "le Collectif des Organisa...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003ele Collectif des Organisations de D\u00e9fense des Droits de l\u2019Homme et de la D\u00e9mocratie (CODDHD), le R\u00e9seau des Organisations pour la Transparence et l\u2019Analyse Budg\u00e9taire (ROTAB) et Tournons La Page Niger, Gen\u00e8ve, Suisse\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: le Collectif des Organisations de D\u00e9fense des Droits de l\u2019Homme et de la D\u00e9mocratie (CODDHD), le R\u00e9seau des Organisations pour la Transparence et l\u2019Analyse Budg\u00e9taire (ROTAB) et Tournons La Page Niger, Gen\u00e8ve, Suisse\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Centre d\u2019Education aux Droits de l\u2019Homme et des Peuples (CEDHOP) et R\u00e9seau International des Droits Humains (RIDH), Gen\u00e8ve, Suisse", "label": "Centre d\u2019Education aux Dr...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eCentre d\u2019Education aux Droits de l\u2019Homme et des Peuples (CEDHOP) et R\u00e9seau International des Droits Humains (RIDH), Gen\u00e8ve, Suisse\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Centre d\u2019Education aux Droits de l\u2019Homme et des Peuples (CEDHOP) et R\u00e9seau International des Droits Humains (RIDH), Gen\u00e8ve, Suisse\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Collectif des Organisations de Defense des Droits de l\u2019Homme et de la Democratie/Resau Nigerien des Defenseurs des Droits Humains. le CROISADE, CO-GNA, ODLH, RDDH, Niamey, Niger", "label": "Collectif des Organisatio...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eCollectif des Organisations de Defense des Droits de l\u2019Homme et de la Democratie/Resau Nigerien des Defenseurs des Droits Humains. le CROISADE, CO-GNA, ODLH, RDDH, Niamey, Niger\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Collectif des Organisations de Defense des Droits de l\u2019Homme et de la Democratie/Resau Nigerien des Defenseurs des Droits Humains. le CROISADE, CO-GNA, ODLH, RDDH, Niamey, Niger\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "WILPF Niger ONG Femmes, Actions et D\u00e9veloppement", "label": "WILPF Niger ONG Femmes, A...", "shape": "dot", "size": 14.0, "title": "\u003cb\u003eWILPF Niger ONG Femmes, Actions et D\u00e9veloppement\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: WILPF Niger ONG Femmes, Actions et D\u00e9veloppement\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 38.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Anti-Slavery International ANTD (Association Nig\u00e9rienne pour le Traitement de la D\u00e9linquance et la pr\u00e9vention du crime) Timidria, London, United Kingdom of Great Britain and Northern Ireland", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "R\u00e9seau Ouest Africain des D\u00e9fenseurs des Droits Humains (West African Human Rights Defenders Network), Johannesburg, South Africa", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "ACAT Niger Coalition mondiale contre la peine de mort Coalition nig\u00e9rienne contre la peine de mort SYNAFEN REPRODEVH-Niger, Paris, France", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Association des femmes juristes du Niger (AFJN)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Association pour la Redynamisation de l\u2019\u00c9levage au Niger (AREN)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Forum des Acteurs de la Promotion et la D\u00e9fense des Droits \u00c9conomiques, Sociaux et Culturels au Niger (FODA-DESC)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Syndicat National des Agents de la Formation et de l\u2019\u00c9ducation du Niger (SYNAFEN)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "R\u00e9seau Progr\u00e8s Et D\u00e9veloppement Humanitaire du Niger (REPRODEVH Niger), Paris, France", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "le Collectif des Organisations de D\u00e9fense des Droits de l\u2019Homme et de la D\u00e9mocratie (CODDHD), le R\u00e9seau des Organisations pour la Transparence et l\u2019Analyse Budg\u00e9taire (ROTAB) et Tournons La Page Niger, Gen\u00e8ve, Suisse", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Centre d\u2019Education aux Droits de l\u2019Homme et des Peuples (CEDHOP) et R\u00e9seau International des Droits Humains (RIDH), Gen\u00e8ve, Suisse", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Collectif des Organisations de Defense des Droits de l\u2019Homme et de la Democratie/Resau Nigerien des Defenseurs des Droits Humains. le CROISADE, CO-GNA, ODLH, RDDH, Niamey, Niger", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "WILPF Niger ONG Femmes, Actions et D\u00e9veloppement", "title": "Member of JS8", "to": "JS8", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

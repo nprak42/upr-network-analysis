@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Netherlands Helsinki Committee, Hague (Netherlands) and Public Association Kadyr Kasiet, Nur-Sultan (Kazakhstan)", "label": "Netherlands Helsinki Comm...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eNetherlands Helsinki Committee, Hague (Netherlands) and Public Association Kadyr Kasiet, Nur-Sultan (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Netherlands Helsinki Committee, Hague (Netherlands) and Public Association Kadyr Kasiet, Nur-Sultan (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Tandau Foundation, Pavlodar (Kazakhstan), Kazakhstan Union of People Living with HIV, Almaty (Kazakhstan), Informational", "label": "Tandau Foundation, Pavlod...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eTandau Foundation, Pavlodar (Kazakhstan), Kazakhstan Union of People Living with HIV, Almaty (Kazakhstan), Informational\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Tandau Foundation, Pavlodar (Kazakhstan), Kazakhstan Union of People Living with HIV, Almaty (Kazakhstan), Informational\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 56.666666666666664, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 4\u003cbr\u003eParticipants: 4"}, {"font": {"color": "black"}, "group": "Organization", "id": "Consultative Centre \u00ab\u0414\u04d9\u0440\u0456\u0441\u00bb, Aktobe (Kazakhstan), Kostanay branch of Kazakhstan International Bureau on Human Rights", "label": "Consultative Centre \u00ab\u0414\u04d9\u0440\u0456...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eConsultative Centre \u00ab\u0414\u04d9\u0440\u0456\u0441\u00bb, Aktobe (Kazakhstan), Kostanay branch of Kazakhstan International Bureau on Human Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Consultative Centre \u00ab\u0414\u04d9\u0440\u0456\u0441\u00bb, Aktobe (Kazakhstan), Kostanay branch of Kazakhstan International Bureau on Human Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rule of Law, Kostanay (Kazakhstan), \u0410\u0420\u0414\u0410 public foundation, Aktobe (Kazakhstan), EcoSem public foundation (Kazakhstan), Law Media Centre, Nur-Sultan (Kazakhstan), Commission on the Rights of People with Disabilities (Kazakhstan), Youth Information Service NGO, Petropavlovsk (Kazakhstan), Psychoanalysts Association, Almaty (Kazakhstan), NGO ALMA TQ Initiative Group, Almaty (Kazakhstan), Feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Development of Parliamentarism Foundation, Nur-Sultan, (Kazakhstan), \u0415\u0440\u043a\u0456\u043d\u0434\u0456\u043a \u049a\u0430\u043d\u0430\u0442\u044b public Foundation, Nur-Sultan (Kazakhstan) as well as individual researchers", "label": "Rule of Law, Kostanay (Ka...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eRule of Law, Kostanay (Kazakhstan), \u0410\u0420\u0414\u0410 public foundation, Aktobe (Kazakhstan), EcoSem public foundation (Kazakhstan), Law Media Centre, Nur-Sultan (Kazakhstan), Commission on the Rights of People with Disabilities (Kazakhstan), Youth Information Service NGO, Petropavlovsk (Kazakhstan), Psychoanalysts Association, Almaty (Kazakhstan), NGO ALMA TQ Initiative Group, Almaty (Kazakhstan), Feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Development of Parliamentarism Foundation, Nur-Sultan, (Kazakhstan), \u0415\u0440\u043a\u0456\u043d\u0434\u0456\u043a \u049a\u0430\u043d\u0430\u0442\u044b public Foundation, Nur-Sultan (Kazakhstan) as well as individual researchers\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rule of Law, Kostanay (Kazakhstan), \u0410\u0420\u0414\u0410 public foundation, Aktobe (Kazakhstan), EcoSem public foundation (Kazakhstan), Law Media Centre, Nur-Sultan (Kazakhstan), Commission on the Rights of People with Disabilities (Kazakhstan), Youth Information Service NGO, Petropavlovsk (Kazakhstan), Psychoanalysts Association, Almaty (Kazakhstan), NGO ALMA TQ Initiative Group, Almaty (Kazakhstan), Feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Development of Parliamentarism Foundation, Nur-Sultan, (Kazakhstan), \u0415\u0440\u043a\u0456\u043d\u0434\u0456\u043a \u049a\u0430\u043d\u0430\u0442\u044b public Foundation, Nur-Sultan (Kazakhstan) as well as individual researchers\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "activists in the human rights field", "label": "activists in the human ri...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eactivists in the human rights field\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: activists in the human rights field\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Equality Now, London (United Kingdom), the Public Movement Against Violence #NeMolchi.Kz (Kazakhstan) and the Feminist League of Kazakhstan (Kazakhstan)", "label": "Equality Now, London (Uni...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eEquality Now, London (United Kingdom), the Public Movement Against Violence #NeMolchi.Kz (Kazakhstan) and the Feminist League of Kazakhstan (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Equality Now, London (United Kingdom), the Public Movement Against Violence #NeMolchi.Kz (Kazakhstan) and the Feminist League of Kazakhstan (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Kazakhstan Feminist Initiative \"Feminita\", Almaty (Kazakhstan)", "label": "Kazakhstan Feminist Initi...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eKazakhstan Feminist Initiative \"Feminita\", Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Kazakhstan Feminist Initiative \"Feminita\", Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Initiative Group AlmaTQ, Almaty (Kazakhstan)", "label": "Initiative Group AlmaTQ, ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eInitiative Group AlmaTQ, Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Initiative Group AlmaTQ, Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Open Dialogue Foundation, Warsaw (Poland), Italian Federation for Human Rights, Rome (Italy), Kharkiv Institute for Social Research, Kharkiv (Ukraine)", "label": "Open Dialogue Foundation,...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eOpen Dialogue Foundation, Warsaw (Poland), Italian Federation for Human Rights, Rome (Italy), Kharkiv Institute for Social Research, Kharkiv (Ukraine)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Open Dialogue Foundation, Warsaw (Poland), Italian Federation for Human Rights, Rome (Italy), Kharkiv Institute for Social Research, Kharkiv (Ukraine)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "The Legal Center for Women\u0027s Initiatives \u201cSana Sezim\u201d, Shymkent (Kazakhstan) and Sexual Rights Initiative, Geneva (Switzerland)", "label": "The Legal Center for Wome...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eThe Legal Center for Women\u0027s Initiatives \u201cSana Sezim\u201d, Shymkent (Kazakhstan) and Sexual Rights Initiative, Geneva (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Legal Center for Women\u0027s Initiatives \u201cSana Sezim\u201d, Shymkent (Kazakhstan) and Sexual Rights Initiative, Geneva (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan)", "label": "Kazakhstan International ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eKazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 43.33333333333333, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "International Legal Initiative, Almaty (Kazakhstan), \u201cKadir- kasiet\u201d, Nur-Sultan (Kazakhstan), Development of Parliamentarism Foundation (Kazakhstan), Taldykorgan Human Rights Center (Kazakhstan), Liberty Foundation, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland)", "label": "International Legal Initi...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eInternational Legal Initiative, Almaty (Kazakhstan), \u201cKadir- kasiet\u201d, Nur-Sultan (Kazakhstan), Development of Parliamentarism Foundation (Kazakhstan), Taldykorgan Human Rights Center (Kazakhstan), Liberty Foundation, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Legal Initiative, Almaty (Kazakhstan), \u201cKadir- kasiet\u201d, Nur-Sultan (Kazakhstan), Development of Parliamentarism Foundation (Kazakhstan), Taldykorgan Human Rights Center (Kazakhstan), Liberty Foundation, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan), \u201cKadir-kasiet\u201d, Nur-Sultan (Kazakhstan)", "label": "Kazakhstan International ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eKazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan), \u201cKadir-kasiet\u201d, Nur-Sultan (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan), \u201cKadir-kasiet\u201d, Nur-Sultan (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 6\u003cbr\u003eParticipants: 6"}, {"font": {"color": "black"}, "group": "Organization", "id": "\u201cAman Saulyk\u201d, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Freedom of Speech International Foundation \u201cAdil Soz\u201d, Almaty (Kazakhstan)", "label": "\u201cAman Saulyk\u201d, Almaty (Ka...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003e\u201cAman Saulyk\u201d, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Freedom of Speech International Foundation \u201cAdil Soz\u201d, Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: \u201cAman Saulyk\u201d, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Freedom of Speech International Foundation \u201cAdil Soz\u201d, Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association of Religious Organisations of Kazakhstan (AROK) (Kazakhstan)", "label": "Association of Religious ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eAssociation of Religious Organisations of Kazakhstan (AROK) (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association of Religious Organisations of Kazakhstan (AROK) (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "\u201cAr.Rukh.Khak. Foundation, Almaty (Kazakhstan)", "label": "\u201cAr.Rukh.Khak. Foundation...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003e\u201cAr.Rukh.Khak. Foundation, Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: \u201cAr.Rukh.Khak. Foundation, Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Agency for Legal Information and Journalistic Investigation \u201cVityaz\u201d (Kazakhstan)", "label": "Agency for Legal Informat...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eAgency for Legal Information and Journalistic Investigation \u201cVityaz\u201d (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Agency for Legal Information and Journalistic Investigation \u201cVityaz\u201d (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "International Center for Journalism MediaNet, Almaty (Kazakhstan)", "label": "International Center for ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eInternational Center for Journalism MediaNet, Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Center for Journalism MediaNet, Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Article 19, London (United Kingdom) and Adil Soz, Almaty (Kazakhstan)", "label": "Article 19, London (Unite...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eArticle 19, London (United Kingdom) and Adil Soz, Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Article 19, London (United Kingdom) and Adil Soz, Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Legal Policy Research Centre (Kazakhstan), Union of Crisis Centers of Kazakhstan, Almaty (Kazakhstan), Physicians without Drugs Foundation (Kazakhstan), Echo Foundation, Almaty (Kazakhstan)", "label": "Kazakhstan International ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eKazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Legal Policy Research Centre (Kazakhstan), Union of Crisis Centers of Kazakhstan, Almaty (Kazakhstan), Physicians without Drugs Foundation (Kazakhstan), Echo Foundation, Almaty (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Legal Policy Research Centre (Kazakhstan), Union of Crisis Centers of Kazakhstan, Almaty (Kazakhstan), Physicians without Drugs Foundation (Kazakhstan), Echo Foundation, Almaty (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 36.666666666666664, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Development of Parliamentarism in Kazakhstan Foundation, Nur-Sultan (Kazakhstan)", "label": "Kazakhstan International ...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eKazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Development of Parliamentarism in Kazakhstan Foundation, Nur-Sultan (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Development of Parliamentarism in Kazakhstan Foundation, Nur-Sultan (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 63.333333333333336, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 5\u003cbr\u003eParticipants: 5"}, {"font": {"color": "black"}, "group": "Organization", "id": "Feminist League (Kazakhstan)", "label": "Feminist League (Kazakhst...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eFeminist League (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Feminist League (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Kazakhstan\u2019s feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Commission on the Rights of Persons with Disabilities named after Kairat Imanaliyev (Kazakhstan)", "label": "Kazakhstan\u2019s feminist ini...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eKazakhstan\u2019s feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Commission on the Rights of Persons with Disabilities named after Kairat Imanaliyev (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Kazakhstan\u2019s feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Commission on the Rights of Persons with Disabilities named after Kairat Imanaliyev (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Children\u0027s Fund \u2013 Kazakhstan, Almaty (Kazakhstan), CCPR- Centre, Geneva (Switzerland), \"Sana Sezym\" Legal Centre for Women\u2019s initiative, Shymkent (Kazakhstan), Taldykorgan Regional Center for Support of Women, Taldykorgan (Kazakhstan)", "label": "Children\u0027s Fund \u2013 Kazakhs...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eChildren\u0027s Fund \u2013 Kazakhstan, Almaty (Kazakhstan), CCPR- Centre, Geneva (Switzerland), \"Sana Sezym\" Legal Centre for Women\u2019s initiative, Shymkent (Kazakhstan), Taldykorgan Regional Center for Support of Women, Taldykorgan (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Children\u0027s Fund \u2013 Kazakhstan, Almaty (Kazakhstan), CCPR- Centre, Geneva (Switzerland), \"Sana Sezym\" Legal Centre for Women\u2019s initiative, Shymkent (Kazakhstan), Taldykorgan Regional Center for Support of Women, Taldykorgan (Kazakhstan)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Women Support Center Foundation (Kazakhstan)", "label": "Women Support Center Foun...", "shape": "dot", "size": 13.333333333333332, "title": "\u003cb\u003eWomen Support Center Foundation (Kazakhstan)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Women Support Center Foundation (Kazakhstan)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Netherlands Helsinki Committee, Hague (Netherlands) and Public Association Kadyr Kasiet, Nur-Sultan (Kazakhstan)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Tandau Foundation, Pavlodar (Kazakhstan), Kazakhstan Union of People Living with HIV, Almaty (Kazakhstan), Informational", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Consultative Centre \u00ab\u0414\u04d9\u0440\u0456\u0441\u00bb, Aktobe (Kazakhstan), Kostanay branch of Kazakhstan International Bureau on Human Rights", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Rule of Law, Kostanay (Kazakhstan), \u0410\u0420\u0414\u0410 public foundation, Aktobe (Kazakhstan), EcoSem public foundation (Kazakhstan), Law Media Centre, Nur-Sultan (Kazakhstan), Commission on the Rights of People with Disabilities (Kazakhstan), Youth Information Service NGO, Petropavlovsk (Kazakhstan), Psychoanalysts Association, Almaty (Kazakhstan), NGO ALMA TQ Initiative Group, Almaty (Kazakhstan), Feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Development of Parliamentarism Foundation, Nur-Sultan, (Kazakhstan), \u0415\u0440\u043a\u0456\u043d\u0434\u0456\u043a \u049a\u0430\u043d\u0430\u0442\u044b public Foundation, Nur-Sultan (Kazakhstan) as well as individual researchers", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "activists in the human rights field", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Equality Now, London (United Kingdom), the Public Movement Against Violence #NeMolchi.Kz (Kazakhstan) and the Feminist League of Kazakhstan (Kazakhstan)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Kazakhstan Feminist Initiative \"Feminita\", Almaty (Kazakhstan)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Initiative Group AlmaTQ, Almaty (Kazakhstan)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Open Dialogue Foundation, Warsaw (Poland), Italian Federation for Human Rights, Rome (Italy), Kharkiv Institute for Social Research, Kharkiv (Ukraine)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "The Legal Center for Women\u0027s Initiatives \u201cSana Sezim\u201d, Shymkent (Kazakhstan) and Sexual Rights Initiative, Geneva (Switzerland)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "International Legal Initiative, Almaty (Kazakhstan), \u201cKadir- kasiet\u201d, Nur-Sultan (Kazakhstan), Development of Parliamentarism Foundation (Kazakhstan), Taldykorgan Human Rights Center (Kazakhstan), Liberty Foundation, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Legal Policy Research Centre (Kazakhstan), \u201cKadir-kasiet\u201d, Nur-Sultan (Kazakhstan)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "\u201cAman Saulyk\u201d, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Freedom of Speech International Foundation \u201cAdil Soz\u201d, Almaty (Kazakhstan)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Association of Religious Organisations of Kazakhstan (AROK) (Kazakhstan)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "\u201cAr.Rukh.Khak. Foundation, Almaty (Kazakhstan)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Agency for Legal Information and Journalistic Investigation \u201cVityaz\u201d (Kazakhstan)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "International Center for Journalism MediaNet, Almaty (Kazakhstan)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Article 19, London (United Kingdom) and Adil Soz, Almaty (Kazakhstan)", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Charter for Human Rights, Almaty (Kazakhstan), CCPR-Centre, Geneva (Switzerland), Legal Policy Research Centre (Kazakhstan), Union of Crisis Centers of Kazakhstan, Almaty (Kazakhstan), Physicians without Drugs Foundation (Kazakhstan), Echo Foundation, Almaty (Kazakhstan)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Kazakhstan International Bureau for Human Rights and Rule of Law, Almaty (Kazakhstan), Development of Parliamentarism in Kazakhstan Foundation, Nur-Sultan (Kazakhstan)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Feminist League (Kazakhstan)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Kazakhstan\u2019s feminist initiative \u201cFeminita\u201d, Almaty (Kazakhstan), Commission on the Rights of Persons with Disabilities named after Kairat Imanaliyev (Kazakhstan)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Children\u0027s Fund \u2013 Kazakhstan, Almaty (Kazakhstan), CCPR- Centre, Geneva (Switzerland), \"Sana Sezym\" Legal Centre for Women\u2019s initiative, Shymkent (Kazakhstan), Taldykorgan Regional Center for Support of Women, Taldykorgan (Kazakhstan)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "Women Support Center Foundation (Kazakhstan)", "title": "Member of JS11", "to": "JS11", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

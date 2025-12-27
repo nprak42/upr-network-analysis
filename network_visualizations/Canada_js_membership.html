@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Organization for Defending Victims of Violence and Pouya Institute for Communications and Social Development, Tehran (Iran (Islamic Republic of))", "label": "Organization for Defendin...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eOrganization for Defending Victims of Violence and Pouya Institute for Communications and Social Development, Tehran (Iran (Islamic Republic of))\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Organization for Defending Victims of Violence and Pouya Institute for Communications and Social Development, Tehran (Iran (Islamic Republic of))\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Franciscans International and Service intercommunautaire d\u2019animation franciscaine Geneva (Switzerland)", "label": "Franciscans International...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eFranciscans International and Service intercommunautaire d\u2019animation franciscaine Geneva (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Franciscans International and Service intercommunautaire d\u2019animation franciscaine Geneva (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Canadian Alliance for Sex Work Law Reform and Sexual Rights Initiative, Ottawa (Canada)", "label": "Canadian Alliance for Sex...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCanadian Alliance for Sex Work Law Reform and Sexual Rights Initiative, Ottawa (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Canadian Alliance for Sex Work Law Reform and Sexual Rights Initiative, Ottawa (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Comit\u00e9 d\u2019action contre la traite humaine interne et internationale and Franciscans International, Montr\u00e9al (Canada)", "label": "Comit\u00e9 d\u2019action contre la...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eComit\u00e9 d\u2019action contre la traite humaine interne et internationale and Franciscans International, Montr\u00e9al (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Comit\u00e9 d\u2019action contre la traite humaine interne et internationale and Franciscans International, Montr\u00e9al (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Congregation of the Sisters of Saint Anne and UNANIMA International, Lachine (Canada)", "label": "Congregation of the Siste...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eCongregation of the Sisters of Saint Anne and UNANIMA International, Lachine (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Congregation of the Sisters of Saint Anne and UNANIMA International, Lachine (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture and ACAT Canada, Paris (France)", "label": "F\u00e9deration Internationale...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eF\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture and ACAT Canada, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture and ACAT Canada, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Action Canada for Sexual Health and Rights, and Sexual Rights Initiative, Ottawa (Canada)", "label": "Action Canada for Sexual ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eAction Canada for Sexual Health and Rights, and Sexual Rights Initiative, Ottawa (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Action Canada for Sexual Health and Rights, and Sexual Rights Initiative, Ottawa (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Institute on Statelessness and Inclusion and the Canadian Centre on Statelessness, Eindhoven (Netherlands)", "label": "Institute on Statelessnes...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eInstitute on Statelessness and Inclusion and the Canadian Centre on Statelessness, Eindhoven (Netherlands)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion and the Canadian Centre on Statelessness, Eindhoven (Netherlands)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "PEN Canada, Centre for Free Expression, Canadian Journalists for Free Expression, Reporters without Borders, Toronto (Canada)", "label": "PEN Canada, Centre for Fr...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003ePEN Canada, Centre for Free Expression, Canadian Journalists for Free Expression, Reporters without Borders, Toronto (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: PEN Canada, Centre for Free Expression, Canadian Journalists for Free Expression, Reporters without Borders, Toronto (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "World Evangelical Alliance and Evangelical Fellowship of Canada, Geneva (Switzerland)", "label": "World Evangelical Allianc...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eWorld Evangelical Alliance and Evangelical Fellowship of Canada, Geneva (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: World Evangelical Alliance and Evangelical Fellowship of Canada, Geneva (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "International Human Rights Program, University of Toronto\u2019s Faculty of Law, Amnesty International, Justice for Children and Youth, Canadian Association of Refugee Lawyers, Canadian Civil Liberties Association, British Columbia Civil Liberties Association Refugee Law Office of Legal Aid Ontario Toronto (Canada)", "label": "International Human Right...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eInternational Human Rights Program, University of Toronto\u2019s Faculty of Law, Amnesty International, Justice for Children and Youth, Canadian Association of Refugee Lawyers, Canadian Civil Liberties Association, British Columbia Civil Liberties Association Refugee Law Office of Legal Aid Ontario Toronto (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: International Human Rights Program, University of Toronto\u2019s Faculty of Law, Amnesty International, Justice for Children and Youth, Canadian Association of Refugee Lawyers, Canadian Civil Liberties Association, British Columbia Civil Liberties Association Refugee Law Office of Legal Aid Ontario Toronto (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS12", "label": "JS12", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS12\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS12\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Women\u2019s International League for Peace and Freedom and Plataforma Internacional Contra la Impunidad (Pi), Geneva (Switzerland)", "label": "Women\u2019s International Lea...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eWomen\u2019s International League for Peace and Freedom and Plataforma Internacional Contra la Impunidad (Pi), Geneva (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Women\u2019s International League for Peace and Freedom and Plataforma Internacional Contra la Impunidad (Pi), Geneva (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS13", "label": "JS13", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS13\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS13\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ontario Native Women\u2019s Association and Canadian Feminist Alliance for International Action, Fort William First Nation, Fort William First Nation (Canada)", "label": "Ontario Native Women\u2019s As...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eOntario Native Women\u2019s Association and Canadian Feminist Alliance for International Action, Fort William First Nation, Fort William First Nation (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ontario Native Women\u2019s Association and Canadian Feminist Alliance for International Action, Fort William First Nation, Fort William First Nation (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS14", "label": "JS14", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS14\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS14\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Colour of Poverty \u2013 Colour of Change, Chinese \u0026 Southeast Asian Legal Clinic, Council of Agencies Serving South Asians, Ontario Council of Agencies Serving Immigrants, and South Asian Legal Clinic of Ontario, Toronto (Canada)", "label": "Colour of Poverty \u2013 Colou...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eColour of Poverty \u2013 Colour of Change, Chinese \u0026 Southeast Asian Legal Clinic, Council of Agencies Serving South Asians, Ontario Council of Agencies Serving Immigrants, and South Asian Legal Clinic of Ontario, Toronto (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Colour of Poverty \u2013 Colour of Change, Chinese \u0026 Southeast Asian Legal Clinic, Council of Agencies Serving South Asians, Ontario Council of Agencies Serving Immigrants, and South Asian Legal Clinic of Ontario, Toronto (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS15", "label": "JS15", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS15\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS15\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Social Rights Advocacy Centre and Charter Committee on Poverty Issues, Huntsville (Canada)", "label": "Social Rights Advocacy Ce...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eSocial Rights Advocacy Centre and Charter Committee on Poverty Issues, Huntsville (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Social Rights Advocacy Centre and Charter Committee on Poverty Issues, Huntsville (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS16", "label": "JS16", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS16\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS16\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Lawyers Without Border Canada and Lawyers\u2019 Rights Watch Canada, Ville de Qu\u00e9bec (Canada)", "label": "Lawyers Without Border Ca...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eLawyers Without Border Canada and Lawyers\u2019 Rights Watch Canada, Ville de Qu\u00e9bec (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Lawyers Without Border Canada and Lawyers\u2019 Rights Watch Canada, Ville de Qu\u00e9bec (Canada)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS17", "label": "JS17", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS17\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS17\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ARCH Disability Law Centre, Alzheimer\u2019s Society of Canada, Canada Without Poverty, Canadian Association for Community Living, Canadian Association of the Deaf, Canadian Council on Rehabilitation", "label": "ARCH Disability Law Centr...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eARCH Disability Law Centre, Alzheimer\u2019s Society of Canada, Canada Without Poverty, Canadian Association for Community Living, Canadian Association of the Deaf, Canadian Council on Rehabilitation\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ARCH Disability Law Centre, Alzheimer\u2019s Society of Canada, Canada Without Poverty, Canadian Association for Community Living, Canadian Association of the Deaf, Canadian Council on Rehabilitation\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS18", "label": "JS18", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS18\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS18\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Work, Canadian Centre on Disability Studies, Canadian National Institute for the Blind, Canadian Labour Congress, Council of Canadians with Disabilities, Disability Rights Promotion International (York University), DisAbled Women\u2019s Network, Independent Living Canada, MAD Canada, National Network on Mental Health, Ontario Network of Injured Workers, Participation \u0026 Knowledge Translation in Childhood Disability Lab (McGill University), People First Canada, Winnipeg, (Canada)", "label": "Work, Canadian Centre on ...", "shape": "dot", "size": 20.0, "title": "\u003cb\u003eWork, Canadian Centre on Disability Studies, Canadian National Institute for the Blind, Canadian Labour Congress, Council of Canadians with Disabilities, Disability Rights Promotion International (York University), DisAbled Women\u2019s Network, Independent Living Canada, MAD Canada, National Network on Mental Health, Ontario Network of Injured Workers, Participation \u0026 Knowledge Translation in Childhood Disability Lab (McGill University), People First Canada, Winnipeg, (Canada)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Work, Canadian Centre on Disability Studies, Canadian National Institute for the Blind, Canadian Labour Congress, Council of Canadians with Disabilities, Disability Rights Promotion International (York University), DisAbled Women\u2019s Network, Independent Living Canada, MAD Canada, National Network on Mental Health, Ontario Network of Injured Workers, Participation \u0026 Knowledge Translation in Childhood Disability Lab (McGill University), People First Canada, Winnipeg, (Canada)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Organization for Defending Victims of Violence and Pouya Institute for Communications and Social Development, Tehran (Iran (Islamic Republic of))", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Franciscans International and Service intercommunautaire d\u2019animation franciscaine Geneva (Switzerland)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Canadian Alliance for Sex Work Law Reform and Sexual Rights Initiative, Ottawa (Canada)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Comit\u00e9 d\u2019action contre la traite humaine interne et internationale and Franciscans International, Montr\u00e9al (Canada)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Congregation of the Sisters of Saint Anne and UNANIMA International, Lachine (Canada)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture and ACAT Canada, Paris (France)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Action Canada for Sexual Health and Rights, and Sexual Rights Initiative, Ottawa (Canada)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Institute on Statelessness and Inclusion and the Canadian Centre on Statelessness, Eindhoven (Netherlands)", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "PEN Canada, Centre for Free Expression, Canadian Journalists for Free Expression, Reporters without Borders, Toronto (Canada)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "World Evangelical Alliance and Evangelical Fellowship of Canada, Geneva (Switzerland)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "International Human Rights Program, University of Toronto\u2019s Faculty of Law, Amnesty International, Justice for Children and Youth, Canadian Association of Refugee Lawyers, Canadian Civil Liberties Association, British Columbia Civil Liberties Association Refugee Law Office of Legal Aid Ontario Toronto (Canada)", "title": "Member of JS12", "to": "JS12", "width": 1}, {"color": "#95a5a6", "from": "Women\u2019s International League for Peace and Freedom and Plataforma Internacional Contra la Impunidad (Pi), Geneva (Switzerland)", "title": "Member of JS13", "to": "JS13", "width": 1}, {"color": "#95a5a6", "from": "Ontario Native Women\u2019s Association and Canadian Feminist Alliance for International Action, Fort William First Nation, Fort William First Nation (Canada)", "title": "Member of JS14", "to": "JS14", "width": 1}, {"color": "#95a5a6", "from": "Colour of Poverty \u2013 Colour of Change, Chinese \u0026 Southeast Asian Legal Clinic, Council of Agencies Serving South Asians, Ontario Council of Agencies Serving Immigrants, and South Asian Legal Clinic of Ontario, Toronto (Canada)", "title": "Member of JS15", "to": "JS15", "width": 1}, {"color": "#95a5a6", "from": "Social Rights Advocacy Centre and Charter Committee on Poverty Issues, Huntsville (Canada)", "title": "Member of JS16", "to": "JS16", "width": 1}, {"color": "#95a5a6", "from": "Lawyers Without Border Canada and Lawyers\u2019 Rights Watch Canada, Ville de Qu\u00e9bec (Canada)", "title": "Member of JS17", "to": "JS17", "width": 1}, {"color": "#95a5a6", "from": "ARCH Disability Law Centre, Alzheimer\u2019s Society of Canada, Canada Without Poverty, Canadian Association for Community Living, Canadian Association of the Deaf, Canadian Council on Rehabilitation", "title": "Member of JS18", "to": "JS18", "width": 1}, {"color": "#95a5a6", "from": "Work, Canadian Centre on Disability Studies, Canadian National Institute for the Blind, Canadian Labour Congress, Council of Canadians with Disabilities, Disability Rights Promotion International (York University), DisAbled Women\u2019s Network, Independent Living Canada, MAD Canada, National Network on Mental Health, Ontario Network of Injured Workers, Participation \u0026 Knowledge Translation in Childhood Disability Lab (McGill University), People First Canada, Winnipeg, (Canada)", "title": "Member of JS18", "to": "JS18", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

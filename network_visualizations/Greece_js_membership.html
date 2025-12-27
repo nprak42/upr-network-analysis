@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "European Bureau for Conscientious Objection (EBCO) and the Association of Greek Conscientious Objection (AGCO) (Greece)", "label": "European Bureau for Consc...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eEuropean Bureau for Conscientious Objection (EBCO) and the Association of Greek Conscientious Objection (AGCO) (Greece)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: European Bureau for Conscientious Objection (EBCO) and the Association of Greek Conscientious Objection (AGCO) (Greece)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 40.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "1. ARSIS \u2013 Association for the Social Support of Youth 2. Centre for Research on Women\u2019s Issues \u2013 Diotima 3. Equal Rights Beyond Borders - Equal Rights BB 4. Fenix - Humanitarian Legal Aid 5. Greek Council for Refugees - GCR 6. Greek Forum of Refugees - GFR 7. Hellenic League for Human Rights - HLHR 8. HIAS Greece 9. HumanRights360 10. International Rescue Committee (IRC) 11. Legal Centre Lesvos-LCL 12. Medecins Du Monde - Greece | MdM-Greece 13. Network for the rights of the child 14. Refugee Support Aegean (RSA) 15. SolidarityNow 16. Access Center for Human Rights \u2013 ACHR \u0026 Centre d\u0027acc\u00e8s pour les droits de l\u0027homme - ACHR 17. Associazione Ricreativa e Culturale italiana - ARCI 18. Cairo Institute for Human Rights Studies (CIHRS) 19. CLA Voice in Bulgaria 20. EuroMed Rights \u2013 EMR (Greece)", "label": "1. ARSIS \u2013 Association fo...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003e1. ARSIS \u2013 Association for the Social Support of Youth 2. Centre for Research on Women\u2019s Issues \u2013 Diotima 3. Equal Rights Beyond Borders - Equal Rights BB 4. Fenix - Humanitarian Legal Aid 5. Greek Council for Refugees - GCR 6. Greek Forum of Refugees - GFR 7. Hellenic League for Human Rights - HLHR 8. HIAS Greece 9. HumanRights360 10. International Rescue Committee (IRC) 11. Legal Centre Lesvos-LCL 12. Medecins Du Monde - Greece | MdM-Greece 13. Network for the rights of the child 14. Refugee Support Aegean (RSA) 15. SolidarityNow 16. Access Center for Human Rights \u2013 ACHR \u0026 Centre d\u0027acc\u00e8s pour les droits de l\u0027homme - ACHR 17. Associazione Ricreativa e Culturale italiana - ARCI 18. Cairo Institute for Human Rights Studies (CIHRS) 19. CLA Voice in Bulgaria 20. EuroMed Rights \u2013 EMR (Greece)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: 1. ARSIS \u2013 Association for the Social Support of Youth 2. Centre for Research on Women\u2019s Issues \u2013 Diotima 3. Equal Rights Beyond Borders - Equal Rights BB 4. Fenix - Humanitarian Legal Aid 5. Greek Council for Refugees - GCR 6. Greek Forum of Refugees - GFR 7. Hellenic League for Human Rights - HLHR 8. HIAS Greece 9. HumanRights360 10. International Rescue Committee (IRC) 11. Legal Centre Lesvos-LCL 12. Medecins Du Monde - Greece | MdM-Greece 13. Network for the rights of the child 14. Refugee Support Aegean (RSA) 15. SolidarityNow 16. Access Center for Human Rights \u2013 ACHR \u0026 Centre d\u0027acc\u00e8s pour les droits de l\u0027homme - ACHR 17. Associazione Ricreativa e Culturale italiana - ARCI 18. Cairo Institute for Human Rights Studies (CIHRS) 19. CLA Voice in Bulgaria 20. EuroMed Rights \u2013 EMR (Greece)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 40.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Refugee Rights Europe (RRE), Europe Must Act (EMA), FORGE for humanity (FORGE), Khora Asylum Support Team (KAST), Syrian Greek Youth Forum (SGYF) (United Kingdom of Great Britain and Northern Ireland)", "label": "Refugee Rights Europe (RR...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eRefugee Rights Europe (RRE), Europe Must Act (EMA), FORGE for humanity (FORGE), Khora Asylum Support Team (KAST), Syrian Greek Youth Forum (SGYF) (United Kingdom of Great Britain and Northern Ireland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Refugee Rights Europe (RRE), Europe Must Act (EMA), FORGE for humanity (FORGE), Khora Asylum Support Team (KAST), Syrian Greek Youth Forum (SGYF) (United Kingdom of Great Britain and Northern Ireland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 40.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Josoor", "label": "Josoor", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eJosoor\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Josoor\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 4\u003cbr\u003eParticipants: 4"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mobile Info Team", "label": "Mobile Info Team", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eMobile Info Team\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mobile Info Team\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "No Name Kitchen", "label": "No Name Kitchen", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eNo Name Kitchen\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: No Name Kitchen\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mare Liberum (Germany)", "label": "Mare Liberum (Germany)", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eMare Liberum (Germany)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mare Liberum (Germany)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Racist Violence Recording Network (RVRN) is a coalition of forty-seven agencies, under the coordination of the UN High Commissioner for Refugees in Greece (UNHCR) and the Greek National Commission for Human Rights (GNCHR). The participating actors are the following: Aitima, Solidarity Now, Antigone -Information and Documentation Centre, University of Aegean Anti-Racist Observatory, Arsis, Doctors of the World (MdM), Amnesty International, Network for Children\u2019s Rights, Network for Social Support of Refugees and Immigrants, \u201cPleiades - Hellenic Action for Human Rights\u201d, Hellenic League for Human Rights, Hellenic Red Cross, Greek Council for Refugees, Greek Forum of Migrants, Greek Forum of Refugees, Human Rights Commission of the Bar Association of Rhodes, Positive Voice, Medical Intervention, Caritas Athens, Caritas Hellas, Centre for Research on Women\u2019s Issues \u201cDiotima\u201d, Center for Life, \"Babel\" Day Centre, Centre for the Support of Repatriated and Migrants - Ecumenical Refugee Program, Network for the Support of Refugee and Migrant Rights (Patras), World Without War and Violence, LATHRA? - Solidarity Committee for Chios refugees, METAction, Rainbow Families, Group of Lawyers for the Rights of Refugees and Migrants, Group of Lawyers for the Support of Refugee and Migrant Rights (Thessaloniki), Homosexual and Lesbian Community of Greece, Association of Afghans United In Greece, Association of Social Workers of Greece, Greek Transgender Support Association, Faros tou kosmou, Forum of Migrants in Crete, Refugee Support Aegean, Act Up Hellas, ASANTE, Colour Youth - LGBTQ Youth Community of Athens, Generation 2. RED,HIAS in Greece, HumanRights360, Melissa Network, PRAKSIS, A21 (Greece)", "label": "Racist Violence Recording...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eRacist Violence Recording Network (RVRN) is a coalition of forty-seven agencies, under the coordination of the UN High Commissioner for Refugees in Greece (UNHCR) and the Greek National Commission for Human Rights (GNCHR). The participating actors are the following: Aitima, Solidarity Now, Antigone -Information and Documentation Centre, University of Aegean Anti-Racist Observatory, Arsis, Doctors of the World (MdM), Amnesty International, Network for Children\u2019s Rights, Network for Social Support of Refugees and Immigrants, \u201cPleiades - Hellenic Action for Human Rights\u201d, Hellenic League for Human Rights, Hellenic Red Cross, Greek Council for Refugees, Greek Forum of Migrants, Greek Forum of Refugees, Human Rights Commission of the Bar Association of Rhodes, Positive Voice, Medical Intervention, Caritas Athens, Caritas Hellas, Centre for Research on Women\u2019s Issues \u201cDiotima\u201d, Center for Life, \"Babel\" Day Centre, Centre for the Support of Repatriated and Migrants - Ecumenical Refugee Program, Network for the Support of Refugee and Migrant Rights (Patras), World Without War and Violence, LATHRA? - Solidarity Committee for Chios refugees, METAction, Rainbow Families, Group of Lawyers for the Rights of Refugees and Migrants, Group of Lawyers for the Support of Refugee and Migrant Rights (Thessaloniki), Homosexual and Lesbian Community of Greece, Association of Afghans United In Greece, Association of Social Workers of Greece, Greek Transgender Support Association, Faros tou kosmou, Forum of Migrants in Crete, Refugee Support Aegean, Act Up Hellas, ASANTE, Colour Youth - LGBTQ Youth Community of Athens, Generation 2. RED,HIAS in Greece, HumanRights360, Melissa Network, PRAKSIS, A21 (Greece)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Racist Violence Recording Network (RVRN) is a coalition of forty-seven agencies, under the coordination of the UN High Commissioner for Refugees in Greece (UNHCR) and the Greek National Commission for Human Rights (GNCHR). The participating actors are the following: Aitima, Solidarity Now, Antigone -Information and Documentation Centre, University of Aegean Anti-Racist Observatory, Arsis, Doctors of the World (MdM), Amnesty International, Network for Children\u2019s Rights, Network for Social Support of Refugees and Immigrants, \u201cPleiades - Hellenic Action for Human Rights\u201d, Hellenic League for Human Rights, Hellenic Red Cross, Greek Council for Refugees, Greek Forum of Migrants, Greek Forum of Refugees, Human Rights Commission of the Bar Association of Rhodes, Positive Voice, Medical Intervention, Caritas Athens, Caritas Hellas, Centre for Research on Women\u2019s Issues \u201cDiotima\u201d, Center for Life, \"Babel\" Day Centre, Centre for the Support of Repatriated and Migrants - Ecumenical Refugee Program, Network for the Support of Refugee and Migrant Rights (Patras), World Without War and Violence, LATHRA? - Solidarity Committee for Chios refugees, METAction, Rainbow Families, Group of Lawyers for the Rights of Refugees and Migrants, Group of Lawyers for the Support of Refugee and Migrant Rights (Thessaloniki), Homosexual and Lesbian Community of Greece, Association of Afghans United In Greece, Association of Social Workers of Greece, Greek Transgender Support Association, Faros tou kosmou, Forum of Migrants in Crete, Refugee Support Aegean, Act Up Hellas, ASANTE, Colour Youth - LGBTQ Youth Community of Athens, Generation 2. RED,HIAS in Greece, HumanRights360, Melissa Network, PRAKSIS, A21 (Greece)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 40.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Greek Evangelical Alliance (PES)", "label": "Greek Evangelical Allianc...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eGreek Evangelical Alliance (PES)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Greek Evangelical Alliance (PES)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 60.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "European Evangelical Alliance (EEA)", "label": "European Evangelical Alli...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eEuropean Evangelical Alliance (EEA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: European Evangelical Alliance (EEA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "World Evangelical Alliance (WEA) (Switzerland)", "label": "World Evangelical Allianc...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eWorld Evangelical Alliance (WEA) (Switzerland)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: World Evangelical Alliance (WEA) (Switzerland)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Greek Helsinki Monitor (GHM)", "label": "Greek Helsinki Monitor (G...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eGreek Helsinki Monitor (GHM)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Greek Helsinki Monitor (GHM)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 60.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 3\u003cbr\u003eParticipants: 3"}, {"font": {"color": "black"}, "group": "Organization", "id": "Minority Rights Group-Greece (MRG-G)", "label": "Minority Rights Group-Gre...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eMinority Rights Group-Greece (MRG-G)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Minority Rights Group-Greece (MRG-G)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Coordinated Organizations and Communities for Roma Human Rights in Greece (SOKADE) (Greece)", "label": "Coordinated Organizations...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eCoordinated Organizations and Communities for Roma Human Rights in Greece (SOKADE) (Greece)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coordinated Organizations and Communities for Roma Human Rights in Greece (SOKADE) (Greece)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Defence for Children International Greece", "label": "Defence for Children Inte...", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eDefence for Children International Greece\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Defence for Children International Greece\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 50.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 2\u003cbr\u003eParticipants: 2"}, {"font": {"color": "black"}, "group": "Organization", "id": "Better Days (Greece)", "label": "Better Days (Greece)", "shape": "dot", "size": 15.0, "title": "\u003cb\u003eBetter Days (Greece)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Better Days (Greece)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "European Bureau for Conscientious Objection (EBCO) and the Association of Greek Conscientious Objection (AGCO) (Greece)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "1. ARSIS \u2013 Association for the Social Support of Youth 2. Centre for Research on Women\u2019s Issues \u2013 Diotima 3. Equal Rights Beyond Borders - Equal Rights BB 4. Fenix - Humanitarian Legal Aid 5. Greek Council for Refugees - GCR 6. Greek Forum of Refugees - GFR 7. Hellenic League for Human Rights - HLHR 8. HIAS Greece 9. HumanRights360 10. International Rescue Committee (IRC) 11. Legal Centre Lesvos-LCL 12. Medecins Du Monde - Greece | MdM-Greece 13. Network for the rights of the child 14. Refugee Support Aegean (RSA) 15. SolidarityNow 16. Access Center for Human Rights \u2013 ACHR \u0026 Centre d\u0027acc\u00e8s pour les droits de l\u0027homme - ACHR 17. Associazione Ricreativa e Culturale italiana - ARCI 18. Cairo Institute for Human Rights Studies (CIHRS) 19. CLA Voice in Bulgaria 20. EuroMed Rights \u2013 EMR (Greece)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "Refugee Rights Europe (RRE), Europe Must Act (EMA), FORGE for humanity (FORGE), Khora Asylum Support Team (KAST), Syrian Greek Youth Forum (SGYF) (United Kingdom of Great Britain and Northern Ireland)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Josoor", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Mobile Info Team", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "No Name Kitchen", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Mare Liberum (Germany)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Racist Violence Recording Network (RVRN) is a coalition of forty-seven agencies, under the coordination of the UN High Commissioner for Refugees in Greece (UNHCR) and the Greek National Commission for Human Rights (GNCHR). The participating actors are the following: Aitima, Solidarity Now, Antigone -Information and Documentation Centre, University of Aegean Anti-Racist Observatory, Arsis, Doctors of the World (MdM), Amnesty International, Network for Children\u2019s Rights, Network for Social Support of Refugees and Immigrants, \u201cPleiades - Hellenic Action for Human Rights\u201d, Hellenic League for Human Rights, Hellenic Red Cross, Greek Council for Refugees, Greek Forum of Migrants, Greek Forum of Refugees, Human Rights Commission of the Bar Association of Rhodes, Positive Voice, Medical Intervention, Caritas Athens, Caritas Hellas, Centre for Research on Women\u2019s Issues \u201cDiotima\u201d, Center for Life, \"Babel\" Day Centre, Centre for the Support of Repatriated and Migrants - Ecumenical Refugee Program, Network for the Support of Refugee and Migrant Rights (Patras), World Without War and Violence, LATHRA? - Solidarity Committee for Chios refugees, METAction, Rainbow Families, Group of Lawyers for the Rights of Refugees and Migrants, Group of Lawyers for the Support of Refugee and Migrant Rights (Thessaloniki), Homosexual and Lesbian Community of Greece, Association of Afghans United In Greece, Association of Social Workers of Greece, Greek Transgender Support Association, Faros tou kosmou, Forum of Migrants in Crete, Refugee Support Aegean, Act Up Hellas, ASANTE, Colour Youth - LGBTQ Youth Community of Athens, Generation 2. RED,HIAS in Greece, HumanRights360, Melissa Network, PRAKSIS, A21 (Greece)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "Greek Evangelical Alliance (PES)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "European Evangelical Alliance (EEA)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "World Evangelical Alliance (WEA) (Switzerland)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "Greek Helsinki Monitor (GHM)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Minority Rights Group-Greece (MRG-G)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Coordinated Organizations and Communities for Roma Human Rights in Greece (SOKADE) (Greece)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "Defence for Children International Greece", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Better Days (Greece)", "title": "Member of JS8", "to": "JS8", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

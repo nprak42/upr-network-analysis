@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Individual Submission", "id": "GIEACPC", "label": "GIEACPC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGIEACPC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: End All Corporal Punishment of Children, London\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "APG23", "label": "APG23", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eAPG23\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Associazione Comunit\u00e0 Papa Giovanni XXIII, Rimini\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "SALC", "label": "SALC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eSALC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Southern Africa Litigation Centre, Johannesburg\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "RFSU", "label": "RFSU", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eRFSU\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: The Swedish Association for Sexuality Education, Stockholm\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "HRW", "label": "HRW", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eHRW\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Human Rights Watch, Geneva\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ERI", "label": "ERI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eERI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Edmund Rice International, Geneva\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "PAI", "label": "PAI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003ePAI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Pan Africa ILGA, Johannesburg\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "TCC", "label": "TCC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eTCC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: The Carter Center, Atlanta\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "AI", "label": "AI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eAI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Amnesty International, London\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ADF", "label": "ADF", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eADF\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: ADF International, Geneva\u003cbr\u003eCo-citations: 10"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "BNFA", "label": "BNFA", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eBNFA\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Barotse National Freedom Alliance, Mongu\u003cbr\u003eCo-citations: 10"}]);
+                  edges = new vis.DataSet([{"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "APG23", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "SALC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "RFSU", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "HRW", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ERI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "PAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "SALC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "RFSU", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "HRW", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "ERI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "PAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "APG23", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "RFSU", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "HRW", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "ERI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "PAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 3 time(s)", "to": "AI", "width": 6.0}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "SALC", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "HRW", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "ERI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "PAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "RFSU", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "ERI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "PAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ERI", "title": "Cited together 1 time(s)", "to": "PAI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ERI", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ERI", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ERI", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ERI", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "PAI", "title": "Cited together 1 time(s)", "to": "TCC", "width": 2.6666666666666665}, {"color": "#3498db", "from": "PAI", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "PAI", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "PAI", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "AI", "width": 2.6666666666666665}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "TCC", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "AI", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.6666666666666665}, {"color": "#3498db", "from": "AI", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}, {"color": "#3498db", "from": "ADF", "title": "Cited together 1 time(s)", "to": "BNFA", "width": 2.6666666666666665}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -3000,
+            "springConstant": 0.005,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

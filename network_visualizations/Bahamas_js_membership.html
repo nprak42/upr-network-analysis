@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "The Advocates for Human Rights, The Greater Caribbean for Life and The world Coalition against the Death Penalty", "label": "The Advocates for Human R...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eThe Advocates for Human Rights, The Greater Caribbean for Life and The world Coalition against the Death Penalty\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: The Advocates for Human Rights, The Greater Caribbean for Life and The world Coalition against the Death Penalty\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 35.714285714285715, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Global Campaign for Equal Nationality Rights and Institute on the Statelessness and inclusion (ISI). The following abbreviations are used in UPR documents: ICESCR International Covenant on Economic, Social and Cultural Rights", "label": "Global Campaign for Equal...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eGlobal Campaign for Equal Nationality Rights and Institute on the Statelessness and inclusion (ISI). The following abbreviations are used in UPR documents: ICESCR International Covenant on Economic, Social and Cultural Rights\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Global Campaign for Equal Nationality Rights and Institute on the Statelessness and inclusion (ISI). The following abbreviations are used in UPR documents: ICESCR International Covenant on Economic, Social and Cultural Rights\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 7\u003cbr\u003eParticipants: 7"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-ICESCR Optional Protocol to ICESCR", "label": "OP-ICESCR Optional Protoc...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eOP-ICESCR Optional Protocol to ICESCR\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-ICESCR Optional Protocol to ICESCR\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRC Convention on the Rights of the Child", "label": "CRC Convention on the Rig...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eCRC Convention on the Rights of the Child\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRC Convention on the Rights of the Child\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "label": "OP-CRC-IC Optional Protoc...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eOP-CRC-IC Optional Protocol to CRC on a communications procedure\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRC-IC Optional Protocol to CRC on a communications procedure\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "label": "ICRMW International Conve...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CRPD Convention on the Rights of Persons with Disabilities", "label": "CRPD Convention on the Ri...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eCRPD Convention on the Rights of Persons with Disabilities\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CRPD Convention on the Rights of Persons with Disabilities\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OP-CRPD Optional Protocol to CRPD. For relevant recommendations, see , paras. 92.1-92.10, 92.12-92.17, 92.21-92.26, and 92.68. JS1, p. 1. JS1, p. 5. JS2, p. 9. JS2, p. 3. JS2, p. 9. JS2, p. 4. JS2, p. 9. For relevant recommendations, see , paras. 92.19, 92.20, 92.29, 92.30, 92.35-92.37. JS1, pp. 1 and 2. JS1, p. 1. JS2, p. 4. JS2, p. 9. For relevant recommendations, , paras. 92.76-92.84. JS2, p. 4. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, pp. 5 and 6. JS2, p. 3. JS2, p. 8. JS2, p. 9. For relevant recommendations, see , paras. 92.37 and 92.45-92.52. JS1, p. 3. JS1, p. 2. JS1, p. 1. JS1, p. 5. JS1, p. 3. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 5. JS1, pp. 2 and 3. JS1, p. 4. JS1, p. 4. For relevant recommendations, , paras.92.54, 92.55, 92.69, 92.74 and 92.75. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 2. For relevant recommendations, , paras.92.85 and 92.87. ADF, p. 3. For relevant recommendations, , paras.92.31-92-34, 92.38-92.43, and 92.56-92.62. Recommendations 92.39 (Paraguay), 92.40 (Peru), 92.41 (Slovakia), 92.42 (Thailand), 92.43 (Guatemala). JS2, p. 2. JS2, p. 2. JS2, p. 3. JS2, p. 3. JS2, p. 3. JS2, p. 6. JS2, p. 6. JS2, p. 8. ADF, p. 4. ADF, p. 4. ADF, p. 4. ADF, p. 6. For relevant recommendations, see , paras. 92.28, 92.63-92.67 and 92. GIEACPC, p. 1. GIEACPC, p. 2. GIEACPC, p. 1. GIEACPC, p. 1. JS2, p. 7. JS2, p. 7. JS2, p. 9. JS2, p. 5. 8", "label": "OP-CRPD Optional Protocol...", "shape": "dot", "size": 12.857142857142858, "title": "\u003cb\u003eOP-CRPD Optional Protocol to CRPD. For relevant recommendations, see , paras. 92.1-92.10, 92.12-92.17, 92.21-92.26, and 92.68. JS1, p. 1. JS1, p. 5. JS2, p. 9. JS2, p. 3. JS2, p. 9. JS2, p. 4. JS2, p. 9. For relevant recommendations, see , paras. 92.19, 92.20, 92.29, 92.30, 92.35-92.37. JS1, pp. 1 and 2. JS1, p. 1. JS2, p. 4. JS2, p. 9. For relevant recommendations, , paras. 92.76-92.84. JS2, p. 4. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, pp. 5 and 6. JS2, p. 3. JS2, p. 8. JS2, p. 9. For relevant recommendations, see , paras. 92.37 and 92.45-92.52. JS1, p. 3. JS1, p. 2. JS1, p. 1. JS1, p. 5. JS1, p. 3. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 5. JS1, pp. 2 and 3. JS1, p. 4. JS1, p. 4. For relevant recommendations, , paras.92.54, 92.55, 92.69, 92.74 and 92.75. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 2. For relevant recommendations, , paras.92.85 and 92.87. ADF, p. 3. For relevant recommendations, , paras.92.31-92-34, 92.38-92.43, and 92.56-92.62. Recommendations 92.39 (Paraguay), 92.40 (Peru), 92.41 (Slovakia), 92.42 (Thailand), 92.43 (Guatemala). JS2, p. 2. JS2, p. 2. JS2, p. 3. JS2, p. 3. JS2, p. 3. JS2, p. 6. JS2, p. 6. JS2, p. 8. ADF, p. 4. ADF, p. 4. ADF, p. 4. ADF, p. 6. For relevant recommendations, see , paras. 92.28, 92.63-92.67 and 92. GIEACPC, p. 1. GIEACPC, p. 2. GIEACPC, p. 1. GIEACPC, p. 1. JS2, p. 7. JS2, p. 7. JS2, p. 9. JS2, p. 5. 8\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OP-CRPD Optional Protocol to CRPD. For relevant recommendations, see , paras. 92.1-92.10, 92.12-92.17, 92.21-92.26, and 92.68. JS1, p. 1. JS1, p. 5. JS2, p. 9. JS2, p. 3. JS2, p. 9. JS2, p. 4. JS2, p. 9. For relevant recommendations, see , paras. 92.19, 92.20, 92.29, 92.30, 92.35-92.37. JS1, pp. 1 and 2. JS1, p. 1. JS2, p. 4. JS2, p. 9. For relevant recommendations, , paras. 92.76-92.84. JS2, p. 4. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, pp. 5 and 6. JS2, p. 3. JS2, p. 8. JS2, p. 9. For relevant recommendations, see , paras. 92.37 and 92.45-92.52. JS1, p. 3. JS1, p. 2. JS1, p. 1. JS1, p. 5. JS1, p. 3. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 5. JS1, pp. 2 and 3. JS1, p. 4. JS1, p. 4. For relevant recommendations, , paras.92.54, 92.55, 92.69, 92.74 and 92.75. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 2. For relevant recommendations, , paras.92.85 and 92.87. ADF, p. 3. For relevant recommendations, , paras.92.31-92-34, 92.38-92.43, and 92.56-92.62. Recommendations 92.39 (Paraguay), 92.40 (Peru), 92.41 (Slovakia), 92.42 (Thailand), 92.43 (Guatemala). JS2, p. 2. JS2, p. 2. JS2, p. 3. JS2, p. 3. JS2, p. 3. JS2, p. 6. JS2, p. 6. JS2, p. 8. ADF, p. 4. ADF, p. 4. ADF, p. 4. ADF, p. 6. For relevant recommendations, see , paras. 92.28, 92.63-92.67 and 92. GIEACPC, p. 1. GIEACPC, p. 2. GIEACPC, p. 1. GIEACPC, p. 1. JS2, p. 7. JS2, p. 7. JS2, p. 9. JS2, p. 5. 8\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "The Advocates for Human Rights, The Greater Caribbean for Life and The world Coalition against the Death Penalty", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Global Campaign for Equal Nationality Rights and Institute on the Statelessness and inclusion (ISI). The following abbreviations are used in UPR documents: ICESCR International Covenant on Economic, Social and Cultural Rights", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "OP-ICESCR Optional Protocol to ICESCR", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "CRC Convention on the Rights of the Child", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "OP-CRC-IC Optional Protocol to CRC on a communications procedure", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "ICRMW International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "CRPD Convention on the Rights of Persons with Disabilities", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "OP-CRPD Optional Protocol to CRPD. For relevant recommendations, see , paras. 92.1-92.10, 92.12-92.17, 92.21-92.26, and 92.68. JS1, p. 1. JS1, p. 5. JS2, p. 9. JS2, p. 3. JS2, p. 9. JS2, p. 4. JS2, p. 9. For relevant recommendations, see , paras. 92.19, 92.20, 92.29, 92.30, 92.35-92.37. JS1, pp. 1 and 2. JS1, p. 1. JS2, p. 4. JS2, p. 9. For relevant recommendations, , paras. 92.76-92.84. JS2, p. 4. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, p. 5. JS2, pp. 5 and 6. JS2, p. 3. JS2, p. 8. JS2, p. 9. For relevant recommendations, see , paras. 92.37 and 92.45-92.52. JS1, p. 3. JS1, p. 2. JS1, p. 1. JS1, p. 5. JS1, p. 3. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 5. JS1, pp. 2 and 3. JS1, p. 4. JS1, p. 4. For relevant recommendations, , paras.92.54, 92.55, 92.69, 92.74 and 92.75. JS1, p. 4. JS1, p. 4. JS1, p. 5. JS1, p. 4. JS1, p. 2. For relevant recommendations, , paras.92.85 and 92.87. ADF, p. 3. For relevant recommendations, , paras.92.31-92-34, 92.38-92.43, and 92.56-92.62. Recommendations 92.39 (Paraguay), 92.40 (Peru), 92.41 (Slovakia), 92.42 (Thailand), 92.43 (Guatemala). JS2, p. 2. JS2, p. 2. JS2, p. 3. JS2, p. 3. JS2, p. 3. JS2, p. 6. JS2, p. 6. JS2, p. 8. ADF, p. 4. ADF, p. 4. ADF, p. 4. ADF, p. 6. For relevant recommendations, see , paras. 92.28, 92.63-92.67 and 92. GIEACPC, p. 1. GIEACPC, p. 2. GIEACPC, p. 1. GIEACPC, p. 1. JS2, p. 7. JS2, p. 7. JS2, p. 9. JS2, p. 5. 8", "title": "Member of JS2", "to": "JS2", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

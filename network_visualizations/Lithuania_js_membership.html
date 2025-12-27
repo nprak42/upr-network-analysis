@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Coalition of Human Rights Organizations Lithuania (HROC), Vilnius (Lithuania) including the following members of HROC and its partner organisations: The Center for Equality Advancement (CEA)", "label": "Coalition of Human Rights...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eCoalition of Human Rights Organizations Lithuania (HROC), Vilnius (Lithuania) including the following members of HROC and its partner organisations: The Center for Equality Advancement (CEA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Coalition of Human Rights Organizations Lithuania (HROC), Vilnius (Lithuania) including the following members of HROC and its partner organisations: The Center for Equality Advancement (CEA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 9\u003cbr\u003eParticipants: 9"}, {"font": {"color": "black"}, "group": "Organization", "id": "Lithuanian disability forum (LNF)", "label": "Lithuanian disability for...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eLithuanian disability forum (LNF)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Lithuanian disability forum (LNF)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Mental Health Perspectives", "label": "Mental Health Perspective...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eMental Health Perspectives\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Mental Health Perspectives\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "National LGBT Rights organization LGL", "label": "National LGBT Rights orga...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eNational LGBT Rights organization LGL\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: National LGBT Rights organization LGL\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Diversity Development Group (DDG)", "label": "Diversity Development Gro...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eDiversity Development Group (DDG)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Diversity Development Group (DDG)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Lithuanian Jewish (Litvak) Community", "label": "Lithuanian Jewish (Litvak...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eLithuanian Jewish (Litvak) Community\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Lithuanian Jewish (Litvak) Community\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Lithuanian Centre for Human Rights (LCHR)", "label": "Lithuanian Centre for Hum...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eLithuanian Centre for Human Rights (LCHR)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Lithuanian Centre for Human Rights (LCHR)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Tolerant Youth Association (TJA or TYA)", "label": "Tolerant Youth Associatio...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eTolerant Youth Association (TJA or TYA)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Tolerant Youth Association (TJA or TYA)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Ante Litteram (AL)", "label": "Ante Litteram (AL)", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eAnte Litteram (AL)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Ante Litteram (AL)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Human Rights Defenders (HRD), Cologne (Germany), Victim Laborers Platform", "label": "Human Rights Defenders (H...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eHuman Rights Defenders (HRD), Cologne (Germany), Victim Laborers Platform\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Human Rights Defenders (HRD), Cologne (Germany), Victim Laborers Platform\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 34.44444444444444, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CAP International Paris (France)", "label": "CAP International Paris (...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eCAP International Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CAP International Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 52.22222222222222, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 5\u003cbr\u003eParticipants: 5"}, {"font": {"color": "black"}, "group": "Organization", "id": "Klaipeda Social and Psychological Support Centre (KSPSC)", "label": "Klaipeda Social and Psych...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eKlaipeda Social and Psychological Support Centre (KSPSC)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Klaipeda Social and Psychological Support Centre (KSPSC)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Missing People Family Support Centre (MPFSC)", "label": "Missing People Family Sup...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eMissing People Family Support Centre (MPFSC)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Missing People Family Support Centre (MPFSC)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Women\u0027s Information Centre (WIC)", "label": "Women\u0027s Information Centr...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eWomen\u0027s Information Centre (WIC)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Women\u0027s Information Centre (WIC)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Association of Specialised Emergency Services (ASES)", "label": "Association of Specialise...", "shape": "dot", "size": 12.222222222222221, "title": "\u003cb\u003eAssociation of Specialised Emergency Services (ASES)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Association of Specialised Emergency Services (ASES)\u003cbr\u003eConnections: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Coalition of Human Rights Organizations Lithuania (HROC), Vilnius (Lithuania) including the following members of HROC and its partner organisations: The Center for Equality Advancement (CEA)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Lithuanian disability forum (LNF)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Mental Health Perspectives", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "National LGBT Rights organization LGL", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Diversity Development Group (DDG)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Lithuanian Jewish (Litvak) Community", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Lithuanian Centre for Human Rights (LCHR)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Tolerant Youth Association (TJA or TYA)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Ante Litteram (AL)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "Human Rights Defenders (HRD), Cologne (Germany), Victim Laborers Platform", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "CAP International Paris (France)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Klaipeda Social and Psychological Support Centre (KSPSC)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Missing People Family Support Centre (MPFSC)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Women\u0027s Information Centre (WIC)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "Association of Specialised Emergency Services (ASES)", "title": "Member of JS3", "to": "JS3", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

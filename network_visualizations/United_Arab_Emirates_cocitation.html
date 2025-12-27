@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Individual Submission", "id": "GIEACPC", "label": "GIEACPC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGIEACPC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Global Initiative to End All Corporal Punishment of Children, London\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "AFHR", "label": "AFHR", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eAFHR\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Arab Federation for Human Rights, Geneva\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "HRW", "label": "HRW", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eHRW\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Human Rights Watch, Geneva\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICJHR", "label": "ICJHR", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICJHR\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International Centre for Justice and Human Rights, Geneva\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ODVV", "label": "ODVV", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eODVV\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Organization for Defending Victim of Violence, Tehran, Iran\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "FLD", "label": "FLD", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eFLD\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Front Line Defenders - The International Foundation for the Protection of Human Rights Defenders, Dublin\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "TAG", "label": "TAG", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eTAG\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Treatment Action Group\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 55.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ADHRB", "label": "ADHRB", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eADHRB\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Americans for Democracy and Human Rights in Bahrain, Washington D.C\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "GCENR", "label": "GCENR", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGCENR\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Global Campaign for Equal Nationality Rights, New York\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ISI", "label": "ISI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eISI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Institute on Statelessness and Inclusion, Eindhoven\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "GDP", "label": "GDP", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGDP\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Global Detention Project, Geneva\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 55.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CRIN", "label": "CRIN", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCRIN\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Child Rights International Network, London\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ADF", "label": "ADF", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eADF\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International ADF International, Geneva\u003cbr\u003eCo-citations: 15"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICFUAE", "label": "ICFUAE", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICFUAE\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International Campaign for Freedom in the UAE, London\u003cbr\u003eCo-citations: 15"}]);
+                  edges = new vis.DataSet([{"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "AFHR", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "HRW", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ICJHR", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ODVV", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "FLD", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "TAG", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "JS1", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ADHRB", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ISI", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "HRW", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "ICJHR", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "ODVV", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "FLD", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "TAG", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 3 time(s)", "to": "JS1", "width": 4.75}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "ADHRB", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "ISI", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "AFHR", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "HRW", "title": "Cited together 3 time(s)", "to": "ICJHR", "width": 4.75}, {"color": "#3498db", "from": "HRW", "title": "Cited together 2 time(s)", "to": "ODVV", "width": 3.5}, {"color": "#3498db", "from": "HRW", "title": "Cited together 4 time(s)", "to": "FLD", "width": 6.0}, {"color": "#3498db", "from": "HRW", "title": "Cited together 2 time(s)", "to": "TAG", "width": 3.5}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "JS1", "width": 2.25}, {"color": "#3498db", "from": "HRW", "title": "Cited together 2 time(s)", "to": "ADHRB", "width": 3.5}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "HRW", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "HRW", "title": "Cited together 2 time(s)", "to": "JS2", "width": 3.5}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "HRW", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "HRW", "title": "Cited together 2 time(s)", "to": "ICFUAE", "width": 3.5}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 2 time(s)", "to": "ODVV", "width": 3.5}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 3 time(s)", "to": "FLD", "width": 4.75}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 2 time(s)", "to": "TAG", "width": 3.5}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 1 time(s)", "to": "JS1", "width": 2.25}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 2 time(s)", "to": "ADHRB", "width": 3.5}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 2 time(s)", "to": "JS2", "width": 3.5}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "ICJHR", "title": "Cited together 2 time(s)", "to": "ICFUAE", "width": 3.5}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 2 time(s)", "to": "FLD", "width": 3.5}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 2 time(s)", "to": "TAG", "width": 3.5}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 1 time(s)", "to": "JS1", "width": 2.25}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 2 time(s)", "to": "ADHRB", "width": 3.5}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "ODVV", "title": "Cited together 2 time(s)", "to": "ICFUAE", "width": 3.5}, {"color": "#3498db", "from": "FLD", "title": "Cited together 2 time(s)", "to": "TAG", "width": 3.5}, {"color": "#3498db", "from": "FLD", "title": "Cited together 1 time(s)", "to": "JS1", "width": 2.25}, {"color": "#3498db", "from": "FLD", "title": "Cited together 2 time(s)", "to": "ADHRB", "width": 3.5}, {"color": "#3498db", "from": "FLD", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "FLD", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "FLD", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "FLD", "title": "Cited together 2 time(s)", "to": "JS2", "width": 3.5}, {"color": "#3498db", "from": "FLD", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "FLD", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "FLD", "title": "Cited together 3 time(s)", "to": "ICFUAE", "width": 4.75}, {"color": "#3498db", "from": "TAG", "title": "Cited together 1 time(s)", "to": "JS1", "width": 2.25}, {"color": "#3498db", "from": "TAG", "title": "Cited together 2 time(s)", "to": "ADHRB", "width": 3.5}, {"color": "#3498db", "from": "TAG", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "TAG", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "TAG", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "TAG", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "TAG", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "TAG", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "TAG", "title": "Cited together 2 time(s)", "to": "ICFUAE", "width": 3.5}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "ADHRB", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "ISI", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "JS1", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 1 time(s)", "to": "GCENR", "width": 2.25}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "ADHRB", "title": "Cited together 2 time(s)", "to": "ICFUAE", "width": 3.5}, {"color": "#3498db", "from": "GCENR", "title": "Cited together 2 time(s)", "to": "ISI", "width": 3.5}, {"color": "#3498db", "from": "GCENR", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "GCENR", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "GCENR", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "GCENR", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "GCENR", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "ISI", "title": "Cited together 1 time(s)", "to": "GDP", "width": 2.25}, {"color": "#3498db", "from": "ISI", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "ISI", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "ISI", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "ISI", "title": "Cited together 2 time(s)", "to": "ICFUAE", "width": 3.5}, {"color": "#3498db", "from": "GDP", "title": "Cited together 1 time(s)", "to": "JS2", "width": 2.25}, {"color": "#3498db", "from": "GDP", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "GDP", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "GDP", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "JS2", "title": "Cited together 1 time(s)", "to": "CRIN", "width": 2.25}, {"color": "#3498db", "from": "JS2", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "JS2", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "CRIN", "title": "Cited together 1 time(s)", "to": "ADF", "width": 2.25}, {"color": "#3498db", "from": "CRIN", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}, {"color": "#3498db", "from": "ADF", "title": "Cited together 1 time(s)", "to": "ICFUAE", "width": 2.25}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -3000,
+            "springConstant": 0.005,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

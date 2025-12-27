@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Individual Submission", "id": "AI", "label": "AI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eAI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Amnesty International, London\u003cbr\u003eCo-citations: 3"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CGNK", "label": "CGNK", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCGNK\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Center for Global Nonkilling, Geneva\u003cbr\u003eCo-citations: 3"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "GIEACPC", "label": "GIEACPC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eGIEACPC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Global Initiative to End All Corporal Punishment of Children, London\u003cbr\u003eCo-citations: 3"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "JAI", "label": "JAI", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eJAI\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Just Atonement, New York (United States of America). 2 For relevant recommendations see A/HRC/31/7, paras. 85.1\u201385.23, 85.25, 85.27, 85.32\u201385.35, 85.50, 86.1, 86.4, and 87.2. 3 AI, para. 5 and p. 3. See also AccessNow, para. 35. 4 AccessNow, para. 35 and CGNK, p. 7. 5 CGNK, p. 7. 6 CGNK, p. 8. 7 For relevant recommendations see A/HRC/31/7, paras. 85.23\u201385.26, and 85.28\u201385.30. 8 AccessNow, para. 4. 9 AccessNow, para. 7. 10 AI, para. 9. 11 For relevant recommendations see A/HRC/31/7, paras. 87.3\u201387.8. 12 AI, para. 3. 13 AI, para. 1. 14 For relevant recommendations see A/HRC/31/7, paras. 85.53\u201385.58 and 86.18. 15 JAI, para. 1. 16 JAI, para. 18. 6 A/HRC/WG.6/37/NRU/3 17 JAI, para 11. 18 For relevant recommendations see A/HRC/31/7, paras. 85.32\u201385.35, 85.48, and 87.9\u201387.12. 19 CGNK, p. 7. 20 For relevant recommendations see A/HRC/31/7, paras. 85.46\u201385.48, 86.9\u201386.14 and 87.18. 21 AI, para 6. 22 AI, para. 7. 23 AI, para. 14. 24 AI, paras 10 and 11. 25 AI, para. 12. 26 AI, p. 3. 27 For relevant recommendations see A/HRC/31/7, paras. 86.15\u201386.17, 87.1, and 87.13\u201387.17. 28 AccessNow, paras. 5-7. 29 JAI, para. 36-39. 30 AccessNow, para. 8. 31 JAI, para. 37. 32 AccessNow, paras. 34 and 36. 33 JAI, para. 41. 34 AccessNow, paras. 10 and 11. See also AI, para. 13. 35 AI, para. 13. 36 AccessNow, para. 39. 37 AI, p. 3. 38 AccessNow, para. 9. 39 JAI, para. 38. See also AccessNow, para. 9. 40 AccessNow, paras. 12 and 13. 41 AccessNow, para. 17. 42 AccessNow, para. 18. 43 AccessNow, para. 19. 44 AI, para. 1. See also AccessNow, para. 19. 45 AccessNow, para. 38. 46 JAI, para. 6. See also AccessNow, para. 42. 47 AccessNow, para. 26. 48 AI, para. 14. 49 AccessNow, para. 28. 50 AI, para. 14. 51 AccessNow, para. 29. 52 AccessNow, para. 40. 53 AI, p. 3. 54 AccessNow, para. 31. 55 AccessNow, paras. 41 and 43. 56 For relevant recommendations see A/HRC/31/7, para. 85.52. 57 JAI, para. 2. 58 JAI, para. 19. 59 JAI, para. 21. 60 For relevant recommendations see A/HRC/31/7, paras. 85.36\u201385.45, 86.3\u201386.8. 61 JAI, para. 24. 62 JAI, para. 31. 63 JAI, paras. 4 and 29. 64 For relevant recommendations see A/HRC/31/7, paras. 85.31, 85.49, 86.2, and 87.29\u201387.30. 65 GIEACPC, pp. 1 and 2. 66 GIEACPC, p. 1. 67 For relevant recommendations see A/HRC/31/7, paras. 85.50\u201385.51. 68 JAI, para. 32. 69 JAI, para. 34. 70 For relevant recommendations see A/HRC/31/7, paras. 87.12, and 87.19\u201387.29. 71 JAI, para. 3. 72 JAI, paras. 22 and 23. 73 AccessNow, para. 21. 74 AccessNow, para. 37. 75 AI, para. 1 and p.3. 76 AI\u003cbr\u003eCo-citations: 3"}]);
+                  edges = new vis.DataSet([{"color": "#3498db", "from": "AI", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 6.0}, {"color": "#3498db", "from": "AI", "title": "Cited together 1 time(s)", "to": "GIEACPC", "width": 6.0}, {"color": "#3498db", "from": "AI", "title": "Cited together 1 time(s)", "to": "JAI", "width": 6.0}, {"color": "#3498db", "from": "CGNK", "title": "Cited together 1 time(s)", "to": "GIEACPC", "width": 6.0}, {"color": "#3498db", "from": "CGNK", "title": "Cited together 1 time(s)", "to": "JAI", "width": 6.0}, {"color": "#3498db", "from": "GIEACPC", "title": "Cited together 1 time(s)", "to": "JAI", "width": 6.0}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -3000,
+            "springConstant": 0.005,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

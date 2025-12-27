@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Individual Submission", "id": "ICAN", "label": "ICAN", "shape": "dot", "size": 17.857142857142858, "title": "\u003cb\u003eICAN\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: The International Campaign to Abolish Nuclear Weapons. Regional intergovernmental organization(s): CoE The Council of Europe\u003cbr\u003eCo-citations: 1"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CGNK", "label": "CGNK", "shape": "dot", "size": 17.857142857142858, "title": "\u003cb\u003eCGNK\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Center For Global Non Killing, Gen\u00e8ve\u003cbr\u003eCo-citations: 1"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OSCE", "label": "OSCE", "shape": "dot", "size": 26.428571428571427, "title": "\u003cb\u003eOSCE\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Organization for Security and Co-operation in Europe,Vienna (Autria). 2 The following abbreviations are used in UPR documents: ICERD International Convention on the Elimination of All Forms of Racial Discrimination. ICESCR International Covenant on Economic\u003cbr\u003eCo-citations: 4"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "LC", "label": "LC", "shape": "dot", "size": 26.428571428571427, "title": "\u003cb\u003eLC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Lanzarote Committee, Council of Europe Convention on Protection of Children against Sexual Exploitation and Sexual Abuse\u003cbr\u003eCo-citations: 4"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "GRETA", "label": "GRETA", "shape": "dot", "size": 26.428571428571427, "title": "\u003cb\u003eGRETA\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Report concerning the implementation of the Council of Europe Convention Against Trafficking in Human Being by San Marino\u003cbr\u003eCo-citations: 4"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CPT", "label": "CPT", "shape": "dot", "size": 26.428571428571427, "title": "\u003cb\u003eCPT\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Comit\u00e9 pour la Pr\u00e9vention de la Torture et des peines ou traitements inhumains\u003cbr\u003eCo-citations: 4"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CM", "label": "CM", "shape": "dot", "size": 26.428571428571427, "title": "\u003cb\u003eCM\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: of CoE Resolution of the Committee of Ministers\u003cbr\u003eCo-citations: 4"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CRC", "label": "CRC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCRC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Convention on the Rights of the Child\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-CRC-AC", "label": "OP-CRC-AC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-CRC-AC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to CRC on the involvement of children in armed conflict\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICCPR", "label": "ICCPR", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICCPR\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International Covenant on Civil and Political Rights\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-CEDAW", "label": "OP-CEDAW", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-CEDAW\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to CEDAW\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-CRC-IC", "label": "OP-CRC-IC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-CRC-IC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to CRC on a communications procedure\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CRPD", "label": "CRPD", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCRPD\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Convention on the Rights of Persons with Disabilities\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-CRC-SC", "label": "OP-CRC-SC", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-CRC-SC\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to CRC on the sale of children\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-ICESCR", "label": "OP-ICESCR", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-ICESCR\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to ICESCR\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICRMW", "label": "ICRMW", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICRMW\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-CRPD", "label": "OP-CRPD", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-CRPD\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to CRPD\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CAT", "label": "CAT", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCAT\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Convention against Torture and Other Cruel\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "OP-CAT", "label": "OP-CAT", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eOP-CAT\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Optional Protocol to CAT\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICPPED", "label": "ICPPED", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICPPED\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: International Convention for the Protection of All Persons from Enforced Disappearance. 3 For relevant recommendations see A/HRC/28/9, paras.78.1-78.16, 78.21-78.24, 79.1\u201379.6, 80.1\u201380.8. 4 OSCE/ODIHR page 3. 5 CGNK, page 5. 6 CHR of CoE, page 1. 7 CGNK, page 7. 8 CHR of CoE, page 11 9 CGNK, page 5. 10 CGNK, page 5. 11 ICAN, page 1. 12 For relevant recommendations see A/HRC/28/9, paras. 78.17, 78.19, 80.9\u201380.10. 13 CHR of CoE, page 8. 14 CHR of CoE, page 8. 15 ECRI, page 9. 16 CHR of CoE, page 8. 17 CHR of CoE, page 1 et 2. 18 GRETA, page 8. 19 For relevant recommendations see A/HRC/28/9, paras. 78.18, 78.20, 78.25\u201378.30, 78.38, 79.7\u201379.11, 80.11. 20 ECRI, page 15. 21 ECRI, page 9 et 10. 22 ACFCPM, page 2. 10 A/HRC/WG.6/34/SMR/3 23 ECRI, Page 28 24 CHR of CoE, page 14-15. 25 CHR of CoE, page 16. 26 CPT, page 31. 27 CGNK, page 6. 28 CGNK, page 6. 29 CGNK, page 7. 30 CGNK, page 7. 31 For relevant recommendations see A/HRC/28/9, paras. 78.36. 32 CPT, page 27. 33 CPT, page 27. 34 CPT, page 28. 35 CPT, page 28. 36 CPT, page 29. 37 CGNK, page 7. 38 CGNK, page 7. 39 For relevant recommendations see A/HRC/28/9, paras. 79.12\u201379.13, 79.15. 40 OSCE/ODIHR, page 9. 41 CHR of CoE, page 1. 42 CHR of CoE, page 1. 43 CHR of CoE, page 5. 44 CHR of CoE, page 5. 45 CHR of CoE, page 6. 46 CoE, page 3. 47 OSCE, page 1. 48 OSCE/ODIHR, page 1. 49 OSCE/ODIHR, page 4. 50 OSCE/ODIHR, page 2. 51 GRETA, page 7. 52 GRETA, page 20. 53 GRETA, page 15. 54 GRETA, page 18. 55 GRETA, page 19. 56 GRETA, page 20. 57 GRETA, page 21. 58 GRETA, page 10. 59 GRETA, page 23. 60 GRETA, page 26. 61 GRETA, page 23. 62 For relevant recommendations see A/HRC/28/9, paras. 79.17. 63 63 GRETA, page 9. 64 GRETA, page 11. 65 CPT, page 30. 66 CPT, page 30. 67 CHR of CoE, page 1. 68 CGNK, page 5. 69 CGNK, page 5. 70 CGNK, page 5. 71 For relevant recommendations see A/HRC/28/9, paras. 78.43. 72 CGNK, page 7. 73 For relevant recommendations see A/HRC/28/9, paras. 78.31-78.33, 79.13\u201379.14, 79.16. 74 CHR of CoE, page 8. 75 CHR of CoE, page 8 et 9. 76 Ibid, page 9 77 HR of CoE, page 9. 78 CHR of CoE, page 10. 79 OSCE/ODIHR, page 2 80 CHR of CoE, page 10. 81 CHR of CoE, page 11. 82 For relevant recommendations see A/HRC/28/9, paras. 78.34, 78.35, 78.37. 83 GRETA, page 12. 84 GRETA, page 16. 11 A/HRC/WG.6/34/SMR/3 85 For relevant recommendations see A/HRC/28/9, paras. 78.39-78.42, 78.44\u201378.45. 86 CHR of CoE, page 1. 87 CHR of CoE, page 1. 88 For relevant recommendations see A/HRC/28/9, paras. 78.46. 89 ACFCPM, page 7. 90 CPT, page 29. 91 ECRI, page 10. 92 CHR of CoE, page 11. 93 ECRI, page 10. 94 ECRI, page 10. 95 LC\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "ICCPR-OP", "label": "ICCPR-OP", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eICCPR-OP\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: 2 Second Optional Protocol to ICCPR\u003cbr\u003eCo-citations: 14"}, {"font": {"color": "black"}, "group": "Individual Submission", "id": "CEDAW", "label": "CEDAW", "shape": "dot", "size": 55.0, "title": "\u003cb\u003eCEDAW\u003c/b\u003e\u003cbr\u003eType: Individual Submission\u003cbr\u003eFull Name: Convention on the Elimination of All Forms of Discrimination against Women\u003cbr\u003eCo-citations: 14"}]);
+                  edges = new vis.DataSet([{"color": "#3498db", "from": "ICAN", "title": "Cited together 1 time(s)", "to": "CGNK", "width": 6.0}, {"color": "#3498db", "from": "OSCE", "title": "Cited together 1 time(s)", "to": "LC", "width": 6.0}, {"color": "#3498db", "from": "OSCE", "title": "Cited together 1 time(s)", "to": "GRETA", "width": 6.0}, {"color": "#3498db", "from": "OSCE", "title": "Cited together 1 time(s)", "to": "CPT", "width": 6.0}, {"color": "#3498db", "from": "OSCE", "title": "Cited together 1 time(s)", "to": "CM", "width": 6.0}, {"color": "#3498db", "from": "LC", "title": "Cited together 1 time(s)", "to": "GRETA", "width": 6.0}, {"color": "#3498db", "from": "LC", "title": "Cited together 1 time(s)", "to": "CPT", "width": 6.0}, {"color": "#3498db", "from": "LC", "title": "Cited together 1 time(s)", "to": "CM", "width": 6.0}, {"color": "#3498db", "from": "GRETA", "title": "Cited together 1 time(s)", "to": "CPT", "width": 6.0}, {"color": "#3498db", "from": "GRETA", "title": "Cited together 1 time(s)", "to": "CM", "width": 6.0}, {"color": "#3498db", "from": "CPT", "title": "Cited together 1 time(s)", "to": "CM", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-CRC-AC", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "ICCPR", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-CEDAW", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-CRC-IC", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "CRPD", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-CRC-SC", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "CRC", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "ICCPR", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "OP-CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "OP-CRC-IC", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "OP-CRC-SC", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-AC", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "OP-CEDAW", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "OP-CRC-IC", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "CRPD", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "OP-CRC-SC", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "ICCPR", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "OP-CRC-IC", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "OP-CRC-SC", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-CEDAW", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "OP-CRC-SC", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-IC", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "OP-CRC-SC", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "CRPD", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "OP-ICESCR", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-CRC-SC", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "ICRMW", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-ICESCR", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "ICRMW", "title": "Cited together 1 time(s)", "to": "OP-CRPD", "width": 6.0}, {"color": "#3498db", "from": "ICRMW", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "ICRMW", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "ICRMW", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "ICRMW", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "ICRMW", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CRPD", "title": "Cited together 1 time(s)", "to": "CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRPD", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "OP-CRPD", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-CRPD", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-CRPD", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "CAT", "title": "Cited together 1 time(s)", "to": "OP-CAT", "width": 6.0}, {"color": "#3498db", "from": "CAT", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "CAT", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "CAT", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "OP-CAT", "title": "Cited together 1 time(s)", "to": "ICPPED", "width": 6.0}, {"color": "#3498db", "from": "OP-CAT", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "OP-CAT", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "ICPPED", "title": "Cited together 1 time(s)", "to": "ICCPR-OP", "width": 6.0}, {"color": "#3498db", "from": "ICPPED", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}, {"color": "#3498db", "from": "ICCPR-OP", "title": "Cited together 1 time(s)", "to": "CEDAW", "width": 6.0}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -3000,
+            "springConstant": 0.005,
+            "springLength": 150
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

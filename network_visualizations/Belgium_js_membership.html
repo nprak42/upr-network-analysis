@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"font": {"color": "black"}, "group": "Organization", "id": "Confederation ACV-CSC, (Belgique)", "label": "Confederation ACV-CSC, (B...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eConfederation ACV-CSC, (Belgique)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Confederation ACV-CSC, (Belgique)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS1", "label": "JS1", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS1\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS1\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "BDF Belgian Disability Forum, Brussels (Belgium)", "label": "BDF Belgian Disability Fo...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eBDF Belgian Disability Forum, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: BDF Belgian Disability Forum, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS2", "label": "JS2", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS2\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS2\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CAFF- ADHUM, Coalition des Associations Francophones de Flandre et de l\u2019Association de Promotion des Droits Humains et des Minorit\u00e9s pour le 3e EPU de la Belgique, ( Belgium)", "label": "CAFF- ADHUM, Coalition de...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eCAFF- ADHUM, Coalition des Associations Francophones de Flandre et de l\u2019Association de Promotion des Droits Humains et des Minorit\u00e9s pour le 3e EPU de la Belgique, ( Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CAFF- ADHUM, Coalition des Associations Francophones de Flandre et de l\u2019Association de Promotion des Droits Humains et des Minorit\u00e9s pour le 3e EPU de la Belgique, ( Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS3", "label": "JS3", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS3\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS3\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CODE, Coordination des ONG pour les droits de l\u2019enfant, Brussels (Belgium)", "label": "CODE, Coordination des ON...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eCODE, Coordination des ONG pour les droits de l\u2019enfant, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CODE, Coordination des ONG pour les droits de l\u2019enfant, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS4", "label": "JS4", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS4\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS4\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Comite T, Comit\u00e9 de Vigilance en mati\u00e8re de lutte contre le terrorisme, Brussels (Belgium)", "label": "Comite T, Comit\u00e9 de Vigil...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eComite T, Comit\u00e9 de Vigilance en mati\u00e8re de lutte contre le terrorisme, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Comite T, Comit\u00e9 de Vigilance en mati\u00e8re de lutte contre le terrorisme, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS5", "label": "JS5", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS5\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS5\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "CPAM, Coalition of Sexual Health NGOs for UPR, Brussels (Belgium)", "label": "CPAM, Coalition of Sexual...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eCPAM, Coalition of Sexual Health NGOs for UPR, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: CPAM, Coalition of Sexual Health NGOs for UPR, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS6", "label": "JS6", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS6\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS6\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "ISI,Institute on Statelessness and Inclusion, Brussels (Belgium)", "label": "ISI,Institute on Stateles...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eISI,Institute on Statelessness and Inclusion, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: ISI,Institute on Statelessness and Inclusion, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS7", "label": "JS7", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS7\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS7\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "LDH \u0026 FIDH, Ligue des droits humains et F\u00e9d\u00e9ration internationale des droits de l\u2019homme, Brussels (Belgium)", "label": "LDH \u0026 FIDH, Ligue des dro...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eLDH \u0026 FIDH, Ligue des droits humains et F\u00e9d\u00e9ration internationale des droits de l\u2019homme, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: LDH \u0026 FIDH, Ligue des droits humains et F\u00e9d\u00e9ration internationale des droits de l\u2019homme, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS8", "label": "JS8", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS8\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS8\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Le M\u00e9diateur federal, Le Coll\u00e8ge des m\u00e9diateurs f\u00e9d\u00e9raux, Brussels (Belgium)", "label": "Le M\u00e9diateur federal, Le ...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eLe M\u00e9diateur federal, Le Coll\u00e8ge des m\u00e9diateurs f\u00e9d\u00e9raux, Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Le M\u00e9diateur federal, Le Coll\u00e8ge des m\u00e9diateurs f\u00e9d\u00e9raux, Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS9", "label": "JS9", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS9\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS9\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "OIP Section belge et Ligue des droits humains Brussels (Belgium)", "label": "OIP Section belge et Ligu...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eOIP Section belge et Ligue des droits humains Brussels (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: OIP Section belge et Ligue des droits humains Brussels (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS10", "label": "JS10", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS10\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS10\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Rassemblements Bruxellois et Wallons pour le Droit \u00e0 l\u2019Habitat, Namur (Belgium)", "label": "Rassemblements Bruxellois...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eRassemblements Bruxellois et Wallons pour le Droit \u00e0 l\u2019Habitat, Namur (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Rassemblements Bruxellois et Wallons pour le Droit \u00e0 l\u2019Habitat, Namur (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS11", "label": "JS11", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS11\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS11\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "St Raten-Generaal, Climaxi and Stand Up For Your Rights, Antwerpen (Belgium)", "label": "St Raten-Generaal, Climax...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eSt Raten-Generaal, Climaxi and Stand Up For Your Rights, Antwerpen (Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: St Raten-Generaal, Climaxi and Stand Up For Your Rights, Antwerpen (Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS12", "label": "JS12", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS12\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS12\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "Flemish Youth Council- Vlaamse Jeugdraad, the Belgian French-speaking Youth Forum-Forum des Jeunes and the European Youth Forum, Brussels ( Belgium)", "label": "Flemish Youth Council- Vl...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003eFlemish Youth Council- Vlaamse Jeugdraad, the Belgian French-speaking Youth Forum-Forum des Jeunes and the European Youth Forum, Brussels ( Belgium)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: Flemish Youth Council- Vlaamse Jeugdraad, the Belgian French-speaking Youth Forum-Forum des Jeunes and the European Youth Forum, Brussels ( Belgium)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS13", "label": "JS13", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS13\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS13\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}, {"font": {"color": "black"}, "group": "Organization", "id": "la F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture,FIACAT et ACAT Belgique, Paris (France)", "label": "la F\u00e9deration Internation...", "shape": "dot", "size": 30.0, "title": "\u003cb\u003ela F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture,FIACAT et ACAT Belgique, Paris (France)\u003c/b\u003e\u003cbr\u003eType: Organization\u003cbr\u003eFull Name: la F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture,FIACAT et ACAT Belgique, Paris (France)\u003cbr\u003eConnections: 1"}, {"font": {"color": "black"}, "group": "Joint Submission", "id": "JS14", "label": "JS14", "shape": "square", "size": 70.0, "title": "\u003cb\u003eJS14\u003c/b\u003e\u003cbr\u003eType: Joint Submission\u003cbr\u003eFull Name: Joint Submission JS14\u003cbr\u003eConnections: 1\u003cbr\u003eParticipants: 1"}]);
+                  edges = new vis.DataSet([{"color": "#95a5a6", "from": "Confederation ACV-CSC, (Belgique)", "title": "Member of JS1", "to": "JS1", "width": 1}, {"color": "#95a5a6", "from": "BDF Belgian Disability Forum, Brussels (Belgium)", "title": "Member of JS2", "to": "JS2", "width": 1}, {"color": "#95a5a6", "from": "CAFF- ADHUM, Coalition des Associations Francophones de Flandre et de l\u2019Association de Promotion des Droits Humains et des Minorit\u00e9s pour le 3e EPU de la Belgique, ( Belgium)", "title": "Member of JS3", "to": "JS3", "width": 1}, {"color": "#95a5a6", "from": "CODE, Coordination des ONG pour les droits de l\u2019enfant, Brussels (Belgium)", "title": "Member of JS4", "to": "JS4", "width": 1}, {"color": "#95a5a6", "from": "Comite T, Comit\u00e9 de Vigilance en mati\u00e8re de lutte contre le terrorisme, Brussels (Belgium)", "title": "Member of JS5", "to": "JS5", "width": 1}, {"color": "#95a5a6", "from": "CPAM, Coalition of Sexual Health NGOs for UPR, Brussels (Belgium)", "title": "Member of JS6", "to": "JS6", "width": 1}, {"color": "#95a5a6", "from": "ISI,Institute on Statelessness and Inclusion, Brussels (Belgium)", "title": "Member of JS7", "to": "JS7", "width": 1}, {"color": "#95a5a6", "from": "LDH \u0026 FIDH, Ligue des droits humains et F\u00e9d\u00e9ration internationale des droits de l\u2019homme, Brussels (Belgium)", "title": "Member of JS8", "to": "JS8", "width": 1}, {"color": "#95a5a6", "from": "Le M\u00e9diateur federal, Le Coll\u00e8ge des m\u00e9diateurs f\u00e9d\u00e9raux, Brussels (Belgium)", "title": "Member of JS9", "to": "JS9", "width": 1}, {"color": "#95a5a6", "from": "OIP Section belge et Ligue des droits humains Brussels (Belgium)", "title": "Member of JS10", "to": "JS10", "width": 1}, {"color": "#95a5a6", "from": "Rassemblements Bruxellois et Wallons pour le Droit \u00e0 l\u2019Habitat, Namur (Belgium)", "title": "Member of JS11", "to": "JS11", "width": 1}, {"color": "#95a5a6", "from": "St Raten-Generaal, Climaxi and Stand Up For Your Rights, Antwerpen (Belgium)", "title": "Member of JS12", "to": "JS12", "width": 1}, {"color": "#95a5a6", "from": "Flemish Youth Council- Vlaamse Jeugdraad, the Belgian French-speaking Youth Forum-Forum des Jeunes and the European Youth Forum, Brussels ( Belgium)", "title": "Member of JS13", "to": "JS13", "width": 1}, {"color": "#95a5a6", "from": "la F\u00e9deration Internationale de l\u2019Action des Chr\u00e9tiens pour l\u2019Abolition de la Torture,FIACAT et ACAT Belgique, Paris (France)", "title": "Member of JS14", "to": "JS14", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.5,
+            "damping": 0.09,
+            "gravitationalConstant": -5000,
+            "springConstant": 0.01,
+            "springLength": 200
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
